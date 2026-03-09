@@ -38,12 +38,12 @@ Stop reinventing the wheel for every trade show. These skills give [Claude Code]
 
 ## Available Skills
 
-| Skill | Description |
-|-------|-------------|
-| [trade-show-finder](trade-show-finder/) | Find and compare relevant trade shows by industry, region, and date |
-| [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails |
-| [post-show-followup](post-show-followup/) | Create tiered post-show follow-up email sequences |
-| [trade-show-budget-planner](trade-show-budget-planner/) | Build budgets and estimate ROI for trade show participation |
+| Skill | Description | Use When |
+|-------|-------------|----------|
+| [trade-show-finder](trade-show-finder/) | Find, compare, and research trade shows by industry, region, and date | Discovering events, comparing shows, planning annual calendar |
+| [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
+| [post-show-followup](post-show-followup/) | Create tiered post-show follow-up email sequences | Converting leads post-event, lead nurture, thank-you emails |
+| [trade-show-budget-planner](trade-show-budget-planner/) | Build exhibition budgets and ROI projections with cost benchmarks | Budget planning, ROI analysis, investment justification |
 
 ## Quick Start
 
