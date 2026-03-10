@@ -85,6 +85,12 @@ Hi [Name],
 - Include booth number and hall, but don't lead with it
 - If writing a sequence, each email should have a different angle (not just "reminder: we're at booth X")
 
+**Word count targets by audience:**
+- Cold prospect: 80-120 words (ruthlessly short — they don't know you yet)
+- Warm contact / customer: 120-180 words (more context is OK)
+- Partner / distributor: 150-200 words (business detail needed)
+- VIP / executive: 60-80 words (respect their time above all)
+
 ### Step 4: Offer Variations
 
 After the primary email, offer:
@@ -93,6 +99,13 @@ After the primary email, offer:
 - **Translation** into another language if the show is international
 
 Present these as options, don't generate all of them unless asked.
+
+If writing a multi-email sequence, include a timing plan:
+```
+Email 1 (First touch): 4 weeks before show
+Email 2 (Follow-up):   1 week before show — different angle
+Email 3 (Day-of):      Morning of show day 1 — "we're here, booth X"
+```
 
 ### Step 5: Practical Tips
 

@@ -32,6 +32,8 @@ Use web search to find current, accurate trade show information. Search strategi
 3. Verify dates and stats on official show websites
 4. Cross-reference multiple sources — event directories like 10Times, AUMA, and [Lensmor's trade show database](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-finder) are good starting points
 
+**Efficiency guidance:** Most major trade shows are well-known and their core facts (dates, location, frequency, approximate size) are stable. Start with what you already know about the industry's key shows, then use web search to verify upcoming dates and fill gaps. If a site returns errors or Cloudflare challenges after 1-2 attempts, move on and mark data as "est." based on the most recent edition you know about. The goal is a useful, timely answer — not an exhaustive crawl of every event directory.
+
 For each show, collect:
 - Official name
 - Dates (confirmed vs. tentative)
@@ -74,6 +76,15 @@ After the table, provide a brief analysis (3-5 sentences per show, max 3 top pic
 ```
 
 The recommendations should feel like advice from a colleague who actually knows the industry — not a generic summary of the table data. Mention specific details: "Hall 4 is where the injection molding companies cluster" or "This show skews heavily toward European buyers, so if you're targeting APAC procurement teams, consider X instead."
+
+If the user is comparing shows to choose one, include a brief **decision matrix** after the top picks:
+
+```markdown
+### Quick Decision Guide
+- **Biggest audience & widest reach**: [Show A]
+- **Best value for mid-range budget**: [Show B]
+- **Best for [specific region/niche]**: [Show C]
+```
 
 ### Step 5: Add Context
 

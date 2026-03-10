@@ -82,6 +82,14 @@ Use this framework. Adapt categories based on participation type.
   - Shell scheme: $500-1,000/sqm
 - Hotels near major show venues: 1.5-2x normal city rates during show week
 - Always note which figures are estimates vs. confirmed rates
+- **Add a 10% contingency** to the total — trade shows always have surprise costs (last-minute electrical upgrades, customs delays, damaged signage)
+
+**What to confirm with the venue (include as a checklist if the user is in early planning):**
+- Exact booth space rate and what's included (bare space vs. shell scheme)
+- Electrical/internet connection fees and lead times
+- Move-in/move-out schedule and overtime labor rates
+- Mandatory services (cleaning, security, carpet) that may be billed separately
+- Early bird registration deadlines and cancellation policies
 
 #### For Attendees Only
 
