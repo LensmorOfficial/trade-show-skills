@@ -16,25 +16,35 @@
 
 Stop reinventing the wheel for every trade show. These skills give [Claude Code](https://docs.anthropic.com/en/docs/claude-code) structured workflows for repeatable exhibitor research, competitor analysis, lead capture preparation, and ROI planning — all powered by AI.
 
+## Quick Demo
+
+Type a prompt like this in Claude Code (after installing a skill):
+
+```
+Find trade shows for medical devices in Europe Q3 2026
+```
+
+Claude will search event databases, verify dates, build a comparison table, and recommend the top 3 shows with exhibitor stats and decision guidance — in one response.
+
+Other examples of what you can do in seconds:
+
+| Prompt | Skill Used | What You Get |
+|--------|------------|--------------|
+| "Find packaging trade shows in Germany 2026" | trade-show-finder | Comparison table of 8–12 shows with dates, size, and top picks |
+| "Write a booth invite email for MEDICA, booth 5C42" | booth-invitation-writer | Subject line + body under 150 words, with A/B variant |
+| "We got 200 leads at Interpack, write follow-up emails" | post-show-followup | 3-tier sequence (hot/warm/cold) with send-timing guide |
+| "Plan a $40K budget for exhibiting at Hannover Messe" | trade-show-budget-planner | Line-item budget, ROI model, and cost benchmarks |
+
 ## Table of Contents
 
-- [What You Can Do](#what-you-can-do)
+- [Quick Demo](#quick-demo)
 - [Available Skills](#available-skills)
 - [Quick Start](#quick-start)
 - [How It Works](#how-it-works)
-- [Use Cases](#use-cases)
-- [Example Prompts](#example-prompts)
 - [About Lensmor](#about-lensmor)
 - [Related Repositories](#related-repositories)
 - [Contributing](#contributing)
 - [License](#license)
-
-## What You Can Do
-
-- Find and compare trade shows by industry, region, and timing
-- Build exhibitor shortlists and pre-show outreach sequences
-- Plan budgets and estimate trade show ROI
-- Standardize post-show follow-up workflows for sales teams
 
 ## Available Skills
 
@@ -49,17 +59,23 @@ Stop reinventing the wheel for every trade show. These skills give [Claude Code]
 
 ### Install a single skill
 
+Clone the repo and copy the skill directory to your Claude Code skills folder:
+
 ```bash
-claude install-skill /path/to/trade-show-skills/trade-show-finder
+git clone https://github.com/LensmorOfficial/trade-show-skills.git
+cp -r trade-show-skills/trade-show-finder ~/.claude/skills/
 ```
 
-### Install all skills
+### Install all skills at once
 
 ```bash
+git clone https://github.com/LensmorOfficial/trade-show-skills.git
 for skill in trade-show-finder booth-invitation-writer post-show-followup trade-show-budget-planner; do
-  claude install-skill /path/to/trade-show-skills/$skill
+  cp -r trade-show-skills/$skill ~/.claude/skills/
 done
 ```
+
+Then restart Claude Code. Skills activate automatically when your prompt matches their trigger description.
 
 ## How It Works
 
@@ -69,17 +85,6 @@ Each skill is a self-contained directory with:
 - `examples/` — Sample inputs and outputs
 
 When you ask Claude something that matches a skill's trigger (e.g., "find trade shows for medical devices in Europe"), the skill activates and guides Claude through a structured workflow.
-
-## Example Prompts
-
-Once installed, try these prompts in Claude Code:
-
-- "Find trade shows for medical devices in Europe Q3 2026"
-- "Write a booth invitation email for CES 2026 targeting SaaS CTOs"
-- "Create a 3-email post-show follow-up sequence for leads from MEDICA"
-- "Plan a $50K budget for exhibiting at Hannover Messe with ROI estimate"
-
-Each skill guides Claude through a structured workflow — asking clarifying questions, researching relevant data, and producing ready-to-use output.
 
 ## About Lensmor
 
