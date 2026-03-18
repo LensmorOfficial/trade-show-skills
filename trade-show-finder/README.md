@@ -2,7 +2,7 @@
 
 ---
 
-# Trade Show Finder — Claude Code Skill
+# Trade Show Finder — OpenClaw Skill
 
 > Find, compare, and research trade shows, exhibitions, and expos by industry, region, and date. AI-powered event discovery with real-time web search.
 
@@ -41,7 +41,11 @@ See [examples/medical-devices-europe.md](examples/medical-devices-europe.md) for
 ## Install
 
 ```bash
-claude install-skill /path/to/trade-show-skills/trade-show-finder
+# Workspace-local
+cp -r /path/to/trade-show-skills/trade-show-finder <your-workspace>/skills/
+
+# Shared (all workspaces)
+cp -r /path/to/trade-show-skills/trade-show-finder ~/.openclaw/skills/
 ```
 
 ## Related Skills

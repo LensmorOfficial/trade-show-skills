@@ -2,7 +2,7 @@
 
 ---
 
-# Trade Show Budget Planner — Claude Code Skill
+# Trade Show Budget Planner — OpenClaw Skill
 
 > Build realistic trade show budgets and ROI projections with industry cost benchmarks. AI-powered exhibition cost planning and investment analysis.
 
@@ -41,7 +41,11 @@ See [examples/medica-20sqm-budget.md](examples/medica-20sqm-budget.md) for a sam
 ## Install
 
 ```bash
-claude install-skill /path/to/trade-show-skills/trade-show-budget-planner
+# Workspace-local
+cp -r /path/to/trade-show-skills/trade-show-budget-planner <your-workspace>/skills/
+
+# Shared (all workspaces)
+cp -r /path/to/trade-show-skills/trade-show-budget-planner ~/.openclaw/skills/
 ```
 
 ## Related Skills

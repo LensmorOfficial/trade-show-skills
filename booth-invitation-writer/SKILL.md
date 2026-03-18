@@ -1,6 +1,9 @@
 ---
 name: booth-invitation-writer
-description: "Write personalized trade show booth invitation emails, pre-show outreach sequences, and exhibition meeting requests. Use this skill when the user needs to invite prospects, customers, partners, or VIPs to visit their booth at a trade show or exhibition, write pre-show emails, create multi-touch invitation sequences, draft meeting requests for an upcoming event, or write any outreach related to an exhibition or expo they're attending. Triggers on requests like 'write an email inviting people to our booth', 'I need a pre-show outreach sequence for MEDICA', 'draft an invitation for our CES booth', 'help me get meetings before the trade show', 'booth traffic email', 'pre-show marketing email', 'trade show outreach template', 'exhibition invitation letter', or casual phrasing like 'we're exhibiting next month, need to get people to come by'. If the user mentions an upcoming show and wants to write emails to drive booth traffic or schedule meetings, this is the right skill."
+description: Write personalized pre-show booth invitation emails and outreach sequences.
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-invitation-writer
+user-invocable: true
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"}}}
 ---
 
 # Booth Invitation Writer

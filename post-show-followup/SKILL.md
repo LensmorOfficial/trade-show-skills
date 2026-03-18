@@ -1,6 +1,9 @@
 ---
 name: post-show-followup
-description: "Create post-trade-show follow-up email sequences, lead nurture campaigns, and meeting recap emails. Use this skill when the user needs to follow up with leads after a trade show, exhibition, expo, or conference — including tiered email sequences (hot/warm/cold), thank-you emails, meeting recap emails, badge-scan follow-ups, or any post-event outreach. Triggers on phrases like 'follow up after the show', 'post-show emails', 'write a thank you to people we met at [event]', 'we collected 200 leads at [show], help me write follow-up', 'the show just ended, now what', 'convert trade show leads into pipeline', 'trade show lead follow-up template', 'post-event email sequence', 'convert trade show leads', 'follow up with expo contacts', or 'I have a spreadsheet of contacts from the expo'. Also use this skill if the user mentions having just returned from a trade show and wants to do something with the contacts they collected."
+description: Create tiered post-show follow-up email sequences to convert leads into pipeline.
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/post-show-followup
+user-invocable: true
+metadata: {"openclaw":{"config":{"stage":"post-show","category":"follow-up"}}}
 ---
 
 # Post-Show Follow-up

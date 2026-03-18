@@ -1,6 +1,9 @@
 ---
 name: trade-show-budget-planner
-description: "Plan trade show budgets, estimate exhibition costs, and calculate expected ROI. Use this skill when the user needs to build a trade show budget, figure out how much it costs to exhibit at a show, estimate ROI from attending or exhibiting, plan spending for an upcoming event, justify trade show investment to leadership, or decide whether a show is worth the money. Triggers on phrases like 'how much does it cost to exhibit at [show]', 'trade show budget for [event]', 'exhibition ROI calculator', 'is it worth getting a booth at [show]', 'plan our spending for [event]', 'I need to justify our trade show budget to my boss', 'compare costs of exhibiting vs attending', 'trade show cost breakdown', 'exhibition booth cost estimate', 'trade show ROI calculation', 'trade show investment justification', or any question about trade show costs, pricing, expenses, or return on investment."
+description: Build realistic trade show budgets and ROI projections with industry cost benchmarks.
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-budget-planner
+user-invocable: true
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}
 ---
 
 # Trade Show Budget Planner

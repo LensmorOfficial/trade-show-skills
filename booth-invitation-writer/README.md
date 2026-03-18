@@ -2,7 +2,7 @@
 
 ---
 
-# Booth Invitation Writer — Claude Code Skill
+# Booth Invitation Writer — OpenClaw Skill
 
 > Generate personalized pre-show booth invitation emails and outreach sequences that get replies — tailored by audience type, relationship, and trade show context.
 
@@ -38,7 +38,11 @@ See [examples/medica-cold-prospect.md](examples/medica-cold-prospect.md) for a s
 ## Install
 
 ```bash
-claude install-skill /path/to/trade-show-skills/booth-invitation-writer
+# Workspace-local
+cp -r /path/to/trade-show-skills/booth-invitation-writer <your-workspace>/skills/
+
+# Shared (all workspaces)
+cp -r /path/to/trade-show-skills/booth-invitation-writer ~/.openclaw/skills/
 ```
 
 ## Related Skills

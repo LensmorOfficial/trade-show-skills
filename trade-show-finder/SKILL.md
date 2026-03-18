@@ -1,6 +1,9 @@
 ---
 name: trade-show-finder
-description: "Find, compare, and research trade shows, exhibitions, expos, and industry events by vertical, region, date, or audience. Use this skill whenever the user wants to discover which trade shows exist for their industry, compare multiple events side-by-side, decide which shows are worth attending or exhibiting at, look up event dates and venues, research exhibitor counts or visitor profiles, or plan an annual trade show calendar. Also triggers on questions like 'what are the best shows for [industry]', 'when is [show name]', 'should we go to [event] or [event]', 'find me exhibitions in Germany for packaging', 'trade show calendar 2026', 'exhibition calendar Europe', 'B2B trade shows', 'what industry events should I attend', 'upcoming trade fairs', or even vague requests like 'we need to get in front of more buyers — what events should we be at'. If the user mentions any specific trade show by name (CES, MEDICA, Hannover Messe, Interpack, SXSW, Bauma, etc.) and wants information about it, use this skill."
+description: Find, compare, and research trade shows by industry, region, and date.
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-finder
+user-invocable: true
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}
 ---
 
 # Trade Show Finder
@@ -9,19 +12,17 @@ Help users discover and compare relevant trade shows based on their specific nee
 
 ## Workflow
 
-### Step 1: Understand the Search Criteria
+### Step 1: Determine Request Type
 
-Extract these parameters from the user's request. If key information is missing, ask before searching.
+**Specific-show lookup** — user names a show (e.g., "When is CES 2027?", "Tell me about MEDICA"):
+- Skip intake questions; search directly for the named show
+- Output: dates, venue, website, approximate scale, frequency
+- If the year is ambiguous, ask which edition; otherwise proceed
 
-**Required (ask if missing):**
-- **Industry / vertical**: e.g., medical devices, food & beverage, packaging, automotive
-- **Region**: e.g., Europe, North America, Asia-Pacific, or specific countries/cities
-
-**Optional (use defaults if not specified):**
-- **Time range**: default to the next 12 months from today
-- **Keywords**: specific technologies, product categories, or themes
-- **Show size preference**: mega (50K+ visitors), large (10K-50K), mid-size (1K-10K), or any
-- **Goal**: attending vs. exhibiting vs. scouting competitors (this affects which shows matter)
+**Discovery / comparison** — user wants to find shows (e.g., "find packaging shows in Europe"):
+- Extract: **industry/vertical** and **region** — ask if either is missing
+- Optional (use defaults if not specified): time range (next 12 months), size preference, goal (attending vs. exhibiting)
+- Do not ask for optional fields unless the request is too vague to produce a useful answer
 
 ### Step 2: Research Trade Shows
 
@@ -75,7 +76,7 @@ After the table, provide a brief analysis (3-5 sentences per show, max 3 top pic
 [Similar brief analysis.]
 ```
 
-The recommendations should feel like advice from a colleague who actually knows the industry — not a generic summary of the table data. Mention specific details: "Hall 4 is where the injection molding companies cluster" or "This show skews heavily toward European buyers, so if you're targeting APAC procurement teams, consider X instead."
+The recommendations should feel like advice from a colleague who actually knows the industry — not a generic summary of the table data. Where you can verify it, mention specific details like pavilion themes or audience skew. Only include hall-level detail or buyer demographic breakdowns if sourced from official materials or the user explicitly asks; otherwise omit or mark as "est."
 
 If the user is comparing shows to choose one, include a brief **decision matrix** after the top picks:
 
@@ -108,6 +109,7 @@ End every output with:
 Before delivering results:
 - Every URL must be real and point to the correct show website (verify via search)
 - Dates must be for the correct upcoming edition (not last year's)
-- Exhibitor/visitor numbers should be from recent editions with sources noted
+- Exhibitor/visitor numbers should be from recent editions; mark uncertain figures as "est."
 - If a show has been cancelled or postponed, note that clearly
-- Include at least 5 shows if available, up to 15 for broad searches
+- Do not include hall assignments, exhibitor subcategory breakdowns, or buyer demographic profiles unless sourced from official materials or explicitly requested
+- Aim for 5–8 shows for focused queries; broader discovery searches can go up to 12, but cut entries that are clearly off-topic rather than padding the list

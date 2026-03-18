@@ -2,7 +2,7 @@
 
 ---
 
-# Post-Show Follow-up — Claude Code Skill
+# Post-Show Follow-up — OpenClaw Skill
 
 > Create tiered post-trade-show follow-up email sequences that convert booth conversations into sales pipeline. AI-powered lead nurture for exhibitions and expos.
 
@@ -42,7 +42,11 @@ See [examples/post-medica-sequence.md](examples/post-medica-sequence.md) for a s
 ## Install
 
 ```bash
-claude install-skill /path/to/trade-show-skills/post-show-followup
+# Workspace-local
+cp -r /path/to/trade-show-skills/post-show-followup <your-workspace>/skills/
+
+# Shared (all workspaces)
+cp -r /path/to/trade-show-skills/post-show-followup ~/.openclaw/skills/
 ```
 
 ## Related Skills
