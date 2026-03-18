@@ -8,7 +8,7 @@
 
 ## What It Does
 
-Tell Claude which show just ended and what you were selling. It generates:
+Tell the agent which show just ended and what you were selling. It generates:
 
 - 3-tier lead classification system (hot / warm / cold) based on conversation quality
 - Multi-email sequences for each tier, with different angles per email

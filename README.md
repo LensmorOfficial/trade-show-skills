@@ -26,7 +26,7 @@ Find trade shows for medical devices in Europe Q3 2026
 
 The agent will search event databases, verify dates, build a comparison table, and recommend the top shows with exhibitor stats and decision guidance — in one response.
 
-Other examples of what you can do in seconds:
+Other examples of what you can do with these skills:
 
 | Prompt | Skill Used | What You Get |
 |--------|------------|--------------|

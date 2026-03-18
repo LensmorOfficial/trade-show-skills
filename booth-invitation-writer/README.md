@@ -8,7 +8,7 @@
 
 ## What It Does
 
-Provide your show details and audience type. Claude writes:
+Provide your show details and audience type. The agent writes:
 
 - Personalized invitation emails (not generic "visit our booth" blasts)
 - Subject line A/B variants for higher open rates

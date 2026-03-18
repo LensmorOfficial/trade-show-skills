@@ -8,7 +8,7 @@
 
 ## What It Does
 
-Tell Claude which show you're considering and how you plan to participate. It generates:
+Tell the agent which show you're considering and how you plan to participate. It generates:
 
 - Itemized budget across 4 categories (space & infrastructure, travel, marketing, operations)
 - ROI projection with sensitivity analysis (conservative / base / optimistic)

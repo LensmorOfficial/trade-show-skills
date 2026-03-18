@@ -8,7 +8,7 @@
 
 ## What It Does
 
-Give Claude your industry, target region, and timeframe. It searches the web for matching trade shows and returns:
+Give the agent your industry, target region, and timeframe. It searches the web for matching trade shows and returns:
 
 - A structured comparison table with dates, locations, exhibitor/visitor counts, and focus areas
 - Top picks with specific, opinionated recommendations tailored to your goals
