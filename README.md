@@ -40,6 +40,7 @@ Other examples of what you can do with these skills:
 - [Quick Demo](#quick-demo)
 - [Available Skills](#available-skills)
 - [Quick Start](#quick-start)
+- [End-to-End Lifecycle Example](#end-to-end-lifecycle-example)
 - [How It Works](#how-it-works)
 - [About Lensmor](#about-lensmor)
 - [Related Repositories](#related-repositories)
@@ -97,6 +98,10 @@ done
 Skills activate automatically when your prompt matches their description.
 
 > **ClawHub**: These skills are not yet published to ClawHub. Once published, installation will be `clawhub install <skill-slug>`.
+
+## End-to-End Lifecycle Example
+
+See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked example showing how all 6 skills connect — from show selection through post-show follow-up — using a single fictional scenario. Also available in [中文](docs/event-lifecycle.zh.md).
 
 ## How It Works
 
