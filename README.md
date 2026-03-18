@@ -126,7 +126,11 @@ When you ask the agent something that matches a skill's description (e.g., "find
 
 ## Contributing
 
-Have ideas for new skills or improvements? Open an issue or submit a PR.
+Have ideas for new skills or improvements? See [CONTRIBUTING.md](CONTRIBUTING.md) for conventions, authoring guidelines, and the review checklist.
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — How to add or modify skills
+- [docs/skill-quality-checklist.md](docs/skill-quality-checklist.md) — Pre-merge quality checklist
+- [docs/publishing.md](docs/publishing.md) — What needs to be in place before publishing to ClawHub
 
 ## License
 
