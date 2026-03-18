@@ -56,14 +56,14 @@ Other examples of what you can do with these skills:
 | [trade-show-budget-planner](trade-show-budget-planner/) | Build exhibition budgets and ROI projections with cost benchmarks | Budget planning, ROI analysis, investment justification |
 | [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
 
-### On-Site *(planned)*
+### On-Site
 
-No published on-site skills yet. Planned:
+| Skill | Description | Use When |
+|-------|-------------|----------|
+| [badge-qualifier](badge-qualifier/) | Qualify leads from booth notes, badge scans, or voice transcripts into a structured CRM-ready record | Real-time lead scoring on the show floor, batch-qualifying end-of-day leads |
+| [competitor-radar](competitor-radar/) | Structure competitor booth observations into field-intel notes with evidence/inference separation | Documenting competitor launches, pricing signals, and positioning shifts at the show |
 
-- **badge-qualifier** — Scan a badge photo → instant lead qualification with authority score and ICP fit
-- **competitor-radar** — Log competitor booth observations → auto-generate competitive battlecard
-
-See [docs/on-site.md](docs/on-site.md) for roadmap details.
+See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
 ### Post-Show
 
