@@ -89,7 +89,7 @@ cp -r trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ```bash
 git clone https://github.com/LensmorOfficial/trade-show-skills.git
-for skill in trade-show-finder booth-invitation-writer post-show-followup trade-show-budget-planner; do
+for skill in trade-show-finder booth-invitation-writer post-show-followup trade-show-budget-planner badge-qualifier competitor-radar; do
   cp -r trade-show-skills/$skill ~/.openclaw/skills/
 done
 ```
