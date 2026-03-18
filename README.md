@@ -9,6 +9,7 @@
 [![Stars](https://img.shields.io/github/stars/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/badge/release-v0.1.0%20beta-orange.svg)](CHANGELOG.md)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
@@ -123,6 +124,10 @@ When you ask the agent something that matches a skill's description (e.g., "find
 - [exhibitor-intelligence-playbook](https://github.com/LensmorOfficial/exhibitor-intelligence-playbook) — Complete B2B trade show ROI playbook
 - [event-tech-landscape](https://github.com/LensmorOfficial/event-tech-landscape) — Map of 80+ tools powering the event industry
 - [trade-show-email-templates](https://github.com/LensmorOfficial/trade-show-email-templates) — Ready-to-use email templates for trade show outreach
+
+## Releases
+
+Current release: **[v0.1.0](CHANGELOG.md)** — initial public beta. See [CHANGELOG.md](CHANGELOG.md) for what's included.
 
 ## Contributing
 
