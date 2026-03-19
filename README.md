@@ -13,25 +13,25 @@
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
-> OpenClaw skills for trade show planning, exhibitor discovery, outreach automation, and post-show follow-up.
+> OpenClaw skills for trade show selection, pre-show planning, on-site execution, and post-show follow-up.
 
-Stop reinventing the wheel for every trade show. These skills give [OpenClaw](https://openclaw.ai) structured workflows for repeatable trade show research, pre-show outreach, budget planning, and post-show lead conversion — all powered by AI.
+Stop reinventing the wheel for every trade show. These skills give [OpenClaw](https://openclaw.ai) structured workflows for show selection, pre-show outreach, budget planning, on-site execution, and post-show lead conversion.
 
 ## Quick Demo
 
 Type a prompt like this in OpenClaw (after installing a skill):
 
 ```
-Find trade shows for medical devices in Europe Q3 2026
+Should we exhibit at MEDICA 2026? We sell surgical workflow software to 200+ bed hospitals in DACH.
 ```
 
-The agent will search event databases, verify dates, build a comparison table, and recommend the top shows with exhibitor stats and decision guidance — in one response.
+The agent will verify the current edition, score show fit against your ICP and goal, recommend `Exhibit` / `Attend only` / `Skip`, and hand you off to budgeting or outreach next steps.
 
 Other examples of what you can do with these skills:
 
 | Prompt | Skill Used | What You Get |
 |--------|------------|--------------|
-| "Find packaging trade shows in Germany 2026" | trade-show-finder | Comparison table with dates, size, and top picks |
+| "Compare Interpack and PACK EXPO for a DACH packaging SaaS vendor" | trade-show-finder | Show fit scores, winner recommendation, and exhibit/attend guidance |
 | "Write a booth invite email for MEDICA, booth 5C42" | booth-invitation-writer | Subject line + body under 150 words, with A/B variant |
 | "We got 200 leads at Interpack, write follow-up emails" | post-show-followup | 3-tier sequence (hot/warm/cold) with send-timing guide |
 | "Plan a $40K budget for exhibiting at Hannover Messe" | trade-show-budget-planner | Line-item budget, ROI model, and cost benchmarks |
@@ -54,7 +54,7 @@ Other examples of what you can do with these skills:
 
 | Skill | Description | Use When |
 |-------|-------------|----------|
-| [trade-show-finder](trade-show-finder/) | Find, compare, and research trade shows by industry, region, and date | Discovering events, comparing shows, planning annual calendar |
+| [trade-show-finder](trade-show-finder/) | Score and prioritize trade shows for exhibiting based on ICP, region, and goals | Choosing where to exhibit, comparing shows, planning an annual show calendar |
 | [trade-show-budget-planner](trade-show-budget-planner/) | Build exhibition budgets and ROI projections with cost benchmarks | Budget planning, ROI analysis, investment justification |
 | [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
 
@@ -111,7 +111,7 @@ Each skill is a self-contained directory with:
 - `README.md` / `README.zh.md` — Documentation (English + Chinese)
 - `examples/` — Sample inputs and outputs
 
-When you ask the agent something that matches a skill's description (e.g., "find trade shows for medical devices in Europe"), the skill activates and guides the agent through a structured workflow.
+When you ask the agent something that matches a skill's description (e.g., "should we exhibit at MEDICA 2026 for our ICP?"), the skill activates and guides the agent through a structured workflow.
 
 ## About Lensmor
 

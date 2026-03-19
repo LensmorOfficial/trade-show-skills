@@ -8,9 +8,9 @@ Skills for the planning and preparation phase before a trade show.
 
 **Stage**: Pre-Show · **Category**: Research
 
-Find, compare, and research trade shows by industry, region, and date. Uses web search to return up-to-date show information including dates, venue, audience profile, and exhibitor focus.
+Score and prioritize trade shows for exhibiting based on ICP, business goal, region, and market fit. Uses a show-selection framework to turn messy research into an exhibit / attend / skip decision.
 
-**When to use**: Early in your planning cycle, when you're deciding which shows to target for the year.
+**When to use**: Early in your planning cycle, when you're deciding which shows deserve budget, team time, and priority this year.
 
 ---
 
@@ -37,7 +37,7 @@ Generate personalized pre-show invitation emails tailored by audience type and r
 ## Typical Pre-Show Workflow
 
 ```
-trade-show-finder → shortlist shows
+trade-show-finder → choose which shows to prioritize and why
      ↓
 trade-show-budget-planner → validate ROI and secure budget approval
      ↓

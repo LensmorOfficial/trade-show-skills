@@ -47,7 +47,7 @@ cp -r /path/to/trade-show-skills/booth-invitation-writer ~/.openclaw/skills/
 
 ## Related Skills
 
-- [trade-show-finder](../trade-show-finder/) — Find and compare trade shows by industry and region
+- [trade-show-finder](../trade-show-finder/) — Choose which trade shows to prioritize for exhibiting
 - [post-show-followup](../post-show-followup/) — Create post-show follow-up sequences
 - [trade-show-budget-planner](../trade-show-budget-planner/) — Plan budgets and estimate ROI
 

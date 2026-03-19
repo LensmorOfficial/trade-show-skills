@@ -52,7 +52,7 @@ cp -r /path/to/trade-show-skills/badge-qualifier ~/.openclaw/skills/
 
 ## 相关技能
 
-- [trade-show-finder](../trade-show-finder/) — 按行业和地区查找展会
+- [trade-show-finder](../trade-show-finder/) — 决定优先参加哪些展会并给出参展建议
 - [competitor-radar](../competitor-radar/) — 现场记录竞品展台情报
 - [post-show-followup](../post-show-followup/) — 返程后生成分级跟进邮件序列
 

@@ -50,7 +50,7 @@ cp -r /path/to/trade-show-skills/trade-show-budget-planner ~/.openclaw/skills/
 
 ## Related Skills
 
-- [trade-show-finder](../trade-show-finder/) — Find and compare trade shows by industry and region
+- [trade-show-finder](../trade-show-finder/) — Choose which trade shows to prioritize for exhibiting
 - [booth-invitation-writer](../booth-invitation-writer/) — Generate pre-show invitation emails
 - [post-show-followup](../post-show-followup/) — Create post-show follow-up sequences
 

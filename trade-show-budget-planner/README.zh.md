@@ -52,7 +52,7 @@ cp -r /path/to/trade-show-skills/trade-show-budget-planner ~/.openclaw/skills/
 
 ## 相关技能
 
-- [trade-show-finder](../trade-show-finder/) — 按行业和地区查找展会
+- [trade-show-finder](../trade-show-finder/) — 决定优先参加哪些展会并给出参展建议
 - [booth-invitation-writer](../booth-invitation-writer/) — 生成展前邀请邮件
 - [post-show-followup](../post-show-followup/) — 创建展后跟进邮件序列
 

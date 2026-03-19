@@ -55,7 +55,7 @@ cp -r /path/to/trade-show-skills/competitor-radar ~/.openclaw/skills/
 
 ## Related Skills
 
-- [trade-show-finder](../trade-show-finder/) — Find and compare trade shows by industry and region
+- [trade-show-finder](../trade-show-finder/) — Choose which trade shows to prioritize for exhibiting
 - [badge-qualifier](../badge-qualifier/) — Qualify leads from booth notes and badge scans
 - [post-show-followup](../post-show-followup/) — Create follow-up sequences for contacts gathered on the floor
 

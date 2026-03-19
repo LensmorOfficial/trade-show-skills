@@ -71,7 +71,7 @@ When publishing to a registry, discoverability depends on:
 
 **Skill name**: Should be a recognizable keyword for the workflow it covers. `badge-qualifier` is better than `lead-scorer` because "badge" is the concrete artifact a trade show attendee encounters. `trade-show-finder` is explicit about scope.
 
-**Description**: The description is what gets indexed and shown in search results. Write it to match the query a user would type, not the feature you want to highlight. "Find and compare trade shows by industry, region, and date" matches "find trade shows europe" better than "AI-powered event discovery with real-time search."
+**Description**: The description is what gets indexed and shown in search results. Write it to match the query a user would type, not the feature you want to highlight. "Recommend which trade shows to prioritize for exhibiting based on ICP, region, and goals" matches "should we exhibit at medica" better than "AI-powered event discovery with real-time search."
 
 **README first screen**: The first thing a user sees after finding a skill should answer: what does this do, who is it for, and what does the output look like? Usage examples are often more persuasive than feature lists.
 

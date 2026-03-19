@@ -1,36 +1,78 @@
-# Example: Medical Devices Trade Shows in Europe 2026
+# Example: European Medtech Shortlist for EU Market Entry
 
-**Prompt:** "Find medical device trade shows in Europe for 2026. We make surgical instruments and are looking to expand into the EU market."
-
----
-
-## Trade Shows: Medical Devices in Europe (2026)
-
-| Show | Dates | Location | Exhibitors | Visitors | Key Focus |
-|------|-------|----------|------------|----------|-----------|
-| [MEDICA](https://www.medica-tradefair.com/) | Nov 16-19, 2026 | Dusseldorf, Germany | 5,100+ | 81,000+ | Full medtech spectrum: devices, diagnostics, IT, lab |
-| [Compamed](https://www.compamed-tradefair.com/) | Nov 16-19, 2026 | Dusseldorf, Germany | 800+ | 20,000+ | Components, materials, and OEM supply for medical devices |
-| [Arab Health](https://www.arabhealthonline.com/) | Jan 27-30, 2026 | Dubai, UAE | 3,500+ | 56,000+ | Devices, imaging, surgical; strong MEA + EU buyer traffic |
-| [MedtecLIVE](https://www.medteclive.com/) | May 20-22, 2026 | Stuttgart, Germany | 600+ | 7,000+ | Medtech manufacturing, surgical instruments, regulatory |
-| [DMEA](https://www.dmea.de/) | Apr 8-10, 2026 | Berlin, Germany | 700+ | 16,000+ | Digital health, hospital IT (less relevant for instruments) |
-| [Medical Japan](https://www.medical-jpn.jp/en/) | Feb 2026 | Osaka, Japan | 400+ | 15,000+ | Medical devices, pharma, elderly care (APAC comparison) |
-
-### Top Picks
-
-**1. MEDICA** — The must-attend show for EU market entry.
-MEDICA is the world's largest medical trade fair, and for surgical instruments specifically, Halls 5-6 are where the action is. If you're breaking into the EU market, this is where procurement teams from hospital groups across Germany, France, and the Nordics come to source. Book early — Dusseldorf hotels sell out by June. Compamed runs in parallel in the same venue, so you can also scout component suppliers.
-
-**2. MedtecLIVE** — Best for surgical instrument manufacturing focus.
-Smaller and more focused than MEDICA, MedtecLIVE is specifically about medtech manufacturing. You'll find more conversations about production processes, materials, and regulatory pathways (MDR compliance) here. Good for finding contract manufacturers and distribution partners in the DACH region.
-
-**3. Compamed** — Best for supply chain and OEM partnerships.
-If you're also looking for component suppliers, specialized coatings, or sterilization partners for your instruments, Compamed is the place. It runs alongside MEDICA, so you can attend both in one trip.
-
-### Additional Context
-
-- **MDR compliance**: If your instruments don't yet have CE marking under MDR, prioritize shows with regulatory tracks (MedtecLIVE has dedicated MDR sessions)
-- **Early bird**: MEDICA exhibitor registration typically opens in March; space in the surgical halls fills fast
-- **Pro tip**: Consider attending MEDICA as a visitor first to scout the landscape, then exhibit the following year with a targeted booth strategy
+**Prompt:** "We make surgical instruments and want to enter the EU market in 2026. What are the top 3 medical trade shows we should prioritize in Europe if our goal is distributor meetings and hospital buyer visibility?"
 
 ---
-> Powered by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-finder) — Trade show intelligence platform. Get exhibitor data, competitor tracking, and show analytics.
+
+## Executive Recommendation
+
+Prioritize **MEDICA** as the flagship exhibit decision, keep **Compamed** as a targeted secondary bet if supply-chain or OEM conversations matter, and treat **MedtecLIVE** as a narrower specialist option rather than a primary market-entry show.
+
+## ICP / Goal Snapshot
+
+- Company / offer: Surgical instruments
+- ICP: EU distributors, hospital procurement teams, OEM / component partners
+- Buyers: Procurement, sourcing, distribution, medtech operations
+- Goal: Distributor discovery + buyer visibility in Europe
+- Region: Europe
+- Motion: Exhibit
+
+## Shortlist Table
+
+| Show | Dates | Location | Show Fit Score | Decision | Why it fits |
+|------|-------|----------|----------------|----------|-------------|
+| [MEDICA](https://www.medica-tradefair.com/) | Nov 16-19, 2026 | Dusseldorf, Germany | 91 | Exhibit | Largest EU medtech buying surface with broad hospital and distributor relevance |
+| [Compamed](https://www.compamed-tradefair.com/) | Nov 16-19, 2026 | Dusseldorf, Germany | 76 | Exhibit if budget permits | Strong if OEM, components, or supply-chain partnerships matter |
+| [MedtecLIVE](https://www.medteclive.com/) | May 2026 `TBC` | Germany `TBC` | 68 | Attend only or selective exhibit | Better for manufacturing, regulatory, and technical partner conversations than pure hospital buyer reach |
+
+## Show Fit Score
+
+### MEDICA — 91/100 · Priority 1
+
+- ICP / buyer fit: 32/35
+- Commercial objective fit: 23/25
+- Regional strategy fit: 18/20
+- Show scale / market liquidity: 18/20
+
+### Compamed — 76/100 · Priority 2
+
+- ICP / buyer fit: 24/35
+- Commercial objective fit: 19/25
+- Regional strategy fit: 17/20
+- Show scale / market liquidity: 16/20
+
+### MedtecLIVE — 68/100 · Priority 2
+
+- ICP / buyer fit: 20/35
+- Commercial objective fit: 18/25
+- Regional strategy fit: 16/20
+- Show scale / market liquidity: 14/20
+
+## Execution Readiness
+
+`Not assessed` — no budget band, booth size, or team size provided. MEDICA is commercially attractive, but execution should be pressure-tested before committing booth spend.
+
+## Top Recommendation(s)
+
+**1. MEDICA** — Best primary exhibit choice for EU market entry.
+If the team wants one flagship show that maximizes distributor conversations, hospital visibility, and category credibility, MEDICA is the clearest choice.
+
+**2. Compamed** — Strong add-on if supply-chain and OEM relationships matter.
+Worth considering if the go-to-market plan includes manufacturing partners, component sourcing, or technical supplier discovery alongside hospital-facing conversations.
+
+**3. MedtecLIVE** — Useful specialist event, but not the best first flagship.
+More focused and operationally relevant, but less likely than MEDICA to serve as the single best market-entry stage.
+
+## Why Not / Tradeoffs
+
+- **MEDICA**: expensive and broad; easy to overspend if the team is not ready to pre-book meetings
+- **Compamed**: better for ecosystem and supply-chain motion than pure hospital-buyer demand
+- **MedtecLIVE**: tighter audience, but lower total market visibility for a first EU push
+
+## Next-Step Handoff
+
+- If you select **MEDICA**, continue with `trade-show-budget-planner` to validate booth size, team size, and break-even assumptions
+- If you commit to exhibiting, use `booth-invitation-writer` to build a distributor and hospital outreach plan 4-6 weeks before the show
+
+---
+*Data verified from official show websites where possible, with uncertain fields marked `TBC`. For exhibitor lists, competitor tracking, and show analytics, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-finder).*

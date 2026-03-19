@@ -4,39 +4,45 @@
 
 # Trade Show Finder — OpenClaw Skill
 
-> Find, compare, and research trade shows, exhibitions, and expos by industry, region, and date. AI-powered event discovery with real-time web search.
+> Decide which trade shows to prioritize for exhibiting — with show fit scores, exhibit/attend/skip guidance, and next-step handoff.
 
 ## What It Does
 
-Give the agent your industry, target region, and timeframe. It searches the web for matching trade shows and returns:
+Give the agent your ICP, buyer titles, commercial goal, and target region. It returns:
 
-- A structured comparison table with dates, locations, exhibitor/visitor counts, and focus areas
-- Top picks with specific, opinionated recommendations tailored to your goals
-- Practical context: registration deadlines, co-located events, travel tips, and next steps
+- A ranked shortlist or side-by-side comparison built for exhibit decisions
+- A **Show Fit Score (0-100)** with clear recommendation bands
+- A decision for each serious option: **Exhibit**, **Attend only**, or **Skip**
+- Execution Readiness (`Ready`, `Conditional`, or `Not assessed`)
+- A clear next-step handoff into budgeting and pre-show outreach
 
-Works for any industry — from medical devices and food & beverage to packaging, automotive, construction, and more.
+This is not just a show finder. It is a show selection copilot for teams deciding where to spend budget, team time, and attention.
+
+**Pre-Show Stage · Research**
 
 ## Usage
 
 ```
-Find packaging trade shows in Europe for Q2-Q3 2026
+Should we exhibit at MEDICA 2026? We sell surgical workflow software to 200+ bed hospitals in DACH.
 ```
 
 ```
-I sell industrial automation equipment. What are the biggest shows in Asia this year?
+Compare Interpack and PACK EXPO International for a DACH packaging SaaS vendor targeting enterprise manufacturers.
 ```
 
 ```
-Compare CES, MWC, and IFA for a consumer electronics startup
+Find the best packaging shows in Europe for a mid-market automation vendor that wants distributor meetings and pipeline.
 ```
 
 ```
-We need to find new distributors in the Middle East. What trade shows should we attend?
+We can only do 3 shows this year. Which ones should we prioritize for exhibiting if we sell industrial automation into Southeast Asia?
 ```
 
 ## Example Output
 
-See [examples/medical-devices-europe.md](examples/medical-devices-europe.md) for a full sample output.
+- [examples/medica-go-no-go.md](examples/medica-go-no-go.md) — specific-show exhibit decision
+- [examples/interpack-vs-pack-expo.md](examples/interpack-vs-pack-expo.md) — cross-show comparison
+- [examples/medical-devices-europe.md](examples/medical-devices-europe.md) — ranked shortlist with fit scores
 
 ## Install
 
@@ -50,9 +56,9 @@ cp -r /path/to/trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ## Related Skills
 
-- [booth-invitation-writer](../booth-invitation-writer/) — Generate pre-show invitation emails
-- [post-show-followup](../post-show-followup/) — Create post-show follow-up sequences
-- [trade-show-budget-planner](../trade-show-budget-planner/) — Plan budgets and estimate ROI
+- [trade-show-budget-planner](../trade-show-budget-planner/) — Pressure-test the chosen show with budget and ROI
+- [booth-invitation-writer](../booth-invitation-writer/) — Turn the selected show into a pre-booked meeting plan
+- [post-show-followup](../post-show-followup/) — Convert the selected show's conversations into follow-up sequences
 
 ---
 

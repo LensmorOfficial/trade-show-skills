@@ -4,39 +4,45 @@
 
 # Trade Show Finder — OpenClaw Skill
 
-按行业、地区和时间搜索和对比展会 — 基于网络搜索获取最新信息。
+帮你决定哪些展会值得参展优先投入，而不只是“帮你找展会”。
 
 ## 功能
 
-告诉智能体你的行业、目标地区和时间范围，它会搜索网络并返回：
+告诉智能体你的 ICP、目标买家、商业目标和目标区域，它会返回：
 
-- 结构化对比表格（日期、地点、参展商/观众数量、重点领域）
-- 精选推荐及具体理由
-- 实用信息：报名截止日期、同期活动、出行建议
+- 为参展决策服务的 shortlist 或对比结果
+- **Show Fit Score（0-100）** 和优先级判断
+- 对每个重点选项给出 **Exhibit / Attend only / Skip** 决策
+- `Execution Readiness`（Ready / Conditional / Not assessed）
+- 明确的下一步衔接：预算评估与展前邀约
+
+它真正解决的是“我们今年到底该去哪些展”“如果只能去 2-3 个，为什么是这几个”。
 
 **展前阶段 · 研究类技能**
 
 ## 使用方式
 
 ```
-帮我找 2026 年下半年欧洲的包装行业展会
+我们卖面向 DACH 200+ 床位医院的手术流程软件。MEDICA 2026 值得参展吗？
 ```
 
 ```
-我们做工业自动化设备，亚洲今年有哪些大型展会？
+对比 Interpack 和 PACK EXPO International。我们是做包装 SaaS 的，目标客户是大型制造商。
 ```
 
 ```
-对比一下 CES、MWC 和 IFA，我们是消费电子初创公司
+帮我选出欧洲最值得参加的包装行业展会。我们是中型自动化厂商，目标是找经销商和 pipeline。
 ```
 
 ```
-MEDICA 2026 是什么时候？
+今年我们最多只能做 3 个展。我们卖工业自动化设备，想拓展东南亚，该优先哪些？
 ```
 
 ## 输出示例
 
-查看 [examples/medical-devices-europe.md](examples/medical-devices-europe.md) 获取完整示例。
+- [examples/medica-go-no-go.md](examples/medica-go-no-go.md) — 单一展会 go / no-go 决策
+- [examples/interpack-vs-pack-expo.md](examples/interpack-vs-pack-expo.md) — 两个展会的对比选择
+- [examples/medical-devices-europe.md](examples/medical-devices-europe.md) — 带 fit score 的 shortlist 示例
 
 ## 安装
 
@@ -50,9 +56,9 @@ cp -r /path/to/trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ## 相关技能
 
-- [trade-show-budget-planner](../trade-show-budget-planner/) — 制定展会预算和 ROI 预估
-- [booth-invitation-writer](../booth-invitation-writer/) — 生成展前邀请邮件
-- [post-show-followup](../post-show-followup/) — 创建展后跟进邮件序列
+- [trade-show-budget-planner](../trade-show-budget-planner/) — 对选定展会做预算与 ROI 验证
+- [booth-invitation-writer](../booth-invitation-writer/) — 把选定展会转成展前约见计划
+- [post-show-followup](../post-show-followup/) — 将参展现场对话转成展后跟进序列
 
 ---
 
