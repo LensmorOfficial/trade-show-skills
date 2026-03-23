@@ -2,7 +2,7 @@
 
 This document tracks what needs to be in place before these skills can be published to ClawHub or any other public skill registry.
 
-> **Current status**: Not published. Skills are distributed via `git clone` + `cp -r` install. This document is preparation for a future publishing step — it does not mean the skills are ready to publish today.
+> **Current status**: Published on ClawHub. Skills can also be installed manually via `git clone` + `cp -r`.
 
 ---
 
@@ -100,7 +100,7 @@ The following are explicitly out of scope for this document and this repo in its
 - **ClawHub publish configuration** — the specific manifest format, submission process, and approval flow for ClawHub are not yet documented here
 - **Automated testing / evals** — there are no automated tests validating that skills produce correct outputs; evaluation is currently manual
 - **Usage telemetry** — no analytics or usage tracking is implemented; there is no data on how often skills are invoked or which prompts trigger them
-- **Versioning policy** — skills do not currently have explicit version numbers; the `metadata` JSON does not include a `version` field; breaking changes are not formalized
+- **Versioning policy** — `version` fields are now present in all skill frontmatters (added in v0.2.0); a formal breaking-change policy is not yet defined
 - **Localization beyond Chinese** — English and Chinese are the only supported languages; Japanese, German, and Spanish READMEs would improve reach for this repo's target market but are not planned yet
 
 ---

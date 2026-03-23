@@ -9,7 +9,7 @@
 [![Stars](https://img.shields.io/github/stars/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v0.1.0%20beta-orange.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/release-v0.2.0-green.svg)](CHANGELOG.md)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
@@ -99,7 +99,7 @@ done
 
 Skills activate automatically when your prompt matches their description.
 
-> **ClawHub**: These skills are not yet published to ClawHub. Once published, installation will be `clawhub install <skill-slug>`.
+> **ClawHub**: These skills are available on [ClawHub](https://clawhub.ai). Install any skill with `clawhub install <skill-slug>`
 
 ## End-to-End Lifecycle Example
 
@@ -128,7 +128,7 @@ When you ask the agent something that matches a skill's description (e.g., "shou
 
 ## Releases
 
-Current release: **[v0.1.0](CHANGELOG.md)** — initial public beta. See [CHANGELOG.md](CHANGELOG.md) for what's included.
+Current release: **[v0.2.0](CHANGELOG.md)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
 
 ## Contributing
 
