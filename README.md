@@ -56,6 +56,7 @@ Other examples of what you can do with these skills:
 |-------|-------------|----------|
 | [trade-show-finder](trade-show-finder/) | Score and prioritize trade shows for exhibiting based on ICP, region, and goals | Choosing where to exhibit, comparing shows, planning an annual show calendar |
 | [trade-show-budget-planner](trade-show-budget-planner/) | Build exhibition budgets and ROI projections with cost benchmarks | Budget planning, ROI analysis, investment justification |
+| [pre-show-competitor-analysis](pre-show-competitor-analysis/) | Analyze competitor exhibitor lists and booth positioning to inform strategy and messaging | Threat scoring, differentiation planning, counter-messaging before the show |
 | [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
 
 ### On-Site
@@ -91,7 +92,7 @@ cp -r trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ```bash
 git clone https://github.com/LensmorOfficial/trade-show-skills.git
-for skill in trade-show-finder booth-invitation-writer post-show-followup trade-show-budget-planner badge-qualifier competitor-radar; do
+for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer badge-qualifier competitor-radar post-show-followup; do
   cp -r trade-show-skills/$skill ~/.openclaw/skills/
 done
 ```
