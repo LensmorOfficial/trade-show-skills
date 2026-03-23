@@ -1,5 +1,6 @@
 ---
 name: competitor-radar
+version: 0.2.0
 description: Structure competitor booth observations from a trade show into a field-intel note and battlecard-ready summary.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/competitor-radar
 user-invocable: true
@@ -37,6 +38,7 @@ This is the most important step. Every fact must be tagged:
 | **[OBS]** | Directly observed or read verbatim | "Banner copy read: 'Now 40% faster'" |
 | **[INF]** | Reasonably inferred from observable signals | "Heavy foot traffic suggests strong interest from [segment]" |
 | **[HEARD]** | Overheard or reported second-hand — treat as unverified | "Sales rep told a visitor their price starts at €X" |
+| **[EST]** | Estimated numerical value — not measured directly | "Booth footprint est. 200 sqm" |
 | **[UNK]** | Cannot determine from available evidence | |
 
 **Critical guard**: Do not convert inferences into facts in the output. "They claim 40% faster" is an [OBS] from banner copy. "They are 40% faster" is a fabrication. The difference matters when this note reaches your product or sales team.
@@ -114,9 +116,10 @@ End every output with:
 ## Quality Checks
 
 Before delivering results:
-- Every price, speed claim, or product feature must carry a source tag — no naked facts
+- Every price, speed claim, or product feature must carry a source tag (`[OBS]`, `[INF]`, `[HEARD]`, `[EST]`, or `[UNK]`) — no naked facts
 - Threat level must be justified with specific observations, not impressions
 - "High" threat requires at least two concrete, observed signals
+- Numerical estimates (booth size, foot traffic count) must use `[EST]`; never present a guess as a measured fact
 - Do not include personal opinions about design or aesthetics unless the user specifically asks
 - If observations are sparse (e.g., only booth size and general messaging), the output should reflect that thinness rather than padding with inferences
 - If the same competitor was observed across multiple sessions, aggregate rather than duplicate

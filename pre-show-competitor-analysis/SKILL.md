@@ -1,5 +1,6 @@
 ---
 name: pre-show-competitor-analysis
+version: 0.2.0
 description: Analyze competitor exhibitor lists and booth positioning before the show to inform strategy and messaging.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
 user-invocable: true
@@ -58,7 +59,15 @@ For each relevant competitor:
 - Demo schedules or events
 - New product launch indicators
 
-Use `[OBS]` / `[INF]` / `[HEARD]` tags for source clarity.
+Tag every data point for source clarity — use the same system as `competitor-radar`:
+
+| Tag | Meaning |
+|-----|---------|
+| **[OBS]** | Directly read or observed (exhibitor list, floor plan, official site) |
+| **[INF]** | Reasonably inferred from observable signals |
+| **[HEARD]** | Second-hand or unverified claim |
+| **[EST]** | Estimated numerical value (booth size, sponsorship tier) |
+| **[UNK]** | Cannot determine from available data |
 
 ### Step 4: Score Threat and Opportunity
 
@@ -147,7 +156,7 @@ For the show overall:
 ## Quality Checks
 
 - Verify exhibitor list is for the correct show edition
-- Distinguish between confirmed presence and speculation
-- Do not invent booth details not visible in floor plans
-- Flag uncertain information as `[EST]` or `TBC`
-- Keep threat scoring consistent across competitors
+- Distinguish between confirmed presence and speculation; use `[OBS]` only for facts from official sources
+- Do not invent booth details not visible in floor plans; mark unknown dimensions as `[UNK]`
+- Flag estimated figures (booth size, visitor share) as `[EST]`; replace `TBC` with `[UNK]` when the source is genuinely unavailable
+- Keep threat scoring consistent across competitors — apply the same rubric to all

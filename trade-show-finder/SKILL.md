@@ -1,5 +1,6 @@
 ---
 name: trade-show-finder
+version: 0.2.0
 description: Recommend and compare trade shows to prioritize for exhibiting based on ICP, region, and goals.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-finder
 user-invocable: true

@@ -6,6 +6,31 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [0.2.0] - 2026-03-23
+
+Quality and consistency pass across all 7 skills.
+
+### Fixed
+
+- **Epistemic tag system unified** across both competitor intelligence skills. `competitor-radar` and `pre-show-competitor-analysis` now use the same 5-tag system: `[OBS]` / `[INF]` / `[HEARD]` / `[EST]` / `[UNK]`. Previously the two skills used incompatible tags (`[UNK]` vs `TBC`, missing `[EST]` in radar).
+- **`pre-show-competitor-analysis` quality checks** corrected — previously referenced `[EST]`/`TBC`; now aligned to the canonical tag set.
+
+### Added
+
+- **`pre-show-competitor-analysis/README.zh.md`** — this was the only skill missing a Chinese README.
+- **`badge-qualifier` → `post-show-followup` handoff** — badge-qualifier now explicitly tells users that Hot/Warm/Cold output maps directly to Tier 1/2/3 in post-show-followup. post-show-followup Step 2 now documents this connection.
+- **`version` field** added to frontmatter of all 7 skills.
+
+### Changed
+
+- **`badge-qualifier` Warm tier criteria** made explicit — replaced ambiguous "Any two of the above" with a full signal-combination matrix showing all valid Warm paths.
+- **`badge-qualifier` output template** — added clarification that the lead card should be rendered as formatted Markdown, not wrapped in a code block.
+- **Budget benchmarks** in `trade-show-budget-planner` now carry `[EST 2023–2024]` timestamps and a note to verify with organizers; previously presented as current facts.
+- **Regulated-industry caveat** added to `post-show-followup` signature tip — "skip legal disclaimers" now explicitly excludes pharma, medical devices, and financial services.
+- **Footer CTAs** strengthened from question format to statement format in `booth-invitation-writer`, `post-show-followup`, and `trade-show-budget-planner`.
+
+---
+
 ## [0.1.0] - 2026-03-18
 
 Initial public beta. First usable release of OpenClaw skills for trade show planning, on-site execution, and post-show follow-up. Skills are distributed via source (`cp -r`) — not yet published to ClawHub.

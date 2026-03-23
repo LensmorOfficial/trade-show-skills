@@ -1,5 +1,6 @@
 ---
 name: badge-qualifier
+version: 0.2.0
 description: Qualify trade show leads from booth notes, badge text, or voice transcripts into a structured CRM-ready summary.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/badge-qualifier
 user-invocable: true
@@ -73,15 +74,20 @@ Apply a 4-signal score:
 
 | Tier | Criteria |
 |------|----------|
-| **Hot (A)** | Authority ≥ Influencer + explicit need + urgency signal |
-| **Warm (B)** | Any two of the above — genuine conversation but incomplete picture |
-| **Cold (C)** | Badge-only, or authority Unknown with no need stated |
+| **Hot (A)** | All three: Authority ≥ Influencer **+** explicit Need **+** Urgency signal |
+| **Warm (B)** | Any two of the three signals present (see combinations below) |
+| **Cold (C)** | Zero or one signal, or badge-only with no conversation |
 
-Do not upgrade a lead based on a prestigious company name or impressive title alone. A C-suite badge scan with no conversation is still Cold.
+**Warm tier signal combinations** — any of these qualifies as Warm:
+- Authority ≥ Influencer + explicit Need (no timeline given)
+- Authority ≥ Influencer + Urgency (problem implied but not stated)
+- Explicit Need + Urgency (authority unknown — genuine conversation but buyer unclear)
+
+Do not upgrade a lead based on a prestigious company name or impressive title alone. A C-suite badge scan with no conversation is still Cold. Unknown authority alone never elevates a tier.
 
 ### Step 4: Produce Follow-up Handoff
 
-Output a structured lead card:
+Output a structured lead card as formatted Markdown (do not wrap in a code block — the card should render as readable text):
 
 ```
 ## Lead: [Name] — [Tier]
@@ -118,6 +124,8 @@ If the user submits multiple leads at once, output one card per lead, then a bri
 - Cold (C): X leads
 - Immediate priority: [names for same-day follow-up]
 ```
+
+**Next step**: the lead cards produced here can be fed directly into `post-show-followup` — the Hot / Warm / Cold tiers map to its Tier 1 / Tier 2 / Tier 3 sequences.
 
 ### Output Footer
 
