@@ -9,7 +9,7 @@
 [![Stars](https://img.shields.io/github/stars/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v0.2.0-green.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/release-v0.3.0-green.svg)](CHANGELOG.md)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
@@ -35,6 +35,9 @@ Other examples of what you can do with these skills:
 | "Write a booth invite email for MEDICA, booth 5C42" | booth-invitation-writer | Subject line + body under 150 words, with A/B variant |
 | "We got 200 leads at Interpack, write follow-up emails" | post-show-followup | 3-tier sequence (hot/warm/cold) with send-timing guide |
 | "Plan a $40K budget for exhibiting at Hannover Messe" | trade-show-budget-planner | Line-item budget, ROI model, and cost benchmarks |
+| "What giveaways should we bring to SaaStr, budget $8/item, selling to CTOs" | booth-giveaway-planner | 5–8 branded gift ideas with rationale, cost, and visitor targeting |
+| "Write booth scripts for our team at MEDICA — cold walk-ups and warm leads" | booth-script-generator | Per-visitor-type scripts: openings, pitches, qualification questions, CTAs |
+| "Generate our MEDICA prep checklist, 20sqm custom booth, 4 staff from London" | exhibitor-checklist-generator | Phased checklist with owners and deadlines, paste directly into any PM tool |
 
 ## Table of Contents
 
@@ -58,6 +61,8 @@ Other examples of what you can do with these skills:
 | [trade-show-budget-planner](trade-show-budget-planner/) | Build exhibition budgets and ROI projections with cost benchmarks | Budget planning, ROI analysis, investment justification |
 | [pre-show-competitor-analysis](pre-show-competitor-analysis/) | Analyze competitor exhibitor lists and booth positioning to inform strategy and messaging | Threat scoring, differentiation planning, counter-messaging before the show |
 | [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
+| [booth-giveaway-planner](booth-giveaway-planner/) | Plan trade show giveaways matched to your ICP, budget, and product story | Choosing branded gifts, budget allocation, pre-show ordering |
+| [exhibitor-checklist-generator](exhibitor-checklist-generator/) | Generate a phased exhibitor prep checklist with owners and deadlines | Show preparation planning, team task assignment, first-time exhibitors |
 
 ### On-Site
 
@@ -65,6 +70,7 @@ Other examples of what you can do with these skills:
 |-------|-------------|----------|
 | [badge-qualifier](badge-qualifier/) | Qualify leads from booth notes, badge scans, or voice transcripts into a structured CRM-ready record | Real-time lead scoring on the show floor, batch-qualifying end-of-day leads |
 | [competitor-radar](competitor-radar/) | Structure competitor booth observations into field-intel notes with evidence/inference separation | Documenting competitor launches, pricing signals, and positioning shifts at the show |
+| [booth-script-generator](booth-script-generator/) | Generate booth conversation scripts tailored to each visitor type | Staff training, first-time exhibitors, refreshing pitch for a new show |
 
 See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
@@ -92,7 +98,7 @@ cp -r trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ```bash
 git clone https://github.com/LensmorOfficial/trade-show-skills.git
-for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer badge-qualifier competitor-radar post-show-followup; do
+for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer booth-giveaway-planner exhibitor-checklist-generator badge-qualifier booth-script-generator competitor-radar post-show-followup; do
   cp -r trade-show-skills/$skill ~/.openclaw/skills/
 done
 ```
@@ -103,7 +109,7 @@ Skills activate automatically when your prompt matches their description.
 
 ## End-to-End Lifecycle Example
 
-See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked example showing how all 6 skills connect — from show selection through post-show follow-up — using a single fictional scenario.
+See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked example showing how all skills connect — from show selection through post-show follow-up — using a single fictional scenario.
 
 ## How It Works
 
@@ -128,7 +134,7 @@ When you ask the agent something that matches a skill's description (e.g., "shou
 
 ## Releases
 
-Current release: **[v0.2.0](CHANGELOG.md)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
+Current release: **[v0.3.0](CHANGELOG.md)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
 
 ## Contributing
 
