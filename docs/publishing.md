@@ -101,7 +101,7 @@ The following are explicitly out of scope for this document and this repo in its
 - **Automated testing / evals** — there are no automated tests validating that skills produce correct outputs; evaluation is currently manual
 - **Usage telemetry** — no analytics or usage tracking is implemented; there is no data on how often skills are invoked or which prompts trigger them
 - **Versioning policy** — `version` fields are now present in all skill frontmatters (added in v0.2.0); a formal breaking-change policy is not yet defined
-- **Localization beyond Chinese** — English and Chinese are the only supported languages; Japanese, German, and Spanish READMEs would improve reach for this repo's target market but are not planned yet
+- **Localization** — English only; other languages are not planned at this time
 
 ---
 

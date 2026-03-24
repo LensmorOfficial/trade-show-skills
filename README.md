@@ -109,7 +109,7 @@ See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked exa
 
 Each skill is a self-contained directory with:
 - `SKILL.md` — The skill definition (YAML frontmatter + workflow instructions)
-- `README.md` / `README.zh.md` — Documentation (English + Chinese)
+- `README.md` — Documentation
 - `examples/` — Sample inputs and outputs
 
 When you ask the agent something that matches a skill's description (e.g., "should we exhibit at MEDICA 2026 for our ICP?"), the skill activates and guides the agent through a structured workflow.
