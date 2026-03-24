@@ -1,7 +1,3 @@
-[English](README.md) | [中文](README.zh.md)
-
----
-
 # Trade Show Finder — OpenClaw Skill
 
 > Decide which trade shows to prioritize for exhibiting — with show fit scores, exhibit/attend/skip guidance, and next-step handoff.

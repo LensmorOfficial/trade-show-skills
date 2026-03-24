@@ -103,7 +103,7 @@ Skills activate automatically when your prompt matches their description.
 
 ## End-to-End Lifecycle Example
 
-See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked example showing how all 6 skills connect — from show selection through post-show follow-up — using a single fictional scenario. Also available in [中文](docs/event-lifecycle.zh.md).
+See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked example showing how all 6 skills connect — from show selection through post-show follow-up — using a single fictional scenario.
 
 ## How It Works
 

@@ -1,7 +1,3 @@
-[English](README.md) | [中文](README.zh.md)
-
----
-
 # Post-Show Follow-up — OpenClaw Skill
 
 > Create tiered post-trade-show follow-up email sequences that convert booth conversations into sales pipeline. AI-powered lead nurture for exhibitions and expos.

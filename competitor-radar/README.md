@@ -1,7 +1,3 @@
-[English](README.md) | [中文](README.zh.md)
-
----
-
 # Competitor Radar — OpenClaw Skill
 
 > Structure competitor booth observations from a trade show into field-intel notes and battlecard-ready summaries. Keeps observations and inferences clearly separated.

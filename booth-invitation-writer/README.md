@@ -1,7 +1,3 @@
-[English](README.md) | [中文](README.zh.md)
-
----
-
 # Booth Invitation Writer — OpenClaw Skill
 
 > Generate personalized pre-show booth invitation emails and outreach sequences that get replies — tailored by audience type, relationship, and trade show context.

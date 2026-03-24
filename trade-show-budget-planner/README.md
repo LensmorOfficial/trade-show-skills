@@ -1,7 +1,3 @@
-[English](README.md) | [中文](README.zh.md)
-
----
-
 # Trade Show Budget Planner — OpenClaw Skill
 
 > Build realistic trade show budgets and ROI projections with industry cost benchmarks. AI-powered exhibition cost planning and investment analysis.
