@@ -1,7 +1,7 @@
 ---
 name: booth-script-generator
 version: 1.0.0
-description: Generate trade show booth scripts for exhibitor staff — opening lines, product pitches, qualification questions, and closing CTAs, each tailored to a specific visitor type (cold walk-up, warm lead, competitor's customer, current customer).
+description: Generate booth conversation scripts by visitor type for exhibitor staff.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-script-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}

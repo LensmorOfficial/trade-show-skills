@@ -109,7 +109,7 @@ Skills activate automatically when your prompt matches their description.
 
 ## End-to-End Lifecycle Example
 
-See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a complete worked example showing how all skills connect — from show selection through post-show follow-up — using a single fictional scenario.
+See [docs/event-lifecycle.md](docs/event-lifecycle.md) for a worked example showing the core lifecycle skills end to end, plus where the supporting planning and on-site skills fit.
 
 ## How It Works
 
@@ -142,7 +142,7 @@ Have ideas for new skills or improvements? See [CONTRIBUTING.md](CONTRIBUTING.md
 
 - [CONTRIBUTING.md](CONTRIBUTING.md) — How to add or modify skills
 - [docs/skill-quality-checklist.md](docs/skill-quality-checklist.md) — Pre-merge quality checklist
-- [docs/publishing.md](docs/publishing.md) — What needs to be in place before publishing to ClawHub
+- [docs/publishing.md](docs/publishing.md) — Publishing and release quality guidance
 
 ## License
 

@@ -1,7 +1,7 @@
 ---
 name: booth-giveaway-planner
 version: 1.0.0
-description: Plan trade show giveaways — generate branded gift ideas matched to your ICP, budget, and product story, with brand rationale and per-visitor targeting for each item.
+description: Plan trade show giveaways matched to ICP, budget, and brand story.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-giveaway-planner
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

@@ -1,6 +1,6 @@
-# Publishing Readiness
+# Publishing and Release Quality
 
-This document tracks what needs to be in place before these skills can be published to ClawHub or any other public skill registry.
+This document tracks what needs to stay healthy now that these skills are already published on ClawHub and distributed from source.
 
 > **Current status**: Published on ClawHub. Skills can also be installed manually via `git clone` + `cp -r`.
 
@@ -8,17 +8,20 @@ This document tracks what needs to be in place before these skills can be publis
 
 ## Current Distribution Model
 
-Skills in this repo are installed manually:
+Skills in this repo are available in two ways:
 
 ```bash
 cp -r trade-show-skills/<skill-name> ~/.openclaw/skills/
 ```
 
-This works fine for early adopters and development use. It is not scalable for broad distribution — users have to find the repo, clone it, and copy directories manually. ClawHub (or a similar registry) would replace this with `clawhub install trade-show-skills/<slug>`.
+- **Source install** remains useful for development, local testing, and copying a skill directly from a branch.
+- **ClawHub install** is the primary end-user path for published skills.
+
+Both paths should stay healthy. A skill that installs cleanly from ClawHub but has stale docs or broken source examples still creates maintenance drag, and the reverse is also true.
 
 ---
 
-## What Needs to Be Ready Before Publishing
+## What Needs to Stay Healthy After Publishing
 
 ### Naming and discoverability
 
@@ -42,7 +45,6 @@ This works fine for early adopters and development use. It is not scalable for b
 ### README quality
 
 - [ ] English README covers: what it does, usage examples, install, related skills
-- [ ] Chinese README covers the same sections
 - [ ] Usage examples are prompts a real user would actually type — not contrived demos
 
 ### Stage and category clarity
@@ -57,11 +59,11 @@ This works fine for early adopters and development use. It is not scalable for b
 - [ ] Each skill's Related Skills section links to natural next steps
 - [ ] Root README table correctly represents all published skills
 
-### Bilingual documentation quality
+### English-only documentation quality
 
-- [ ] Chinese READMEs cover the same content structure as English
-- [ ] Usage examples in Chinese are idiomatic (not machine-translated)
-- [ ] Stage/category labels appear in both languages
+- [ ] No stale references to `README.zh.md` remain in repo docs
+- [ ] Stage docs and lifecycle docs still describe the current skill set
+- [ ] Examples and README wording stay aligned after each release
 
 ---
 
@@ -79,17 +81,19 @@ When publishing to a registry, discoverability depends on:
 
 ---
 
-## Suggested Pre-Publish Review
+## Suggested Release Review
 
-Before submitting any skill to a registry:
+Before shipping a new public release or adding a new skill:
 
 1. Run the full [skill quality checklist](skill-quality-checklist.md)
-2. Install the skill locally from scratch (`cp -r` into a fresh `~/.openclaw/skills/`) and test with 2–3 real prompts
-3. Confirm the `homepage` URL resolves to the correct page
-4. Check that the `description` still accurately describes the skill after any recent changes
-5. Verify the `examples/` files reflect the current output format (not a prior version)
+2. Run `bash scripts/validate-repo.sh`
+3. Install the skill locally from scratch (`cp -r` into a fresh `~/.openclaw/skills/`) and test with 2–3 real prompts
+4. Confirm the `homepage` URL resolves to the correct page
+5. Check that the `description` still accurately describes the skill after any recent changes
+6. Verify the `examples/` files reflect the current output format (not a prior version)
+7. Bump the `version` field if the public behavior or output contract changed meaningfully
 
-For a batch publish of multiple skills, run step 1 for all skills first, then do steps 2–5 per skill.
+For a batch release of multiple skills, run steps 1–2 repo-wide, then do steps 3–7 per affected skill.
 
 ---
 
@@ -97,11 +101,11 @@ For a batch publish of multiple skills, run step 1 for all skills first, then do
 
 The following are explicitly out of scope for this document and this repo in its current state:
 
-- **ClawHub publish configuration** — the specific manifest format, submission process, and approval flow for ClawHub are not yet documented here
+- **ClawHub release automation** — there is no documented automated pipeline for publishing or updating ClawHub entries
 - **Automated testing / evals** — there are no automated tests validating that skills produce correct outputs; evaluation is currently manual
 - **Usage telemetry** — no analytics or usage tracking is implemented; there is no data on how often skills are invoked or which prompts trigger them
-- **Versioning policy** — `version` fields are now present in all skill frontmatters (added in v0.2.0); a formal breaking-change policy is not yet defined
-- **Localization** — English only; other languages are not planned at this time
+- **Formal versioning policy** — `version` fields are present, but breaking vs. non-breaking changes are not yet formally defined
+- **Localization** — the repo is intentionally English-only at the moment; other languages are not planned
 
 ---
 

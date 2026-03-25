@@ -1,82 +1,76 @@
-# Pre-Show Competitor Analysis
+# Pre-Show Competitor Analysis — OpenClaw Skill
 
-Analyze competitor exhibitor lists and booth positioning before the show to inform your strategy, messaging, and booth execution.
+Analyze competitor exhibitor lists, booth signals, and public positioning before the show so your team arrives with a differentiated plan instead of walking in blind.
 
 ## What This Skill Does
 
-This skill helps you:
-- Map the competitive landscape at a target show
-- Score threat levels based on booth presence and positioning
-- Identify differentiation angles and white space opportunities
-- Develop counter-messaging before the show
-- Plan booth strategy and staff briefing points
+Give the agent a show, competitor set, and your market context. It outputs:
+
+- A structured competitor landscape before the event starts
+- Threat scoring across booth presence, direct overlap, and messaging clash
+- Clear separation between `[OBS]`, `[INF]`, `[HEARD]`, and `[EST]`
+- White-space and differentiation opportunities
+- Next-step handoffs into booth messaging, on-site observation, and follow-up
+
+**Pre-Show · Competitive Intelligence**
 
 ## When to Use
 
-**Before the show** (4–8 weeks out), when:
-- Exhibitor lists are published
-- Floor plans are available
-- You need to finalize messaging and booth tactics
+**4-8 weeks before the show**, once exhibitor lists, floor plans, or show segments are available.
 
-Not for real-time booth observation — use `competitor-radar` during the show.
+Use it when you need to answer questions like:
+- Which competitors matter most at this event?
+- What are they likely to emphasize?
+- Where is there still open positioning space for us?
+
+Do not use it for real-time field notes on the show floor. That is what `competitor-radar` is for.
 
 ## Quick Examples
 
-### Example 1: Surgical Robotics at MEDICA
+```
+Who's exhibiting in surgical robotics at MEDICA 2026, and how should we position against them?
+```
 
-**Input:**
-> "Who's exhibiting in surgical robotics at MEDICA 2026? How should we position against them?"
+```
+What do we know about Acme Corp's presence at PACK EXPO? We sell packaging workflow software and want to know if they're a real threat this year.
+```
 
-**What the skill does:**
-1. Identifies all exhibitors in surgical robotics / OR integration
-2. Analyzes booth sizes, locations, and messaging
-3. Scores threat levels (direct overlap + booth prominence)
-4. Recommends differentiation angles
+```
+Analyze the competitive landscape at Hannover Messe for mid-market industrial automation software. Where is the messaging white space?
+```
 
-**Sample output structure:**
-- Primary threats: 3 companies with large booths and overlapping value props
-- White space: Underserved segment in outpatient surgical workflows
-- Recommendation: Position around "scalable for ASCs" vs. their "enterprise hospital" focus
+## Example Output
 
-### Example 2: Competitor Deep-Dive
+See [examples/medica-surgical-robotics-landscape.md](examples/medica-surgical-robotics-landscape.md) for a full worked example.
 
-**Input:**
-> "What do we know about Acme Corp's presence at PACK EXPO?"
+## Install
 
-**What the skill does:**
-1. Locates Acme's booth and analyzes placement
-2. Reviews their listed categories and taglines
-3. Checks for speaking slots or featured presence
-4. Assesses threat level and recommends response
+```bash
+# Workspace-local
+cp -r /path/to/trade-show-skills/pre-show-competitor-analysis <your-workspace>/skills/
+
+# Shared (all workspaces)
+cp -r /path/to/trade-show-skills/pre-show-competitor-analysis ~/.openclaw/skills/
+```
 
 ## How It Works
 
 The skill guides the agent through:
 
-1. **Data collection** — exhibitor lists, floor plans, show segmentation
-2. **Competitor analysis** — booth signals, messaging signals, activity signals
-3. **Threat scoring** — standardized 3-15 scale across overlap, prominence, and messaging clash
-4. **Strategic synthesis** — recommendations for messaging, booth strategy, and timing
-
-## Output Format
-
-Every analysis includes:
-- Executive summary (threat level + strategic implication)
-- Competitor landscape table (primary threats, secondary threats, partnership candidates)
-- Strategic recommendations (messaging, booth, outreach timing)
-- Knowledge gaps (what to verify on-site)
-- Next-step handoffs to other skills
+1. **Target show data collection** — exhibitor lists, floor plans, hall themes, public listings
+2. **Signal extraction** — booth prominence, positioning language, launch signals, speaking presence
+3. **Threat scoring** — standardized 3-15 score across overlap, prominence, and messaging clash
+4. **Strategic response** — messaging, booth planning, watch list, and on-site verification priorities
 
 ## Related Skills
 
 | Skill | When | Connection |
 |-------|------|------------|
-| `trade-show-finder` | Before choosing shows | This skill analyzes competitors at shows you've already selected |
-| `booth-invitation-writer` | Pre-show outreach | Use competitor insights to craft differentiated invitations |
-| `competitor-radar` | On-site | Pre-show analysis informs what to look for and who to watch |
-| `post-show-followup` | After the show | Competitive intel shapes follow-up messaging |
+| `trade-show-finder` | Before final show selection | Use competitive density to influence go / no-go decisions |
+| `booth-invitation-writer` | Pre-show outreach | Turn differentiation angles into sharper invite messaging |
+| `booth-script-generator` | Staff prep | Brief staff on what competitor claims to expect and how to respond |
+| `competitor-radar` | On-site | Verify knowledge gaps and competitive hypotheses during the show |
 
-## See Also
+---
 
-- [Full workflow example](../docs/event-lifecycle.md)
-- [Skill quality checklist](../docs/skill-quality-checklist.md)
+> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=readme&utm_campaign=pre-show-competitor-analysis) — exhibitor intelligence for B2B trade show teams.

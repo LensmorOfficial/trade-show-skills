@@ -1,7 +1,7 @@
 ---
 name: exhibitor-checklist-generator
 version: 1.0.0
-description: Generate a customized trade show exhibitor checklist broken into pre-show phases and show week, with a named owner and deadline for every task — output formatted for direct copy-paste into any project management tool.
+description: Generate phased exhibitor prep checklists with owners and deadlines.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/exhibitor-checklist-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

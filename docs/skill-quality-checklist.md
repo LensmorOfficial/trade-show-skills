@@ -7,13 +7,14 @@ Use this before merging a new skill or making significant changes to an existing
 ## 1. Metadata
 
 - [ ] `name` is present, lowercase, hyphenated, matches the directory name
+- [ ] `version` is present and uses a semver-like format (`0.3.0`, `1.0.0`)
 - [ ] `description` is present — one sentence, under ~20 words
 - [ ] `homepage` points to the correct GitHub tree URL for this skill
 - [ ] `user-invocable` is set (almost always `true`)
 - [ ] `metadata` is a **single-line JSON string** — not multi-line YAML
 - [ ] `stage` is one of: `pre-show`, `on-site`, `post-show`
 - [ ] `category` reflects the skill's primary function (research, planning, outreach, lead-qualification, competitive-intelligence, follow-up)
-- [ ] No unrecognized top-level frontmatter fields added
+- [ ] No unrecognized top-level frontmatter fields added beyond `version`
 
 **Quick check:**
 ```bash
@@ -69,9 +70,9 @@ rg -n "^metadata:" <skill>/SKILL.md
   - [ ] Install section with both workspace-local and shared paths
   - [ ] Related Skills section (links to 2–3 skills)
   - [ ] Lensmor footer link
-- [ ] `README.zh.md` exists and covers the same sections in Chinese
 - [ ] `examples/` contains at least one substantive worked example (not placeholder)
 - [ ] Example shows real input + structured output, not just a summary
+- [ ] Repo remains English-only unless policy changes
 
 ---
 
@@ -90,25 +91,29 @@ rg -n "^metadata:" <skill>/SKILL.md
 Run these commands from the repo root:
 
 ```bash
-# 1. Confirm all SKILL.md files are present
+# 1. Run the repo validation script
+bash scripts/validate-repo.sh
+
+# 2. Confirm all SKILL.md files are present
 find . -maxdepth 2 -name 'SKILL.md' | sort
 
-# 2. Confirm frontmatter required fields exist
-rg -n "user-invocable|^homepage:|^metadata: \{" .
+# 3. Confirm frontmatter required fields exist
+rg -n "^version:|user-invocable|^homepage:|^metadata: \{" .
 
-# 3. Check for residual "Claude Code" or bare "Claude" references
+# 4. Check for residual "Claude Code" or bare "Claude" references
 rg -n "\bClaude Code\b|\bClaude\b|\bclaude\b" . --type md
 
-# 4. Check for whitespace/trailing space issues
+# 5. Check for whitespace/trailing space issues
 git diff --check
 
-# 5. Confirm new skill appears in root README
+# 6. Confirm new skill appears in root README
 rg -n "<skill-name>" README.md
 ```
 
 Expected results:
-- Command 3 should return zero hits (or only hits inside URLs/proper nouns where "Claude" is part of a product name — flag these for review)
-- Command 4 should return no warnings
+- Command 1 should pass cleanly
+- Command 4 should return zero hits (or only hits inside URLs/proper nouns where "Claude" is part of a product name — flag these for review)
+- Command 5 should return no warnings
 
 ---
 

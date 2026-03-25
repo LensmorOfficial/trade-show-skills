@@ -24,9 +24,10 @@ trade-show-skills/
   <skill-name>/
     SKILL.md          ← required: OpenClaw skill definition
     README.md         ← required: English documentation
-    README.zh.md      ← required: Chinese documentation
     examples/         ← required: at least one worked example
+    references/       ← optional: helper framework, scoring rubric, seed list
   docs/               ← cross-skill guides and reference docs
+  scripts/            ← repo validation helpers
   README.md           ← root index
 ```
 
@@ -41,6 +42,7 @@ Every `SKILL.md` must have valid YAML frontmatter:
 ```yaml
 ---
 name: skill-name
+version: 0.3.0
 description: One sentence. What it does, not what it is.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/<skill-name>
 user-invocable: true
@@ -51,7 +53,8 @@ metadata: {"openclaw":{"config":{"stage":"<stage>","category":"<category>"}}}
 Rules:
 - **`metadata` must be a single-line JSON string** — multi-line YAML breaks OpenClaw parsing
 - **`description` should be short** (one sentence, under 20 words) — it's consumed by the agent runtime and long descriptions inflate prompt tokens without benefit
-- **Do not add top-level frontmatter fields** that OpenClaw doesn't define — they'll be silently ignored at best, and may cause parse errors
+- **`version` is allowed and recommended in this repo** for released skills. Use semantic versioning style (`0.3.0`, `1.0.0`) and bump it when public behavior changes meaningfully
+- Avoid adding other top-level frontmatter fields beyond `name`, `version`, `description`, `homepage`, `user-invocable`, and `metadata`
 - `user-invocable: true` means users can activate this skill by prompt; set to `false` only for utility/helper skills
 
 ---
@@ -112,7 +115,7 @@ Examples should not be:
 - Placeholder-only (`[Insert input here]` → `[Insert output here]`)
 - Unrealistically clean (e.g., perfect lead notes with every field filled in)
 
-English and Chinese READMEs should cover the same usage examples and reference the same example file. They don't need to be word-for-word translations, but the structure should match.
+This repo is **English-only**. Do not add new `README.zh.md` files unless the repo policy changes again.
 
 ---
 
@@ -126,12 +129,13 @@ The key checks:
 - Examples are substantive (not placeholder)
 - Root README and stage doc reference the skill
 - No "Claude Code" or bare "Claude" references — use "the agent" or "OpenClaw"
+- `bash scripts/validate-repo.sh` passes
 
 ---
 
-## Future Publishing
+## Publishing and Release Quality
 
-These skills are not yet published to ClawHub. When they are, the install method will change from `cp -r` to `clawhub install <slug>`. See [docs/publishing.md](docs/publishing.md) for what needs to be in place before a skill can be published.
+These skills are already published on ClawHub and also installable via `cp -r`. See [docs/publishing.md](docs/publishing.md) for ongoing release, discoverability, and quality guidance.
 
 ---
 
@@ -139,7 +143,7 @@ These skills are not yet published to ClawHub. When they are, the install method
 
 1. Fork the repo and create a branch
 2. Follow the skill conventions above
-3. Run the validation commands in the quality checklist
+3. Run `bash scripts/validate-repo.sh` and the validation commands in the quality checklist
 4. Open a PR with a brief description of what the skill does and why it belongs here
 
 For bug fixes and doc improvements, a short PR description is fine. For new skills, include a one-paragraph explanation of the use case and why it fits in the pre/on-site/post-show framework.
