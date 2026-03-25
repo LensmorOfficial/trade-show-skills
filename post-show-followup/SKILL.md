@@ -1,7 +1,7 @@
 ---
 name: post-show-followup
 version: 0.3.0
-description: Create tiered post-show follow-up sequences matched to lead signal strength.
+description: Turn trade show lead tiers into 48-hour follow-up sequences.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/post-show-followup
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"post-show","category":"follow-up"}}}

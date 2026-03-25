@@ -1,7 +1,7 @@
 ---
 name: pre-show-competitor-analysis
 version: 0.3.0
-description: Analyze pre-show competitor presence and messaging to sharpen positioning and booth strategy.
+description: Map competitor presence before the show and sharpen booth positioning.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"competitive-intelligence"}}}

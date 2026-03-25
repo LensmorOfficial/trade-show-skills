@@ -1,6 +1,8 @@
 # Booth Invitation Writer — OpenClaw Skill
 
-> Generate personalized pre-show booth invitation emails and outreach sequences that get replies — tailored by audience type, relationship, and trade show context.
+> Write pre-show outreach that gets real replies and turns target accounts into booked meetings.
+
+**Best for**: teams running booth meeting outreach to prospects, customers, partners, press, or VIP accounts.
 
 ## What It Does
 

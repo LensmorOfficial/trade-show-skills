@@ -1,7 +1,7 @@
 ---
 name: trade-show-competitor-radar
 version: 0.3.0
-description: Turn competitor booth notes into tagged field-intel and battlecard-ready actions.
+description: Turn show-floor competitor notes into tagged intel your team can act on.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-competitor-radar
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"competitive-intelligence"}}}

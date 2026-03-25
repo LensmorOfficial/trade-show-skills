@@ -1,7 +1,7 @@
 ---
 name: badge-qualifier
 version: 0.3.0
-description: Turn booth notes and badge scans into CRM-ready lead cards and follow-up tiers.
+description: Convert booth notes and badge scans into qualified lead cards and follow-up tiers.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/badge-qualifier
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}

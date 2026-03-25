@@ -1,7 +1,7 @@
 ---
 name: booth-giveaway-planner
 version: 1.1.0
-description: Plan booth giveaways with targeting, gating, and budget logic.
+description: Choose booth giveaways with targeting, gating, and budget logic.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-giveaway-planner
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

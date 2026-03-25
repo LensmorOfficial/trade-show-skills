@@ -1,7 +1,7 @@
 ---
 name: trade-show-finder
 version: 0.3.0
-description: Choose and compare trade shows to prioritize for exhibiting.
+description: Decide which trade shows deserve booth budget, team time, and follow-up.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-finder
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}

@@ -1,7 +1,7 @@
 ---
 name: booth-script-generator
 version: 1.1.0
-description: Generate booth conversation scripts and qualification paths by visitor type.
+description: Give booth staff visitor-specific talk tracks and qualification paths.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-script-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}

@@ -1,6 +1,8 @@
 # Booth Script Generator — OpenClaw Skill
 
-Generate trade show booth conversation scripts for exhibitor staff — with separate paths for cold walk-ups, warm leads, competitor customers, and existing customers.
+> Give booth staff better opening lines, qualification questions, and CTAs for each visitor type.
+
+**Best for**: teams training booth staff before the show or tightening live talk tracks during multi-day events.
 
 ## What This Skill Does
 

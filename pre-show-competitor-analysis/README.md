@@ -1,6 +1,8 @@
 # Pre-Show Competitor Analysis — OpenClaw Skill
 
-Analyze competitor exhibitor lists, booth signals, and public positioning before the show so your team arrives with a differentiated plan instead of walking in blind.
+> Map who you will face at the show and how to sharpen your positioning before you get there.
+
+**Best for**: teams that already have a target event and need better messaging, threat scoring, and on-site watch points.
 
 ## What This Skill Does
 

@@ -1,6 +1,8 @@
 # Trade Show Competitor Radar — OpenClaw Skill
 
-> Structure competitor booth observations from a trade show into field-intel notes and battlecard-ready summaries. Keeps observations and inferences clearly separated.
+> Turn messy show-floor competitor notes into tagged intel your sales and product teams can trust.
+
+**Best for**: exhibitors collecting competitive signals live and needing a cleaner field-intel note before memory fades.
 
 ## What It Does
 

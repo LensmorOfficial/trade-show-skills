@@ -1,6 +1,8 @@
 # Exhibitor Checklist Generator — OpenClaw Skill
 
-Generate a customized, phased trade show preparation checklist — with owners and deadlines on every item, formatted for direct copy-paste into any project management tool.
+> Turn a messy show plan into an owner-by-owner checklist with deadlines you can actually execute.
+
+**Best for**: teams moving from “we should do this show” to real execution across marketing, sales, ops, and logistics.
 
 ## What This Skill Does
 

@@ -1,6 +1,8 @@
 # Badge Qualifier — OpenClaw Skill
 
-> Qualify trade show leads from booth notes, badge scans, or voice transcripts into a structured CRM-ready record. On-site lead scoring without inflating signals that aren't there.
+> Turn badge scans and booth notes into qualified lead cards your sales team can actually use.
+
+**Best for**: exhibitor teams that need fast, conservative lead triage during the show or before next-day follow-up.
 
 ## What It Does
 

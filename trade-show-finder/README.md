@@ -1,6 +1,8 @@
 # Trade Show Finder — OpenClaw Skill
 
-> Decide which trade shows to prioritize for exhibiting — with show fit scores, exhibit/attend/skip guidance, and next-step handoff.
+> Decide which shows deserve booth budget, team time, and follow-up before you commit.
+
+**Best for**: B2B exhibitor teams comparing shows, building an annual event plan, or pressure-testing a named event.
 
 ## What It Does
 

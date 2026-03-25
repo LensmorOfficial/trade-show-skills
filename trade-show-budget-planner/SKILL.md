@@ -1,7 +1,7 @@
 ---
 name: trade-show-budget-planner
 version: 0.3.0
-description: Build trade show budgets with ROI scenarios and go/no-go guardrails.
+description: Stress-test exhibit budgets with ROI scenarios and go-no-go guardrails.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-budget-planner
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

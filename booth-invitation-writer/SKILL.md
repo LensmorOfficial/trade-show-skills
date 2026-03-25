@@ -1,7 +1,7 @@
 ---
 name: booth-invitation-writer
 version: 0.3.0
-description: Draft pre-show booth outreach that drives replies and booked meetings.
+description: Write booth invites that turn target accounts into booked meetings.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-invitation-writer
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"}}}

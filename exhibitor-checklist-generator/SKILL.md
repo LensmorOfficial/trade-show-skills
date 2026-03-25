@@ -1,7 +1,7 @@
 ---
 name: exhibitor-checklist-generator
 version: 1.1.0
-description: Generate exhibitor prep checklists with owners, deadlines, and critical-path milestones.
+description: Turn show plans into deadline-driven exhibitor checklists with owners.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/exhibitor-checklist-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

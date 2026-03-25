@@ -1,6 +1,8 @@
 # Booth Giveaway Planner — OpenClaw Skill
 
-Generate trade show giveaway ideas that reinforce your brand story — with per-item brand rationale, budget estimates, and visitor targeting so every piece of swag earns its cost.
+> Choose giveaway items that actually support booth traffic, lead quality, and brand recall.
+
+**Best for**: teams deciding what to give broadly, what to gate, and what swag is not worth ordering.
 
 ## What This Skill Does
 
