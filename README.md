@@ -82,6 +82,22 @@ See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
 ## Quick Start
 
+### Install from ClawHub
+
+```bash
+# Install one skill into the current OpenClaw workspace
+clawhub install trade-show-finder
+
+# Example: install the on-site competitor intel skill
+clawhub install trade-show-competitor-radar
+```
+
+If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
+
+```bash
+clawhub search "trade show"
+```
+
 ### Install a single skill
 
 ```bash
@@ -105,7 +121,7 @@ done
 
 Skills activate automatically when your prompt matches their description.
 
-> **ClawHub**: These skills are available on [ClawHub](https://clawhub.ai). Install any skill with `clawhub install <skill-slug>`
+> **ClawHub**: These skills are available on [ClawHub](https://clawhub.ai). Use the exact skill slug, for example `clawhub install trade-show-finder` or `clawhub install trade-show-competitor-radar`.
 
 ## End-to-End Lifecycle Example
 
