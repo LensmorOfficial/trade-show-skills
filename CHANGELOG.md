@@ -6,6 +6,33 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [0.3.1] - 2026-03-25
+
+Patch release focused on documentation quality, repo consistency, and maintainer workflow.
+
+### Fixed
+
+- Repo standards aligned to the current policy: the repo is English-only, and `version` is an allowed top-level field in `SKILL.md`.
+- Overlong skill descriptions shortened in `booth-giveaway-planner`, `booth-script-generator`, and `exhibitor-checklist-generator` to better fit OpenClaw skill-picking and prompt-cost constraints.
+
+### Docs
+
+- Refreshed `docs/pre-show.md`, `docs/on-site.md`, and `docs/event-lifecycle.md` to match the current 10-skill repo.
+- Updated `pre-show-competitor-analysis/README.md` to the current repo quality standard.
+- Clarified publishing guidance and root README wording to reflect the current ClawHub + source-install distribution model.
+
+### Added
+
+- `pre-show-competitor-analysis/examples/medica-surgical-robotics-landscape.md`
+- `scripts/validate-repo.sh`
+
+### Notes
+
+- No new skills were added in this release.
+- This patch release focuses on maintainability, documentation accuracy, and release hygiene rather than expanding the skill catalog.
+
+---
+
 ## [0.3.0] - 2026-03-24
 
 Three new skills targeting high-volume, low-competition keywords.

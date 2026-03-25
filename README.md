@@ -9,7 +9,7 @@
 [![Stars](https://img.shields.io/github/stars/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v0.3.0-green.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/badge/release-v0.3.1-green.svg)](CHANGELOG.md)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
@@ -134,7 +134,7 @@ When you ask the agent something that matches a skill's description (e.g., "shou
 
 ## Releases
 
-Current release: **[v0.3.0](CHANGELOG.md)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
+Current release: **[v0.3.1](CHANGELOG.md)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
 
 ## Contributing
 
