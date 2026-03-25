@@ -35,13 +35,13 @@ Patch release focused on documentation quality, repo consistency, and maintainer
 
 ## [0.3.0] - 2026-03-24
 
-Three new skills targeting high-volume, low-competition keywords.
+Three new skills added to deepen pre-show preparation and on-site execution coverage.
 
 ### Added
 
-- **`booth-giveaway-planner`** — Pre-show skill: generate branded giveaway ideas matched to ICP, budget, and product story. Targets keyword "trade show giveaways" (1,700/mo, KD=5). Each idea includes brand connection rationale, unit cost estimate, and visitor-type targeting.
-- **`booth-script-generator`** — On-site skill: generate booth conversation scripts per visitor type (cold walk-up, warm lead, competitor's customer, current customer). Each path includes opening lines (×3), 30-sec + 2-min pitches, qualification questions, and tiered CTAs. Targets "trade show booth ideas" (1,100/mo, KD=0).
-- **`exhibitor-checklist-generator`** — Pre-show skill: generate a phased exhibitor prep checklist (8+ weeks / 2–4 weeks / show week) with owner roles and deadlines on every item, formatted as `- [ ]` for direct copy-paste into any project management tool. Targets "trade show exhibitor checklist" (200/mo, KD=0).
+- **`booth-giveaway-planner`** — Pre-show skill: generate branded giveaway ideas matched to ICP, budget, and product story. Each idea includes brand-connection rationale, unit cost estimates, and visitor-type targeting.
+- **`booth-script-generator`** — On-site skill: generate booth conversation scripts per visitor type (cold walk-up, warm lead, competitor's customer, current customer). Each path includes opening lines, short and extended pitches, qualification questions, and tiered CTAs.
+- **`exhibitor-checklist-generator`** — Pre-show skill: generate a phased exhibitor prep checklist (8+ weeks / 2–4 weeks / show week) with owner roles and deadlines on every item, formatted for direct copy-paste into any project management tool.
 
 ---
 
