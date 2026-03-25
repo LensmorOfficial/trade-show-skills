@@ -1,7 +1,7 @@
 ---
 name: competitor-radar
-version: 0.2.0
-description: Structure competitor booth observations from a trade show into a field-intel note and battlecard-ready summary.
+version: 0.3.0
+description: Turn competitor booth notes into tagged field-intel and battlecard-ready actions.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/competitor-radar
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"competitive-intelligence"}}}
@@ -10,6 +10,11 @@ metadata: {"openclaw":{"config":{"stage":"on-site","category":"competitive-intel
 # Competitor Radar
 
 Turn raw show-floor observations — typed notes, brochure text, overheard messaging, product announcement snippets — into structured competitive intelligence that your team can actually act on.
+
+When this skill triggers:
+- Use it during the show or right after booth visits while the observations are still fresh
+- Use it for field-intel that needs explicit evidence tags before it reaches sales, product, or leadership
+- Do not use it for pre-show public research; use `pre-show-competitor-analysis` for that
 
 ## Workflow
 
@@ -96,6 +101,9 @@ After the per-competitor notes, produce an **Internal Action Note**:
 2. [...]
 3. [...]
 
+### Tomorrow Morning Countermove
+[If the show is multi-day, include one message, objection-handling point, or booth behavior the team should use tomorrow. If the show is over, turn this into the first counter-message to test in the next live sales conversation.]
+
 ### Questions to Investigate Post-Show
 - [Gaps in the intel that need follow-up — e.g., "Confirm their pricing via partner channel"]
 - [Things that were ambiguous on the floor]
@@ -123,3 +131,4 @@ Before delivering results:
 - Do not include personal opinions about design or aesthetics unless the user specifically asks
 - If observations are sparse (e.g., only booth size and general messaging), the output should reflect that thinness rather than padding with inferences
 - If the same competitor was observed across multiple sessions, aggregate rather than duplicate
+- For multi-day shows, include at least one actionable counter-move the booth team can use the next day

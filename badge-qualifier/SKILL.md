@@ -1,7 +1,7 @@
 ---
 name: badge-qualifier
-version: 0.2.0
-description: Qualify trade show leads from booth notes, badge text, or voice transcripts into a structured CRM-ready summary.
+version: 0.3.0
+description: Turn booth notes and badge scans into CRM-ready lead cards and follow-up tiers.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/badge-qualifier
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}
@@ -10,6 +10,11 @@ metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualificatio
 # Badge Qualifier
 
 Transform raw booth conversation notes into a structured lead record — including tier, authority, fit, and next step — without inflating signals that aren't there.
+
+When this skill triggers:
+- Use it during the show or immediately after to triage leads while the conversation is still fresh
+- Use it for live single-lead decisions or end-of-day batch qualification
+- Do not use it to write the outbound sequence itself; hand the result to `post-show-followup`
 
 ## Workflow
 
@@ -105,6 +110,8 @@ Output a structured lead card as formatted Markdown (do not wrap in a code block
 - Urgency: [timeline signal or "none discussed"]
 - ICP Fit: [High / Medium / Low / Unknown — reason]
 - Tier: [Hot / Warm / Cold]
+- Follow-up Class: [Tier 1 / Tier 2 / Tier 3]
+- Why this Tier: [1 short line grounded in the actual signals]
 
 **Conversation Summary**
 [2–3 sentences summarizing what was actually discussed. If only a badge scan, say so plainly.]
@@ -142,3 +149,4 @@ Before delivering results:
 - Hot tier requires at least two confirmed signals — one signal is Warm at best
 - Recommended next step must match the tier (no demo calls for Cold leads)
 - If notes are ambiguous, surface the ambiguity rather than resolving it silently
+- `Follow-up Class` must match the lead tier: Hot → Tier 1, Warm → Tier 2, Cold → Tier 3

@@ -1,7 +1,7 @@
 ---
 name: trade-show-finder
-version: 0.2.0
-description: Recommend and compare trade shows to prioritize for exhibiting based on ICP, region, and goals.
+version: 0.3.0
+description: Choose and compare trade shows to prioritize for exhibiting.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-finder
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}
@@ -143,6 +143,7 @@ Every substantial response should use this structure:
 
 ## Next-Step Handoff
 - If selected show = [X], continue with `trade-show-budget-planner`
+- If a show is only shortlisted, pressure-test it with `pre-show-competitor-analysis`
 - If exhibiting, prepare outreach angles with `booth-invitation-writer`
 ```
 
@@ -176,3 +177,4 @@ Before delivering:
 - Do not invent budget feasibility or staffing assumptions; mark Execution Readiness as `Not assessed` if needed
 - Do not return only a table of dates and cities when the user is clearly asking for a decision
 - For shortlist queries, return a ranked set of strong candidates; for annual planning, default to the top 3 unless the user asks for more
+- For annual planning, include at least one lower-priority or skip-for-now option so the recommendation reflects tradeoffs, not just enthusiasm

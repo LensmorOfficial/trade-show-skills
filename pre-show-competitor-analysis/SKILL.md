@@ -1,7 +1,7 @@
 ---
 name: pre-show-competitor-analysis
-version: 0.2.0
-description: Analyze competitor exhibitor lists and booth positioning before the show to inform strategy and messaging.
+version: 0.3.0
+description: Analyze pre-show competitor presence and messaging to sharpen positioning and booth strategy.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"competitive-intelligence"}}}
@@ -14,6 +14,7 @@ Analyze who is exhibiting at a target show, how they're positioning, and what it
 When this skill triggers:
 - Read [references/competitor-analysis-framework.md](references/competitor-analysis-framework.md) before starting
 - This is **pre-show intelligence**, not real-time booth observation (use `competitor-radar` for on-site intel)
+- Ask only for the missing show, segment, or offer context; do not start with a generic research questionnaire
 
 ## Workflow
 
@@ -134,6 +135,11 @@ For the show overall:
 - [Traffic/demo recommendations]
 - [Staff briefing points]
 
+### Staff Briefing Priorities
+- [Competitor claim staff should expect to hear]
+- [Question staff should be ready to answer]
+- [Signal to verify on-site]
+
 ### Outreach Timing
 - [Pre-show: what to communicate]
 - [On-site: what to watch for]
@@ -160,3 +166,4 @@ For the show overall:
 - Do not invent booth details not visible in floor plans; mark unknown dimensions as `[UNK]`
 - Flag estimated figures (booth size, visitor share) as `[EST]`; replace `TBC` with `[UNK]` when the source is genuinely unavailable
 - Keep threat scoring consistent across competitors — apply the same rubric to all
+- If the user is preparing to exhibit, include at least one staff-briefing takeaway, not just market commentary

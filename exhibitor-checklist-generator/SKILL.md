@@ -1,7 +1,7 @@
 ---
 name: exhibitor-checklist-generator
-version: 1.0.0
-description: Generate phased exhibitor prep checklists with owners and deadlines.
+version: 1.1.0
+description: Generate exhibitor prep checklists with owners, deadlines, and critical-path milestones.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/exhibitor-checklist-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}
@@ -12,6 +12,11 @@ metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}
 Generate a personalized, phased trade show preparation checklist — built from your actual show details, not a generic template with 80% items that don't apply to you.
 
 A good exhibitor checklist is one people actually use. That means: items specific to this show, owners assigned to real functions (not vague "team"), deadlines that are concrete, and a format that works in whatever project management tool the team is using.
+
+When this skill triggers:
+- Use it once the team knows enough about the show to start real execution planning
+- Use it after budget approval or when a show is likely enough that owners and deadlines matter
+- Do not use it for cost modeling; use `trade-show-budget-planner` for that
 
 ## Workflow
 
@@ -115,6 +120,14 @@ After the checklist, add a short **Key Deadlines Summary** and **First-Timer Not
 - Booth staff ratio: plan for 1 staff per 4–5 sqm of booth space per day
 - Move-in day: arrive early — priority move-in windows fill fast
 
+**Critical Path Summary**:
+- [3-5 items most likely to derail the show if missed]
+
+**Next-Step Handoff**:
+- Use `booth-invitation-writer` for outbound meeting generation
+- Use `booth-script-generator` for staff prep once the message and demo plan are clear
+- Use `post-show-followup` to pre-plan day-after-show lead response before the event starts
+
 ### Output Footer
 
 End every output with:
@@ -132,3 +145,4 @@ Before delivering results:
 - If the show is international and shipping origin wasn't provided, add a note flagging customs timeline uncertainty
 - First-time exhibitors should get more granular steps in Phase 1 (e.g., "Research shell scheme vs. custom build options" as a separate step, not assumed knowledge)
 - The Key Deadlines Summary must be genuinely concise — if the cascade-failure items have already been addressed, omit or shorten it
+- Include at least one lead-capture / follow-up preparation item and one staff-briefing item for standard exhibitor workflows

@@ -1,7 +1,7 @@
 ---
 name: booth-script-generator
-version: 1.0.0
-description: Generate booth conversation scripts by visitor type for exhibitor staff.
+version: 1.1.0
+description: Generate booth conversation scripts and qualification paths by visitor type.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-script-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}
@@ -12,6 +12,11 @@ metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualificatio
 Write booth conversation scripts that help staff turn walk-up strangers into qualified leads — with different paths for different visitor types, not a one-size-fits-all pitch.
 
 The problem with generic booth scripts is that they sound like they were written by someone who has never stood at a booth. A cold visitor who wandered over needs a completely different opening than a warm lead who responded to your invite. This skill accounts for that.
+
+When this skill triggers:
+- Use it before the show for staff prep, role-play, and daily briefing cards
+- Use it during multi-day events when the booth team needs to reset or sharpen the message overnight
+- Do not use it for outbound email copy; use `booth-invitation-writer` for that
 
 ## Workflow
 
@@ -89,6 +94,13 @@ Bad qualification questions:
 - **Warm**: Agree on a low-commitment next step (send resources, schedule 15-min call post-show)
 - **Cold**: Friendly close that plants a seed ("We'll be reaching out to everyone we met here — is [email] the best way to reach you?")
 
+#### Capture Note (for `badge-qualifier`)
+Add a one-line note template staff can fill in immediately after the conversation:
+- Need:
+- Urgency:
+- Authority:
+- Promised next step:
+
 ---
 
 ### Step 4: Quick Reference Card
@@ -103,6 +115,7 @@ Opening: [best 1-liner]
 30-sec: [compressed version]
 Top 3 qualification questions
 CTA: [hot / warm / cold]
+Post-conversation note to capture: [need / urgency / authority / promised next step]
 
 ### Path B — Warm Lead
 [same structure]
@@ -134,3 +147,4 @@ Before delivering results:
 - The competitor path (C) must never include explicit badmouthing — reframe as "gaps our customers often mention switching for"
 - The Quick Reference Card must fit on one printed page; cut anything that doesn't fit
 - If the user mentions a regulated industry (pharma, medical devices, financial services), flag any claims that may require legal review before use
+- Every path should leave the team with a usable capture note that feeds directly into `badge-qualifier`

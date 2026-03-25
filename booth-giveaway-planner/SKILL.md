@@ -1,7 +1,7 @@
 ---
 name: booth-giveaway-planner
-version: 1.0.0
-description: Plan trade show giveaways matched to ICP, budget, and brand story.
+version: 1.1.0
+description: Plan booth giveaways with targeting, gating, and budget logic.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-giveaway-planner
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}
@@ -10,6 +10,11 @@ metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}
 # Booth Giveaway Planner
 
 Generate trade show giveaway ideas that reinforce your brand story — not generic swag that ends up in the hotel bin.
+
+When this skill triggers:
+- Use it when the team is deciding what to give broadly, what to gate, and how swag supports booth traffic goals
+- Use it after the product story, ICP, and booth objective are clear enough to evaluate giveaway fit
+- Do not use it as a full booth-budget planner; use `trade-show-budget-planner` for total event spend
 
 ## Workflow
 
@@ -46,6 +51,12 @@ Examples: quality branded merchandise, industry report, premium tech accessory
 
 Avoid pure novelty items (fidget spinners, cheap plastic toys) unless there is a very clear brand connection. A giveaway with no story is a wasted budget line.
 
+Score each serious idea on four dimensions:
+- **ICP relevance** — does the intended visitor actually value it?
+- **Keep/use value** — are people likely to keep it after the show?
+- **Gate fit** — should it be free, conversation-gated, or decision-maker-only?
+- **Logistics risk** — rush feasibility, breakage risk, or import/customization complexity
+
 ### Step 3: Generate Ideas
 
 Produce **5–8 ideas**. Aim for a mix: at least 2–3 branded utility items, 1–2 conversation starters, and optionally 1 qualifier-tier item if budget allows.
@@ -58,10 +69,17 @@ For each idea, output:
 **Brand Connection**: [Why this item relates to your product, the problem you solve, or your ICP's daily work — not just "it has your logo on it"]
 **Unit Cost (est.)**: $X–$X (MOQ: ~X units)
 **Best For**: [Which visitor type — cold walk-up / warm lead / decision maker / all visitors]
+**Gate Level**: [Free / Qualified conversation / Decision-maker only]
+**Logistics Risk**: [Low / Medium / High — reason]
 **Customization Note**: [Any important detail about how to make it feel branded vs generic]
 ```
 
 If the user's budget is tight (under $5/item), focus on 2–3 strong utility ideas rather than padding with cheap novelties.
+
+After the list, include a **Final Recommendation** section:
+- **Public traffic item**: [best broad-distribution choice]
+- **Gated premium item**: [best higher-value choice, if any]
+- **Items to skip**: [1-2 common but poor-fit ideas and why]
 
 ### Step 4: Add Planning Notes
 
@@ -76,6 +94,10 @@ If total budget is known, recommend a split — e.g., 60% on a volume utility it
 
 **Lead-Time Warning:**
 Custom branded items typically need 3–6 weeks. If the show is under 4 weeks away, flag which ideas are still feasible with rush production.
+
+**Next-Step Handoff:**
+- Add selected items and ordering deadlines into `exhibitor-checklist-generator`
+- If the giveaway is part of the meeting hook, carry it into `booth-invitation-writer`
 
 ### Output Footer
 
@@ -93,3 +115,4 @@ Before delivering results:
 - Premium qualifier items should be explicitly flagged as decision-maker-only, not general distribution
 - Lead-time must be flagged if the show is within 4 weeks
 - If no product description was given, make conservative assumptions and note them
+- If a common swag item is a poor fit for the ICP or booth goal, say so explicitly instead of padding the list
