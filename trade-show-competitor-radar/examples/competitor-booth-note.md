@@ -138,4 +138,4 @@ Krones has launched a direct response to our core changeover pitch. If their "40
 - Any plant managers or operations leads observed at the Krones booth who you can identify from badge data or LinkedIn research — these are accounts where Krones is actively pitching against our differentiators.
 
 ---
-*For pre-show competitor tracking and exhibitor lists, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=competitor-radar).*
+*For pre-show competitor tracking and exhibitor lists, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-competitor-radar).*

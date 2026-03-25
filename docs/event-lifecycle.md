@@ -92,7 +92,7 @@ After strong conversations, and again at the end of the day, the team classifies
 
 **What carries forward**: A tiered follow-up queue that is usable the minute the team lands.
 
-### 9. Capture competitor intel with `competitor-radar`
+### 9. Capture competitor intel with `trade-show-competitor-radar`
 
 The solutions engineer logs competitor booth visits, brochure claims, and overheard pricing notes with source tagging.
 
@@ -125,7 +125,7 @@ trade-show-finder
   -> booth-giveaway-planner
   -> booth-script-generator
   -> badge-qualifier
-  -> competitor-radar
+  -> trade-show-competitor-radar
   -> post-show-followup
 ```
 

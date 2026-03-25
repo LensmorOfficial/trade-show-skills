@@ -66,7 +66,7 @@ MEDICA 2026 shows a crowded robotics and OR digitization field, but the stronges
 ## Next-Step Handoff
 
 - Use `booth-script-generator` to prepare responses to competitor claims before the show
-- Use `competitor-radar` on-site to verify `[INF]` assumptions and collect `[OBS]` evidence
+- Use `trade-show-competitor-radar` on-site to verify `[INF]` assumptions and collect `[OBS]` evidence
 - Use `booth-invitation-writer` if you want to turn the differentiation angle into pre-show outreach copy
 
 ---

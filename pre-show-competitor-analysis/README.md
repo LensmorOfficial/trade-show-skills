@@ -23,7 +23,7 @@ Use it when you need to answer questions like:
 - What are they likely to emphasize?
 - Where is there still open positioning space for us?
 
-Do not use it for real-time field notes on the show floor. That is what `competitor-radar` is for.
+Do not use it for real-time field notes on the show floor. That is what `trade-show-competitor-radar` is for.
 
 ## Quick Examples
 
@@ -69,7 +69,7 @@ The skill guides the agent through:
 | `trade-show-finder` | Before final show selection | Use competitive density to influence go / no-go decisions |
 | `booth-invitation-writer` | Pre-show outreach | Turn differentiation angles into sharper invite messaging |
 | `booth-script-generator` | Staff prep | Brief staff on what competitor claims to expect and how to respond |
-| `competitor-radar` | On-site | Verify knowledge gaps and competitive hypotheses during the show |
+| `trade-show-competitor-radar` | On-site | Verify knowledge gaps and competitive hypotheses during the show |
 
 ---
 

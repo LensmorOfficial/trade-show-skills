@@ -143,7 +143,7 @@ Every analysis must include:
 2. **Threat scores**: Numeric rating for each primary competitor
 3. **Strategic implications**: What this means for booth, messaging, outreach
 4. **Knowledge gaps**: What you don't know and should verify on-site
-5. **Handoff**: Which skill to use next (booth-invitation-writer, competitor-radar)
+5. **Handoff**: Which skill to use next (booth-invitation-writer, trade-show-competitor-radar)
 
 ---
 

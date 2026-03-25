@@ -13,7 +13,7 @@ Analyze who is exhibiting at a target show, how they're positioning, and what it
 
 When this skill triggers:
 - Read [references/competitor-analysis-framework.md](references/competitor-analysis-framework.md) before starting
-- This is **pre-show intelligence**, not real-time booth observation (use `competitor-radar` for on-site intel)
+- This is **pre-show intelligence**, not real-time booth observation (use `trade-show-competitor-radar` for on-site intel)
 - Ask only for the missing show, segment, or offer context; do not start with a generic research questionnaire
 
 ## Workflow
@@ -60,7 +60,7 @@ For each relevant competitor:
 - Demo schedules or events
 - New product launch indicators
 
-Tag every data point for source clarity — use the same system as `competitor-radar`:
+Tag every data point for source clarity — use the same system as `trade-show-competitor-radar`:
 
 | Tag | Meaning |
 |-----|---------|
@@ -151,7 +151,7 @@ For the show overall:
 ## Next Steps
 - Continue with `booth-invitation-writer` to develop differentiated outreach
 - Use `trade-show-budget-planner` if booth changes are needed
-- Schedule on-site `competitor-radar` for real-time intel
+- Schedule on-site `trade-show-competitor-radar` for real-time intel
 ```
 
 ### Output Footer

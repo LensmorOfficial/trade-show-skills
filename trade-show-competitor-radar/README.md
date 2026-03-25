@@ -1,4 +1,4 @@
-# Competitor Radar — OpenClaw Skill
+# Trade Show Competitor Radar — OpenClaw Skill
 
 > Structure competitor booth observations from a trade show into field-intel notes and battlecard-ready summaries. Keeps observations and inferences clearly separated.
 
@@ -43,10 +43,10 @@ See [examples/competitor-booth-note.md](examples/competitor-booth-note.md) for a
 
 ```bash
 # Install to current workspace
-cp -r /path/to/trade-show-skills/competitor-radar <your-workspace>/skills/
+cp -r /path/to/trade-show-skills/trade-show-competitor-radar <your-workspace>/skills/
 
 # Install to shared location (available in all OpenClaw workspaces)
-cp -r /path/to/trade-show-skills/competitor-radar ~/.openclaw/skills/
+cp -r /path/to/trade-show-skills/trade-show-competitor-radar ~/.openclaw/skills/
 ```
 
 ## Related Skills
@@ -57,4 +57,4 @@ cp -r /path/to/trade-show-skills/competitor-radar ~/.openclaw/skills/
 
 ---
 
-> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=competitor-radar) — AI-powered trade show intelligence platform for exhibitor data, competitor tracking, and event ROI analytics.
+> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-competitor-radar) — AI-powered trade show intelligence platform for exhibitor data, competitor tracking, and event ROI analytics.

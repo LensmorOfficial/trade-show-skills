@@ -24,7 +24,7 @@ Transform booth conversation notes, badge scans, or voice transcripts into struc
 
 ---
 
-### [competitor-radar](../competitor-radar/)
+### [trade-show-competitor-radar](../trade-show-competitor-radar/)
 
 **Stage**: On-Site · **Category**: Competitive Intelligence
 
@@ -44,12 +44,12 @@ Before doors open
 During the show
   -> badge-qualifier
   -> capture lead quality while conversations are still fresh
-  -> competitor-radar
+  -> trade-show-competitor-radar
   -> log competitor claims with [OBS] / [INF] / [HEARD]
 
 End of day
   -> badge-qualifier (batch)
-  -> competitor-radar (consolidation)
+  -> trade-show-competitor-radar (consolidation)
   -> prepare clean lead tiers and intel notes for post-show follow-up
 ```
 
@@ -57,4 +57,4 @@ End of day
 
 - Use `booth-script-generator` before the team memorizes bad habits. It is a training aid, not just a content generator.
 - Use `badge-qualifier` in real time for Hot leads, and in batch for low-context badge scans.
-- Use `competitor-radar` whenever a claim could influence pricing, positioning, or product messaging after the show.
+- Use `trade-show-competitor-radar` whenever a claim could influence pricing, positioning, or product messaging after the show.

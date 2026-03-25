@@ -100,7 +100,7 @@ This applies especially to on-site skills, where the raw input is often incomple
 
 **On inference and observation**
 
-For `competitor-radar` and similar skills: use the tagging convention `[OBS]` / `[INF]` / `[HEARD]` to make the provenance of each data point explicit. Encourage this in the skill's workflow, and demonstrate it in examples.
+For `trade-show-competitor-radar` and similar skills: use the tagging convention `[OBS]` / `[INF]` / `[HEARD]` to make the provenance of each data point explicit. Encourage this in the skill's workflow, and demonstrate it in examples.
 
 ---
 
