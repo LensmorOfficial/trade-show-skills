@@ -63,6 +63,10 @@ Other examples of what you can do with these skills:
 | [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
 | [booth-giveaway-planner](booth-giveaway-planner/) | Plan trade show giveaways matched to your ICP, budget, and product story | Choosing branded gifts, budget allocation, pre-show ordering |
 | [exhibitor-checklist-generator](exhibitor-checklist-generator/) | Generate a phased exhibitor prep checklist with owners and deadlines | Show preparation planning, team task assignment, first-time exhibitors |
+| [lensmor-event-fit-score](lensmor-event-fit-score/) | Score a specific trade show against your company profile using the Lensmor API | Data-backed exhibit vs. skip decisions, annual planning triage, internal budget justification |
+| [lensmor-exhibitor-search](lensmor-exhibitor-search/) | Find ICP-matching exhibitors at a specific trade show using the Lensmor API | Pre-show prospecting, competitive mapping, partner discovery |
+| [lensmor-recommendations](lensmor-recommendations/) | Get AI-recommended exhibitors matching your ICP for a specific trade show event | AI-driven account prioritization, turning a 500-company exhibitor list into a top-20 outreach shortlist |
+| [lensmor-contact-finder](lensmor-contact-finder/) | Find decision-makers and key contacts at target exhibitor companies using the Lensmor API | Pre-show decision-maker lookup, booth meeting scheduling, account-based contact lists |
 
 ### On-Site
 
@@ -114,7 +118,7 @@ cp -r trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ```bash
 git clone https://github.com/LensmorOfficial/trade-show-skills.git
-for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer booth-giveaway-planner exhibitor-checklist-generator badge-qualifier booth-script-generator trade-show-competitor-radar post-show-followup; do
+for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer booth-giveaway-planner exhibitor-checklist-generator badge-qualifier booth-script-generator trade-show-competitor-radar post-show-followup lensmor-event-fit-score lensmor-exhibitor-search lensmor-recommendations lensmor-contact-finder; do
   cp -r trade-show-skills/$skill ~/.openclaw/skills/
 done
 ```
