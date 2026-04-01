@@ -125,7 +125,14 @@ done
 
 Skills activate automatically when your prompt matches their description.
 
-> **ClawHub**: These skills are available on [ClawHub](https://clawhub.ai). Use the exact skill slug, for example `clawhub install trade-show-finder` or `clawhub install trade-show-competitor-radar`.
+> **ClawHub**: All skills are published on [ClawHub](https://clawhub.ai). Install any skill with:
+> ```bash
+> npx clawhub@latest install trade-show-finder
+> npx clawhub@latest install lensmor-exhibitor-search
+> npx clawhub@latest install lensmor-event-fit-score
+> npx clawhub@latest install lensmor-contact-finder
+> npx clawhub@latest install lensmor-recommendations
+> ```
 
 ## End-to-End Lifecycle Example
 
