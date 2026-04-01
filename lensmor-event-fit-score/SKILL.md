@@ -4,7 +4,7 @@ version: 1.0.0
 description: Score a specific trade show against your company profile using the Lensmor API.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-event-fit-score
 user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
 
 # Lensmor Event Fit Score

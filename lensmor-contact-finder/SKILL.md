@@ -4,7 +4,7 @@ version: 1.0.0
 description: Find decision-makers and key contacts at target exhibitor companies using the Lensmor API.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-contact-finder
 user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"}}}
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
 
 # Lensmor Contact Finder

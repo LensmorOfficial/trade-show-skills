@@ -4,7 +4,7 @@ version: 1.0.0
 description: Get AI-recommended exhibitors matching your ICP for a specific trade show event.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-recommendations
 user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
 
 # Lensmor Recommendations
