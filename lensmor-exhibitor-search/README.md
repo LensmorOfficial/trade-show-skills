@@ -11,15 +11,19 @@ Provide your company URL or a description of your target audience. The agent cal
 ## Usage
 
 ```
-Find SaaS vendors exhibiting at Dreamforce 2026 that match our ICP — we sell to procurement teams at mid-market manufacturers.
+Find exhibitors at Dreamforce 2026 that match our ICP — we sell to procurement teams at mid-market manufacturers.
 ```
 
 ```
-Search for potential partners at Hannover Messe 2026 using our company profile: https://acme.com
+Who is exhibiting at Hannover Messe 2026 that looks like our prospects? Our site is https://acme.com
 ```
 
 ```
-Which exhibitors at CES 2026 overlap with our ICP? We target consumer electronics OEMs.
+Search for potential partners at CES 2026 using our company profile: https://acme.com
+```
+
+```
+Which companies at SaaStr Annual 2026 could be ICP matches for us? We target mid-market finance ops teams.
 ```
 
 ## Example Output

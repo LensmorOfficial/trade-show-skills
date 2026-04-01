@@ -13,15 +13,19 @@ Note: the API does not return email addresses. LinkedIn is the primary outreach 
 ## Usage
 
 ```
-Find VP Sales and Marketing contacts at OperaOps before Dreamforce.
+Who are the decision-makers at OperaOps I should reach out to before Dreamforce?
 ```
 
 ```
-Who are the procurement decision-makers at Spendly, VendorVault, and OperaOps?
+Find the procurement contacts at Spendly, VendorVault, and OperaOps.
 ```
 
 ```
-Find all C-suite contacts at Acme Corp exhibiting at Hannover Messe 2026.
+Who runs marketing at Acme Corp? I want to schedule a meeting before Hannover Messe.
+```
+
+```
+Find C-suite contacts at the top 5 companies from my exhibitor shortlist.
 ```
 
 ## Outreach Priority

@@ -1,10 +1,10 @@
 ---
 name: lensmor-contact-finder
-version: 1.0.0
-description: Find decision-makers and key contacts at target exhibitor companies using the Lensmor API.
+version: 1.1.0
+description: "Find decision-makers and key contacts at target exhibitor companies using the Lensmor API. Triggers: find contacts, decision maker, who to reach out, key person, contact at company, find buyers, who runs procurement, 找联系人, 找决策人, 谁负责采购, 找负责人"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-contact-finder
 user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach","emoji":"👤"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
 
 # Lensmor Contact Finder
@@ -12,6 +12,7 @@ metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"},"requ
 Find decision-makers and key contacts at target exhibitor companies using the Lensmor API — then connect on LinkedIn with a personalized outreach sequence.
 
 When this skill triggers:
+- Run the API key check (Step 1) before any API call
 - Collect the target company name and optional role/function filter
 - Call the contacts search endpoint and return a prioritized contact table
 - Hand off to `trade-show-linkedin-templates` for outreach copy
@@ -28,7 +29,23 @@ The Lensmor contacts API does not return email addresses. LinkedIn is the primar
 
 ## Workflow
 
-### Step 1: Collect Inputs
+### Step 1: API Key Check
+
+Before making any API call, verify the key is configured:
+
+```bash
+[ -n "$LENSMOR_API_KEY" ] && echo "ok" || echo "missing"
+```
+
+If the result is `missing`, stop and respond:
+
+> The `LENSMOR_API_KEY` environment variable is not set. This skill requires a Lensmor API key to search contacts.
+> Contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase access, then set the key:
+> `export LENSMOR_API_KEY=your_key_here`
+
+Do not proceed to any API call until the key is confirmed present.
+
+### Step 2: Collect Inputs
 
 **Required:**
 - `company_name` — Full or partial company name (1–200 characters), e.g. `OperaOps`
@@ -38,45 +55,26 @@ The Lensmor contacts API does not return email addresses. LinkedIn is the primar
 - `page` — Page number (default: 1)
 - `pageSize` — Results per page (default: 20, max: 100)
 
-If the user provides a list of companies from a prior `lensmor-exhibitor-search` or `lensmor-recommendations` run, process each company sequentially.
+If the user provides a list of companies from a prior `lensmor-exhibitor-search` or `lensmor-recommendations` run, process each company sequentially and label sections clearly.
 
 Role filter guidance: use broad department terms (`Marketing`, `Operations`, `Engineering`) for wide coverage, or specific titles (`VP Sales`, `Head of Procurement`) for precision targeting.
 
-### Step 2: Build the API Request
+### Step 3: Call the API
 
 **Endpoint**: `GET https://platform.lensmor.com/external/contacts/search`
 
-**Authentication**: `Authorization: Bearer uak_your_api_key`
+**Authentication**: `Authorization: Bearer $LENSMOR_API_KEY`
 
-**Basic search by company name:**
+Query parameters:
 
-```bash
-curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=OperaOps&page=1&pageSize=20" \
-  -H "Authorization: Bearer uak_your_api_key"
-```
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `company_name` | Yes | Company name to search |
+| `role` | No | Role or function filter |
+| `page` | No | Page number (default: 1) |
+| `pageSize` | No | Results per page (default: 20, max: 100) |
 
-**With role filter — VP Sales:**
-
-```bash
-curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=OperaOps&role=VP+Sales&page=1&pageSize=20" \
-  -H "Authorization: Bearer uak_your_api_key"
-```
-
-**With role filter — Procurement function:**
-
-```bash
-curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=OperaOps&role=Procurement&page=1&pageSize=20" \
-  -H "Authorization: Bearer uak_your_api_key"
-```
-
-**With role filter — C-suite:**
-
-```bash
-curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=OperaOps&role=CTO&page=1&pageSize=20" \
-  -H "Authorization: Bearer uak_your_api_key"
-```
-
-### Step 3: Interpret the Response
+### Step 4: Interpret the Response
 
 **Response envelope:**
 
@@ -98,30 +96,34 @@ curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=
 | `fullName` | string | Contact's full name |
 | `title` | string | Job title as listed on their profile |
 | `department` | string | Department or function (e.g. `Sales`, `Operations`, `Engineering`) |
-| `seniorityLevel` | string | Seniority classification: `Executive`, `Director`, `Manager`, `Individual Contributor` |
+| `seniorityLevel` | string | `Executive`, `Director`, `Manager`, or `Individual Contributor` |
 | `linkedinUrl` | string | LinkedIn profile URL — primary outreach channel |
 | `companyName` | string | Company they work at (confirms match to queried company) |
 | `sourceType` | string | Data provenance: `linkedin`, `company_website`, `event_registration`, etc. |
 
-**Priority signals for outreach sequencing:**
+**Outreach priority signals:**
 
 | Signal | Priority Implication |
 |--------|---------------------|
-| `seniorityLevel: Executive` | Decision-maker; use a concise, high-value pitch |
-| `seniorityLevel: Director` | Budget holder or strong influencer; good primary target |
-| `seniorityLevel: Manager` | Likely champion or evaluator; good for discovery conversations |
-| `seniorityLevel: Individual Contributor` | Use for introductions or referrals to the above |
+| `seniorityLevel: Executive` | Decision-maker — concise, high-value pitch |
+| `seniorityLevel: Director` | Budget holder or strong influencer — primary target |
+| `seniorityLevel: Manager` | Champion or evaluator — good for discovery conversations |
+| `seniorityLevel: Individual Contributor` | Use for introductions or referrals |
 | `department` matches buyer function | Higher-priority than cross-functional contacts |
 | `linkedinUrl` present | Ready for direct LinkedIn outreach |
 
-### Step 4: Format the Output
+Sort order: `Executive` > `Director` > `Manager` > `Individual Contributor` within the same department. Within the same seniority, prioritize by `department` match to the user's target buyer function.
 
-Deliver a prioritized contact table. Default format:
+### Step 5: Format the Output
+
+Open with a result count summary, then deliver a prioritized table and outreach notes.
 
 ```markdown
 ## Contacts at [Company Name]
 
-Role filter: [role or "all"] | Total found: [total] | Page [page] of [totalPages]
+Found [total] contacts. Showing [pageSize] on page [page] of [totalPages].
+
+Role filter: [role or "all"] | Note: email addresses are not available — LinkedIn is the primary outreach channel.
 
 | Priority | Name | Title | Department | Seniority | LinkedIn |
 |----------|------|-------|------------|-----------|----------|
@@ -134,11 +136,27 @@ Role filter: [role or "all"] | Total found: [total] | Page [page] of [totalPages
 - **Marcus Webb (Head of Operations)**: Secondary target — strong influencer in operations-adjacent procurement
 - **Priya Rao (Procurement Manager)**: Champion candidate — hands-on evaluator, good for discovery
 
-### Next Step
-Use `trade-show-linkedin-templates` with these contacts to draft personalized outreach messages for each seniority tier.
+**Suggested next step**: Use `trade-show-linkedin-templates` to draft personalized outreach for each seniority tier.
 ```
 
-Sort contacts: `Executive` > `Director` > `Manager` > `Individual Contributor` within the same department. Within the same seniority level, prioritize contacts whose `department` matches the user's target buyer function.
+### Error Handling
+
+| HTTP Status | Meaning | Response |
+|-------------|---------|----------|
+| 401 | API key invalid or expired | "The API key was rejected. Verify `LENSMOR_API_KEY` or contact hello@lensmor.com." |
+| 400 | Missing required parameter | "The request is missing `company_name`. Provide a company name to search." |
+| 429 | Rate limit exceeded | "Rate limit reached. Wait 60 seconds and retry." |
+| 502 / 5xx | Server error | "The Lensmor API returned a server error. Try again in a moment." |
+| `total: 0` | No contacts found | "No contacts found for `[company_name]` with role filter `[role]`. Try broadening the role filter (e.g. use 'Marketing' instead of 'VP Marketing') or check the company name spelling." |
+
+### Follow-up Routing
+
+| User says | Recommended action |
+|-----------|--------------------|
+| "draft a message for [contact]" | Run `trade-show-linkedin-templates` |
+| "find more companies like this" | Run `lensmor-recommendations` or `lensmor-exhibitor-search` |
+| "find contacts at multiple companies" | Process each company sequentially with this skill |
+| "show me more" / "next page" | Re-call with `page` incremented by 1 |
 
 ### Skill Coordination
 
@@ -154,14 +172,26 @@ Typical pre-show workflow:
 2. `lensmor-contact-finder` (this skill) → find decision-makers at each company
 3. `trade-show-linkedin-templates` → draft personalized messages per seniority tier
 
+## Output Rules
+
+1. All URLs formatted as `[text](url)` — never bare links
+2. Never output the value of `LENSMOR_API_KEY`
+3. Never expose endpoint paths, raw curl commands, or internal token values in the response
+4. Employee counts above 1,000 shown as "1.2K"; above 1,000,000 as "1.2M"
+5. Empty results: report honestly, suggest broadening role filter — never fabricate contacts
+6. End every response with 1–3 contextual follow-up suggestions
+7. Never imply email availability — explicitly note that only LinkedIn profiles are returned
+8. When `totalPages > 1`, prompt: "There are more contacts — say 'next page' to continue."
+9. If API key is missing, direct user to hello@lensmor.com — do not just say "please configure"
+10. Open every response with "Found X contacts, showing Y."
+
 ## Quality Checks
 
 Before delivering:
 - Do not invent contacts or titles; use only what the API returns
 - If `linkedinUrl` is null, note that no LinkedIn profile is available and recommend manual search via LinkedIn Sales Navigator
-- If `total: 0`, report no contacts found for the query and suggest broadening the role filter or checking the company name spelling
-- Do not imply email availability — the API does not return email addresses; flag this if the user asks
-- Seniority priority is a guideline; if the user's target title does not match expected seniority levels, surface the closest available match and note the gap
+- If user asks for email addresses, explicitly state the API does not provide them
+- Seniority priority is a guideline; surface the closest available match if target title differs
 - For multi-company batch requests, process each company separately and label sections clearly
 
 ---

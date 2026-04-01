@@ -11,15 +11,19 @@ Provide an event ID and ICP filters. The agent calls the Lensmor profile-matchin
 ## Usage
 
 ```
-Find the top 20 ICP-matching exhibitors at Dreamforce 2026 for us — we sell procurement automation to mid-market manufacturers.
+Give me the top ICP matches at Dreamforce 2026 — we sell procurement automation to mid-market manufacturers.
 ```
 
 ```
-Show me German industrial automation vendors at Hannover Messe 2026 with 100–1,000 employees.
+Who should we target at Hannover Messe 2026? We want German industrial automation vendors with 100–1,000 employees.
 ```
 
 ```
-Which companies from my target list (OperaOps, Spendly, VendorVault) are exhibiting at Dreamforce?
+Which companies from my shortlist (OperaOps, Spendly, VendorVault) are exhibiting at Dreamforce?
+```
+
+```
+Shortlist the best prospects for us at SaaStr Annual 2026. We sell to B2B SaaS CFOs, Series B and above.
 ```
 
 ## Available Filters

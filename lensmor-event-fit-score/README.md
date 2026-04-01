@@ -15,15 +15,19 @@ Provide a show name or Lensmor event ID. The agent calls the Lensmor fit-score A
 ## Usage
 
 ```
-Score Hannover Messe 2026 for our ICP — we sell industrial IoT software to plant managers at European manufacturers.
+Should we exhibit at Hannover Messe 2026? We sell industrial IoT software to plant managers at European manufacturers.
 ```
 
 ```
-Is SaaStr Annual 2026 worth exhibiting at for a B2B SaaS company selling to mid-market CFOs?
+Is SaaStr Annual 2026 worth the booth spend for a B2B SaaS company selling to mid-market CFOs?
 ```
 
 ```
-Run a fit-score on event_id evt_medica_2026 for us.
+Score event evt_medica_2026 — is it worth attending for a surgical robotics company?
+```
+
+```
+We're deciding between Dreamforce and SaaStr this year. Give me a fit score for both.
 ```
 
 ## Score Interpretation
