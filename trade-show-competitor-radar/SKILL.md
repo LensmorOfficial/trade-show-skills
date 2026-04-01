@@ -1,7 +1,7 @@
 ---
 name: trade-show-competitor-radar
-version: 0.3.0
-description: Turn show-floor competitor notes into tagged intel your team can act on.
+version: 0.4.0
+description: "Structure on-site competitor booth observations into tagged, actionable intelligence notes. \"Log competitor intel from the show floor\" / \"记录展会现场竞品情报\" / \"Konkurrenzbeobachtung dokumentieren\" / \"競合情報を現場で記録する\" / \"registrar inteligencia competitiva en feria\". 现场竞品情报/展位观察 Messewettbewerb Wettbewerbsbeobachtung 競合情報 inteligencia ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-competitor-radar
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"competitive-intelligence"}}}

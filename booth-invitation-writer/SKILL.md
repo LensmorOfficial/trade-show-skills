@@ -1,7 +1,7 @@
 ---
 name: booth-invitation-writer
-version: 0.3.0
-description: Write booth invites that turn target accounts into booked meetings.
+version: 0.4.0
+description: "Write pre-show booth invitation emails and outreach sequences that book meetings before the event. \"Write a booth invite email\" / \"帮我写展会邀请函\" / \"Messeeinladung schreiben\" / \"招待メールを書く\" / \"escribir invitación a feria\". 展会邀请函/邀约/预约见面 Messeeinladung Einladungsmail 招待状 invitación a stand"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-invitation-writer
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach"}}}

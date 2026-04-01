@@ -1,7 +1,7 @@
 ---
 name: exhibitor-checklist-generator
-version: 1.1.0
-description: Turn show plans into deadline-driven exhibitor checklists with owners.
+version: 1.2.0
+description: "Generate a phased exhibitor prep checklist with task owners and deadlines from your show details. \"Create our trade show prep checklist\" / \"生成展会准备清单\" / \"Messe-Checkliste erstellen\" / \"出展チェックリストを作成\" / \"lista de preparación para feria\". 展会清单/参展准备/任务分配 Messe-Checkliste Messeplanung 出展準備リスト lista de control ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/exhibitor-checklist-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

@@ -1,7 +1,7 @@
 ---
 name: lensmor-recommendations
-version: 1.1.0
-description: "Get AI-recommended exhibitors matching your ICP for a specific trade show event. Triggers: ICP match, recommended exhibitors, who to target, best prospects, shortlist, top accounts, prioritize accounts, 推荐参展商, ICP匹配, 找目标客户, 哪些公司值得拜访"
+version: 1.2.0
+description: "Get AI-ranked exhibitors matching your ICP — shortlist the top accounts worth outreach at any show. \"Who should we target at this show?\" / \"推荐参展商\" / \"Ausstellerempfehlungen für mein ICP\" / \"おすすめ出展社を教えて\" / \"recomienda expositores por ICP\". ICP match, recommended exhibitors, shortlist, top accounts, ICP匹配/推荐参展商/找目标客户/哪些公司值得拜访 Ausstellerempfehlung 出展社推薦 recomendaciones ICP"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-recommendations
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"⭐"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}

@@ -1,7 +1,7 @@
 ---
 name: trade-show-budget-planner
-version: 0.3.0
-description: Stress-test exhibit budgets with ROI scenarios and go-no-go guardrails.
+version: 0.4.0
+description: "Build trade show exhibition budgets with ROI projections and go/no-go investment models. \"Plan our trade show budget\" / \"帮我做展会预算\" / \"Messebudget planen\" / \"展示会の予算を作る\" / \"planificar presupuesto de feria\". 展会预算/投资回报/参展费用 Messebudget ROI-Kalkulation 展示会予算 presupuesto ferial ROI"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-budget-planner
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

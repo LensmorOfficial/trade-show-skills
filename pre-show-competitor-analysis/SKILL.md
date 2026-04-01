@@ -1,7 +1,7 @@
 ---
 name: pre-show-competitor-analysis
-version: 0.3.0
-description: Map competitor presence before the show and sharpen booth positioning.
+version: 0.4.0
+description: "Analyze competitor exhibitor presence, booth positioning, and messaging before the show. \"Who are my competitors at this show?\" / \"分析展会竞争对手\" / \"Messekonkurrenz analysieren\" / \"競合他社を事前分析する\" / \"análisis de competidores en feria\". 展会竞品分析/竞争对手/竞品策略 Wettbewerbsanalyse Messekonkurrenz 競合分析 análisis competitivo ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"competitive-intelligence"}}}

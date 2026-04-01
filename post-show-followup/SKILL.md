@@ -1,7 +1,7 @@
 ---
 name: post-show-followup
-version: 0.3.0
-description: Turn trade show lead tiers into 48-hour follow-up sequences.
+version: 0.4.0
+description: "Create tiered post-show follow-up email sequences for hot, warm, and cold leads from your trade show. \"Write follow-up emails for my trade show leads\" / \"帮我写展后跟进邮件\" / \"Messe-Nachfassung schreiben\" / \"展示会後フォローアップメール\" / \"emails de seguimiento post-feria\". 展后跟进/邮件序列/展会线索 Messenachfassung Nachfass-E-Mail フォローアップ seguimiento ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/post-show-followup
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"post-show","category":"follow-up"}}}

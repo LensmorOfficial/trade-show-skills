@@ -1,7 +1,7 @@
 ---
 name: booth-script-generator
-version: 1.1.0
-description: Give booth staff visitor-specific talk tracks and qualification paths.
+version: 1.2.0
+description: "Generate booth conversation scripts for every visitor type — cold walk-ups, warm leads, and live demos. \"Write booth scripts for my team\" / \"帮我写展位话术\" / \"Messegespräche vorbereiten\" / \"ブーストークスクリプトを作る\" / \"guión para el stand\". 展位话术/销售脚本/展会话术 Messeskript Gesprächsleitfaden トークスクリプト guión ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-script-generator
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}

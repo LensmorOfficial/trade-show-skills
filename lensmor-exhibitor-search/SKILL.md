@@ -1,7 +1,7 @@
 ---
 name: lensmor-exhibitor-search
-version: 1.1.0
-description: "Find ICP-matching exhibitors at a specific trade show using the Lensmor API. Triggers: find exhibitors, search exhibitors, who is exhibiting, prospect at show, ICP match, exhibitor list, show prospects, 参展商搜索, 找参展商, 展会潜客, 谁在参展"
+version: 1.2.0
+description: "Find ICP-matching exhibitors, prospects, and partners at any trade show using the Lensmor API. \"Who is exhibiting at this show?\" / \"参展商搜索\" / \"Aussteller finden\" / \"出展社を探す\" / \"buscar expositores\". find exhibitors, exhibitor list, who is exhibiting, show prospects, 找参展商/展会潜客/谁在参展 Ausstellersuche Ausstellerliste 出展社検索 búsqueda de expositores"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-exhibitor-search
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"🔍"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}

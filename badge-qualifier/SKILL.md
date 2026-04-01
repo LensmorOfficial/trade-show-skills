@@ -1,7 +1,7 @@
 ---
 name: badge-qualifier
-version: 0.3.0
-description: Convert booth notes and badge scans into qualified lead cards and follow-up tiers.
+version: 0.4.0
+description: "Qualify trade show leads from badge scans, booth notes, or voice memos into scored CRM-ready cards. \"Score my booth leads\" / \"给展会线索打分\" / \"Leads qualifizieren\" / \"リードを評価する\" / \"calificar leads de feria\". 展会线索/资质审核/线索分级 Leadqualifizierung Messeleads 展示会リード評価 calificación de leads"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/badge-qualifier
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}

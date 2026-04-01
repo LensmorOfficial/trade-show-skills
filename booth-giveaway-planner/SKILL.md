@@ -1,7 +1,7 @@
 ---
 name: booth-giveaway-planner
-version: 1.1.0
-description: Choose booth giveaways with targeting, gating, and budget logic.
+version: 1.2.0
+description: "Plan trade show booth giveaways matched to your ICP, budget, and product story. \"What should we give away at the booth?\" / \"展会礼品怎么选\" / \"Messegeschenke planen\" / \"ノベルティを選ぶ\" / \"regalos para el stand\". 展会赠品/伴手礼/展位礼物 Messegeschenk Werbegeschenk ノベルティ regalos promocionales"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-giveaway-planner
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"planning"}}}

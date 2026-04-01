@@ -1,7 +1,7 @@
 ---
 name: trade-show-finder
-version: 0.3.0
-description: Decide which trade shows deserve booth budget, team time, and follow-up.
+version: 0.4.0
+description: "Score and compare trade shows to decide where to exhibit, attend, or skip this year. \"Which trade shows should we go to?\" / \"哪些展会值得参加\" / \"Welche Messen lohnen sich?\" / \"どの展示会に出展すべき?\" / \"¿A qué ferias asistir?\". 展会选择/展会评估/值得参加 Messeauswahl Messeplanung 展示会選定 selección de ferias"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-finder
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}

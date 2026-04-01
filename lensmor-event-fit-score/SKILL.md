@@ -1,7 +1,7 @@
 ---
 name: lensmor-event-fit-score
-version: 1.1.0
-description: "Score a specific trade show against your company profile using the Lensmor API. Triggers: score event, fit score, should we exhibit, worth attending, evaluate show, event ROI, go or no-go, 展会评分, 值不值得参加, 展会匹配度, 要不要参展"
+version: 1.2.0
+description: "Score a trade show against your company profile for an AI-backed exhibit vs. skip decision. \"Should we exhibit at this show?\" / \"这个展会值得参加吗\" / \"Lohnt sich diese Messe?\" / \"この展示会は合っている?\" / \"¿Vale la pena esta feria?\". score event, fit score, should we exhibit, worth attending, event ROI, go or no-go, 展会评分, 值不值得参加, 展会匹配度, 要不要参展 Messebewertung Messeignung 展示会評価 puntuación de feria"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-event-fit-score
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"🎯"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}

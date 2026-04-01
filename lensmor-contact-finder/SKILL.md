@@ -1,7 +1,7 @@
 ---
 name: lensmor-contact-finder
-version: 1.1.0
-description: "Find decision-makers and key contacts at target exhibitor companies using the Lensmor API. Triggers: find contacts, decision maker, who to reach out, key person, contact at company, find buyers, who runs procurement, 找联系人, 找决策人, 谁负责采购, 找负责人"
+version: 1.2.0
+description: "Find decision-makers and key contacts at exhibitor companies using the Lensmor API. \"Who should I contact at this company?\" / \"找联系人\" / \"Entscheidungsträger finden\" / \"担当者を探す\" / \"encontrar responsables de compras\". find contacts, decision maker, key person, find buyers, 找联系人, 找决策人, 谁负责采购, 找负责人 Entscheidungsträger Einkäufer 意思決定者 responsable de compras"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-contact-finder
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach","emoji":"👤"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
