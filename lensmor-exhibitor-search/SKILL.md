@@ -4,7 +4,7 @@ version: 1.0.0
 description: Find ICP-matching exhibitors at a specific trade show using the Lensmor API.
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-exhibitor-search
 user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"intelligence"}}}
+metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research"}}}
 ---
 
 # Lensmor Exhibitor Search

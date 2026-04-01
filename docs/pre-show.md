@@ -64,17 +64,61 @@ Plan giveaway items that reinforce the brand story and fit the ICP, budget, and 
 
 ---
 
+### [lensmor-event-fit-score](../lensmor-event-fit-score/)
+
+**Stage**: Pre-Show · **Category**: Research
+
+Score a specific trade show against your company profile using the Lensmor API.
+
+**When to use**: When evaluating a named show and wanting a data-backed fit score with dimension breakdown before committing to exhibit.
+
+---
+
+### [lensmor-exhibitor-search](../lensmor-exhibitor-search/)
+
+**Stage**: Pre-Show · **Category**: Research
+
+Find ICP-matching exhibitors at a specific trade show using the Lensmor API.
+
+**When to use**: Before a show, when prospecting for potential customers, partners, or accounts to target for pre-show outreach.
+
+---
+
+### [lensmor-recommendations](../lensmor-recommendations/)
+
+**Stage**: Pre-Show · **Category**: Research
+
+Get AI-recommended exhibitors matching your ICP for a specific trade show event.
+
+**When to use**: When starting from a large exhibitor list and needing to narrow it to a high-fit outreach shortlist using ICP filters.
+
+---
+
+### [lensmor-contact-finder](../lensmor-contact-finder/)
+
+**Stage**: Pre-Show · **Category**: Outreach
+
+Find decision-makers and key contacts at target exhibitor companies using the Lensmor API.
+
+**When to use**: After identifying target companies, to find the right people for LinkedIn outreach before the show.
+
+---
+
 ## Typical Pre-Show Workflow
 
 ```text
 trade-show-finder
   -> decide which shows to prioritize and why
+  -> lensmor-event-fit-score          [optional: data-backed fit score via API]
   -> pre-show-competitor-analysis
   -> understand threat landscape and white space
   -> trade-show-budget-planner
   -> validate ROI and get budget approval
   -> exhibitor-checklist-generator
   -> assign owners and deadlines
+  -> lensmor-recommendations          [narrow exhibitor list to ICP-matched shortlist]
+  -> lensmor-exhibitor-search         [targeted search by company URL or audience]
+  -> lensmor-contact-finder           [find decision-makers at target companies]
   -> booth-invitation-writer
   -> drive pre-booked meetings
   -> booth-giveaway-planner
@@ -86,3 +130,4 @@ trade-show-finder
 - `trade-show-finder` and `pre-show-competitor-analysis` are the strategic filters. They decide whether the event is worth doing and how crowded the field will be.
 - `trade-show-budget-planner`, `exhibitor-checklist-generator`, and `booth-giveaway-planner` translate that strategy into execution.
 - `booth-invitation-writer` is most effective when the target show, message, and audience segmentation are already settled.
+- The four `lensmor-*` skills require a paid Lensmor API key (contact hello@lensmor.com). They add live data to the workflow where manual research would otherwise be needed.
