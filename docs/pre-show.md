@@ -104,13 +104,13 @@ Find decision-makers and key contacts at target exhibitor companies using the Le
 
 ---
 
-### [exhibitor-show-history](../exhibitor-show-history/)
+### [competitor-show-tracker](../competitor-show-tracker/)
 
-**Stage**: Pre-Show · **Category**: Research
+**Stage**: Pre-Show · **Category**: Competitive Intelligence
 
-Find every trade show a company has exhibited at using the Lensmor API — for competitive intel, account research, or show circuit mapping.
+Rank upcoming trade shows by how many of your competitors are exhibiting there, using the Lensmor API.
 
-**When to use**: When you want to know which shows a competitor or target account regularly attends, to plan counter-programming or time your outreach around their upcoming events.
+**When to use**: When you want to map the show circuit of your competitive set — find events where multiple competitors cluster to decide where to counter-program or invest in booth presence.
 
 ---
 
@@ -126,7 +126,7 @@ trade-show-finder
   -> validate ROI and get budget approval
   -> exhibitor-checklist-generator
   -> assign owners and deadlines
-  -> exhibitor-show-history              [optional: map competitor / target account show circuits]
+  -> competitor-show-tracker             [optional: map which shows your competitive set is attending]
   -> trade-show-lead-recommender          [narrow exhibitor list to ICP-matched shortlist]
   -> trade-show-exhibitor-search         [targeted search by company URL or audience]
   -> trade-show-contact-finder           [find decision-makers at target companies]
@@ -141,4 +141,4 @@ trade-show-finder
 - `trade-show-finder` and `pre-show-competitor-analysis` are the strategic filters. They decide whether the event is worth doing and how crowded the field will be.
 - `trade-show-budget-planner`, `exhibitor-checklist-generator`, and `booth-giveaway-planner` translate that strategy into execution.
 - `booth-invitation-writer` is most effective when the target show, message, and audience segmentation are already settled.
-- `trade-show-fit-score`, `trade-show-exhibitor-search`, `trade-show-lead-recommender`, `trade-show-contact-finder`, and `exhibitor-show-history` require a paid Lensmor API key (contact hello@lensmor.com). They add live data to the workflow where manual research would otherwise be needed.
+- `trade-show-fit-score`, `trade-show-exhibitor-search`, `trade-show-lead-recommender`, `trade-show-contact-finder`, and `competitor-show-tracker` require a paid Lensmor API key (contact hello@lensmor.com). They add live data to the workflow where manual research would otherwise be needed.
