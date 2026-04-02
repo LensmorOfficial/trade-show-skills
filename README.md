@@ -67,6 +67,7 @@ Other examples of what you can do with these skills:
 | [trade-show-exhibitor-search](trade-show-exhibitor-search/) | Find ICP-matching exhibitors at a specific trade show using the Lensmor API | Pre-show prospecting, competitive mapping, partner discovery |
 | [trade-show-lead-recommender](trade-show-lead-recommender/) | Get AI-recommended exhibitors matching your ICP for a specific trade show event | AI-driven account prioritization, turning a 500-company exhibitor list into a top-20 outreach shortlist |
 | [trade-show-contact-finder](trade-show-contact-finder/) | Find decision-makers and key contacts at target exhibitor companies using the Lensmor API | Pre-show decision-maker lookup, booth meeting scheduling, account-based contact lists |
+| [exhibitor-show-history](exhibitor-show-history/) | Find every trade show a company has exhibited at using the Lensmor API | Competitor show circuit mapping, account intelligence, show timing for outreach |
 
 ### On-Site
 
@@ -118,7 +119,7 @@ cp -r trade-show-skills/trade-show-finder ~/.openclaw/skills/
 
 ```bash
 git clone https://github.com/LensmorOfficial/trade-show-skills.git
-for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer booth-giveaway-planner exhibitor-checklist-generator badge-qualifier booth-script-generator trade-show-competitor-radar post-show-followup trade-show-fit-score trade-show-exhibitor-search trade-show-lead-recommender trade-show-contact-finder; do
+for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer booth-giveaway-planner exhibitor-checklist-generator badge-qualifier booth-script-generator trade-show-competitor-radar post-show-followup trade-show-fit-score trade-show-exhibitor-search trade-show-lead-recommender trade-show-contact-finder exhibitor-show-history; do
   cp -r trade-show-skills/$skill ~/.openclaw/skills/
 done
 ```
@@ -132,6 +133,7 @@ Skills activate automatically when your prompt matches their description.
 > npx clawhub@latest install trade-show-fit-score
 > npx clawhub@latest install trade-show-contact-finder
 > npx clawhub@latest install trade-show-lead-recommender
+> npx clawhub@latest install exhibitor-show-history
 > ```
 
 ## End-to-End Lifecycle Example
