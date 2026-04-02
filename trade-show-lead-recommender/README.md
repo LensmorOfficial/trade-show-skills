@@ -38,8 +38,8 @@ Shortlist the best prospects for us at SaaStr Annual 2026. We sell to B2B SaaS C
 
 ## Pre-Show Workflow
 
-1. `lensmor-recommendations` (this skill) — AI-ranked ICP exhibitors at a specific event
-2. `lensmor-contact-finder` — Find decision-makers at each matched company
+1. `trade-show-lead-recommender` (this skill) — AI-ranked ICP exhibitors at a specific event
+2. `trade-show-contact-finder` — Find decision-makers at each matched company
 3. `trade-show-linkedin-templates` — Draft personalized outreach per seniority tier
 
 ## Requirements
@@ -52,17 +52,17 @@ Shortlist the best prospects for us at SaaStr Annual 2026. We sell to B2B SaaS C
 
 ```bash
 # Workspace-local
-cp -r /path/to/trade-show-skills/lensmor-recommendations <your-workspace>/skills/
+cp -r /path/to/trade-show-skills/trade-show-lead-recommender <your-workspace>/skills/
 
 # Shared (all workspaces)
-cp -r /path/to/trade-show-skills/lensmor-recommendations ~/.openclaw/skills/
+cp -r /path/to/trade-show-skills/trade-show-lead-recommender ~/.openclaw/skills/
 ```
 
 ## Related Skills
 
-- [lensmor-exhibitor-search](../lensmor-exhibitor-search/) — Profile-based exhibitor search across all events
-- [lensmor-contact-finder](../lensmor-contact-finder/) — Find decision-makers at matched exhibitor companies
-- [lensmor-event-fit-score](../lensmor-event-fit-score/) — Score whether the event is worth targeting before prospecting
+- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — Profile-based exhibitor search across all events
+- [trade-show-contact-finder](../trade-show-contact-finder/) — Find decision-makers at matched exhibitor companies
+- [trade-show-fit-score](../trade-show-fit-score/) — Score whether the event is worth targeting before prospecting
 - [booth-invitation-writer](../booth-invitation-writer/) — Draft outreach emails once target accounts are confirmed
 
 ---

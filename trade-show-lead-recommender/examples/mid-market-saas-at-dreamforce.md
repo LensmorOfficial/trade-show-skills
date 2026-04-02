@@ -101,7 +101,7 @@ Event: evt_dreamforce_2026 | Filters: employees 100–1,000, category: Procureme
 - Spendly (95 employees) fell below the 100-employee minimum but was returned due to high category relevance; keep in shortlist as a potential partner
 
 ### Next Steps
-1. Use `lensmor-contact-finder` on OperaOps, Spendly, and FlowSource to find procurement decision-makers
+1. Use `trade-show-contact-finder` on OperaOps, Spendly, and FlowSource to find procurement decision-makers
 2. Use `trade-show-linkedin-templates` to draft Director-tier and Manager-tier outreach for each
 ```
 

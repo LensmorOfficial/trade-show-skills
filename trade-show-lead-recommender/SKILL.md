@@ -1,8 +1,8 @@
 ---
-name: lensmor-recommendations
+name: trade-show-lead-recommender
 version: 1.2.0
 description: "Get AI-ranked exhibitors matching your ICP — shortlist the top accounts worth outreach at any show. \"Who should we target at this show?\" / \"推荐参展商\" / \"Ausstellerempfehlungen für mein ICP\" / \"おすすめ出展社を教えて\" / \"recomienda expositores por ICP\". ICP match, recommended exhibitors, shortlist, top accounts, ICP匹配/推荐参展商/找目标客户/哪些公司值得拜访 Ausstellerempfehlung 出展社推薦 recomendaciones ICP"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-recommendations
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-lead-recommender
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"⭐"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
@@ -16,7 +16,7 @@ When this skill triggers:
 - Confirm the `event_id` for the target show
 - Apply relevant filters based on the user's ICP (employee size, location, category)
 - Return a ranked, prioritized list of matching exhibitors with ICP match rationale
-- Hand off to `lensmor-contact-finder` for decision-maker lookup
+- Hand off to `trade-show-contact-finder` for decision-maker lookup
 
 ## Use Cases
 
@@ -152,7 +152,7 @@ Event: [event_id] | Filters applied: [list active filters]
 - **Spendly (Rank 2)**: Good match — spend analytics adjacent to procurement automation; smaller team signals startup co-sell or partnership opportunity
 - **VendorVault (Rank 3)**: Partial match — procurement adjacency via vendor risk; 210 employees suggests longer sales cycle
 
-**Suggested next step**: Run `lensmor-contact-finder` on the top-ranked companies to find decision-makers.
+**Suggested next step**: Run `trade-show-contact-finder` on the top-ranked companies to find decision-makers.
 ```
 
 Number formatting: employee counts above 1,000 display as "1.2K"; above 1,000,000 as "1.2M".
@@ -171,25 +171,25 @@ Number formatting: employee counts above 1,000 display as "1.2K"; above 1,000,00
 
 | User says | Recommended action |
 |-----------|--------------------|
-| "find contacts at [company]" | Run `lensmor-contact-finder` |
-| "is this show worth it first?" | Run `lensmor-event-fit-score` before recommendations |
-| "search by our company profile" | Run `lensmor-exhibitor-search` with `company_url` |
+| "find contacts at [company]" | Run `trade-show-contact-finder` |
+| "is this show worth it first?" | Run `trade-show-fit-score` before recommendations |
+| "search by our company profile" | Run `trade-show-exhibitor-search` with `company_url` |
 | "show me more" / "next page" | Re-call with `page` incremented by 1 |
 | "draft outreach for these companies" | Run `booth-invitation-writer` |
 
 ### Complete Pre-Show Workflow
 
-1. `lensmor-event-fit-score` (optional) — confirm the event is worth investing in
-2. **`lensmor-recommendations`** (this skill) — AI-ranked ICP exhibitors at a specific event
-3. `lensmor-contact-finder` — decision-makers at each matched company
+1. `trade-show-fit-score` (optional) — confirm the event is worth investing in
+2. **`trade-show-lead-recommender`** (this skill) — AI-ranked ICP exhibitors at a specific event
+3. `trade-show-contact-finder` — decision-makers at each matched company
 4. `trade-show-linkedin-templates` — personalized LinkedIn messages per seniority tier
 
-### Relationship to lensmor-exhibitor-search
+### Relationship to trade-show-exhibitor-search
 
 | Skill | Input | Best For |
 |-------|-------|----------|
-| `lensmor-recommendations` | `event_id` + optional filters | AI-driven ICP ranking for a specific event |
-| `lensmor-exhibitor-search` | `company_url` or `target_audience` | Profile-based search across all events or a specific event |
+| `trade-show-lead-recommender` | `event_id` + optional filters | AI-driven ICP ranking for a specific event |
+| `trade-show-exhibitor-search` | `company_url` or `target_audience` | Profile-based search across all events or a specific event |
 
 ## Output Rules
 

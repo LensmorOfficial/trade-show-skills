@@ -91,5 +91,5 @@ curl -X POST https://platform.lensmor.com/external/events/fit-score \
 ## Next Steps
 
 - Score ≥ 80: Move forward with exhibiting
-- Use `lensmor-recommendations` with `event_id: evt_hannovermesse_2026` to get AI-ranked ICP exhibitors for pre-show prospecting
+- Use `trade-show-lead-recommender` with `event_id: evt_hannovermesse_2026` to get AI-ranked ICP exhibitors for pre-show prospecting
 - Use `trade-show-budget-planner` to model the €45K booth investment against expected pipeline

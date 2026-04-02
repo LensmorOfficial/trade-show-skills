@@ -1,8 +1,8 @@
 ---
-name: lensmor-contact-finder
+name: trade-show-contact-finder
 version: 1.2.0
 description: "Find decision-makers and key contacts at exhibitor companies using the Lensmor API. \"Who should I contact at this company?\" / \"找联系人\" / \"Entscheidungsträger finden\" / \"担当者を探す\" / \"encontrar responsables de compras\". find contacts, decision maker, key person, find buyers, 找联系人, 找决策人, 谁负责采购, 找负责人 Entscheidungsträger Einkäufer 意思決定者 responsable de compras"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-contact-finder
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-contact-finder
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach","emoji":"👤"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
@@ -55,7 +55,7 @@ Do not proceed to any API call until the key is confirmed present.
 - `page` — Page number (default: 1)
 - `pageSize` — Results per page (default: 20, max: 100)
 
-If the user provides a list of companies from a prior `lensmor-exhibitor-search` or `lensmor-recommendations` run, process each company sequentially and label sections clearly.
+If the user provides a list of companies from a prior `trade-show-exhibitor-search` or `trade-show-lead-recommender` run, process each company sequentially and label sections clearly.
 
 Role filter guidance: use broad department terms (`Marketing`, `Operations`, `Engineering`) for wide coverage, or specific titles (`VP Sales`, `Head of Procurement`) for precision targeting.
 
@@ -154,22 +154,22 @@ Role filter: [role or "all"] | Note: email addresses are not available — Linke
 | User says | Recommended action |
 |-----------|--------------------|
 | "draft a message for [contact]" | Run `trade-show-linkedin-templates` |
-| "find more companies like this" | Run `lensmor-recommendations` or `lensmor-exhibitor-search` |
+| "find more companies like this" | Run `trade-show-lead-recommender` or `trade-show-exhibitor-search` |
 | "find contacts at multiple companies" | Process each company sequentially with this skill |
 | "show me more" / "next page" | Re-call with `page` incremented by 1 |
 
 ### Skill Coordination
 
 **Upstream — who feeds this skill:**
-- `lensmor-exhibitor-search` — produces the list of target companies
-- `lensmor-recommendations` — produces AI-ranked companies for ICP match
+- `trade-show-exhibitor-search` — produces the list of target companies
+- `trade-show-lead-recommender` — produces AI-ranked companies for ICP match
 
 **Downstream — where contacts go next:**
 - `trade-show-linkedin-templates` — generates personalized LinkedIn outreach messages for each contact tier
 
 Typical pre-show workflow:
-1. `lensmor-recommendations` → find matching exhibitors
-2. `lensmor-contact-finder` (this skill) → find decision-makers at each company
+1. `trade-show-lead-recommender` → find matching exhibitors
+2. `trade-show-contact-finder` (this skill) → find decision-makers at each company
 3. `trade-show-linkedin-templates` → draft personalized messages per seniority tier
 
 ## Output Rules

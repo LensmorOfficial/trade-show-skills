@@ -49,22 +49,22 @@ Contacts are ranked by seniority and buyer function alignment:
 
 ```bash
 # Workspace-local
-cp -r /path/to/trade-show-skills/lensmor-contact-finder <your-workspace>/skills/
+cp -r /path/to/trade-show-skills/trade-show-contact-finder <your-workspace>/skills/
 
 # Shared (all workspaces)
-cp -r /path/to/trade-show-skills/lensmor-contact-finder ~/.openclaw/skills/
+cp -r /path/to/trade-show-skills/trade-show-contact-finder ~/.openclaw/skills/
 ```
 
 ## Pre-Show Workflow
 
-1. `lensmor-recommendations` — find ICP-matching exhibitors at a specific event
-2. `lensmor-contact-finder` (this skill) — find decision-makers at each matched company
+1. `trade-show-lead-recommender` — find ICP-matching exhibitors at a specific event
+2. `trade-show-contact-finder` (this skill) — find decision-makers at each matched company
 3. `trade-show-linkedin-templates` — draft personalized outreach per seniority tier
 
 ## Related Skills
 
-- [lensmor-exhibitor-search](../lensmor-exhibitor-search/) — Find ICP-matching exhibitors (feeds company names into this skill)
-- [lensmor-recommendations](../lensmor-recommendations/) — AI-ranked exhibitor matches for a specific event
+- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — Find ICP-matching exhibitors (feeds company names into this skill)
+- [trade-show-lead-recommender](../trade-show-lead-recommender/) — AI-ranked exhibitor matches for a specific event
 - [booth-invitation-writer](../booth-invitation-writer/) — Draft booth invitation emails for confirmed targets
 - [trade-show-linkedin-templates](../trade-show-linkedin-templates/) — Generate personalized LinkedIn messages per contact tier
 

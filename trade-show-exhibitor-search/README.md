@@ -40,17 +40,17 @@ See [examples/saas-vendor-at-dreamforce.md](examples/saas-vendor-at-dreamforce.m
 
 ```bash
 # Workspace-local
-cp -r /path/to/trade-show-skills/lensmor-exhibitor-search <your-workspace>/skills/
+cp -r /path/to/trade-show-skills/trade-show-exhibitor-search <your-workspace>/skills/
 
 # Shared (all workspaces)
-cp -r /path/to/trade-show-skills/lensmor-exhibitor-search ~/.openclaw/skills/
+cp -r /path/to/trade-show-skills/trade-show-exhibitor-search ~/.openclaw/skills/
 ```
 
 ## Related Skills
 
-- [lensmor-recommendations](../lensmor-recommendations/) — AI-ranked ICP matches for a specific event (recommended next step)
-- [lensmor-contact-finder](../lensmor-contact-finder/) — Find decision-makers at matched companies
-- [lensmor-event-fit-score](../lensmor-event-fit-score/) — Score whether a show is worth attending before prospecting
+- [trade-show-lead-recommender](../trade-show-lead-recommender/) — AI-ranked ICP matches for a specific event (recommended next step)
+- [trade-show-contact-finder](../trade-show-contact-finder/) — Find decision-makers at matched companies
+- [trade-show-fit-score](../trade-show-fit-score/) — Score whether a show is worth attending before prospecting
 - [booth-invitation-writer](../booth-invitation-writer/) — Draft outreach emails once targets are confirmed
 
 ---

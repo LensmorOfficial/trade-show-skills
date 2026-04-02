@@ -2,7 +2,7 @@
 
 ## Scenario
 
-Following a `lensmor-exhibitor-search` run, OperaOps was identified as a high-priority target at Dreamforce 2026. You sell procurement automation software and want to find the right decision-makers for a pre-show LinkedIn outreach campaign and booth meeting request.
+Following a `trade-show-exhibitor-search` run, OperaOps was identified as a high-priority target at Dreamforce 2026. You sell procurement automation software and want to find the right decision-makers for a pre-show LinkedIn outreach campaign and booth meeting request.
 
 ## Input
 

@@ -49,17 +49,17 @@ We're deciding between Dreamforce and SaaStr this year. Give me a fit score for 
 
 ```bash
 # Workspace-local
-cp -r /path/to/trade-show-skills/lensmor-event-fit-score <your-workspace>/skills/
+cp -r /path/to/trade-show-skills/trade-show-fit-score <your-workspace>/skills/
 
 # Shared (all workspaces)
-cp -r /path/to/trade-show-skills/lensmor-event-fit-score ~/.openclaw/skills/
+cp -r /path/to/trade-show-skills/trade-show-fit-score ~/.openclaw/skills/
 ```
 
 ## Related Skills
 
 - [trade-show-finder](../trade-show-finder/) — Manual show scoring and shortlist discovery without API access
-- [lensmor-exhibitor-search](../lensmor-exhibitor-search/) — Find ICP-matching exhibitors after confirming the show is a good fit
-- [lensmor-recommendations](../lensmor-recommendations/) — AI-ranked exhibitor matches for a scored event
+- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — Find ICP-matching exhibitors after confirming the show is a good fit
+- [trade-show-lead-recommender](../trade-show-lead-recommender/) — AI-ranked exhibitor matches for a scored event
 - [trade-show-budget-planner](../trade-show-budget-planner/) — Plan budget and ROI once you decide to exhibit
 
 ---

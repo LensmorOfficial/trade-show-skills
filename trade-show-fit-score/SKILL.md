@@ -1,8 +1,8 @@
 ---
-name: lensmor-event-fit-score
+name: trade-show-fit-score
 version: 1.2.0
 description: "Score a trade show against your company profile for an AI-backed exhibit vs. skip decision. \"Should we exhibit at this show?\" / \"这个展会值得参加吗\" / \"Lohnt sich diese Messe?\" / \"この展示会は合っている?\" / \"¿Vale la pena esta feria?\". score event, fit score, should we exhibit, worth attending, event ROI, go or no-go, 展会评分, 值不值得参加, 展会匹配度, 要不要参展 Messebewertung Messeignung 展示会評価 puntuación de feria"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-event-fit-score
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-fit-score
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"🎯"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
@@ -163,13 +163,13 @@ This skill calls the Lensmor API for a data-driven score on a single named event
 - Annual planning and shortlist discovery driven by web research
 - Scoring shows not yet in the Lensmor database
 
-The two skills are complementary: `trade-show-finder` helps you build the shortlist; `lensmor-event-fit-score` gives you a data-backed score on a specific candidate.
+The two skills are complementary: `trade-show-finder` helps you build the shortlist; `trade-show-fit-score` gives you a data-backed score on a specific candidate.
 
 ### Follow-up Routing
 
 | Score outcome | Recommended next action |
 |---------------|------------------------|
-| Score ≥ 65 | Run `lensmor-recommendations` to find ICP-matching exhibitors at this event |
+| Score ≥ 65 | Run `trade-show-lead-recommender` to find ICP-matching exhibitors at this event |
 | Score ≥ 80, budget pending | Run `trade-show-budget-planner` |
 | Score < 65 | Run `trade-show-finder` to identify better-fit alternatives |
 | Multiple shows to compare | Score each via this skill, then rank by `score` field |

@@ -99,7 +99,7 @@ Total matches: 47 | Showing: 20 | Page 1 of 3
 - **VendorVault**: Partial match — enterprise-focused GRC, procurement adjacency but different buyer; flag for partnership conversation
 
 ### Next Steps
-- Use `lensmor-contact-finder` to find VP Sales / Head of Partnerships at OperaOps and Spendly
+- Use `trade-show-contact-finder` to find VP Sales / Head of Partnerships at OperaOps and Spendly
 - 47 total matches across 3 pages — recommend fetching pages 2-3 for fuller picture
 ```
 

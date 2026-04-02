@@ -1,8 +1,8 @@
 ---
-name: lensmor-exhibitor-search
+name: trade-show-exhibitor-search
 version: 1.2.0
 description: "Find ICP-matching exhibitors, prospects, and partners at any trade show using the Lensmor API. \"Who is exhibiting at this show?\" / \"参展商搜索\" / \"Aussteller finden\" / \"出展社を探す\" / \"buscar expositores\". find exhibitors, exhibitor list, who is exhibiting, show prospects, 找参展商/展会潜客/谁在参展 Ausstellersuche Ausstellerliste 出展社検索 búsqueda de expositores"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/lensmor-exhibitor-search
+homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-exhibitor-search
 user-invocable: true
 metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"🔍"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
 ---
@@ -120,7 +120,7 @@ ICP signals priority:
 - `industry` + `employeeCount` — quick size-and-sector match
 - `techStacks` — technology affinity (e.g. target companies using a specific CRM)
 - `fundingRound` — budget proxy for enterprise vs. startup buyers
-- `linkedinUrl` — use with `lensmor-contact-finder` for decision-maker lookup
+- `linkedinUrl` — use with `trade-show-contact-finder` for decision-maker lookup
 
 ### Step 5: Format the Output
 
@@ -161,10 +161,10 @@ Number formatting: employee counts above 1,000 display as "1.2K"; above 1,000,00
 
 | User says | Recommended action |
 |-----------|--------------------|
-| "find contacts at [company]" | Run `lensmor-contact-finder` with that company name |
-| "rank these by ICP fit" | Run `lensmor-recommendations` for AI-ranked results |
+| "find contacts at [company]" | Run `trade-show-contact-finder` with that company name |
+| "rank these by ICP fit" | Run `trade-show-lead-recommender` for AI-ranked results |
 | "draft outreach for [company]" | Run `booth-invitation-writer` |
-| "is this show worth it?" | Run `lensmor-event-fit-score` first |
+| "is this show worth it?" | Run `trade-show-fit-score` first |
 | "show me more" / "next page" | Re-call with `page` incremented by 1 |
 
 ## Output Rules
