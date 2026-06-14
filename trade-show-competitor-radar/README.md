@@ -10,6 +10,7 @@ Give the agent your raw show-floor notes — typed observations, brochure text, 
 
 - Per-competitor structured intel note with source tags ([OBS] / [INF] / [HEARD])
 - Positioning summary, pricing signals, and differentiators claimed
+- Optional public X/Twitter source packets for show-floor launch posts and reply context
 - Threat level with explicit justification — not just a gut-feel rating
 - Internal action note: what it means for your team and what to do next
 - Questions flagged for post-show follow-up
