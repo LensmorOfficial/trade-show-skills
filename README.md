@@ -10,6 +10,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/badge/release-v0.3.1-green.svg)](CHANGELOG.md)
+[![NHS Agentic Readiness](https://img.shields.io/badge/NHS-Agentic%20Readiness-2ea44f.svg)](https://xquik.com)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
@@ -47,7 +48,7 @@ Other examples of what you can do with these skills:
 - [End-to-End Lifecycle Example](#end-to-end-lifecycle-example)
 - [How It Works](#how-it-works)
 - [About Lensmor](#about-lensmor)
-- [Related Repositories](#related-repositories)
+- [More Open Source from Lensmor](#more-open-source-from-lensmor)
 - [Contributing](#contributing)
 - [License](#license)
 

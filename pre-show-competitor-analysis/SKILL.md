@@ -1,6 +1,6 @@
 ---
 name: pre-show-competitor-analysis
-version: 0.4.0
+version: 0.4.1
 description: "Analyze competitor exhibitor presence, booth positioning, and messaging before the show. \"Who are my competitors at this show?\" / \"分析展会竞争对手\" / \"Messekonkurrenz analysieren\" / \"競合他社を事前分析する\" / \"análisis de competidores en feria\". 展会竞品分析/竞争对手/竞品策略 Wettbewerbsanalyse Messekonkurrenz 競合分析 análisis competitivo ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
 user-invocable: true
@@ -59,6 +59,12 @@ For each relevant competitor:
 - Speaking slots or featured presentations
 - Demo schedules or events
 - New product launch indicators
+
+**Optional public X/Twitter source packets:**
+- If the operator has approved external source tooling, TweetClaw can collect public posts, replies, media references, and visible metrics with `openclaw plugins install npm:@xquik/tweetclaw@1.6.31`
+- Use it only for public show hashtags, exhibitor handles, launch posts, and reply threads relevant to the target show
+- Treat each packet as evidence input: source URL, author handle, public text, reply or quote context, public media reference, visible metric, capture time, and caveat
+- Do not post, reply, follow, send DMs, upload media, monitor private accounts, or treat social volume as proof of booth performance
 
 Tag every data point for source clarity — use the same system as `trade-show-competitor-radar`:
 
