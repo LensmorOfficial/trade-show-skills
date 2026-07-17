@@ -1,31 +1,49 @@
 <p align="center">
-  <a href="https://www.lensmor.com/?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills">
-    <img src="https://raw.githubusercontent.com/LensmorOfficial/.github/main/profile/assets/banner.png" alt="Lensmor" width="600">
+  <a href="https://clawhub.ai/weilun88313/trade-show-finder">
+    <img src="assets/social-preview.png" alt="Trade Show Skills by Lensmor — from event signal to outreach" width="100%">
   </a>
 </p>
 
 # Trade Show Skills for OpenClaw
 
+<p align="center">
+  <a href="https://clawhub.ai/weilun88313/trade-show-finder"><strong>Install from ClawHub</strong></a>
+  ·
+  <a href="https://app.lensmor.com/signup?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills"><strong>Start Lensmor free</strong></a>
+  ·
+  <a href="https://api.lensmor.com/?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills"><strong>API Docs</strong></a>
+  ·
+  <a href="https://calendly.com/shirleyan_lensmor/30min?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills"><strong>Book a demo</strong></a>
+</p>
+
 [![Stars](https://img.shields.io/github/stars/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v0.3.1-green.svg)](CHANGELOG.md)
+[![Release](https://img.shields.io/github/v/release/LensmorOfficial/trade-show-skills?display_name=tag&sort=semver)](https://github.com/LensmorOfficial/trade-show-skills/releases)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
-> OpenClaw skills for trade show selection, pre-show planning, on-site execution, and post-show follow-up.
+> 15 reusable OpenClaw skills for trade show selection, pre-show GTM, on-site execution, and post-show follow-up.
 
-Stop reinventing the wheel for every trade show. These skills give [OpenClaw](https://openclaw.ai) structured workflows for show selection, pre-show outreach, budget planning, on-site execution, and post-show lead conversion.
+Move from event signal → company → people → outreach. These skills give [OpenClaw](https://openclaw.ai) structured workflows for show selection, exhibitor research, budget planning, pre-show outreach, on-site execution, and post-show follow-up.
 
-## Quick Demo
+## Try It in 60 Seconds
 
-Type a prompt like this in OpenClaw (after installing a skill):
+Install the show-selection skill:
+
+```bash
+npx openclaw@latest skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
+```
+
+Then ask OpenClaw:
 
 ```
 Should we exhibit at MEDICA 2026? We sell surgical workflow software to 200+ bed hospitals in DACH.
 ```
 
 The agent will verify the current edition, score show fit against your ICP and goal, recommend `Exhibit` / `Attend only` / `Skip`, and hand you off to budgeting or outreach next steps.
+
+Most planning and execution skills work without a Lensmor API key. Data-backed skills are clearly labeled and require Lensmor API access.
 
 Other examples of what you can do with these skills:
 
@@ -41,7 +59,7 @@ Other examples of what you can do with these skills:
 
 ## Table of Contents
 
-- [Quick Demo](#quick-demo)
+- [Try It in 60 Seconds](#try-it-in-60-seconds)
 - [Available Skills](#available-skills)
 - [Quick Start](#quick-start)
 - [End-to-End Lifecycle Example](#end-to-end-lifecycle-example)
@@ -87,20 +105,20 @@ See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
 ## Quick Start
 
-### Install from ClawHub
+### Install with OpenClaw
 
 ```bash
-# Install one skill into the current OpenClaw workspace
-clawhub install trade-show-finder
+# Install one verified ClawHub release into the current OpenClaw workspace
+openclaw skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
 
 # Example: install the on-site competitor intel skill
-clawhub install trade-show-competitor-radar
+openclaw skills install @weilun88313/trade-show-competitor-radar --acknowledge-clawhub-risk
 ```
 
-If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
+Using OpenClaw's native installer preserves the release owner and integrity metadata that `openclaw skills info` uses to verify the installed package. If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
 
 ```bash
-clawhub search "trade show"
+openclaw skills search "trade show"
 ```
 
 ### Install a single skill
@@ -126,14 +144,14 @@ done
 
 Skills activate automatically when your prompt matches their description.
 
-> **ClawHub**: All skills are published on [ClawHub](https://clawhub.ai). Install any skill with:
+> **ClawHub**: All skills are published under [`@weilun88313`](https://clawhub.ai/weilun88313). Install any skill with OpenClaw's native installer:
 > ```bash
-> npx clawhub@latest install trade-show-finder
-> npx clawhub@latest install trade-show-exhibitor-search
-> npx clawhub@latest install trade-show-fit-score
-> npx clawhub@latest install trade-show-contact-finder
-> npx clawhub@latest install trade-show-lead-recommender
-> npx clawhub@latest install competitor-show-tracker
+> npx openclaw@latest skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-exhibitor-search --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-fit-score --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-contact-finder --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-lead-recommender --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/competitor-show-tracker --acknowledge-clawhub-risk
 > ```
 
 ## End-to-End Lifecycle Example
@@ -151,9 +169,9 @@ When you ask the agent something that matches a skill's description (e.g., "shou
 
 ## About Lensmor
 
-[Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills) is an AI-native event intelligence platform that helps B2B teams discover trade shows, analyze exhibitors, and generate [qualified leads](https://www.lensmor.com/blog/trade-show-lead-capture?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills) before the event starts.
+[Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills) is an AI-native event intelligence platform that helps B2B teams move from event discovery to prioritized accounts, relevant decision-makers, and pre-show outreach.
 
-**[Try Lensmor Free →](https://www.lensmor.com/?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills)**
+**[Start Lensmor free →](https://app.lensmor.com/signup?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills)**
 
 ## More Open Source from Lensmor
 
@@ -166,7 +184,7 @@ When you ask the agent something that matches a skill's description (e.g., "shou
 
 ## Releases
 
-Current release: **[v0.3.1](CHANGELOG.md)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
+Current release: **[v0.4.0](https://github.com/LensmorOfficial/trade-show-skills/releases/tag/v0.4.0)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
 
 ## Contributing
 
@@ -175,6 +193,7 @@ Have ideas for new skills or improvements? See [CONTRIBUTING.md](CONTRIBUTING.md
 - [CONTRIBUTING.md](CONTRIBUTING.md) — How to add or modify skills
 - [docs/skill-quality-checklist.md](docs/skill-quality-checklist.md) — Pre-merge quality checklist
 - [docs/publishing.md](docs/publishing.md) — Publishing and release quality guidance
+- [docs/github-growth.md](docs/github-growth.md) — Maintainer measurement and release cadence
 
 ## License
 

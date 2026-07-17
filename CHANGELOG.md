@@ -6,6 +6,40 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [0.4.0] - 2026-07-17
+
+The first full-lifecycle release: 15 OpenClaw skills spanning event selection, competitor and exhibitor research, pre-show GTM, on-site execution, and post-show follow-up.
+
+### Added
+
+- **`trade-show-fit-score`** — score a specific event against a company profile and route the result into planning.
+- **`trade-show-exhibitor-search`** — find relevant exhibitors within a selected event.
+- **`trade-show-lead-recommender`** — rank exhibitor matches for account prioritization.
+- **`trade-show-contact-finder`** — identify relevant company contacts for pre-show workflows.
+- **`competitor-show-tracker`** — map competitor show circuits and rank events by competitor concentration.
+- A repository-specific 1280×640 social preview with the event → company → people → outreach workflow.
+
+### Changed
+
+- Renamed the API-backed skills to generic, discoverable `trade-show-*` slugs.
+- Added multilingual trigger keywords across all 15 skills.
+- Declared `LENSMOR_API_KEY` as a required environment variable for API-backed workflows.
+- Rebuilt the README first screen around one-command installation, a concrete prompt, and clear ClawHub, product, API, and demo paths.
+- Changed the primary product CTA from the marketing homepage to direct Lensmor signup.
+
+### Fixed
+
+- Added the missing README and fictional worked example for `competitor-show-tracker`, restoring the repository validation contract.
+- Replaced the legacy first-run installer with OpenClaw's native ClawHub install path so owner and artifact integrity metadata verify correctly.
+- Added hard claim-grounding rules to invitation, booth-script, follow-up, and competitor-radar skills; outbound examples now disclose fictional data and use placeholders for unverified customers, dates, metrics, and proof points.
+- Added an official-source evidence gate to `trade-show-finder`; it can no longer score or recommend a show from model memory when the current edition and ICP-relevant evidence are unavailable.
+- Prepared patch package releases for the five skills changed by runtime verification: `trade-show-finder` 0.4.1, `booth-invitation-writer` 0.4.1, `booth-script-generator` 1.2.1, `post-show-followup` 0.4.1, and `trade-show-competitor-radar` 0.4.1.
+
+### Notes
+
+- Coverage varies by event and source. Validate the events and data fields needed for a workflow before relying on them operationally.
+- This release does not change the core workflow logic of the existing non-API skills.
+
 ## [0.3.1] - 2026-03-25
 
 Patch release focused on documentation quality, repo consistency, and maintainer workflow.

@@ -92,6 +92,9 @@ Before shipping a new public release or adding a new skill:
 5. Check that the `description` still accurately describes the skill after any recent changes
 6. Verify the `examples/` files reflect the current output format (not a prior version)
 7. Bump the `version` field if the public behavior or output contract changed meaningfully
+8. Capture the current GitHub growth baseline with `bash scripts/github-growth-report.sh`
+9. Publish a GitHub Release so subscribers can follow versioned updates
+10. Verify that README product links retain their repo-specific UTM campaign
 
 For a batch release of multiple skills, run steps 1–2 repo-wide, then do steps 3–7 per affected skill.
 
@@ -113,3 +116,4 @@ The following are explicitly out of scope for this document and this repo in its
 
 - Quality checklist: [docs/skill-quality-checklist.md](skill-quality-checklist.md)
 - Contribution guidelines: [CONTRIBUTING.md](../CONTRIBUTING.md)
+- GitHub growth operating guide: [docs/github-growth.md](github-growth.md)

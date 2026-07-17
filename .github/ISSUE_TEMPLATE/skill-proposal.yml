@@ -1,0 +1,50 @@
+name: Skill or workflow proposal
+description: Propose a reusable trade show workflow or an improvement to an existing skill.
+title: "[Proposal]: "
+labels:
+  - enhancement
+body:
+  - type: input
+    id: problem
+    attributes:
+      label: Job to be done
+      description: What real trade show decision or task should this workflow help with?
+      placeholder: Prioritize which exhibitors our sales team should contact before a show.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Lifecycle stage
+      options:
+        - Pre-show
+        - On-site
+        - Post-show
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Expected inputs
+      description: List only the information a real user is likely to have.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output
+      description: Describe the decision, artifact, or handoff the workflow should produce.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example user prompt
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to help document or test this workflow.

@@ -1,0 +1,53 @@
+name: Skill bug report
+description: Report incorrect, unsafe, or inconsistent behavior in an existing skill.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the skill. Never include API keys, personal data, or confidential company information.
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name
+      placeholder: trade-show-finder
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Reproduction prompt
+      description: Redact company-confidential and personal information.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: Installation method
+      options:
+        - ClawHub
+        - Source copy
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed API keys, personal data, and confidential information.
+          required: true
