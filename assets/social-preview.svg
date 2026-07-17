@@ -1,0 +1,47 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="b-bg" x1="96" y1="60" x2="1184" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0D15"/>
+      <stop offset="0.55" stop-color="#111525"/>
+      <stop offset="1" stop-color="#1C1830"/>
+    </linearGradient>
+    <radialGradient id="b-blue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1010 460) rotate(-145) scale(560 390)">
+      <stop stop-color="#4D78FF" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#4D78FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="b-line" x1="233" y1="430" x2="1045" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AA9FF"/>
+      <stop offset="0.5" stop-color="#B495FF"/>
+      <stop offset="1" stop-color="#61D8A3"/>
+    </linearGradient>
+    <filter id="b-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" rx="32" fill="url(#b-bg)"/>
+  <rect width="1280" height="640" rx="32" fill="url(#b-blue)"/>
+  <circle cx="1035" cy="96" r="240" fill="#8B5CF6" fill-opacity="0.06"/>
+  <g transform="translate(72 58) scale(.29)">
+    <path d="M110.625 82.5C84.7367 82.5 63.75 103.487 63.75 129.375C63.75 155.263 84.7367 176.25 110.625 176.25C136.513 176.25 157.5 155.263 157.5 129.375H176.25C176.25 165.619 146.869 195 110.625 195C74.3813 195 45 165.619 45 129.375C45 93.1313 74.3813 63.75 110.625 63.75V82.5ZM110.625 129.375H138.75C138.75 144.908 126.158 157.5 110.625 157.5C95.092 157.5 82.5 144.908 82.5 129.375C82.5 113.842 95.092 101.25 110.625 101.25V129.375ZM110.625 82.5C136.513 82.5 157.5 103.487 157.5 129.375H138.75C138.75 113.842 126.158 101.25 110.625 101.25V82.5ZM110.625 45C157.224 45 195 82.776 195 129.375H176.25C176.25 93.1313 146.869 63.75 110.625 63.75V45Z" fill="white"/>
+  </g>
+  <text x="144" y="108" fill="white" font-family="Helvetica" font-size="38" font-weight="700">Lensmor</text>
+  <text x="72" y="242" fill="white" font-family="Helvetica" font-size="60" font-weight="760" letter-spacing="-2">From event signal to outreach</text>
+  <text x="72" y="306" fill="#B3BDD2" font-family="Helvetica" font-size="28" font-weight="500">15 OpenClaw skills for trade show planning and execution</text>
+  <path d="M182 432H1094" stroke="#63708E" stroke-opacity="0.55" stroke-width="3"/>
+  <path d="M182 432H1094" stroke="url(#b-line)" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#0F1320" stroke-width="4">
+    <circle cx="182" cy="432" r="39" stroke="#8AA9FF"/>
+    <circle cx="486" cy="432" r="39" stroke="#9B9CFF"/>
+    <circle cx="790" cy="432" r="39" stroke="#B495FF"/>
+    <circle cx="1094" cy="432" r="39" stroke="#61D8A3"/>
+  </g>
+  <g fill="white" font-family="Helvetica" font-size="21" font-weight="700" text-anchor="middle">
+    <text x="182" y="439">01</text><text x="486" y="439">02</text><text x="790" y="439">03</text><text x="1094" y="439">04</text>
+  </g>
+  <g fill="#E4E9F3" font-family="Helvetica" font-size="24" font-weight="650" text-anchor="middle">
+    <text x="182" y="512">Event</text><text x="486" y="512">Company</text><text x="790" y="512">People</text><text x="1094" y="512">Outreach</text>
+  </g>
+  <rect x="1031" y="63" width="177" height="46" rx="23" fill="#61D8A3" fill-opacity="0.12" stroke="#61D8A3" stroke-opacity="0.35"/>
+  <text x="1119.5" y="93" text-anchor="middle" fill="#9FF0C9" font-family="Helvetica" font-size="20" font-weight="700">15 skills · v0.4</text>
+  <text x="72" y="588" fill="#8291B0" font-family="Menlo" font-size="21">github.com/LensmorOfficial/trade-show-skills</text>
+</svg>

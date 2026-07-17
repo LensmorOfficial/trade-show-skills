@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Lensmor API documentation
+    url: https://api.lensmor.com/
+    about: Check authentication, endpoint, credit, and integration documentation.
+  - name: Lensmor product support
+    url: mailto:hello@lensmor.com
+    about: Ask account, access, or product-specific questions outside this open-source repository.
