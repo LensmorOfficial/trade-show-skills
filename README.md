@@ -32,7 +32,7 @@ Move from event signal → company → people → outreach. These skills give [O
 Install the show-selection skill:
 
 ```bash
-npx openclaw@latest skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
+npx openclaw@latest skills install @weilun88313/trade-show-finder --version 0.4.1 --acknowledge-clawhub-risk
 ```
 
 Then ask OpenClaw:
@@ -109,10 +109,15 @@ See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
 ```bash
 # Install one verified ClawHub release into the current OpenClaw workspace
-openclaw skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
+openclaw skills install @weilun88313/trade-show-finder --version 0.4.1 --acknowledge-clawhub-risk
 
 # Example: install the on-site competitor intel skill
-openclaw skills install @weilun88313/trade-show-competitor-radar --acknowledge-clawhub-risk
+openclaw skills install @weilun88313/trade-show-competitor-radar --version 0.4.1 --acknowledge-clawhub-risk
+
+# Runtime-hardened writing and follow-up skills in this release
+openclaw skills install @weilun88313/booth-invitation-writer --version 0.4.1 --acknowledge-clawhub-risk
+openclaw skills install @weilun88313/booth-script-generator --version 1.2.1 --acknowledge-clawhub-risk
+openclaw skills install @weilun88313/post-show-followup --version 0.4.1 --acknowledge-clawhub-risk
 ```
 
 Using OpenClaw's native installer preserves the release owner and integrity metadata that `openclaw skills info` uses to verify the installed package. If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
@@ -146,7 +151,7 @@ Skills activate automatically when your prompt matches their description.
 
 > **ClawHub**: All skills are published under [`@weilun88313`](https://clawhub.ai/weilun88313). Install any skill with OpenClaw's native installer:
 > ```bash
-> npx openclaw@latest skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-finder --version 0.4.1 --acknowledge-clawhub-risk
 > npx openclaw@latest skills install @weilun88313/trade-show-exhibitor-search --acknowledge-clawhub-risk
 > npx openclaw@latest skills install @weilun88313/trade-show-fit-score --acknowledge-clawhub-risk
 > npx openclaw@latest skills install @weilun88313/trade-show-contact-finder --acknowledge-clawhub-risk
