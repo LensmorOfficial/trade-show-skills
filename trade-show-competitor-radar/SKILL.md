@@ -1,6 +1,6 @@
 ---
 name: trade-show-competitor-radar
-version: 0.4.0
+version: 0.4.1
 description: "Structure on-site competitor booth observations into tagged, actionable intelligence notes. \"Log competitor intel from the show floor\" / \"记录展会现场竞品情报\" / \"Konkurrenzbeobachtung dokumentieren\" / \"競合情報を現場で記録する\" / \"registrar inteligencia competitiva en feria\". 现场竞品情报/展位观察 Messewettbewerb Wettbewerbsbeobachtung 競合情報 inteligencia ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-competitor-radar
 user-invocable: true
@@ -50,6 +50,8 @@ This is the most important step. Every fact must be tagged:
 
 Pricing information especially must carry source tags — never report a price as confirmed unless you saw a published price list or official quote.
 
+The same grounding rule applies to the user's own company. Never invent its customers, installed base, pricing, integrations, roadmap, implementation timeline, reference cases, or competitive advantages. If the user did not provide their ICP or product context, mark overlap and threat level as `Not assessed` and frame counter-moves as verification questions rather than claims.
+
 ### Step 3: Summarize Positioning and Threat
 
 Produce a structured intel note:
@@ -83,7 +85,7 @@ Produce a structured intel note:
 - Basis: [Why — what specific observations drive this rating. Do not rate High based on booth size alone.]
 
 ### Evidence vs. Inference Summary
-[2-3 sentences: what you know for certain vs. what you're inferring. Explicitly call out where you have thin evidence.]
+[2-3 sentences under `Observed / Reported`, `Inferred`, and `Unknown`. A demo, banner, brochure, or staff statement is evidence of what was shown or claimed — not independent confirmation that the capability or result is true. Explicitly call out where evidence is thin.]
 ```
 
 ### Step 4: Create Internal Battlecard Note
@@ -125,6 +127,8 @@ End every output with:
 
 Before delivering results:
 - Every price, speed claim, or product feature must carry a source tag (`[OBS]`, `[INF]`, `[HEARD]`, `[EST]`, or `[UNK]`) — no naked facts
+- Never upgrade a demo, banner, brochure, or staff statement to "confirmed" in the summary; describe it as observed or reported and preserve its source tag
+- Do not fabricate facts about the user's company in comparisons or counter-moves; missing own-side context must remain `Not assessed` or a verification task
 - Threat level must be justified with specific observations, not impressions
 - "High" threat requires at least two concrete, observed signals
 - Numerical estimates (booth size, foot traffic count) must use `[EST]`; never present a guess as a measured fact

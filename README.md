@@ -32,7 +32,7 @@ Move from event signal → company → people → outreach. These skills give [O
 Install the show-selection skill:
 
 ```bash
-npx clawhub@latest install trade-show-finder
+npx openclaw@latest skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
 ```
 
 Then ask OpenClaw:
@@ -105,20 +105,20 @@ See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
 ## Quick Start
 
-### Install from ClawHub
+### Install with OpenClaw
 
 ```bash
-# Install one skill into the current OpenClaw workspace
-clawhub install trade-show-finder
+# Install one verified ClawHub release into the current OpenClaw workspace
+openclaw skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
 
 # Example: install the on-site competitor intel skill
-clawhub install trade-show-competitor-radar
+openclaw skills install @weilun88313/trade-show-competitor-radar --acknowledge-clawhub-risk
 ```
 
-If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
+Using OpenClaw's native installer preserves the release owner and integrity metadata that `openclaw skills info` uses to verify the installed package. If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
 
 ```bash
-clawhub search "trade show"
+openclaw skills search "trade show"
 ```
 
 ### Install a single skill
@@ -144,14 +144,14 @@ done
 
 Skills activate automatically when your prompt matches their description.
 
-> **ClawHub**: All skills are published on [ClawHub](https://clawhub.ai). Install any skill with:
+> **ClawHub**: All skills are published under [`@weilun88313`](https://clawhub.ai/weilun88313). Install any skill with OpenClaw's native installer:
 > ```bash
-> npx clawhub@latest install trade-show-finder
-> npx clawhub@latest install trade-show-exhibitor-search
-> npx clawhub@latest install trade-show-fit-score
-> npx clawhub@latest install trade-show-contact-finder
-> npx clawhub@latest install trade-show-lead-recommender
-> npx clawhub@latest install competitor-show-tracker
+> npx openclaw@latest skills install @weilun88313/trade-show-finder --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-exhibitor-search --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-fit-score --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-contact-finder --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/trade-show-lead-recommender --acknowledge-clawhub-risk
+> npx openclaw@latest skills install @weilun88313/competitor-show-tracker --acknowledge-clawhub-risk
 > ```
 
 ## End-to-End Lifecycle Example

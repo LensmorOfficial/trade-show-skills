@@ -65,4 +65,16 @@ if rg -n '\bClaude Code\b|\bClaude\b|claude install-skill' . --type md \
 fi
 pass "No residual Claude wording"
 
+for grounded_skill in booth-invitation-writer booth-script-generator post-show-followup trade-show-competitor-radar; do
+  rg -qi 'never (invent|fabricate)' "$grounded_skill/SKILL.md" \
+    || fail "$grounded_skill is missing an explicit claim-grounding guard"
+  rg -qi 'fictional example' "$grounded_skill/examples" \
+    || fail "$grounded_skill examples are missing a fictional-data disclosure"
+done
+pass "Outbound skills include claim-grounding guards and fictional-example disclosures"
+
+rg -q 'stop with `Verification required`' trade-show-finder/SKILL.md \
+  || fail "trade-show-finder is missing its official-source evidence gate"
+pass "Trade show recommendations require current official-source evidence"
+
 pass "Repo validation completed successfully"

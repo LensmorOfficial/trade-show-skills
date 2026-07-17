@@ -1,6 +1,6 @@
 ---
 name: booth-invitation-writer
-version: 0.4.0
+version: 0.4.1
 description: "Write pre-show booth invitation emails and outreach sequences that book meetings before the event. \"Write a booth invite email\" / \"帮我写展会邀请函\" / \"Messeeinladung schreiben\" / \"招待メールを書く\" / \"escribir invitación a feria\". 展会邀请函/邀约/预约见面 Messeeinladung Einladungsmail 招待状 invitación a stand"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-invitation-writer
 user-invocable: true
@@ -65,6 +65,27 @@ Match the audience and goal:
 
 ### Step 3: Write the Email
 
+Before drafting, build a private claim ledger:
+- **Allowed**: facts and claims stated by the user or returned by an explicitly cited source
+- **Missing**: product features, operational pains, customers, results, integrations, implementation details, and event logistics not in the allowed set
+
+Every sentence about a pain point, capability, integration, result, customer, or event detail must map to the allowed set. If it does not, remove it or replace it with a visible placeholder. Do not expand a broad phrase such as "reduces scheduling friction" into unprovided specifics such as double-bookings, real-time visibility, or integration with existing systems.
+
+**Sparse-proof fallback:** If the user supplied only the audience, product category, broad value proposition, show, and booth, use this conservative body pattern instead of enriching it:
+
+```text
+Hi [Name],
+
+At [Show], we're showing [product description exactly as supplied], designed to [value proposition exactly as supplied].
+
+If this is relevant to your priorities, would you be open to a [duration] conversation or demo at Booth [number]? I can tailor the discussion to your current process.
+
+Best,
+[Sender]
+```
+
+Do not add feature lists, detailed pain scenarios, audience beliefs, registration status, or promised outcomes to this fallback.
+
 Structure:
 
 ```
@@ -94,6 +115,10 @@ Hi [Name],
 - No walls of text — a booth invite should be scannable in 10 seconds
 - Include booth number and hall, but don't lead with it
 - If writing a sequence, each email should have a different angle (not just "reminder: we're at booth X")
+- Never invent customer names, case studies, certifications, integrations, quantified outcomes, or product capabilities. Use only facts the user supplied or evidence explicitly provided to the agent.
+- If a useful proof point is missing, write a visible placeholder such as `[verified customer result]` or omit the claim. Never turn a plausible benchmark into a company claim.
+- Treat show dates, halls, booth locations, and meeting availability as unverified unless supplied by the user or checked against an official source. Use `[date]`, `[hall]`, or `[time]` when needed.
+- Never infer an edition year from the current date or repository context. If the user did not provide a verified show date, keep timing relative (for example, "3–4 weeks before the show") and do not invent calendar send dates.
 
 **Word count targets by audience:**
 - Cold prospect: 80-120 words (ruthlessly short — they don't know you yet)
@@ -140,6 +165,9 @@ End every output with:
 Before delivering results:
 - The CTA must match the audience and relationship; VIPs should not get low-value booth-walk-up CTAs
 - Do not fake familiarity or imply a prior conversation that did not happen
+- Do not fabricate social proof or performance claims; every customer, metric, certification, integration, and product capability must be user-supplied or explicitly sourced
+- Reject any draft sentence about a feature, operational pain, integration, result, customer, or event detail that cannot be mapped to the claim ledger
+- When proof is sparse, use the sparse-proof fallback rather than making the copy sound more specific through invented detail
 - Booth number and hall should appear, but should not be the first line or the only reason to meet
 - Subject lines should feel specific and credible, not hype-driven
 - If booth details are unknown, write `TBD` or omit them rather than inventing a location

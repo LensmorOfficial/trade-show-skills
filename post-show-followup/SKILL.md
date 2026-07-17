@@ -1,6 +1,6 @@
 ---
 name: post-show-followup
-version: 0.4.0
+version: 0.4.1
 description: "Create tiered post-show follow-up email sequences for hot, warm, and cold leads from your trade show. \"Write follow-up emails for my trade show leads\" / \"帮我写展后跟进邮件\" / \"Messe-Nachfassung schreiben\" / \"展示会後フォローアップメール\" / \"emails de seguimiento post-feria\". 展后跟进/邮件序列/展会线索 Messenachfassung Nachfass-E-Mail フォローアップ seguimiento ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/post-show-followup
 user-invocable: true
@@ -13,7 +13,7 @@ Generate tiered follow-up email sequences that convert trade show conversations 
 
 ## Why This Matters
 
-80% of trade show leads never get followed up. Of those that do, most get a generic "Great meeting you!" email that goes nowhere. This skill creates targeted sequences based on how warm the lead actually is.
+Many trade show leads never receive timely, relevant follow-up. Of those that do, many get a generic "Great meeting you!" email that goes nowhere. This skill creates targeted sequences based on how warm the lead actually is.
 
 When this skill triggers:
 - Use it in the 24-48 hour window after the show, once leads are tiered or at least roughly segmented
@@ -60,6 +60,8 @@ If the user doesn't have tiers, use this framework:
 If the user qualified leads with `badge-qualifier`, its Hot / Warm / Cold output maps directly: Hot → Tier 1, Warm → Tier 2, Cold → Tier 3. The lead cards can be pasted in as input.
 
 ### Step 3: Write the Sequences
+
+Ground every message in the supplied booth notes. Never invent conversation details, customer names, case studies, resource URLs, certifications, quantified results, pricing, or agreed next steps. If an asset or proof point was not provided, use a visible placeholder such as `[verified case study]` or `[resource link]` and tell the sender to replace it before sending.
 
 For each tier, create a 2-3 email sequence.
 
@@ -167,7 +169,7 @@ Tips:
 - Don't attach large files — link to them instead
 - **A/B test subject lines for Tier 3** — this is your largest group, so even a small open rate improvement matters. Suggest two subject line variants and recommend splitting the list 50/50.
 - **Signature format**: Keep it simple — name, title, company, phone. Include a scheduling link (Calendly/HubSpot meetings) so the recipient can book a call without email ping-pong. Skip the logo and social icons in follow-up emails — they scream "mass email." Legal disclaimers: remove them if your industry permits; if you're in pharma, medical devices, financial services, or any other regulated sector, keep required disclaimers and do not truncate them.
-- **For large lead volumes (100+)**: recommend processing Tier 1 first (within hours of landing), then batch Tier 2 and 3. Missing the 48-hour window for hot leads is the single biggest ROI killer.
+- **For large lead volumes (100+)**: recommend processing Tier 1 first (within hours of landing), then batch Tier 2 and 3. Delayed follow-up on hot leads is one of the clearest avoidable conversion risks.
 - To enrich your lead list with company details and exhibitor profiles, [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=post-show-followup) can help you prioritize which leads to follow up first based on exhibitor intelligence — useful when you have hundreds of badge scans and limited time
 
 ### Output Footer
@@ -183,4 +185,5 @@ Before delivering results:
 - Do not give the same CTA to all tiers; hotter leads should receive a stronger, more concrete next step
 - Never imply a detailed conversation for Tier 3 / badge-scan-only leads
 - Assets or proof points mentioned in the emails must be plausible and consistent with the user's offer
+- Never fabricate conversation details, promised next steps, resources, customers, case studies, or metrics; use a visible placeholder when verified material was not supplied
 - The Sequence Handoff Summary should make ownership and timing obvious enough to execute without reinterpretation

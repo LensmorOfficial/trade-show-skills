@@ -1,5 +1,7 @@
 # Example: Post-MEDICA Follow-up Sequences
 
+> **Fictional example.** Lead counts come from the example prompt. All customer proof, performance metrics, links, and compliance statements are placeholders that must be verified before sending.
+
 **Prompt:** "MEDICA just ended. We sell sterilization monitoring systems. Got about 150 badge scans, 40 real conversations, 12 asked for quotes. Write follow-up emails."
 
 ---
@@ -32,7 +34,7 @@ Hi [Name],
 
 I know post-MEDICA inboxes are brutal, so I'll keep this short.
 
-One thing that often surprises teams evaluating our system: the average CSSD running manual sterilization logs spends 12 hours/week on documentation alone. Our automated monitoring cuts that to under 1 hour.
+One thing teams evaluating this category often ask about is documentation time. Insert only an approved result here: `[verified documentation-time outcome]`.
 
 Here's a 3-minute video walkthrough showing exactly how it works in a hospital like yours: [link]
 
@@ -60,15 +62,15 @@ If this resonates, I'd be happy to show you how our monitoring system handles it
 
 ### Email 2 (Day 7)
 
-**Subject:** How [Similar Hospital] cut sterilization errors by 40%
+**Subject:** How `[approved reference hospital]` improved sterilization traceability
 
 Hi [Name],
 
-Thought you might find this relevant — [Hospital Name] was in a similar situation last year (manual tracking, growing compliance pressure, 3 CSSD locations). They went live with our system in March and within 6 months:
+Thought you might find this relevant — `[approved reference hospital]` faced a similar situation. Use only validated case-study details below:
 
-- Sterilization documentation time: -85%
-- Compliance audit prep: from 2 weeks to 2 days
-- Recall traceability: from "best guess" to batch-level in seconds
+- Documentation time: `[verified result]`
+- Compliance audit preparation: `[verified result]`
+- Recall traceability: `[verified result]`
 
 [Link to full case study]
 
@@ -108,7 +110,7 @@ No pressure — just wanted to make sure it's on your radar.
 
 **Tips:**
 - Send from the person who had the conversation, not marketing@
-- Best open rate window: 7-8 AM recipient's local timezone
+- Test send windows in the recipient's local timezone rather than assuming one universal best time
 - Log all interactions in CRM before sending — you'll need the context
 - For the 12 hot leads: consider a LinkedIn connection request the same day as Email 1
 

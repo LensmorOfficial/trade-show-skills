@@ -30,6 +30,10 @@ The first full-lifecycle release: 15 OpenClaw skills spanning event selection, c
 ### Fixed
 
 - Added the missing README and fictional worked example for `competitor-show-tracker`, restoring the repository validation contract.
+- Replaced the legacy first-run installer with OpenClaw's native ClawHub install path so owner and artifact integrity metadata verify correctly.
+- Added hard claim-grounding rules to invitation, booth-script, follow-up, and competitor-radar skills; outbound examples now disclose fictional data and use placeholders for unverified customers, dates, metrics, and proof points.
+- Added an official-source evidence gate to `trade-show-finder`; it can no longer score or recommend a show from model memory when the current edition and ICP-relevant evidence are unavailable.
+- Prepared patch package releases for the five skills changed by runtime verification: `trade-show-finder` 0.4.1, `booth-invitation-writer` 0.4.1, `booth-script-generator` 1.2.1, `post-show-followup` 0.4.1, and `trade-show-competitor-radar` 0.4.1.
 
 ### Notes
 

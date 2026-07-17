@@ -13,7 +13,7 @@ Tell the agent which show just ended and what you were selling. It generates:
 - Personalization fields and CRM merge tag support (HubSpot, Salesforce, etc.)
 - Recommended send timing and practical tips for maximizing reply rates
 
-80% of trade show leads never get followed up. This skill ensures yours do — with targeted sequences, not generic "great meeting you" blasts.
+Many trade show leads never get timely follow-up. This skill helps ensure yours do — with targeted sequences, not generic "great meeting you" blasts.
 
 ## Usage
 

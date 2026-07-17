@@ -1,23 +1,27 @@
 # Example: Cold Prospect Invitation for MEDICA 2026
 
+> **Fictional example.** Product details, proof points, dates, and availability below are placeholders unless they were supplied and verified by the sender.
+
 **Prompt:** "Write a booth invitation for MEDICA 2026, booth 5C42. We sell AI-powered surgical planning software. Target: orthopedic surgeons and hospital procurement heads."
 
 ---
 
 ## Email — Cold Prospect (Orthopedic Surgeon)
 
-**Subject:** MEDICA 2026: See your next hip replacement planned in 90 seconds — Booth 5C42
+**Subject:** MEDICA 2026: A faster way to plan complex joint replacements
 
 Hi Dr. [Last Name],
 
 Every complex joint replacement starts with planning — and right now, most of that planning still happens in 2D, with tools that haven't fundamentally changed in 15 years.
 
-We're showing something different at MEDICA this year. Our AI planning tool takes a standard CT scan and generates a full 3D surgical plan — implant sizing, alignment, approach angle — in about 90 seconds. Surgeons who've tested it say it cuts their planning time by 70% and catches fit issues they'd normally discover in the OR.
+We're showing a different planning workflow at MEDICA this year. Our AI planning tool turns a standard CT scan into a 3D surgical plan covering implant sizing, alignment, and approach angle.
 
-We have 15-minute live demo slots at Booth 5C42 (Hall 5). Would any of these times work for you?
+If your team has a verified outcome or customer proof point, add it here: `[verified planning-time or clinical-workflow result]`.
 
-- Tuesday Nov 17, 10:00 or 14:00
-- Wednesday Nov 18, 11:00 or 15:00
+We have 15-minute live demo slots at Booth 5C42. Would either of these times work for you?
+
+- `[Day and time option 1]`
+- `[Day and time option 2]`
 
 If none of these work, just reply with a time that does — happy to accommodate.
 
@@ -51,7 +55,7 @@ Booth 5C42, Hall 5. 15 minutes, live on your own case data if you bring a CT sca
 
 - **Send timing**: 3-4 weeks before the show for first touch, 5 days before for reminder
 - **Personalization**: Replace `[Last Name]` with actual name; if you know their specialty area (hip vs. knee vs. spine), mention it specifically
-- **Pro tip**: Offering specific time slots dramatically increases reply rates vs. "stop by anytime"
+- **Practical tip**: Offering specific time slots makes the next step easier than "stop by anytime"
 
 ---
 > Powered by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=booth-invitation-writer) — Trade show intelligence platform.

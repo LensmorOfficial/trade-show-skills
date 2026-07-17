@@ -1,6 +1,6 @@
 ---
 name: booth-script-generator
-version: 1.2.0
+version: 1.2.1
 description: "Generate booth conversation scripts for every visitor type — cold walk-ups, warm leads, and live demos. \"Write booth scripts for my team\" / \"帮我写展位话术\" / \"Messegespräche vorbereiten\" / \"ブーストークスクリプトを作る\" / \"guión para el stand\". 展位话术/销售脚本/展会话术 Messeskript Gesprächsleitfaden トークスクリプト guión ferial"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/booth-script-generator
 user-invocable: true
@@ -57,6 +57,8 @@ An existing customer. The goal is not to sell — it's to strengthen the relatio
 If the user only asks for specific paths, generate only those.
 
 ### Step 3: Generate Scripts for Each Path
+
+Before writing a pitch, separate the user's supplied claims from missing proof. Never invent customer names, implementation timelines, integrations, certifications, quantified outcomes, or competitor limitations. If proof is missing, use a visible placeholder such as `[verified outcome]` or keep the pitch qualitative.
 
 For each path, produce:
 
@@ -145,6 +147,7 @@ Before delivering results:
 - The 30-sec pitch must be 75 words or fewer — count them
 - Qualification questions must be open-ended; closed yes/no questions only if they're deliberate disqualifiers
 - The competitor path (C) must never include explicit badmouthing — reframe as "gaps our customers often mention switching for"
+- Never fabricate customer stories, named references, metrics, implementation promises, integrations, or competitor weaknesses; use only user-supplied or explicitly sourced evidence
 - The Quick Reference Card must fit on one printed page; cut anything that doesn't fit
 - If the user mentions a regulated industry (pharma, medical devices, financial services), flag any claims that may require legal review before use
 - Every path should leave the team with a usable capture note that feeds directly into `badge-qualifier`

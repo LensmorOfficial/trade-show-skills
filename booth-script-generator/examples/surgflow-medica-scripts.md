@@ -1,5 +1,7 @@
 # Example: SurgFlow at MEDICA 2026
 
+> **Fictional example.** SurgFlow and OR-Sync are fictional. Replace every bracketed proof point, implementation statement, and comparison with verified company material before use.
+
 ## Input
 
 > We sell surgical workflow coordination software (SurgFlow) to operations directors and CMOs at 200+ bed hospitals in DACH. Main differentiator: we're the only solution that integrates live OR scheduling with post-op handoff — competitors do one or the other. Show: MEDICA 2026. Typical deal: €150K, 9-month cycle. Need scripts for cold walk-ups and for competitor customers (main competitor: OR-Sync).
@@ -22,7 +24,7 @@
 
 ### 30-Second Pitch
 
-SurgFlow connects live OR scheduling with post-op handoff in a single platform. Most hospitals run these on separate systems — or spreadsheets — which creates delays and errors at shift change. We work with hospitals across DACH, typically cutting OR coordination overhead by 30–40%. Takes about 20 minutes to show you how it works — want to book a slot here at the show?
+SurgFlow connects live OR scheduling with post-op handoff in a single platform. Many hospitals run these on separate systems — or spreadsheets — which can create delays and errors at shift change. `[Add a verified customer outcome here if available.]` Takes about 20 minutes to show you how it works — want to book a slot here at the show?
 
 *(71 words)*
 
@@ -32,7 +34,9 @@ Right now, most hospital OR teams use two separate tools — one for scheduling 
 
 SurgFlow connects both sides in real time. The scheduling team sees live OR status. Post-op notes flow automatically into the handoff queue. Everything is timestamped and auditable.
 
-We typically implement in 6–8 weeks with zero downtime — we migrate from whatever legacy system you're running, including OR-Sync and SAP. Our DACH customers at Frankfurt University Hospital and Charité saw a 37% reduction in coordination-related OR delays in the first quarter.
+For implementation and migration, use only verified commitments: `[verified implementation timeline, supported integrations, and migration constraints]`.
+
+For customer proof, add a reference the sender is authorized to use: `[verified customer result or approved case study]`.
 
 Who we work best with: hospitals running 10+ ORs with a dedicated operations director or COO who owns the scheduling process. Does that sound like your setup?
 
@@ -75,7 +79,7 @@ We often talk to teams who've been on OR-Sync for a few years and find it handle
 
 OR-Sync is a solid scheduling tool — we hear that consistently. Where hospitals usually hit the wall is the moment a case closes and the post-op team takes over. OR-Sync doesn't own that piece, so hospitals end up running a separate system, a shared drive, or a whiteboard alongside it. That's where coordination errors live.
 
-SurgFlow was built to own both sides. We also migrate from OR-Sync without downtime — most of our DACH customers came from OR-Sync and were live on SurgFlow in 6–8 weeks.
+SurgFlow was built to connect both sides. If migration proof is available, add it here: `[verified migration path and implementation timeline]`.
 
 I'm not here to tell you to rip and replace if what you have is working. But if the handoff piece is a gap — and if you've got more than 10 ORs, it usually is — it's worth 20 minutes to see what a unified workflow looks like.
 
@@ -104,7 +108,7 @@ I'm not here to tell you to rip and replace if what you have is working. But if 
 
 PATH A — COLD WALK-UP
 Opening: "Are you in operations or clinical management? We keep hearing about OR handoff delays..."
-30-sec: OR scheduling + post-op handoff, one platform, 30-40% less overhead
+30-sec: OR scheduling + post-op handoff, one platform, plus `[verified outcome if available]`
 Top 3 Qs: (1) Current handoff setup? (2) Who owns OR ops? (3) What would drive a change?
 Hot CTA: Book 20-min demo slot at show
 Warm CTA: Send case study + post-show call
