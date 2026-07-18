@@ -1,58 +1,58 @@
 # Lensmor Exhibitor Search — OpenClaw Skill
 
-> Search for ICP-matching exhibitors at any trade show before the event starts.
+> List companies for one event or discover exhibitor records across the wider Lensmor dataset.
 
-**Best for**: B2B sales and marketing teams running pre-show prospecting, competitive mapping, or partner discovery.
+## Two Supported Modes
 
-## What It Does
+1. **Event-specific list** — `event_id` plus optional factual filters such as keyword, country, category, industry, job title, management level, or department.
+2. **Cross-event discovery** — `company_url` or `target_audience` against the wider exhibitor dataset.
 
-Provide your company URL or a description of your target audience. The agent calls the Lensmor API and returns a structured list of exhibitors that match your ICP, with fields for industry, headcount, tech stack, funding stage, and LinkedIn — ready for outreach prioritization.
+The cross-event search endpoint does not accept `event_id`. Results are not automatically ICP-ranked.
 
 ## Usage
 
-```
-Find exhibitors at Dreamforce 2026 that match our ICP — we sell to procurement teams at mid-market manufacturers.
-```
-
-```
-Who is exhibiting at Hannover Messe 2026 that looks like our prospects? Our site is https://acme.com
+```text
+List the first 20 exhibitors for MEDICA 2026 and report preview/full access semantics.
 ```
 
-```
-Search for potential partners at CES 2026 using our company profile: https://acme.com
-```
-
-```
-Which companies at SaaStr Annual 2026 could be ICP matches for us? We target mid-market finance ops teams.
+```text
+Search Lensmor's wider exhibitor dataset for medical device manufacturers. Do not imply they belong to one specific event.
 ```
 
-## Example Output
+```text
+Filter event 12740 exhibitors by industry and show which records contain buying-signal evidence.
+```
 
-See [examples/saas-vendor-at-dreamforce.md](examples/saas-vendor-at-dreamforce.md) for a sample input-to-output walkthrough.
+## Access Boundary
+
+Event-specific results may be limited to a preview. The response explains:
+
+- actual and visible record counts
+- remaining locked count
+- whether more results require an event unlock
+- the unlock credit price
+
+The Skill reports this metadata but never unlocks automatically.
 
 ## Requirements
 
-- Lensmor API key (`uak_your_api_key`) — contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase
+- Lensmor API key (`sk_your_api_key`) from Lensmor Settings → API Keys
 - Base URL: `https://platform.lensmor.com`
-- Full API docs: [https://api.lensmor.com/](https://api.lensmor.com/)
+- [Lensmor API docs](https://api.lensmor.com/)
 
 ## Install
 
 ```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/trade-show-exhibitor-search <your-workspace>/skills/
-
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/trade-show-exhibitor-search ~/.openclaw/skills/
+openclaw skills install @weilun88313/trade-show-exhibitor-search --acknowledge-clawhub-risk
 ```
 
 ## Related Skills
 
-- [trade-show-lead-recommender](../trade-show-lead-recommender/) — AI-ranked ICP matches for a specific event (recommended next step)
-- [trade-show-contact-finder](../trade-show-contact-finder/) — Find decision-makers at matched companies
-- [trade-show-fit-score](../trade-show-fit-score/) — Score whether a show is worth attending before prospecting
-- [booth-invitation-writer](../booth-invitation-writer/) — Draft outreach emails once targets are confirmed
+- [trade-show-lead-recommender](../trade-show-lead-recommender/) — use recommendation fields only when populated
+- [trade-show-contact-finder](../trade-show-contact-finder/) — find relevant contacts without unlocking data
+- [trade-show-fit-score](../trade-show-fit-score/) — retrieve the simplified event fit signal
+- [booth-invitation-writer](../booth-invitation-writer/) — draft grounded outreach copy
 
 ---
 
-> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills) — AI-powered event intelligence platform for exhibitor discovery and pre-show lead generation.
+> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).

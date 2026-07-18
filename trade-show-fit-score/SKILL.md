@@ -1,6 +1,6 @@
 ---
 name: trade-show-fit-score
-version: 1.2.0
+version: 1.2.1
 description: "Score a trade show against your company profile for an AI-backed exhibit vs. skip decision. \"Should we exhibit at this show?\" / \"这个展会值得参加吗\" / \"Lohnt sich diese Messe?\" / \"この展示会は合っている?\" / \"¿Vale la pena esta feria?\". score event, fit score, should we exhibit, worth attending, event ROI, go or no-go, 展会评分, 值不值得参加, 展会匹配度, 要不要参展 Messebewertung Messeignung 展示会評価 puntuación de feria"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-fit-score
 user-invocable: true
@@ -45,11 +45,11 @@ Do not proceed to any API call until the key is confirmed present.
 
 The fit-score endpoint requires a Lensmor `event_id`. If the user only has a show name, look it up first:
 
-**Endpoint**: `GET https://platform.lensmor.com/external/events/list?query={show+name}`
+**Endpoint**: `GET https://platform.lensmor.com/external/events/list?keyword={show+name}`
 
 **Authentication**: `Authorization: Bearer $LENSMOR_API_KEY`
 
-The response returns an array of matching events. Pick the `id` that matches the show, year, and edition the user intends.
+The response is paginated under `items`. Pick the `id` or `eventId` that matches the show, year, and edition the user intends. Do not use `query=`: the current API ignores that parameter and returns an unfiltered event list.
 
 If the user already has the `event_id`, skip directly to Step 3.
 
@@ -63,7 +63,7 @@ Request body:
 
 ```json
 {
-  "event_id": "evt_hannovermesse_2026"
+  "event_id": "12740"
 }
 ```
 
@@ -74,20 +74,21 @@ Request body:
 ```json
 {
   "event": {
-    "id": "evt_hannovermesse_2026",
-    "name": "Hannover Messe 2026",
-    "dates": "April 20–24, 2026",
-    "location": "Hannover, Germany",
-    "website": "https://www.hannovermesse.de"
+    "id": "12740",
+    "eventId": "12740",
+    "name": "MEDICA 2026",
+    "dateStart": "2026-11-16",
+    "dateEnd": "2026-11-19",
+    "city": "Düsseldorf",
+    "country": "Germany",
+    "url": "https://www.medica-tradefair.com"
   },
-  "score": 82,
-  "recommendation": "Strong fit for exhibiting. High concentration of your ICP in industrial automation and manufacturing technology. Recommend securing a booth in Hall 9 or 11.",
+  "score": 7.8,
+  "recommendation": "recommended",
   "breakdown": {
-    "icp_alignment": 88,
-    "audience_volume": 79,
-    "competitive_density": 74,
-    "geo_reach": 91,
-    "content_relevance": 78
+    "profile_match": 7.8,
+    "matched_exhibitor_density": 4.2,
+    "event_scale": 1.4
   }
 }
 ```
@@ -98,37 +99,38 @@ Request body:
 |-------|------|-------------|
 | `event.id` | string | Lensmor event ID |
 | `event.name` | string | Official show name |
-| `event.dates` | string | Show dates |
-| `event.location` | string | City and country |
-| `event.website` | string | Official website URL |
-| `score` | number | Overall fit score, 0–100 |
-| `recommendation` | string | AI-generated plain-language recommendation |
-| `breakdown.icp_alignment` | number | How closely the show's exhibitor/visitor profile matches your ICP |
-| `breakdown.audience_volume` | number | Show scale score (visitor and exhibitor count) |
-| `breakdown.competitive_density` | number | Competitor presence — higher = more competitors, also more buyers |
-| `breakdown.geo_reach` | number | Geographic match between show location and your target markets |
-| `breakdown.content_relevance` | number | Topic and vertical alignment between show theme and your product |
+| `event.eventId` | string | Stable Lensmor event identifier |
+| `event.dateStart` / `event.dateEnd` | string | Show dates in ISO format |
+| `event.city` / `event.country` | string | Show location |
+| `event.url` | string | Event website URL when available |
+| `score` | number | Overall fit score on the API's 0–10 scale |
+| `recommendation` | string | API decision enum: `recommended`, `consider`, or `not_recommended` |
+| `breakdown.profile_match` | number | Company-profile match on a 0–10 scale |
+| `breakdown.matched_exhibitor_density` | number | Density derived from matched exhibitors, capped at 10 |
+| `breakdown.event_scale` | number | Scale derived from exhibitor count, capped at 10 |
 
 ### Step 5: Format the Output
 
 ```markdown
 ## Event Fit Score — [Show Name]
 
-[Show website link] | [Dates] | [Location]
+[Show website link] | [dateStart]–[dateEnd] | [city], [country]
 
 | Dimension | Score |
 |-----------|-------|
-| **Overall Fit** | **[score] / 100** |
-| ICP Alignment | [breakdown.icp_alignment] |
-| Audience Volume | [breakdown.audience_volume] |
-| Competitive Density | [breakdown.competitive_density] |
-| Geographic Reach | [breakdown.geo_reach] |
-| Content Relevance | [breakdown.content_relevance] |
+| **Overall Fit** | **[score] / 10** |
+| Profile Match | [breakdown.profile_match] |
+| Matched Exhibitor Density | [breakdown.matched_exhibitor_density] |
+| Event Scale | [breakdown.event_scale] |
 
 **Decision**: [decision band — see table below]
 
-**Recommendation**: [text from `recommendation` field]
+**API Recommendation**: [exact `recommendation` enum]
+
+**Interpretation**: [brief explanation grounded only in the returned score and three breakdown fields]
 ```
+
+**Exact-zero hard gate:** If `score == 0`, use only this interpretation: `The current API result is 0/10; this response does not identify the cause.` The only permitted follow-up is independent event research with `trade-show-finder`. Do not mention profile validation, missing matches, database coverage, support, or possible causes anywhere in the response.
 
 ### Score Interpretation Guide
 
@@ -136,15 +138,19 @@ Apply this interpretation to every fit-score result:
 
 | Score Range | Band | Decision |
 |-------------|------|----------|
-| 80–100 | Priority — Exhibit | High confidence. Secure budget and book booth early. |
-| 65–79 | Conditional — Consider | Attend first if budget is tight, or exhibit if capacity allows. |
-| < 65 | Low fit — Skip or Monitor | Skip exhibiting. Visit only with a specific tactical reason. |
+| 7–10 | Recommended | Strong profile signal. Pressure-test execution cost before committing to exhibit. |
+| 4–<7 | Consider | Mixed signal. Attend first or validate the weak dimensions before exhibiting. |
+| 0–<4 | Not recommended | Low current API signal. Skip exhibiting unless there is a separate strategic reason. |
 
 **Breakdown dimension guidance:**
-- `icp_alignment > 80`: The show floor will be populated with your target buyers and use cases
-- `competitive_density > 80`: Many competitors attend — expect a harder-to-stand-out environment, but also concentrated buyer demand
-- `geo_reach < 60`: The show skews toward a region that is not your primary market; factor in travel ROI
-- `content_relevance < 65`: The show's thematic focus is only partially aligned with your product story
+- `profile_match` is the primary company-profile signal
+- `matched_exhibitor_density` reflects matched exhibitor volume, not verified buyer or attendee density
+- `event_scale` is derived from exhibitor count and does not measure geographic fit, content fit, or expected ROI
+- Do not invent dimensions that are not returned by the API
+- A zero score does not prove that the user's Lensmor profile is missing or incomplete. It can also mean that no recommendation match was returned. Do not diagnose the cause unless the API returns an explicit error or status.
+- For an exact zero, the interpretation must be limited to: "The current API result is 0/10; this response does not identify the cause." Do not add possible causes, profile-review advice, coverage speculation, or a support-contact recommendation.
+- Do not label `event_scale` as large or small without a defined comparison baseline. Report the value and the returned `event.exhibitorCount` separately when helpful.
+- If explaining `event_scale`, use: "The API returned event scale [X]/10 and event exhibitor count [Y]; this response does not define a qualitative size benchmark." Never call the count registered, official, total-market, minimal, or large.
 
 ### Error Handling
 
@@ -152,7 +158,7 @@ Apply this interpretation to every fit-score result:
 |-------------|---------|----------|
 | 401 | API key invalid or expired | "The API key was rejected. Verify `LENSMOR_API_KEY` or contact hello@lensmor.com." |
 | 404 | Event ID not found | "Event ID `[id]` was not found. Use the events list endpoint to look up the correct ID." |
-| 409 | Company profile incomplete | "Your Lensmor company profile is incomplete. Log in at platform.lensmor.com to complete it before scoring." |
+| 409 | Recommendation dependency is still processing | "Lensmor recommendations are still processing. Retry after the profile recommendation job completes." |
 | 429 | Rate limit exceeded | "Rate limit reached. Wait 60 seconds and retry." |
 | 502 / 5xx | Server error | "The Lensmor API returned a server error. Try again in a moment." |
 
@@ -169,9 +175,9 @@ The two skills are complementary: `trade-show-finder` helps you build the shortl
 
 | Score outcome | Recommended next action |
 |---------------|------------------------|
-| Score ≥ 65 | Run `trade-show-lead-recommender` to find ICP-matching exhibitors at this event |
-| Score ≥ 80, budget pending | Run `trade-show-budget-planner` |
-| Score < 65 | Run `trade-show-finder` to identify better-fit alternatives |
+| Score ≥ 7 | Run `trade-show-lead-recommender` and verify that recommendation metadata is populated |
+| Score ≥ 7, budget pending | Run `trade-show-budget-planner` |
+| Score < 4 | Run `trade-show-finder` to identify alternatives using independent event research |
 | Multiple shows to compare | Score each via this skill, then rank by `score` field |
 
 ## Output Rules
@@ -181,11 +187,14 @@ The two skills are complementary: `trade-show-finder` helps you build the shortl
 3. Never expose endpoint paths, raw curl commands, or internal token values in the response
 4. Employee counts above 1,000 shown as "1.2K"; above 1,000,000 as "1.2M"
 5. Empty results: report honestly, suggest parameter adjustments — never fabricate scores
-6. End every response with 1–3 contextual follow-up suggestions
+6. End every response with 1–3 contextual follow-up suggestions; for an exact-zero result, the only permitted suggestion is independent event research with `trade-show-finder`
 7. Scores and breakdown values must come directly from the API — do not infer or estimate missing dimensions
 8. When `totalPages > 1` in events list lookup, confirm the correct event before scoring
 9. If API key is missing, direct user to hello@lensmor.com — do not just say "please configure"
-10. `competitive_density` is not a negative signal — always note that high competitor presence also means concentrated buyer demand
+10. Treat the score as 0–10 and preserve the exact recommendation enum; never convert it to 0–100 unless the user explicitly requests a labeled conversion
+11. Never infer missing profile configuration, absent coverage, or a support requirement from a zero score alone
+12. Treat `event.exhibitorCount` as the count in the Lensmor event record, not an official or registered-exhibitor total
+13. If the exact score is zero, do not suggest profile changes, coverage checks, or support escalation unless the API returns a specific error or status that supports that advice
 
 ## Quality Checks
 
@@ -194,6 +203,7 @@ Before delivering:
 - Do not infer or fabricate dimension scores; use only what the API returns
 - If `breakdown` is missing or partial, note which dimensions were unavailable
 - If `recommendation` field is empty, present the numeric score alone and apply the interpretation guide
+- If the result is zero, state only that the current API result is zero and that the cause is not identified by this response
 
 ---
 *Fit scores are generated by the Lensmor AI platform based on your company profile and Lensmor's trade show database. For event discovery, exhibitor intelligence, and pre-show lead generation, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).*

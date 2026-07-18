@@ -1,130 +1,61 @@
-# Example: Finding Procurement Contacts at OperaOps Before Dreamforce
+# Example: Company Contact Search
 
-## Scenario
+> Fictional response example. Contact identities are invented; endpoint and response fields match the production contract.
 
-Following a `trade-show-exhibitor-search` run, OperaOps was identified as a high-priority target at Dreamforce 2026. You sell procurement automation software and want to find the right decision-makers for a pre-show LinkedIn outreach campaign and booth meeting request.
-
-## Input
-
-- **company_name**: `OperaOps`
-- **role**: `Procurement` (first pass) + `VP Sales` (second pass)
-- **pageSize**: 20
-
-## API Call 1: Procurement Function
+## Request
 
 ```bash
-curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=OperaOps&role=Procurement&page=1&pageSize=20" \
-  -H "Authorization: Bearer uak_your_api_key"
+curl --get "https://platform.lensmor.com/external/contacts/search" \
+  -H "Authorization: Bearer sk_your_api_key" \
+  --data-urlencode "company_name=Example Medical Systems" \
+  --data-urlencode "role=marketing" \
+  --data-urlencode "page=1" \
+  --data-urlencode "pageSize=20"
 ```
 
-## API Response 1
+Illustrative response:
 
 ```json
 {
   "items": [
     {
-      "id": "ct_001",
-      "fullName": "Sarah Chen",
-      "title": "VP Procurement & Supply Chain",
-      "department": "Procurement",
-      "seniorityLevel": "Director",
-      "linkedinUrl": "https://linkedin.com/in/sarahchen-operaops",
-      "companyName": "OperaOps",
-      "sourceType": "linkedin"
-    },
-    {
-      "id": "ct_002",
-      "fullName": "Priya Rao",
-      "title": "Procurement Manager",
-      "department": "Procurement",
-      "seniorityLevel": "Manager",
-      "linkedinUrl": "https://linkedin.com/in/priyarao",
-      "companyName": "OperaOps",
-      "sourceType": "linkedin"
-    },
-    {
-      "id": "ct_003",
-      "fullName": "Daniel Torres",
-      "title": "Senior Procurement Analyst",
-      "department": "Procurement",
-      "seniorityLevel": "Individual Contributor",
-      "linkedinUrl": "https://linkedin.com/in/danieltorres-ops",
-      "companyName": "OperaOps",
-      "sourceType": "company_website"
-    }
-  ],
-  "total": 3,
-  "page": 1,
-  "pageSize": 20,
-  "totalPages": 1
-}
-```
-
-## API Call 2: VP Sales (for executive sponsorship path)
-
-```bash
-curl -X GET "https://platform.lensmor.com/external/contacts/search?company_name=OperaOps&role=VP+Sales&page=1&pageSize=20" \
-  -H "Authorization: Bearer uak_your_api_key"
-```
-
-## API Response 2
-
-```json
-{
-  "items": [
-    {
-      "id": "ct_004",
-      "fullName": "Marcus Webb",
-      "title": "VP Sales, Americas",
-      "department": "Sales",
-      "seniorityLevel": "Director",
-      "linkedinUrl": "https://linkedin.com/in/marcuswebb",
-      "companyName": "OperaOps",
-      "sourceType": "linkedin"
+      "id": "101",
+      "fullName": "Jordan Example",
+      "title": "Global Marketing Communications Manager",
+      "department": "marketing",
+      "seniorityLevel": "manager",
+      "linkedinUrl": "https://www.linkedin.com/in/example-contact",
+      "companyName": "Example Medical Systems",
+      "sourceType": "exhibitor",
+      "email": null,
+      "contactUnlockStatus": "locked",
+      "phone": null,
+      "phoneUnlockStatus": null,
+      "linkedinActivity": null,
+      "linkedinActivityStatus": null,
+      "eventCount": null
     }
   ],
   "total": 1,
   "page": 1,
   "pageSize": 20,
-  "totalPages": 1
+  "totalPages": 1,
+  "hasMore": false
 }
 ```
 
-## Formatted Output
+Safe output:
 
 ```markdown
-## Contacts at OperaOps — Dreamforce 2026 Pre-Show Outreach
+## Contacts at Example Medical Systems
 
-### Procurement Function (primary target)
+Found 1 contact matching the marketing filter.
 
-| Priority | Name | Title | Department | Seniority | LinkedIn |
-|----------|------|-------|------------|-----------|----------|
-| 1 | Sarah Chen | VP Procurement & Supply Chain | Procurement | Director | [LinkedIn](https://linkedin.com/in/sarahchen-operaops) |
-| 2 | Priya Rao | Procurement Manager | Procurement | Manager | [LinkedIn](https://linkedin.com/in/priyarao) |
-| 3 | Daniel Torres | Senior Procurement Analyst | Procurement | Individual Contributor | [LinkedIn](https://linkedin.com/in/danieltorres-ops) |
+| Name | Title | Department | Seniority | Email state | LinkedIn |
+|---|---|---|---|---|---|
+| Jordan Example | Global Marketing Communications Manager | marketing | manager | locked | [LinkedIn](https://www.linkedin.com/in/example-contact) |
 
-### Sales Leadership (executive sponsorship path)
-
-| Priority | Name | Title | Department | Seniority | LinkedIn |
-|----------|------|-------|------------|-----------|----------|
-| 1 | Marcus Webb | VP Sales, Americas | Sales | Director | [LinkedIn](https://linkedin.com/in/marcuswebb) |
-
-### Outreach Priority Notes
-- **Sarah Chen (VP Procurement)**: Primary target — decision-maker authority, department match; lead with ROI and workflow integration angle
-- **Priya Rao (Procurement Manager)**: Champion candidate — likely hands-on evaluator; good for discovery conversation at or before the show
-- **Marcus Webb (VP Sales)**: Alternative entry — if procurement channel is unresponsive, VP Sales may facilitate an intro to Sarah Chen
-- **Daniel Torres**: Do not cold-message initially; may be useful for referral if Priya Rao asks for more detail
-
-### Next Steps
-- No email addresses returned — all outreach via LinkedIn
-- Use `trade-show-linkedin-templates` to draft:
-  - A Director-tier message for Sarah Chen (decision-maker template)
-  - A Manager-tier message for Priya Rao (champion/evaluator template)
-  - A booth meeting invite for both before Dreamforce
+No unlock was performed. The returned seniority value is preserved as `manager`.
 ```
 
-## Notes
-
-- Two API calls were used: one for `Procurement` and one for `VP Sales` to cover both the buyer function and the executive sponsorship path
-- `sourceType: company_website` on Daniel Torres means his profile was sourced from the OperaOps website, not LinkedIn — `linkedinUrl` may be a best-effort match; verify before messaging
-- No email addresses were returned — this is expected behavior of the Lensmor contacts API
+Do not state that the API never returns email. It can return an email for contacts already unlocked by the API-key owner.

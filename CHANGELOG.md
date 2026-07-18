@@ -6,6 +6,31 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [0.4.1] - 2026-07-18
+
+### Fixed
+
+- Corrected event lookup from the unsupported `query` parameter to `keyword`.
+- Aligned `trade-show-fit-score` with the live 0–10 score, decision enum, and three-field breakdown contract.
+- Split `trade-show-exhibitor-search` into event-specific list and cross-event discovery modes; the cross-event search no longer sends an unsupported `event_id`.
+- Added an evidence gate to `trade-show-lead-recommender` so unranked fallback exhibitors are never presented as AI-ranked recommendations.
+- Corrected contact email semantics: locked contacts return a null email while already unlocked contacts may return one.
+- Added the 50-credit and HubSpot activity side effects to `competitor-show-tracker`, including a mandatory user confirmation step.
+
+### Verified
+
+- Authenticated against the production API with a real Lensmor key without exposing the key value.
+- Exercised event lookup, event fit score, event exhibitor list, cross-event exhibitor discovery, exhibitor recommendations, and contact search against live data.
+- Re-ran the four read-only API-backed skills as complete Agent workflows and tightened their evidence boundaries until the outputs matched the production response semantics.
+
+### Package versions
+
+- `trade-show-fit-score` 1.2.1
+- `trade-show-exhibitor-search` 1.2.1
+- `trade-show-lead-recommender` 1.2.1
+- `trade-show-contact-finder` 1.2.1
+- `competitor-show-tracker` 1.0.1
+
 ## [0.4.0] - 2026-07-17
 
 The first full-lifecycle release: 15 OpenClaw skills spanning event selection, competitor and exhibitor research, pre-show GTM, on-site execution, and post-show follow-up.

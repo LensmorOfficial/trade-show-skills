@@ -1,73 +1,46 @@
 # Lensmor Contact Finder — OpenClaw Skill
 
-> Find decision-makers and key contacts at target exhibitor companies for pre-show LinkedIn outreach.
-
-**Best for**: B2B sales and marketing teams running account-based outreach before a trade show.
+> Find relevant company contacts and report their returned LinkedIn and contact-lock state without unlocking data.
 
 ## What It Does
 
-Provide a company name and optional role filter. The agent calls the Lensmor contacts API and returns a prioritized table of decision-makers and influencers with their titles, departments, seniority levels, and LinkedIn profile links.
+Search by required `company_name` and optional `role` or `person_name`. The Skill returns only API-backed contact fields and may apply a clearly labeled operational sort based on company match, role, title, and returned seniority.
 
-Note: the API does not return email addresses. LinkedIn is the primary outreach channel.
+The search response includes `email`, but locked contacts return `email: null`. Already unlocked contacts may return an email. This Skill never initiates email or phone unlocks.
 
 ## Usage
 
-```
-Who are the decision-makers at OperaOps I should reach out to before Dreamforce?
-```
-
-```
-Find the procurement contacts at Spendly, VendorVault, and OperaOps.
+```text
+Find marketing contacts at Siemens Healthineers. Show the returned seniority and email lock state exactly.
 ```
 
-```
-Who runs marketing at Acme Corp? I want to schedule a meeting before Hannover Messe.
-```
-
-```
-Find C-suite contacts at the top 5 companies from my exhibitor shortlist.
+```text
+Search for a named person at Acme within the company-scoped contact endpoint.
 ```
 
-## Outreach Priority
-
-Contacts are ranked by seniority and buyer function alignment:
-
-| Seniority | Role in Outreach |
-|-----------|-----------------|
-| Executive | Decision-maker — concise, high-value pitch |
-| Director | Budget holder or influencer — primary target |
-| Manager | Champion or evaluator — discovery conversations |
-| Individual Contributor | Referral path to above |
+```text
+Find relevant contacts at these three exhibitors. Do not unlock email or phone data.
+```
 
 ## Requirements
 
-- Lensmor API key (`uak_your_api_key`) — contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase
+- Lensmor API key (`sk_your_api_key`) from Lensmor Settings → API Keys
 - Base URL: `https://platform.lensmor.com`
-- Full API docs: [https://api.lensmor.com/](https://api.lensmor.com/)
+- [Lensmor API docs](https://api.lensmor.com/)
 
 ## Install
 
 ```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/trade-show-contact-finder <your-workspace>/skills/
-
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/trade-show-contact-finder ~/.openclaw/skills/
+openclaw skills install @weilun88313/trade-show-contact-finder --acknowledge-clawhub-risk
 ```
-
-## Pre-Show Workflow
-
-1. `trade-show-lead-recommender` — find ICP-matching exhibitors at a specific event
-2. `trade-show-contact-finder` (this skill) — find decision-makers at each matched company
-3. `trade-show-linkedin-templates` — draft personalized outreach per seniority tier
 
 ## Related Skills
 
-- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — Find ICP-matching exhibitors (feeds company names into this skill)
-- [trade-show-lead-recommender](../trade-show-lead-recommender/) — AI-ranked exhibitor matches for a specific event
-- [booth-invitation-writer](../booth-invitation-writer/) — Draft booth invitation emails for confirmed targets
-- [trade-show-linkedin-templates](../trade-show-linkedin-templates/) — Generate personalized LinkedIn messages per contact tier
+- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — factual company discovery
+- [trade-show-lead-recommender](../trade-show-lead-recommender/) — event recommendation records with an evidence gate
+- [booth-invitation-writer](../booth-invitation-writer/) — grounded pre-show outreach
+- [trade-show-linkedin-templates](https://github.com/LensmorOfficial/trade-show-linkedin-templates) — LinkedIn-specific copy
 
 ---
 
-> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills) — AI-powered event intelligence platform for exhibitor discovery and pre-show lead generation.
+> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).

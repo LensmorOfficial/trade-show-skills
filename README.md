@@ -81,11 +81,11 @@ Other examples of what you can do with these skills:
 | [booth-invitation-writer](booth-invitation-writer/) | Generate personalized pre-show invitation emails and outreach sequences | Driving booth traffic, scheduling meetings, pre-show outreach |
 | [booth-giveaway-planner](booth-giveaway-planner/) | Plan trade show giveaways matched to your ICP, budget, and product story | Choosing branded gifts, budget allocation, pre-show ordering |
 | [exhibitor-checklist-generator](exhibitor-checklist-generator/) | Generate a phased exhibitor prep checklist with owners and deadlines | Show preparation planning, team task assignment, first-time exhibitors |
-| [trade-show-fit-score](trade-show-fit-score/) | Score a specific trade show against your company profile using the Lensmor API | Data-backed exhibit vs. skip decisions, annual planning triage, internal budget justification |
-| [trade-show-exhibitor-search](trade-show-exhibitor-search/) | Find ICP-matching exhibitors at a specific trade show using the Lensmor API | Pre-show prospecting, competitive mapping, partner discovery |
-| [trade-show-lead-recommender](trade-show-lead-recommender/) | Get AI-recommended exhibitors matching your ICP for a specific trade show event | AI-driven account prioritization, turning a 500-company exhibitor list into a top-20 outreach shortlist |
-| [trade-show-contact-finder](trade-show-contact-finder/) | Find decision-makers and key contacts at target exhibitor companies using the Lensmor API | Pre-show decision-maker lookup, booth meeting scheduling, account-based contact lists |
-| [competitor-show-tracker](competitor-show-tracker/) | Rank upcoming trade shows by how many of your competitors are exhibiting there | Competitive show circuit mapping, counter-programming decisions, budget prioritization |
+| [trade-show-fit-score](trade-show-fit-score/) | Retrieve the API's 0–10 profile fit score and three returned dimensions for one event | Data-backed event triage and planning handoff |
+| [trade-show-exhibitor-search](trade-show-exhibitor-search/) | List exhibitors for one event or run cross-event company discovery | Factual event research, prospect discovery, partner mapping |
+| [trade-show-lead-recommender](trade-show-lead-recommender/) | Retrieve event recommendations and distinguish ranked matches from unranked fallback records | Evidence-gated account prioritization |
+| [trade-show-contact-finder](trade-show-contact-finder/) | Find company contacts and report email/phone lock state without unlocking data | Pre-show decision-maker lookup and LinkedIn outreach planning |
+| [competitor-show-tracker](competitor-show-tracker/) | Rank events by competitor-name matches in Lensmor exhibitor records | Competitive show-circuit mapping with explicit credit and activity logging |
 
 ### On-Site
 
