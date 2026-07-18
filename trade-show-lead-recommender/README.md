@@ -1,70 +1,47 @@
-# Lensmor Recommendations — OpenClaw Skill
+# Lensmor Exhibitor Recommendations — OpenClaw Skill
 
-> Get AI-ranked exhibitors matching your ICP for a specific trade show, filtered by size, location, and category.
-
-**Best for**: B2B teams who want to turn a 500-company exhibitor list into a prioritized top-20 outreach shortlist.
+> Retrieve event recommendation records and clearly separate populated ranks from unranked fallback exhibitors.
 
 ## What It Does
 
-Provide an event ID and ICP filters. The agent calls the Lensmor profile-matching API and returns a ranked list of exhibitors with ICP match rationale — prioritized by AI against your company profile. Each result includes industry, employee count, funding stage, tech stack, and categories.
+For one Lensmor event, the Skill applies supported company filters and inspects recommendation evidence:
+
+- `isRecommended`
+- `recommendationRank`
+- `matchScore`, `matchTier`, and `reason`
+- `recommendationProcessing` and `show_refresh_hint`
+
+If those fields are null or false, the Skill reports an unranked event-exhibitor fallback. It does not invent a score, reason, or rank from company metadata.
 
 ## Usage
 
-```
-Give me the top ICP matches at Dreamforce 2026 — we sell procurement automation to mid-market manufacturers.
-```
-
-```
-Who should we target at Hannover Messe 2026? We want German industrial automation vendors with 100–1,000 employees.
+```text
+Get recommendations for MEDICA 2026. If Lensmor has no populated recommendation metadata, label the output as unranked fallback exhibitors.
 ```
 
+```text
+Filter event 12740 by Medical Devices and companies with 100–1,000 employees. Preserve returned recommendation fields exactly.
 ```
-Which companies from my shortlist (OperaOps, Spendly, VendorVault) are exhibiting at Dreamforce?
-```
-
-```
-Shortlist the best prospects for us at SaaStr Annual 2026. We sell to B2B SaaS CFOs, Series B and above.
-```
-
-## Available Filters
-
-| Filter | Use When |
-|--------|----------|
-| `employeesMin` / `employeesMax` | Targeting a specific company size band (SMB, mid-market, enterprise) |
-| `category` | Narrowing to a specific product vertical |
-| `location` | Regional sales territory constraints |
-| `searchQuery` | Keyword-based discovery when category is unclear |
-| `exhibitorName` | Account-based — validating specific companies against the show floor |
-
-## Pre-Show Workflow
-
-1. `trade-show-lead-recommender` (this skill) — AI-ranked ICP exhibitors at a specific event
-2. `trade-show-contact-finder` — Find decision-makers at each matched company
-3. `trade-show-linkedin-templates` — Draft personalized outreach per seniority tier
 
 ## Requirements
 
-- Lensmor API key (`uak_your_api_key`) — contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase
+- Lensmor API key (`sk_your_api_key`) from Lensmor Settings → API Keys
 - Base URL: `https://platform.lensmor.com`
-- Full API docs: [https://api.lensmor.com/](https://api.lensmor.com/)
+- [Lensmor API docs](https://api.lensmor.com/)
 
 ## Install
 
 ```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/trade-show-lead-recommender <your-workspace>/skills/
-
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/trade-show-lead-recommender ~/.openclaw/skills/
+openclaw skills install @weilun88313/trade-show-lead-recommender --acknowledge-clawhub-risk
 ```
 
 ## Related Skills
 
-- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — Profile-based exhibitor search across all events
-- [trade-show-contact-finder](../trade-show-contact-finder/) — Find decision-makers at matched exhibitor companies
-- [trade-show-fit-score](../trade-show-fit-score/) — Score whether the event is worth targeting before prospecting
-- [booth-invitation-writer](../booth-invitation-writer/) — Draft outreach emails once target accounts are confirmed
+- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — factual event listing and cross-event discovery
+- [trade-show-contact-finder](../trade-show-contact-finder/) — find contacts at selected companies
+- [trade-show-fit-score](../trade-show-fit-score/) — retrieve an event-level profile signal
+- [booth-invitation-writer](../booth-invitation-writer/) — draft grounded outreach
 
 ---
 
-> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills) — AI-powered event intelligence platform for exhibitor discovery and pre-show lead generation.
+> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).

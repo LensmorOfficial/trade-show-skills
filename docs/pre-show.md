@@ -68,7 +68,7 @@ Plan giveaway items that reinforce the brand story and fit the ICP, budget, and 
 
 **Stage**: Pre-Show · **Category**: Research
 
-Score a specific trade show against your company profile using the Lensmor API.
+Retrieve the Lensmor API's 0–10 profile fit score and its three available breakdown dimensions for a specific event.
 
 **When to use**: When evaluating a named show and wanting a data-backed fit score with dimension breakdown before committing to exhibit.
 
@@ -78,7 +78,7 @@ Score a specific trade show against your company profile using the Lensmor API.
 
 **Stage**: Pre-Show · **Category**: Research
 
-Find ICP-matching exhibitors at a specific trade show using the Lensmor API.
+List exhibitors for a specific event or run cross-event exhibitor discovery by company URL or target-audience phrase.
 
 **When to use**: Before a show, when prospecting for potential customers, partners, or accounts to target for pre-show outreach.
 
@@ -88,9 +88,9 @@ Find ICP-matching exhibitors at a specific trade show using the Lensmor API.
 
 **Stage**: Pre-Show · **Category**: Research
 
-Get AI-recommended exhibitors matching your ICP for a specific trade show event.
+Retrieve event-scoped recommendation records and distinguish populated ranked matches from unranked fallback exhibitors.
 
-**When to use**: When starting from a large exhibitor list and needing to narrow it to a high-fit outreach shortlist using ICP filters.
+**When to use**: When starting from a large event exhibitor set and needing to check whether Lensmor has populated recommendation ranks or scores; otherwise use the returned rows as an unranked fallback.
 
 ---
 
@@ -98,9 +98,9 @@ Get AI-recommended exhibitors matching your ICP for a specific trade show event.
 
 **Stage**: Pre-Show · **Category**: Outreach
 
-Find decision-makers and key contacts at target exhibitor companies using the Lensmor API.
+Find relevant contacts at target companies and report returned LinkedIn and contact-lock state without unlocking email or phone data.
 
-**When to use**: After identifying target companies, to find the right people for LinkedIn outreach before the show.
+**When to use**: After identifying target companies, to find relevant people for LinkedIn outreach and inspect whether contact details are locked.
 
 ---
 
@@ -108,9 +108,9 @@ Find decision-makers and key contacts at target exhibitor companies using the Le
 
 **Stage**: Pre-Show · **Category**: Competitive Intelligence
 
-Rank upcoming trade shows by how many of your competitors are exhibiting there, using the Lensmor API.
+Rank upcoming trade shows by how many competitor names match Lensmor exhibitor records, with explicit credit and HubSpot activity disclosure.
 
-**When to use**: When you want to map the show circuit of your competitive set — find events where multiple competitors cluster to decide where to counter-program or invest in booth presence.
+**When to use**: When you want to map show-circuit records for a competitive set and have approved the per-request credit cost and HubSpot search-activity update.
 
 ---
 
@@ -126,9 +126,9 @@ trade-show-finder
   -> validate ROI and get budget approval
   -> exhibitor-checklist-generator
   -> assign owners and deadlines
-  -> competitor-show-tracker             [optional: map which shows your competitive set is attending]
-  -> trade-show-lead-recommender          [narrow exhibitor list to ICP-matched shortlist]
-  -> trade-show-exhibitor-search         [targeted search by company URL or audience]
+  -> competitor-show-tracker             [optional: map competitor-name matches across shows]
+  -> trade-show-lead-recommender          [use ranked results only when recommendation evidence exists]
+  -> trade-show-exhibitor-search         [event list or cross-event company discovery]
   -> trade-show-contact-finder           [find decision-makers at target companies]
   -> booth-invitation-writer
   -> drive pre-booked meetings
@@ -141,4 +141,4 @@ trade-show-finder
 - `trade-show-finder` and `pre-show-competitor-analysis` are the strategic filters. They decide whether the event is worth doing and how crowded the field will be.
 - `trade-show-budget-planner`, `exhibitor-checklist-generator`, and `booth-giveaway-planner` translate that strategy into execution.
 - `booth-invitation-writer` is most effective when the target show, message, and audience segmentation are already settled.
-- `trade-show-fit-score`, `trade-show-exhibitor-search`, `trade-show-lead-recommender`, `trade-show-contact-finder`, and `competitor-show-tracker` require a paid Lensmor API key (contact hello@lensmor.com). They add live data to the workflow where manual research would otherwise be needed.
+- `trade-show-fit-score`, `trade-show-exhibitor-search`, `trade-show-lead-recommender`, `trade-show-contact-finder`, and `competitor-show-tracker` require a Lensmor API key. Read-only search does not automatically unlock data. Successful `competitor-show-tracker` lookups consume credits and record search activity; its Skill asks for confirmation first.

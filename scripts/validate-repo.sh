@@ -77,4 +77,43 @@ rg -q 'stop with `Verification required`' trade-show-finder/SKILL.md \
   || fail "trade-show-finder is missing its official-source evidence gate"
 pass "Trade show recommendations require current official-source evidence"
 
+if rg -n 'events/list\?query=' . --type md; then
+  fail "API-backed skills still use the unsupported events/list query parameter"
+fi
+
+if rg -n 'uak_' . --type md; then
+  fail "Legacy API key examples found; public examples must use sk_"
+fi
+
+rg -q '0–10' trade-show-fit-score/SKILL.md \
+  || fail "trade-show-fit-score is missing the live 0–10 score contract"
+rg -q 'matched_exhibitor_density' trade-show-fit-score/SKILL.md \
+  || fail "trade-show-fit-score is missing the live breakdown fields"
+rg -q 'zero score does not prove' trade-show-fit-score/SKILL.md \
+  || fail "trade-show-fit-score is missing its zero-score interpretation guard"
+rg -q 'Exact-zero hard gate' trade-show-fit-score/SKILL.md \
+  || fail "trade-show-fit-score is missing its exact-zero output gate"
+
+rg -q 'does not accept `event_id`' trade-show-exhibitor-search/SKILL.md \
+  || fail "trade-show-exhibitor-search does not separate event list and cross-event search modes"
+rg -q 'never call them registrations' trade-show-exhibitor-search/SKILL.md \
+  || fail "trade-show-exhibitor-search is missing its participation-language guard"
+rg -q 'Do not imply that `trade-show-lead-recommender` requires an event unlock' trade-show-exhibitor-search/SKILL.md \
+  || fail "trade-show-exhibitor-search is missing its cross-skill prerequisite guard"
+rg -q 'Unranked fallback' trade-show-lead-recommender/SKILL.md \
+  || fail "trade-show-lead-recommender is missing its recommendation evidence gate"
+rg -q 'does not identify a cause' trade-show-lead-recommender/SKILL.md \
+  || fail "trade-show-lead-recommender is missing its refresh-hint boundary"
+rg -q 'Every Lensmor API call in this workflow must send' trade-show-lead-recommender/SKILL.md \
+  || fail "trade-show-lead-recommender is missing authenticated event lookup guidance"
+rg -q 'contactUnlockStatus' trade-show-contact-finder/SKILL.md \
+  || fail "trade-show-contact-finder is missing email lock-state semantics"
+rg -q 'not verified decision authority' trade-show-contact-finder/SKILL.md \
+  || fail "trade-show-contact-finder is missing its authority-inference guard"
+rg -q 'HubSpot `last_search_date`' competitor-show-tracker/SKILL.md \
+  || fail "competitor-show-tracker is missing its activity side-effect disclosure"
+rg -q 'consumes 50 credits' competitor-show-tracker/SKILL.md \
+  || fail "competitor-show-tracker is missing its per-request credit disclosure"
+pass "API-backed skills match the verified production contracts"
+
 pass "Repo validation completed successfully"

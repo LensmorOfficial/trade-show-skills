@@ -1,6 +1,6 @@
 ---
 name: competitor-show-tracker
-version: 1.0.0
+version: 1.0.1
 description: "Rank upcoming trade shows by how many of your competitors are exhibiting there. \"Which shows are my competitors at?\" / \"竞争对手去哪些展会\" / \"Auf welchen Messen sind meine Wettbewerber?\" / \"競合他社の出展先は?\" / \"¿En qué ferias están mis competidores?\". competitor shows, competitive intelligence, show tracking, 竞品展会/竞争对手参展追踪 Wettbewerber Messepräsenz 競合他社出展先 seguimiento ferias competidores"
 homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/competitor-show-tracker
 user-invocable: true
@@ -9,13 +9,14 @@ metadata: {"openclaw":{"config":{"stage":"pre-show","category":"competitive-inte
 
 # Competitor Show Tracker
 
-Input a list of competitor company names — get back a ranked list of upcoming trade shows sorted by how many of those competitors will be on the floor, plus which specific competitors are confirmed at each event.
+Input a list of competitor company names and rank upcoming trade shows by how many names match Lensmor exhibitor records. Treat these as database matches, not independently verified attendance confirmations.
 
 When this skill triggers:
 - Run the API key check (Step 1) before any API call
 - Call `POST /external/exhibitors/search-events` once per competitor company
 - Aggregate results by event, count distinct competitors per event
 - Filter to future events only, then rank by competitor concentration
+- Confirm estimated credit use and HubSpot activity logging before the first live call
 
 ## Use Cases
 
@@ -54,7 +55,19 @@ Do not proceed to any API call until the key is confirmed present.
 
 If the user provides only one company name, explain that this skill is designed for competitive comparison across multiple companies — offer to run `trade-show-exhibitor-search` instead for a single company.
 
-### Step 3: Fetch Events per Competitor
+### Step 3: Confirm Cost and Activity Logging
+
+For each request that returns at least one matching event, the current API:
+
+- consumes 50 credits
+- records an API search event
+- asynchronously updates the API-key owner's HubSpot `last_search_date`
+
+An empty result does not consume credits. Each additional page is a separate request and can consume another 50 credits when it returns results.
+
+Before calling the endpoint, state the maximum first-page cost as `number of competitors × 50 credits` and ask the user to approve both the credit use and HubSpot activity record. Do not proceed without confirmation.
+
+### Step 4: Fetch Events per Competitor
 
 For **each** competitor in the list, call:
 
@@ -72,7 +85,7 @@ Request body:
 }
 ```
 
-Run one request per competitor. For N competitors, make N sequential calls (or parallel if the execution environment allows). Label each result set by the input company name before aggregating.
+Run one request per competitor. For N competitors, make N sequential calls so failures, costs, and rate limits remain attributable. Label each result set by the input company name before aggregating.
 
 **Response structure:**
 
@@ -85,8 +98,8 @@ Run one request per competitor. For N competitors, make N sequential calls (or p
   "hasMore": false,
   "items": [
     {
-      "id": "rec_abc123",
-      "eventId": "evt_hannovermesse_2026",
+      "id": "12740",
+      "eventId": "12740",
       "name": "Hannover Messe 2026",
       "nickname": null,
       "description": "World's leading industrial trade show",
@@ -121,13 +134,13 @@ Run one request per competitor. For N competitors, make N sequential calls (or p
 | `exhibitorCount` | integer | Total exhibitors at the show — useful as a size proxy |
 | `matchedExhibitors` | array | Which specific entities were matched for this company name — may include subsidiaries |
 
-### Step 4: Aggregate Across Competitors
+### Step 5: Aggregate Across Competitors
 
 After collecting results for all N companies, aggregate by `eventId`:
 
 1. **Deduplicate** events across all N result sets using `eventId` as the key
 2. **Union** the `matchedExhibitors` entries from all competitors per event
-3. **Count distinct competitors** per event (count the number of input company names with at least one `matchedExhibitor` confirmed at the event — not the count of `matchedExhibitor` entities, which may include subsidiaries)
+3. **Count distinct competitors** per event (count the number of input company names with at least one returned `matchedExhibitor` record — not the count of entities, which may include subsidiaries)
 4. **Filter** to future events: keep only events where `dateStart >= today` (or `date_from` if specified)
 5. **Sort** by competitor count descending; break ties by `exhibitorCount` descending (larger shows are higher-priority)
 
@@ -146,7 +159,7 @@ for each competitor C in input_list:
 ranked = sort event_map.values() by len(competitors_seen) desc
 ```
 
-### Step 5: Format the Output
+### Step 6: Format the Output
 
 #### Section 1 — Summary Header
 
@@ -175,14 +188,14 @@ ranked = sort event_map.values() by len(competitors_seen) desc
 
 #### Section 3 — Event Detail Cards (for events with 2+ competitors)
 
-For each event with 2 or more competitors confirmed:
+For each event with 2 or more competitor names matched:
 
 ```markdown
-### Hannover Messe 2026 — 4 of 5 competitors confirmed
+### Hannover Messe 2026 — 4 of 5 competitors matched
 
 📅 Apr 20–24, 2026 · Hannover, Germany · 4,000 exhibitors
 
-**Competitors confirmed:**
+**Competitors matched in Lensmor exhibitor records:**
 - **Siemens** → matched as: Siemens AG, Siemens Digital Industries
 - **ABB** → matched as: ABB Ltd
 - **Bosch** → matched as: Bosch Rexroth AG
@@ -196,7 +209,7 @@ For each event with 2 or more competitors confirmed:
 ```markdown
 ## Insights
 
-- **Most contested show**: [event with highest competitor count] — [N/N] competitors confirmed
+- **Most contested show**: [event with highest competitor count] — [N/N] competitor names matched
 - **Must-watch shows** (3+ competitors): [list]
 - **Single-competitor shows**: [events where only 1 competitor appears — lower priority but monitor]
 - **Gaps**: [input competitors with zero events found — may not be in Lensmor's database yet]
@@ -211,6 +224,8 @@ For each event with 2 or more competitors confirmed:
 | 429 | Rate limit exceeded | "Rate limit reached after [N] companies. Wait 60 seconds, then continue from `[next_company]`." |
 | 502 / 5xx | Server error | "The Lensmor API returned a server error for `[company_name]`. Skipping — results will note this company as incomplete." |
 | Empty `items` | No events found | Note in Insights section under "Gaps": this competitor returned no events and may not be in Lensmor's database. Do not omit silently. |
+
+For every successful request, report whether credits were consumed. Do not infer the actual deduction from the documented price alone when a balance endpoint is available; compare `GET /external/credits/balance` before and after the run.
 
 ### Follow-up Routing
 
@@ -234,12 +249,14 @@ For each event with 2 or more competitors confirmed:
 8. `matchedExhibitors` may return subsidiaries or regional entities — group them under the input company name; list the specific matched entity names in the detail card
 9. When `hasMore: true` for any competitor, note that results may be incomplete and offer to fetch additional pages
 10. End every response with 1–3 follow-up suggestions based on the top-ranked events
+11. Call returned companies "matched in Lensmor exhibitor records", not "confirmed attendees" or independently verified exhibitors
+12. Report that successful searches update HubSpot `last_search_date`
 
 ## Quality Checks
 
 Before delivering:
 - Confirm that deduplication used `eventId`, not event name — name variations across lookups would create false duplicates
-- Competitor count in the ranked table must reflect number of *input companies* with a confirmed match, not number of `matchedExhibitor` entities (a single company may have multiple subsidiary matches)
+- Competitor count in the ranked table must reflect number of *input companies* with a returned match, not number of `matchedExhibitor` entities (a single company may have multiple subsidiary matches)
 - Any competitor with no results must appear in the Insights "Gaps" section — do not omit
 - Date filter must be applied before ranking — past events must not appear in the ranked output
 - If only one competitor was provided, redirect to `trade-show-exhibitor-search` — this skill is not meaningful with a single input

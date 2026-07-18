@@ -1,67 +1,60 @@
 # Lensmor Event Fit Score — OpenClaw Skill
 
-> Get a data-backed score on whether a specific trade show is worth exhibiting at, attending, or skipping.
+> Retrieve Lensmor's simplified 0–10 fit score for one event without inventing extra scoring dimensions.
 
-**Best for**: B2B teams that need a quantified recommendation before committing booth budget or travel spend.
+**Best for**: B2B teams that want a fast profile-based signal before deeper show research or budget planning.
 
 ## What It Does
 
-Provide a show name or Lensmor event ID. The agent calls the Lensmor fit-score API and returns:
+Provide a show name or Lensmor event ID. The skill:
 
-- An overall fit score (0–100) against your company profile
-- Per-dimension breakdown: ICP alignment, audience volume, competitive density, geographic reach, content relevance
-- A plain-language recommendation and decision band (Exhibit / Consider / Monitor / Skip)
+- resolves the event with the supported `keyword` filter
+- calls the production fit-score endpoint
+- preserves the API's 0–10 score and exact decision enum
+- reports the three returned dimensions: `profile_match`, `matched_exhibitor_density`, and `event_scale`
+
+The API does not currently return geographic fit, content relevance, competitor density, ROI, or a prose recommendation. The Skill will not fabricate them.
+
+A zero result is reported without diagnosing missing profile setup or missing data unless the API returns that status explicitly.
 
 ## Usage
 
-```
-Should we exhibit at Hannover Messe 2026? We sell industrial IoT software to plant managers at European manufacturers.
-```
-
-```
-Is SaaStr Annual 2026 worth the booth spend for a B2B SaaS company selling to mid-market CFOs?
+```text
+Should we exhibit at MEDICA 2026? Retrieve the Lensmor fit score and explain only the returned dimensions.
 ```
 
-```
-Score event evt_medica_2026 — is it worth attending for a surgical robotics company?
-```
-
-```
-We're deciding between Dreamforce and SaaStr this year. Give me a fit score for both.
+```text
+Score event 12740 and tell me whether the API returns recommended, consider, or not_recommended.
 ```
 
 ## Score Interpretation
 
-| Score | Decision |
-|-------|----------|
-| 80–100 | Exhibit — secure budget now |
-| 65–79 | Consider — attend first or exhibit if budget permits |
-| 50–64 | Attend as visitor to validate fit |
-| < 50 | Skip exhibiting |
+| Score | API decision |
+|---:|---|
+| 7–10 | `recommended` |
+| 4–<7 | `consider` |
+| 0–<4 | `not_recommended` |
+
+Treat this as a profile signal, not a complete exhibit ROI model.
 
 ## Requirements
 
-- Lensmor API key (`uak_your_api_key`) — contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase
+- Lensmor API key (`sk_your_api_key`) from Lensmor Settings → API Keys
 - Base URL: `https://platform.lensmor.com`
-- Full API docs: [https://api.lensmor.com/](https://api.lensmor.com/)
+- [Lensmor API docs](https://api.lensmor.com/)
 
 ## Install
 
 ```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/trade-show-fit-score <your-workspace>/skills/
-
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/trade-show-fit-score ~/.openclaw/skills/
+openclaw skills install @weilun88313/trade-show-fit-score --acknowledge-clawhub-risk
 ```
 
 ## Related Skills
 
-- [trade-show-finder](../trade-show-finder/) — Manual show scoring and shortlist discovery without API access
-- [trade-show-exhibitor-search](../trade-show-exhibitor-search/) — Find ICP-matching exhibitors after confirming the show is a good fit
-- [trade-show-lead-recommender](../trade-show-lead-recommender/) — AI-ranked exhibitor matches for a scored event
-- [trade-show-budget-planner](../trade-show-budget-planner/) — Plan budget and ROI once you decide to exhibit
+- [trade-show-finder](../trade-show-finder/) — official-source show research and manual comparison
+- [trade-show-lead-recommender](../trade-show-lead-recommender/) — retrieve event recommendation records with an evidence gate
+- [trade-show-budget-planner](../trade-show-budget-planner/) — model execution cost and ROI assumptions
 
 ---
 
-> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills) — AI-powered event intelligence platform for exhibitor discovery and pre-show lead generation.
+> Built by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).

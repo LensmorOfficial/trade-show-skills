@@ -16,6 +16,12 @@ Provide 2–20 competitor company names. The skill uses Lensmor event and exhibi
 
 Coverage varies by event and source. A missing result means no match was found in the queried Lensmor data; it does not prove that a company will not attend or exhibit.
 
+## Cost and Activity Side Effects
+
+Each company lookup that returns at least one event consumes 50 credits. It also records the API search and asynchronously updates the API-key owner's HubSpot `last_search_date`. Empty results do not consume credits. Additional pages are separate chargeable requests when they return results.
+
+The Skill calculates the maximum first-page cost and asks for approval before running.
+
 ## Usage
 
 ```text
@@ -46,7 +52,7 @@ See the [fictional industrial automation example](examples/industrial-automation
 
 ## Requirements
 
-- Lensmor API access
+- Lensmor API key using the current `sk_` format
 - `LENSMOR_API_KEY` configured in the OpenClaw environment
 - [Lensmor API documentation](https://api.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=competitor-show-tracker)
 
@@ -55,7 +61,7 @@ Do not paste API keys into prompts, examples, issues, or logs.
 ## Install
 
 ```bash
-npx clawhub@latest install competitor-show-tracker
+openclaw skills install @weilun88313/competitor-show-tracker --acknowledge-clawhub-risk
 ```
 
 Source install:

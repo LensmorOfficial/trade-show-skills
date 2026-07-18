@@ -11,6 +11,13 @@ Rank upcoming industrial trade shows during the next 12 months by competitor con
 
 ## Example Output
 
+### Preflight
+
+- Five competitor lookups
+- Maximum first-page cost: 250 credits
+- Successful lookups will record API search activity and update HubSpot `last_search_date`
+- User approval: required before execution
+
 ### Competitor Show Tracker
 
 - **Competitors tracked**: Siemens, ABB, Schneider Electric, Rockwell Automation, Bosch Rexroth
@@ -42,6 +49,7 @@ Rank upcoming industrial trade shows during the next 12 months by competitor con
 - **Highest competitor concentration**: Example Industrial Expo, with 4 / 5 input companies matched.
 - **Events requiring validation**: all three ranked events; verify the current edition, dates, and exhibitor listings before making a budget decision.
 - **Coverage gap**: no event match was found for Rockwell Automation in this fictional result. Treat this as an unresolved data gap, not evidence of non-participation.
+- **Usage record**: report the observed balance delta after the run and note that HubSpot search activity was updated for successful lookups.
 
 ### Suggested Next Steps
 
