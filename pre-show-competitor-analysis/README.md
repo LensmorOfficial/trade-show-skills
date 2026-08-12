@@ -11,6 +11,7 @@ Give the agent a show, competitor set, and your market context. It outputs:
 - A structured competitor landscape before the event starts
 - Threat scoring across booth presence, direct overlap, and messaging clash
 - Clear separation between `[OBS]`, `[INF]`, `[HEARD]`, and `[EST]`
+- Optional public X/Twitter source packets for competitor launch posts and show hashtags
 - White-space and differentiation opportunities
 - Next-step handoffs into booth messaging, on-site observation, and follow-up
 
@@ -59,7 +60,7 @@ cp -r /path/to/trade-show-skills/pre-show-competitor-analysis ~/.openclaw/skills
 
 The skill guides the agent through:
 
-1. **Target show data collection** — exhibitor lists, floor plans, hall themes, public listings
+1. **Target show data collection** — exhibitor lists, floor plans, hall themes, public listings, and optional public X/Twitter source packets
 2. **Signal extraction** — booth prominence, positioning language, launch signals, speaking presence
 3. **Threat scoring** — standardized 3-15 score across overlap, prominence, and messaging clash
 4. **Strategic response** — messaging, booth planning, watch list, and on-site verification priorities
