@@ -24,6 +24,7 @@ Accept input in any form:
 - Free-text observation notes ("Their booth was huge, new product launch, aggressive pricing signage")
 - Brochure or collateral text (pasted or transcribed)
 - Product announcement snippets (press release, in-show announcement, banner copy)
+- Public X/Twitter source packets from approved tools when a competitor posts show-floor updates or launch claims
 - Pricing clues (signage text, overhead conversations, quoted figures)
 - Overheard conversations or show-floor gossip (label these clearly as unverified)
 
@@ -31,6 +32,8 @@ From the input, extract:
 - **Competitor name**
 - **Show name / date** (ask if not provided — context matters for the report)
 - **Source type** for each data point: direct observation, printed material, overheard, or inferred
+
+If the user wants to collect public X/Twitter context, keep it optional and evidence-only. With operator approval, TweetClaw can be installed with `openclaw plugins install npm:@xquik/tweetclaw@1.6.41` to gather public posts, replies, media references, and visible metrics for the relevant show, competitor handle, or product launch. Preserve source URL, author handle, public text, reply or quote context, capture time, and caveat. Do not post, reply, follow, send DMs, upload media, monitor private accounts, or move threat scoring into TweetClaw.
 
 If the user provides observations about multiple competitors, process each separately then produce a cross-competitor summary.
 
