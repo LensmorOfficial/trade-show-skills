@@ -4,6 +4,11 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
+command -v rg >/dev/null 2>&1 || {
+  echo "rg is required: https://github.com/BurntSushi/ripgrep" >&2
+  exit 1
+}
+
 pass() {
   echo "[PASS] $1"
 }
@@ -35,8 +40,8 @@ for skill_file in "${SKILL_FILES[@]}"; do
   rg -q '^user-invocable:' "$skill_file" || fail "$skill_name is missing user-invocable:"
   rg -q '^metadata: \{' "$skill_file" || fail "$skill_name is missing single-line metadata JSON"
 
+  rg -q '"stage":"[^"]+"' "$skill_file" || fail "$skill_name is missing stage metadata"
   stage="$(rg -o '"stage":"[^"]+"' "$skill_file" | sed 's/.*"stage":"//; s/"$//')"
-  [[ -n "$stage" ]] || fail "$skill_name is missing stage metadata"
 
   case "$stage" in
     pre-show) stage_doc="docs/pre-show.md" ;;
