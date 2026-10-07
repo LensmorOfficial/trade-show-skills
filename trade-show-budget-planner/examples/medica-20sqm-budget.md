@@ -1,101 +1,69 @@
-# Example: MEDICA 2026 Budget — 20sqm Booth, Team of 4
+# Example: 20sqm Exhibition Budget and Break-Even
 
-**Prompt:** "How much would it cost to exhibit at MEDICA 2026 with a 20sqm booth and a team of 4? We sell sterilization monitoring systems, average deal size is EUR 30K."
+> Fictional planning example for MEDICA. All rates, conversion assumptions, and financial figures are illustrative scenario inputs, not organizer quotes or expected results. Verify the intended edition and supplier pricing before using this budget.
 
----
+## Input
 
-## Trade Show Budget: MEDICA 2026
+```text
+Model an exhibit budget: 20sqm custom booth, four staff traveling within Europe,
+five hotel nights each, EUR 30,000 average deal value. Use explicit assumptions.
+We do not yet have organizer or supplier quotes, or an agreed gross margin.
+```
 
-**Show:** MEDICA 2026, Nov 16-19, Dusseldorf, Germany
-**Booth size:** 20 sqm (custom build)
-**Team:** 4 people, flying from [origin TBD — estimated as intra-Europe]
+## Estimated Budget
 
-### 1. Space & Infrastructure
+Currency: EUR. Tax treatment, edition dates, supplier availability, and booking cutoffs: not verified. Staff opportunity cost is separate from cash outlay.
 
-| Item | Estimate | Notes |
-|------|----------|-------|
-| Booth space rental | EUR 7,000 | 20 sqm x ~EUR 350/sqm (MEDICA rate) |
-| Custom booth build | EUR 18,000 | Design + construction + teardown (~EUR 900/sqm) |
-| Furniture rental | EUR 1,500 | Meeting table, chairs, display counter, storage |
-| Electrical & internet | EUR 1,200 | Power connections + WiFi (Messe Dusseldorf rates) |
-| Signage & graphics | EUR 2,500 | Backwall, lightbox, product displays |
-| **Subtotal** | **EUR 30,200** | |
+| Category | Item | Estimate [EST] | Basis |
+|---|---|---:|---|
+| Space/infrastructure | Space | 7,000 | 20sqm × illustrative EUR 350/sqm |
+| Space/infrastructure | Custom build | 18,000 | Illustrative supplier scope, not an organizer rate |
+| Space/infrastructure | Furniture | 1,500 | Scenario input |
+| Space/infrastructure | Electrical/internet | 1,200 | Scenario input |
+| Space/infrastructure | Graphics | 2,500 | Scenario input |
+| Travel | Flights | 2,400 | 4 × EUR 600 |
+| Travel | Hotel | 6,000 | 5 nights × 4 rooms × EUR 300 |
+| Travel | Ground transport | 800 | Scenario input |
+| Travel | Meals | 2,000 | Scenario input |
+| Marketing | Outreach | 500 | Scenario input |
+| Marketing | Printing | 800 | Scenario input |
+| Marketing | Demo setup | 1,500 | Scenario input |
+| Marketing | Lead capture | 400 | Scenario input |
+| Marketing | Giveaways | 600 | Scenario input |
+| Operations | Freight | 2,000 | Scenario input |
+| Operations | Insurance | 400 | Scenario input |
+| **Cash subtotal** | | **47,600** | |
+| **Cash contingency** | | **4,760** | 10% of cash subtotal; not applied twice |
+| **Cash budget** | | **52,360** | |
+| Staff | Opportunity cost | 8,000 | 4 people × 5 days × EUR 400/day |
+| **Total economic investment** | | **60,360** | Cash budget + staff opportunity cost |
 
-### 2. Travel & Accommodation
+Budget confidence: **Low** until scope, quotes, tax, and dates are confirmed.
 
-| Item | Estimate | Notes |
-|------|----------|-------|
-| Flights (4 people) | EUR 2,400 | EUR 600 avg round-trip intra-Europe |
-| Hotel (5 nights x 4 people) | EUR 6,000 | EUR 300/night during MEDICA week (premium rates) |
-| Ground transport | EUR 800 | Airport transfers + daily tram/taxi |
-| Meals & entertainment | EUR 2,000 | Team meals + 2 client dinners |
-| **Subtotal** | **EUR 11,200** | |
+## Revenue Scenarios
 
-### 3. Marketing & Collateral
+These use hypothetical booth traffic, not a projection derived from total show attendance. Qualification rate = 15%; lead-to-opportunity rate = 20%; win rate = 25%. Keep expected deals fractional until calculating revenue.
 
-| Item | Estimate | Notes |
-|------|----------|-------|
-| Pre-show email campaign | EUR 500 | Email tool + design (DIY) |
-| Printed brochures (500) | EUR 800 | |
-| Product demo setup | EUR 1,500 | Monitor, demo unit, accessories |
-| Lead capture app | EUR 400 | Badge scanner or lead capture subscription |
-| Giveaways | EUR 600 | Branded items |
-| **Subtotal** | **EUR 3,800** | |
-
-### 4. Staffing & Operations
-
-| Item | Estimate | Notes |
-|------|----------|-------|
-| Staff time (opportunity cost) | EUR 8,000 | 4 people x 5 days x EUR 400/day |
-| Shipping & logistics | EUR 2,000 | Demo equipment + booth materials |
-| Travel insurance | EUR 400 | |
-| **Subtotal** | **EUR 10,400** | |
-
-### Total Estimated Budget: EUR 55,600
-
----
-
-## ROI Projection
-
-### Assumptions
-- MEDICA attracts 81,000+ visitors; a 20sqm booth in a relevant hall can expect 300-500 booth visitors over 4 days
-- Meaningful conversations: ~15% = 50-75 qualified leads
-- Lead → Opportunity: 20% = 10-15 opportunities
-- Opportunity → Deal: 25% = 3-4 deals
-- Average deal value: EUR 30,000
-
-### Projected Pipeline
-
-| Stage | Conservative | Base Case | Optimistic |
-|-------|-------------|-----------|------------|
-| Booth visitors | 300 | 400 | 500 |
+| Metric | Conservative | Base | Optimistic |
+|---|---:|---:|---:|
+| Visitors [scenario input] | 300 | 400 | 500 |
 | Qualified leads | 45 | 60 | 75 |
 | Opportunities | 9 | 12 | 15 |
-| Closed deals | 2 | 3 | 4 |
-| **Revenue** | **EUR 60,000** | **EUR 90,000** | **EUR 120,000** |
+| Expected deals | 2.25 | 3.00 | 3.75 |
+| Expected attributable revenue | 67,500 | 90,000 | 112,500 |
+| Economic investment | 60,360 | 60,360 | 60,360 |
+| Revenue recovery | 11.83% | 49.11% | 86.38% |
+| Cost per qualified lead | 1,341.33 | 1,006.00 | 804.80 |
+| Profit ROI | Not assessed | Not assessed | Not assessed |
 
-### ROI Summary
+Revenue recovery = (revenue − economic investment) / economic investment. This is not profit ROI.
 
-| Metric | Conservative | Base Case | Optimistic |
-|--------|-------------|-----------|------------|
-| Revenue | EUR 60,000 | EUR 90,000 | EUR 120,000 |
-| Investment | EUR 55,600 | EUR 55,600 | EUR 55,600 |
-| **ROI** | **8%** | **62%** | **116%** |
-| Cost per lead | EUR 1,236 | EUR 927 | EUR 741 |
-| Break-even deals | 2 | 2 | 2 |
+Revenue break-even = ceiling(60,360 / 30,000) = **3 deals** on the economic investment basis. On the cash-only basis, ceiling(52,360 / 30,000) = **2 deals**. Profit break-even requires gross margin and is **Not assessed**.
 
-### Key Insight
-You need just 2 closed deals to break even. At your EUR 30K deal size, MEDICA is a sound investment even in the conservative scenario — and that's before counting the brand visibility and competitive intelligence value of being present at the world's largest medical trade fair.
+If the team later confirms a 60% gross margin, the base-case profit ROI would be (90,000 × 0.60 − 60,360) / 60,360 = **−10.54%**, and economic profit break-even would be ceiling(60,360 / 18,000) = **4 deals**. The 60% is a sensitivity input, not a known margin.
 
----
+## Decision and Next Steps
 
-## Optimization Suggestions
+**Re-scope before approval.** The revenue-only base case does not establish profitability. Obtain quotes and a margin assumption, then compare a smaller shell-scheme scope and an attend-only plan using the same investment basis. Test outreach assumptions without promising a traffic uplift.
 
-1. **Consider shell scheme for year 1**: A shell scheme booth (EUR ~8K total vs. EUR 30K custom) saves EUR 22K. Use the savings for pre-show marketing, which drives 2-3x more qualified traffic than booth aesthetics alone.
-
-2. **Invest in pre-show outreach**: Budget EUR 2-3K for targeted LinkedIn ads and email campaigns 4 weeks before the show. Most exhibitors rely on walk-by traffic — proactive outreach can double your qualified conversation count.
-
-3. **Book hotels NOW**: Dusseldorf hotels during MEDICA week sell out months in advance. Book immediately and choose cancellable rates. Hotels 1-2 tram stops from Messe are 30-40% cheaper than adjacent ones.
-
----
-> Powered by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-budget-planner) — Trade show intelligence platform.
+If approved, pass confirmed dates, scope, staff count, and supplier cutoffs to `exhibitor-checklist-generator`.

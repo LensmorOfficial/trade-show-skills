@@ -1,23 +1,17 @@
 # Publishing and Release Quality
 
-This document tracks what needs to stay healthy now that these skills are already published on ClawHub and distributed from source.
-
-> **Current status**: Published on ClawHub. Skills can also be installed manually via `git clone` + `cp -r`.
-
----
+The primary distribution is versioned source on GitHub. Each skill directory is portable; installation and activation depend on the receiving agent client.
 
 ## Current Distribution Model
 
-Skills in this repo are available in two ways:
+Inspect a source commit or GitHub release, then copy the entire skill directory into a supported discovery location. For clients supporting project-level `.agents/skills/`:
 
 ```bash
-cp -r trade-show-skills/<skill-name> ~/.openclaw/skills/
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/skill-name .agents/skills/
 ```
 
-- **Source install** remains useful for development, local testing, and copying a skill directly from a branch.
-- **ClawHub install** is the primary end-user path for published skills.
-
-Both paths should stay healthy. A skill that installs cleanly from ClawHub but has stale docs or broken source examples still creates maintenance drag, and the reverse is also true.
+See the [quick start](../README.md#quick-start) for shared installations and prerequisites. Existing copied skills must be updated separately. External registry copies are separate artifacts and may retain earlier packaging and workflows; a GitHub merge does not republish them or refresh scanner verdicts.
 
 ---
 
@@ -28,11 +22,11 @@ Both paths should stay healthy. A skill that installs cleanly from ClawHub but h
 - [ ] Skill names are stable — renaming after publishing breaks installs
 - [ ] Names are lowercase, hyphenated, and descriptive enough to be found by keyword search
 - [ ] No name collisions with existing published skills in the target registry
-- [ ] `homepage` URLs are correct and publicly accessible
+- [ ] `metadata.homepage` URLs are correct and publicly accessible
 
 ### Description quality
 
-- [ ] Each `description` is one sentence, action-oriented, and under ~20 words
+- [ ] Each `description` is one sentence, action-oriented, and at most 200 characters
 - [ ] Description can stand alone in a skill picker — no assumed context
 - [ ] No marketing language that inflates expectations
 
@@ -87,11 +81,11 @@ Before shipping a new public release or adding a new skill:
 
 1. Run the full [skill quality checklist](skill-quality-checklist.md)
 2. Run `bash scripts/validate-repo.sh`
-3. Install the skill locally from scratch (`cp -r` into a fresh `~/.openclaw/skills/`) and test with 2–3 real prompts
+3. Copy the skill into a fresh client-supported discovery directory and test with 2–3 real prompts
 4. Confirm the `homepage` URL resolves to the correct page
 5. Check that the `description` still accurately describes the skill after any recent changes
 6. Verify the `examples/` files reflect the current output format (not a prior version)
-7. Bump the `version` field if the public behavior or output contract changed meaningfully
+7. Bump the `metadata.version` field if the public behavior or output contract changed meaningfully
 8. Capture the current GitHub growth baseline with `bash scripts/github-growth-report.sh`
 9. Publish a GitHub Release so subscribers can follow versioned updates
 10. Verify that README product links retain their repo-specific UTM campaign
@@ -104,11 +98,13 @@ For a batch release of multiple skills, run steps 1–2 repo-wide, then do steps
 
 The following are explicitly out of scope for this document and this repo in its current state:
 
-- **ClawHub release automation** — there is no documented automated pipeline for publishing or updating ClawHub entries
-- **Automated testing / evals** — there are no automated tests validating that skills produce correct outputs; evaluation is currently manual
+- **External registry publishing automation** — registry adapters and publishing pipelines are not maintained here
+- **Model-output evals** — metadata and local-link regression tests run in CI; model decisions and live API responses still require separate evaluation
 - **Usage telemetry** — no analytics or usage tracking is implemented; there is no data on how often skills are invoked or which prompts trigger them
-- **Formal versioning policy** — `version` fields are present, but breaking vs. non-breaking changes are not yet formally defined
+- **Formal versioning policy** — `metadata.version` fields are present, but breaking vs. non-breaking changes are not yet formally defined
 - **Localization** — the repo is intentionally English-only at the moment; other languages are not planned
+
+Source versions can be newer than external registry packages. A merge or GitHub Release does not publish registry updates. Record the tested source commit and installed package version separately; follow the [health-check guide](health-check.md) before publishing source changes.
 
 ---
 

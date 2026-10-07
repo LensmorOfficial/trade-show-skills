@@ -1,4 +1,4 @@
-# Badge Qualifier — OpenClaw Skill
+# Badge Qualifier — Agent Skill
 
 > Turn badge scans and booth notes into qualified lead cards your sales team can actually use.
 
@@ -44,13 +44,15 @@ See [examples/medica-booth-lead.md](examples/medica-booth-lead.md) for a sample.
 
 ## Install
 
-```bash
-# Install to current workspace
-cp -r /path/to/trade-show-skills/badge-qualifier <your-workspace>/skills/
+Copy the complete `badge-qualifier` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
-# Install to shared location (available in all OpenClaw workspaces)
-cp -r /path/to/trade-show-skills/badge-qualifier ~/.openclaw/skills/
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/badge-qualifier .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

@@ -16,9 +16,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Install validator dependency
+      - name: Install validator dependencies
         run: |
           sudo apt-get update
           sudo apt-get install --yes ripgrep
+          python3 -m venv "$RUNNER_TEMP/skill-validation"
+          "$RUNNER_TEMP/skill-validation/bin/python" -m pip install -r scripts/requirements.txt
+          echo "$RUNNER_TEMP/skill-validation/bin" >> "$GITHUB_PATH"
       - name: Validate skill structure and documented contracts
         run: bash scripts/validate-repo.sh

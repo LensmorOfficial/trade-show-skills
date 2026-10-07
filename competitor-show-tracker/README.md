@@ -1,4 +1,4 @@
-# Competitor Show Tracker — OpenClaw Skill
+# Competitor Show Tracker — Agent Skill
 
 > Rank upcoming trade shows by how many companies in your competitive set are listed as exhibitors.
 
@@ -6,7 +6,7 @@
 
 ## What It Does
 
-Provide 2–20 competitor company names. The skill uses Lensmor event and exhibitor data to:
+Provide 1–20 company names. Two or more enable comparative ranking; one returns an unranked company-to-event list. The skill uses Lensmor event and exhibitor data to:
 
 - Look up upcoming events associated with each company
 - Deduplicate events by Lensmor event ID
@@ -48,28 +48,29 @@ The default response includes:
 4. Gaps, incomplete pages, and unmatched companies
 5. Suggested next steps based on the highest-ranked events
 
+Both date bounds are applied to event start dates. Failed lookups and incomplete pages remain explicit; they are not counted as evidence that a competitor is absent.
+
 See the [fictional industrial automation example](examples/industrial-automation-show-circuit.md).
 
 ## Requirements
 
 - Lensmor API key using the current `sk_` format
-- `LENSMOR_API_KEY` configured in the OpenClaw environment
+- `LENSMOR_API_KEY` configured in the agent environment
 - [Lensmor API documentation](https://api.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=competitor-show-tracker)
 
 Do not paste API keys into prompts, examples, issues, or logs.
 
 ## Install
 
-```bash
-openclaw skills install @weilun88313/competitor-show-tracker --acknowledge-clawhub-risk
-```
-
-Source install:
+Copy the complete `competitor-show-tracker` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
 ```bash
-git clone https://github.com/LensmorOfficial/trade-show-skills.git
-cp -r trade-show-skills/competitor-show-tracker ~/.openclaw/skills/
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/competitor-show-tracker .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

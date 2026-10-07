@@ -1,118 +1,87 @@
-# Example: MEDICA Booth Leads — Surgical Workflow Software
+# Example: MEDICA Booth Lead Qualification
 
-**Show**: MEDICA 2025, Düsseldorf
-**Product**: SurgFlow — surgical workflow management software
-**ICP**: Hospital procurement leads at 200+ bed facilities, DACH region
+> Fictional example. People, hospitals, company claims, and contact details below are invented. The show context is illustrative, not attendance evidence.
 
----
+**Product**: SurgFlow — surgical workflow software
+**ICP**: Procurement or operations teams at 200+ bed hospitals in DACH
 
 ## Input
 
+```text
+Qualify these contacts from our booth:
+
+1. Ingrid Kessler, Chief Medical Officer, Northbridge Hospital Frankfurt (800 beds).
+   She said: "I'm on the vendor evaluation team with IT. We need to replace our
+   scheduling system this quarter because coordination is failing. Please send
+   demo times for next week." Email on card: ingrid@northbridge.example.
+
+2. Badge scan only: Stefan Nowak, Procurement Specialist, Medicentrum Krakow.
+   No conversation. Picked up our one-pager. No contact details or bed count.
+
+3. Lars Andersen, Operations Manager, Northbridge Copenhagen (1,000 beds).
+   Five-minute chat: "We're always open to better tools." No problem, project,
+   buying role, or timeline stated. Email on card: lars@northbridge.example.
+
+4. Alex Meyer, title not captured, Northbridge Munich (400 beds).
+   Said: "Scheduling handovers are causing delays. We need a replacement before
+   January." Did not describe their role in the purchase. No email captured.
 ```
-Qualify these 3 contacts from today. We sell SurgFlow, surgical workflow SaaS. ICP: procurement or operations leads at 200+ bed hospitals, DACH focus.
-
-1. Dr. Ingrid Kessler — badge says Chief Medical Officer, Universitätsklinikum Frankfurt (800 beds). We had a 20-min conversation. She mentioned they're replacing their current scheduling system after two OR incidents caused by coordination failures. Wants to involve their IT director. Asked for a demo next week. Left her business card: i.kessler@ukf.de
-
-2. Badge scan only: Stefan Nowak, Procurement Specialist, Medicentrum Kraków. No conversation. He did pick up our one-pager.
-
-3. Lars Andersen — Operations Manager, Rigshospitalet Copenhagen (1,000+ beds). Brief chat, maybe 5 minutes. Said they're "always open to better tools" but nothing specific. Gave me his card. la@rigshospitalet.dk
-```
-
----
 
 ## Output
 
-## Lead: Dr. Ingrid Kessler — **Hot (A)**
+### Lead: Ingrid Kessler — Hot (A)
 
-**Contact**
-- Name: Dr. Ingrid Kessler
-- Title: Chief Medical Officer
-- Company: Universitätsklinikum Frankfurt
-- Email: i.kessler@ukf.de
-- Phone: unknown
+- Contact: Chief Medical Officer, Northbridge Hospital Frankfurt; ingrid@northbridge.example; phone unknown
+- Authority: **Influencer** — explicitly participates in vendor evaluation with IT; approval/budget ownership unknown
+- Need: **Explicit** — replace scheduling system because coordination is failing
+- Urgency: **Planned** — this quarter; requested demo times next week
+- ICP fit: **High** — supplied hospital size and Frankfurt location match the ICP
+- Tier: **Hot**; Follow-up Class: **Tier 1**
+- Why: all three signals are supported by the notes; senior title alone did not supply authority
+- Conversation summary: Ingrid described an active replacement and her evaluation role. She requested demo times; no meeting time has been agreed
+- Next step: send proposed demo times within 24 hours; do not claim a confirmed booking
+- Unknowns: budget owner, IT contact, procurement process
 
-**Qualification**
-- Authority: Decision Maker (CMO at an 800-bed academic hospital; role carries direct clinical operations authority)
-- Need: Explicit — replacing current scheduling system after two documented OR incidents caused by coordination failures
-- Urgency: Immediate — proactively seeking a replacement, not exploring in the abstract
-- ICP Fit: High — 800-bed academic hospital, DACH region, procurement-adjacent authority
-- Tier: **Hot**
+### Lead: Stefan Nowak — Cold (C)
 
-**Conversation Summary**
-Dr. Kessler engaged for approximately 20 minutes. She identified a specific, business-critical problem (OR coordination failures leading to incidents) and is actively evaluating solutions. She has acknowledged internal stakeholders (IT director) and agreed to a demo, suggesting she is both motivated and empowered to move the process forward.
+- Contact: Procurement Specialist, Medicentrum Krakow; email and phone unknown
+- Authority: **Unknown** — title alone does not establish buying involvement
+- Need: **Not stated**; Urgency: **None discussed**
+- ICP fit: **Low for the stated region** — Krakow is outside DACH; bed count unknown
+- Tier: **Cold**; Follow-up Class: **Tier 3**
+- Why: badge-only contact with no qualification signals
+- Conversation summary: a badge was scanned and a one-pager taken. No conversation was described
+- Next step: low-commitment introduction if an appropriate contact channel is available
+- Unknowns: need, buying role, hospital size, timeline
 
-**Recommended Next Step**
-Send a calendar invite for a demo within 48 hours — she agreed to it in person. Include a brief pre-reading note that frames SurgFlow around incident prevention and OR coordination, not general efficiency. CC the IT director invite only after she confirms who it should go to.
+### Lead: Lars Andersen — Cold (C)
 
-**Unknowns to Resolve**
-- IT director's name and involvement level (decision or just implementation?)
-- Current system vendor (important for migration framing)
-- Procurement timeline and budget cycle
+- Contact: Operations Manager, Northbridge Copenhagen; lars@northbridge.example; phone unknown
+- Authority: **Unknown** — buying involvement was not stated
+- Need: **Not explicit** — openness to tools does not describe a problem
+- Urgency: **None discussed**
+- ICP fit: **Low for the stated region** — size fits but Copenhagen is outside DACH
+- Tier: **Cold**; Follow-up Class: **Tier 3**
+- Why: a conversation occurred, but none of the three qualifying signals was confirmed
+- Conversation summary: Lars expressed general receptivity. No active project was described
+- Next step: a short question to establish a relevant problem; do not presume a demo or proposal is wanted
+- Unknowns: active need, buying role, timeframe
 
----
+### Lead: Alex Meyer — Warm (B)
 
-## Lead: Stefan Nowak — **Cold (C)**
-
-**Contact**
-- Name: Stefan Nowak
-- Title: Procurement Specialist
-- Company: Medicentrum Kraków
-- Email: unknown
-- Phone: unknown
-
-**Qualification**
-- Authority: Influencer (Procurement Specialist — shapes purchasing but unlikely sole decision maker)
-- Need: Not stated — badge scan only, no conversation
-- Urgency: None discussed
-- ICP Fit: Medium — procurement role is relevant, but facility size unknown; Kraków is outside DACH focus region
-- Tier: **Cold**
-
-**Conversation Summary**
-Badge scan only. Stefan picked up a one-pager but no conversation took place. There is no basis for inferring interest beyond physical presence at the booth.
-
-**Recommended Next Step**
-Standard cold sequence: brief intro email within 5 days referencing MEDICA, link to a relevant resource (case study or product overview), soft CTA. Do not open with a demo request — there is no established interest to build on.
-
-**Unknowns to Resolve**
-- Hospital size (determines ICP fit)
-- Any actual need or current pain points
-- Whether he attended on behalf of a specific project
-
----
-
-## Lead: Lars Andersen — **Warm (B)**
-
-**Contact**
-- Name: Lars Andersen
-- Title: Operations Manager
-- Company: Rigshospitalet Copenhagen
-- Email: la@rigshospitalet.dk
-- Phone: unknown
-
-**Qualification**
-- Authority: Influencer (Operations Manager at a 1,000+ bed facility — significant operational authority, likely feeds into procurement decisions)
-- Need: Implied — "always open to better tools" is not an explicit problem statement, but the willingness to engage briefly suggests awareness of current friction
-- Urgency: None — no timeline or project mentioned
-- ICP Fit: High — 1,000+ bed flagship hospital; operations role is decision-relevant; Nordic market is adjacent to DACH focus
-- Tier: **Warm**
-
-**Conversation Summary**
-Five-minute conversation. Lars engaged but gave a non-committal response — "always open to better tools" indicates receptivity without active need. No specific pain point or project was mentioned. He shared his contact, which is a mild positive signal.
-
-**Recommended Next Step**
-Follow up within 48 hours with a value-first email: a short insight about OR coordination efficiency, not a sales pitch. The goal is to prompt him to surface a specific pain point. Do not push for a demo — there's no pull yet.
-
-**Unknowns to Resolve**
-- Whether there is an active evaluation or pain point beneath the polite response
-- Who owns software purchasing at Rigshospitalet
-- Current tools in use
-
----
+- Contact: title unknown, Northbridge Munich; email and phone unknown
+- Authority: **Unknown**
+- Need: **Explicit** — scheduling handover delays
+- Urgency: **Planned** — replacement before January
+- ICP fit: **High** — supplied hospital size and Munich location match
+- Tier: **Warm**; Follow-up Class: **Tier 2**
+- Why: explicit need and urgency are confirmed; authority remains unknown
+- Conversation summary: Alex described a problem and deadline. Their role in evaluation or approval was not stated
+- Next step: confirm who is involved and a suitable follow-up channel within 48 hours
+- Unknowns: title, buying role, contact channel, budget
 
 ## Batch Summary
 
-- **Hot (A)**: 1 lead — Dr. Ingrid Kessler
-- **Warm (B)**: 1 lead — Lars Andersen
-- **Cold (C)**: 1 lead — Stefan Nowak
-
-**Immediate priority**: Send Dr. Kessler a demo calendar invite today — she expects it. Lars Andersen: follow up within 48 hours with value-first outreach. Stefan Nowak: standard cold sequence, no urgency.
+- Hot: 1 — Ingrid; propose demo times within 24 hours
+- Warm: 1 — Alex; confirm buying process and contact channel
+- Cold: 2 — Stefan and Lars; low-commitment qualification first

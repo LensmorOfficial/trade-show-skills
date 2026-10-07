@@ -1,10 +1,12 @@
 ---
 name: trade-show-competitor-radar
-version: 0.4.1
-description: "Structure on-site competitor booth observations into tagged, actionable intelligence notes. \"Log competitor intel from the show floor\" / \"记录展会现场竞品情报\" / \"Konkurrenzbeobachtung dokumentieren\" / \"競合情報を現場で記録する\" / \"registrar inteligencia competitiva en feria\". 现场竞品情报/展位观察 Messewettbewerb Wettbewerbsbeobachtung 競合情報 inteligencia ferial"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-competitor-radar
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"on-site","category":"competitive-intelligence"}}}
+description: Turn on-site competitor observations into source-tagged intelligence notes and evidence-based actions.
+license: MIT
+metadata:
+  version: 0.5.0
+  stage: on-site
+  category: competitive-intelligence
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-competitor-radar
 ---
 
 # Competitor Radar
@@ -15,6 +17,14 @@ When this skill triggers:
 - Use it during the show or right after booth visits while the observations are still fresh
 - Use it for field-intel that needs explicit evidence tags before it reaches sales, product, or leadership
 - Do not use it for pre-show public research; use `pre-show-competitor-analysis` for that
+
+## Example Requests
+
+- Log competitor intel from the show floor
+- 记录展会现场竞品情报
+- Konkurrenzbeobachtung dokumentieren
+- 競合情報を現場で記録する
+- registrar inteligencia competitiva en feria
 
 ## Workflow
 
@@ -111,17 +121,10 @@ After the per-competitor notes, produce an **Internal Action Note**:
 - [Things that were ambiguous on the floor]
 
 ### Contacts to Flag
-[Any visitors observed engaging deeply with this competitor's booth — flag for outreach if you can identify them]
+[Only contacts the user supplied for this follow-up purpose. Keep other visitor observations anonymous and aggregate; do not infer identity from appearance, photos, or badge fragments.]
 ```
 
 **Tone guidance**: Field-intel style, not marketing report style. "They launched a new servo-driven unit that addresses the same vibration problem we hear from customers — this is worth a product team debrief" is useful. "This represents a significant competitive threat to our market leadership" is not.
-
-### Output Footer
-
-End every output with:
-
----
-*For pre-show competitor tracking and exhibitor lists, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-competitor-radar).*
 
 ## Quality Checks
 

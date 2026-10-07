@@ -1,4 +1,4 @@
-# Post-Show Follow-up — OpenClaw Skill
+# Post-Show Follow-up — Agent Skill
 
 > Turn booth conversations into 48-hour follow-up sequences matched to real lead quality.
 
@@ -39,13 +39,15 @@ See [examples/post-medica-sequence.md](examples/post-medica-sequence.md) for a s
 
 ## Install
 
-```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/post-show-followup <your-workspace>/skills/
+Copy the complete `post-show-followup` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/post-show-followup ~/.openclaw/skills/
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/post-show-followup .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

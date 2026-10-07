@@ -1,4 +1,4 @@
-# Booth Giveaway Planner — OpenClaw Skill
+# Booth Giveaway Planner — Agent Skill
 
 > Choose giveaway items that actually support booth traffic, lead quality, and brand recall.
 
@@ -45,6 +45,18 @@ The skill guides the agent through:
 2. **Strategy classification** — Branded Utility vs. Conversation Starter vs. Qualifier tier
 3. **Idea generation** — 5–8 options with brand connection, cost, and visitor targeting
 4. **Planning notes** — budget split, distribution strategy, lead-time check
+
+## Install
+
+Copy the complete `booth-giveaway-planner` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/booth-giveaway-planner .agents/skills/
+```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

@@ -1,10 +1,14 @@
 ---
 name: competitor-show-tracker
-version: 1.0.1
-description: "Rank upcoming trade shows by how many of your competitors are exhibiting there. \"Which shows are my competitors at?\" / \"竞争对手去哪些展会\" / \"Auf welchen Messen sind meine Wettbewerber?\" / \"競合他社の出展先は?\" / \"¿En qué ferias están mis competidores?\". competitor shows, competitive intelligence, show tracking, 竞品展会/竞争对手参展追踪 Wettbewerber Messepräsenz 競合他社出展先 seguimiento ferias competidores"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/competitor-show-tracker
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"competitive-intelligence","emoji":"🕵️"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
+description: Rank upcoming events by competitor-name matches in Lensmor records, with explicit credit approval and coverage limits.
+license: MIT
+metadata:
+  version: 1.1.0
+  stage: pre-show
+  category: competitive-intelligence
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/competitor-show-tracker
+  required-env: LENSMOR_API_KEY
+  requires-network: https://platform.lensmor.com
 ---
 
 # Competitor Show Tracker
@@ -25,6 +29,22 @@ When this skill triggers:
 - **Budget prioritization**: Focus booth investment on shows where your buyers and your competitors overlap
 - **Blind spot detection**: Find shows where one key competitor dominates and you have no presence
 
+## Example Requests
+
+- Which shows are my competitors at?
+- 竞争对手去哪些展会
+- Auf welchen Messen sind meine Wettbewerber?
+- 競合他社の出展先は?
+- ¿En qué ferias están mis competidores?
+
+## Request Handling
+
+- Every Lensmor request, including event lookup and pagination, must send `Authorization: Bearer $LENSMOR_API_KEY`. Send the key only to `https://platform.lensmor.com`; never include it in URLs, output, or requests to company/event websites.
+- Use a 10-second connection timeout and 30-second request timeout. Inspect the HTTP status before interpreting JSON; a non-2xx response, malformed JSON, or missing required response fields is a failed request, not an empty result or a zero score.
+- Start with one page (`page=1`, `pageSize` at most 100). Preserve filters across pages and disclose partial coverage. Do not fetch every page automatically.
+- For a read-only GET, allow at most one retry after a 429 or temporary 5xx, respecting `Retry-After`; if the delay is unavailable or impractical, report the failure and stop. Do not retry a POST automatically. A timeout may leave its outcome unknown, especially for a charged search.
+- If event lookup returns multiple editions, ask for the intended year/edition before continuing. Use the resolved event ID, never a sample ID from this document.
+
 ## Workflow
 
 ### Step 1: API Key Check
@@ -32,13 +52,13 @@ When this skill triggers:
 Before making any API call, verify the key is configured:
 
 ```bash
-[ -n "$LENSMOR_API_KEY" ] && echo "ok" || echo "missing"
+[ -n "${LENSMOR_API_KEY:-}" ] && echo "ok" || echo "missing"
 ```
 
 If the result is `missing`, stop and respond:
 
 > The `LENSMOR_API_KEY` environment variable is not set. This skill requires a Lensmor API key to look up exhibitor data.
-> Contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase access, then set the key:
+> Configure an existing Lensmor API key in the agent environment; see the [authentication documentation](https://api.lensmor.com/):
 > `export LENSMOR_API_KEY=your_key_here`
 
 Do not proceed to any API call until the key is confirmed present.
@@ -46,14 +66,16 @@ Do not proceed to any API call until the key is confirmed present.
 ### Step 2: Collect Inputs
 
 **Required:**
-- `competitors` — list of competitor company names (2–20 companies). Accept as a comma-separated list, bullet list, or inline prose.
+- `competitors` — list of company names (1–20 companies; comparative ranking needs at least two). Accept as a comma-separated list, bullet list, or inline prose.
 
 **Optional:**
 - `date_from` — only include events on or after this date (ISO 8601, default: today)
 - `date_to` — only include events on or before this date (e.g. restrict to next 12 months)
 - `pageSize` — results per company lookup (default: 50; raise to 100 if the user wants broader coverage)
 
-If the user provides only one company name, explain that this skill is designed for competitive comparison across multiple companies — offer to run `trade-show-exhibitor-search` instead for a single company.
+If the user provides one company name, run the same company-to-event lookup after cost approval and return an unranked event list. Do not redirect to cross-event exhibitor discovery: that endpoint returns companies rather than a company's associated events.
+
+Trim names and deduplicate exact names case-insensitively before quoting the maximum cost and denominator. Keep aliases distinct unless the user confirms they refer to the same competitor. Validate `date_from <= date_to` and use the user's timezone for today's default cutoff.
 
 ### Step 3: Confirm Cost and Activity Logging
 
@@ -74,6 +96,8 @@ For **each** competitor in the list, call:
 **Endpoint**: `POST https://platform.lensmor.com/external/exhibitors/search-events`
 
 **Authentication**: `Authorization: Bearer $LENSMOR_API_KEY`
+
+Include `Content-Type: application/json` and `x-call-source: agent`. These date filters are applied locally; do not send unsupported `date_from` / `date_to` request fields.
 
 Request body:
 
@@ -131,7 +155,7 @@ Run one request per competitor. For N competitors, make N sequential calls so fa
 | `name` | string | Official show name |
 | `dateStart` / `dateEnd` | string (ISO 8601) | Use these to filter future events |
 | `city` / `country` | string | Show location |
-| `exhibitorCount` | integer | Total exhibitors at the show — useful as a size proxy |
+| `exhibitorCount` | integer | Count in the Lensmor event record, not an independently verified organizer total |
 | `matchedExhibitors` | array | Which specific entities were matched for this company name — may include subsidiaries |
 
 ### Step 5: Aggregate Across Competitors
@@ -141,8 +165,8 @@ After collecting results for all N companies, aggregate by `eventId`:
 1. **Deduplicate** events across all N result sets using `eventId` as the key
 2. **Union** the `matchedExhibitors` entries from all competitors per event
 3. **Count distinct competitors** per event (count the number of input company names with at least one returned `matchedExhibitor` record — not the count of entities, which may include subsidiaries)
-4. **Filter** to future events: keep only events where `dateStart >= today` (or `date_from` if specified)
-5. **Sort** by competitor count descending; break ties by `exhibitorCount` descending (larger shows are higher-priority)
+4. **Filter** inclusively by start date: `date_from <= dateStart <= date_to`, omitting the upper bound only when `date_to` is absent. Missing or invalid dates go into an unassessed section, not the upcoming ranking
+5. **Sort** by competitor count descending, then returned `exhibitorCount` descending (unknown counts last), then start date ascending. This tie-break is a display choice, not proof of business priority
 
 **Example aggregation logic (pseudocode):**
 
@@ -151,12 +175,16 @@ event_map = {}
 
 for each competitor C in input_list:
     for each event E in results[C].items:
-        if E.dateStart < today: skip
+        if E.dateStart is missing or invalid: record as unassessed; continue
+        if E.dateStart < date_from: continue
+        if date_to exists and E.dateStart > date_to: continue
+        if E.matchedExhibitors is empty: continue
         if E.eventId not in event_map:
             event_map[E.eventId] = { event: E, competitors_seen: {} }
         event_map[E.eventId].competitors_seen[C] = E.matchedExhibitors
 
-ranked = sort event_map.values() by len(competitors_seen) desc
+ranked = sort event_map.values() by competitor_count desc,
+         exhibitorCount desc (unknown last), dateStart asc
 ```
 
 ### Step 6: Format the Output
@@ -201,7 +229,7 @@ For each event with 2 or more competitor names matched:
 - **Bosch** → matched as: Bosch Rexroth AG
 - **Schneider Electric** → matched as: Schneider Electric SE
 
-**Competitor not found:** Rockwell Automation _(no match at this event)_
+**No match in retrieved pages:** Rockwell Automation _(coverage may be incomplete; this does not prove absence)_
 ```
 
 #### Section 4 — Insights
@@ -221,11 +249,14 @@ For each event with 2 or more competitor names matched:
 |-------------|---------|----------|
 | 401 | API key invalid or expired | "The API key was rejected. Verify `LENSMOR_API_KEY` or contact hello@lensmor.com." |
 | 400 | Malformed request | "Request invalid for `[company_name]`. Verify the company name and retry." |
-| 429 | Rate limit exceeded | "Rate limit reached after [N] companies. Wait 60 seconds, then continue from `[next_company]`." |
+| 402 | Insufficient credits | Stop the run and report completed vs. unsearched competitors; do not retry or continue spending |
+| 429 | Rate limit exceeded | Stop and report partial progress; do not automatically repeat the charged POST |
 | 502 / 5xx | Server error | "The Lensmor API returned a server error for `[company_name]`. Skipping — results will note this company as incomplete." |
 | Empty `items` | No events found | Note in Insights section under "Gaps": this competitor returned no events and may not be in Lensmor's database. Do not omit silently. |
 
-For every successful request, report whether credits were consumed. Do not infer the actual deduction from the documented price alone when a balance endpoint is available; compare `GET /external/credits/balance` before and after the run.
+For every successful request, report whether credits were consumed. Compare `GET /external/credits/balance` before and after the run when available; label the difference as a balance change because concurrent activity can also affect it. If no request-level charge evidence is available, label the documented price as expected, not verified deduction. A timed-out POST has an unknown outcome: do not automatically resend it or claim no charge occurred.
+
+Track each competitor as `complete`, `partial` (`hasMore: true`), `failed`, or `not searched`. Failed and unsearched competitors are not zero matches. State how many competitors were successfully searched alongside the original input denominator; rank only retrieved evidence and label a partial ranking clearly. Each extra page needs a remaining user-approved credit budget.
 
 ### Follow-up Routing
 
@@ -259,7 +290,5 @@ Before delivering:
 - Competitor count in the ranked table must reflect number of *input companies* with a returned match, not number of `matchedExhibitor` entities (a single company may have multiple subsidiary matches)
 - Any competitor with no results must appear in the Insights "Gaps" section — do not omit
 - Date filter must be applied before ranking — past events must not appear in the ranked output
-- If only one competitor was provided, redirect to `trade-show-exhibitor-search` — this skill is not meaningful with a single input
-
----
-*Competitor exhibitor data sourced from the Lensmor platform. For show-floor lead generation, ICP matching, and pre-show outreach at the events that matter most, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=competitor-show-tracker).*
+- If one competitor was provided, return its event associations without inventing a comparative ranking
+- Apply both date bounds, deduplicate input names before counting, and keep failed/partial lookups distinct from complete zero-result searches

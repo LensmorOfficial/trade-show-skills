@@ -1,4 +1,4 @@
-# Booth Invitation Writer — OpenClaw Skill
+# Booth Invitation Writer — Agent Skill
 
 > Write pre-show outreach that gets real replies and turns target accounts into booked meetings.
 
@@ -35,13 +35,15 @@ See [examples/medica-cold-prospect.md](examples/medica-cold-prospect.md) for a s
 
 ## Install
 
-```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/booth-invitation-writer <your-workspace>/skills/
+Copy the complete `booth-invitation-writer` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/booth-invitation-writer ~/.openclaw/skills/
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/booth-invitation-writer .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

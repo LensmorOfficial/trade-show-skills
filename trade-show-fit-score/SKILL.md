@@ -1,10 +1,14 @@
 ---
 name: trade-show-fit-score
-version: 1.2.1
-description: "Score a trade show against your company profile for an AI-backed exhibit vs. skip decision. \"Should we exhibit at this show?\" / \"这个展会值得参加吗\" / \"Lohnt sich diese Messe?\" / \"この展示会は合っている?\" / \"¿Vale la pena esta feria?\". score event, fit score, should we exhibit, worth attending, event ROI, go or no-go, 展会评分, 值不值得参加, 展会匹配度, 要不要参展 Messebewertung Messeignung 展示会評価 puntuación de feria"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-fit-score
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"🎯"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
+description: Retrieve one event’s Lensmor 0–10 profile fit score and returned dimensions; distinguish API signals from exhibit decisions.
+license: MIT
+metadata:
+  version: 1.3.0
+  stage: pre-show
+  category: research
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-fit-score
+  required-env: LENSMOR_API_KEY
+  requires-network: https://platform.lensmor.com
 ---
 
 # Lensmor Event Fit Score
@@ -23,6 +27,22 @@ When this skill triggers:
 - **Annual planning triage**: Run multiple shows through fit-score to rank investment priorities
 - **Internal justification**: Produce a data-backed score card to share with leadership
 
+## Example Requests
+
+- Should we exhibit at this show?
+- 这个展会值得参加吗
+- Lohnt sich diese Messe?
+- この展示会は合っている?
+- ¿Vale la pena esta feria?
+
+## Request Handling
+
+- Every Lensmor request, including event lookup and pagination, must send `Authorization: Bearer $LENSMOR_API_KEY`. Send the key only to `https://platform.lensmor.com`; never include it in URLs, output, or requests to company/event websites.
+- Use a 10-second connection timeout and 30-second request timeout. Inspect the HTTP status before interpreting JSON; a non-2xx response, malformed JSON, or missing required response fields is a failed request, not an empty result or a zero score.
+- Start with one page (`page=1`, `pageSize` at most 100). Preserve filters across pages and disclose partial coverage. Do not fetch every page automatically.
+- For a read-only GET, allow at most one retry after a 429 or temporary 5xx, respecting `Retry-After`; if the delay is unavailable or impractical, report the failure and stop. Do not retry a POST automatically. A timeout may leave its outcome unknown, especially for a charged search.
+- If event lookup returns multiple editions, ask for the intended year/edition before continuing. Use the resolved event ID, never a sample ID from this document.
+
 ## Workflow
 
 ### Step 1: API Key Check
@@ -30,13 +50,13 @@ When this skill triggers:
 Before making any API call, verify the key is configured:
 
 ```bash
-[ -n "$LENSMOR_API_KEY" ] && echo "ok" || echo "missing"
+[ -n "${LENSMOR_API_KEY:-}" ] && echo "ok" || echo "missing"
 ```
 
 If the result is `missing`, stop and respond:
 
 > The `LENSMOR_API_KEY` environment variable is not set. This skill requires a Lensmor API key to generate fit scores.
-> Contact [hello@lensmor.com](mailto:hello@lensmor.com) to purchase access, then set the key:
+> Configure an existing Lensmor API key in the agent environment; see the [authentication documentation](https://api.lensmor.com/):
 > `export LENSMOR_API_KEY=your_key_here`
 
 Do not proceed to any API call until the key is confirmed present.
@@ -109,6 +129,8 @@ Request body:
 | `breakdown.matched_exhibitor_density` | number | Density derived from matched exhibitors, capped at 10 |
 | `breakdown.event_scale` | number | Scale derived from exhibitor count, capped at 10 |
 
+Reject a missing, null, non-numeric, or out-of-range `score`; valid scores are numbers from 0 through 10. Do not convert a missing value to zero. Preserve unavailable breakdown fields as `Not available`.
+
 ### Step 5: Format the Output
 
 ```markdown
@@ -159,7 +181,7 @@ Apply this interpretation to every fit-score result:
 | 401 | API key invalid or expired | "The API key was rejected. Verify `LENSMOR_API_KEY` or contact hello@lensmor.com." |
 | 404 | Event ID not found | "Event ID `[id]` was not found. Use the events list endpoint to look up the correct ID." |
 | 409 | Recommendation dependency is still processing | "Lensmor recommendations are still processing. Retry after the profile recommendation job completes." |
-| 429 | Rate limit exceeded | "Rate limit reached. Wait 60 seconds and retry." |
+| 429 | Rate limit exceeded | Report the rate-limit response; follow the bounded request-handling rules above |
 | 502 / 5xx | Server error | "The Lensmor API returned a server error. Try again in a moment." |
 
 ### Relationship to trade-show-finder
@@ -190,7 +212,7 @@ The two skills are complementary: `trade-show-finder` helps you build the shortl
 6. End every response with 1–3 contextual follow-up suggestions; for an exact-zero result, the only permitted suggestion is independent event research with `trade-show-finder`
 7. Scores and breakdown values must come directly from the API — do not infer or estimate missing dimensions
 8. When `totalPages > 1` in events list lookup, confirm the correct event before scoring
-9. If API key is missing, direct user to hello@lensmor.com — do not just say "please configure"
+9. If the API key is missing, explain the environment requirement and provide the authentication documentation; do not infer that a purchase is required
 10. Treat the score as 0–10 and preserve the exact recommendation enum; never convert it to 0–100 unless the user explicitly requests a labeled conversion
 11. Never infer missing profile configuration, absent coverage, or a support requirement from a zero score alone
 12. Treat `event.exhibitorCount` as the count in the Lensmor event record, not an official or registered-exhibitor total
@@ -204,6 +226,3 @@ Before delivering:
 - If `breakdown` is missing or partial, note which dimensions were unavailable
 - If `recommendation` field is empty, present the numeric score alone and apply the interpretation guide
 - If the result is zero, state only that the current API result is zero and that the cause is not identified by this response
-
----
-*Fit scores are generated by the Lensmor AI platform based on your company profile and Lensmor's trade show database. For event discovery, exhibitor intelligence, and pre-show lead generation, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).*

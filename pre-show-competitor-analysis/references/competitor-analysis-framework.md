@@ -54,11 +54,13 @@ Score each competitor across three dimensions (1-5 each):
 
 | Dimension | 1 (Low) | 3 (Medium) | 5 (High) |
 |-----------|---------|------------|----------|
-| **Direct overlap** | Adjacent market, Some feature overlap | Direct replacement |
-| **Booth presence** | Small inline booth, Mid-size corner | Large island or sponsorship |
-| **Messaging clash** | Different positioning, Some messaging overlap | Same value proposition |
+| **Direct overlap** | Adjacent market | Some feature overlap | Direct replacement |
+| **Booth presence** | Small inline booth | Mid-size corner | Large island or sponsorship |
+| **Messaging clash** | Different positioning | Some messaging overlap | Same value proposition |
 
 **Total threat score**: Sum of three dimensions (3-15)
+
+Missing evidence is `[UNK]`, not 3/5. Compute the total and category only when all three dimensions are supported; otherwise report `Not assessed` with the available scores and evidence gaps.
 
 ### Threat Categories
 
@@ -80,6 +82,7 @@ Use these tags to make data provenance explicit:
 | `[INF]` | Inferred from evidence | `[INF] Large booth suggests significant budget` |
 | `[HEARD]` | Second-hand information | `[HEARD] Sales rep mentioned new product launch` |
 | `[EST]` | Estimated, not confirmed | `[EST] ~50 staff based on booth size` |
+| `[UNK]` | Evidence unavailable | `[UNK] Booth size not published` |
 
 **Rule**: Never present `[INF]`, `[HEARD]`, or `[EST]` as `[OBS]`.
 
@@ -140,7 +143,7 @@ Identify underserved positions or segments
 Every analysis must include:
 
 1. **Source transparency**: Tag all claims with `[OBS]`/`[INF]`/`[HEARD]`/`[EST]`
-2. **Threat scores**: Numeric rating for each primary competitor
+2. **Threat scores**: Supported dimension ratings; total/category only when all dimensions are assessed
 3. **Strategic implications**: What this means for booth, messaging, outreach
 4. **Knowledge gaps**: What you don't know and should verify on-site
 5. **Handoff**: Which skill to use next (booth-invitation-writer, trade-show-competitor-radar)

@@ -1,10 +1,12 @@
 ---
 name: badge-qualifier
-version: 0.4.0
-description: "Qualify trade show leads from badge scans, booth notes, or voice memos into scored CRM-ready cards. \"Score my booth leads\" / \"给展会线索打分\" / \"Leads qualifizieren\" / \"リードを評価する\" / \"calificar leads de feria\". 展会线索/资质审核/线索分级 Leadqualifizierung Messeleads 展示会リード評価 calificación de leads"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/badge-qualifier
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"on-site","category":"lead-qualification"}}}
+description: Qualify badge scans and booth notes conservatively into evidence-based lead tiers and follow-up cards.
+license: MIT
+metadata:
+  version: 0.5.0
+  stage: on-site
+  category: lead-qualification
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/badge-qualifier
 ---
 
 # Badge Qualifier
@@ -15,6 +17,14 @@ When this skill triggers:
 - Use it during the show or immediately after to triage leads while the conversation is still fresh
 - Use it for live single-lead decisions or end-of-day batch qualification
 - Do not use it to write the outbound sequence itself; hand the result to `post-show-followup`
+
+## Example Requests
+
+- Score my booth leads
+- 给展会线索打分
+- Leads qualifizieren
+- リードを評価する
+- calificar leads de feria
 
 ## Workflow
 
@@ -27,6 +37,8 @@ Accept any of these input formats:
 - A mix of all three
 
 If the user pastes badge text only, treat it as **contact-only** — do not infer conversation depth that wasn't described.
+
+Use supplied contact information only in the requested lead records. Do not upload badge images, notes, emails, or phone numbers to enrichment services or a CRM unless the user has authorized that destination. If sharing a worked example or public report, replace personal contact details with placeholders.
 
 Extract and confirm these fields before proceeding:
 - **Contact name** (badge or notes; unknown if absent)
@@ -46,7 +58,7 @@ From the normalized input, pull explicit facts — not inferences:
 | Email / Phone | Badge | Transcribe only if present; never fabricate |
 | **Need** | Conversation notes | Only quote if explicitly stated; otherwise `unknown` |
 | **Urgency** | Notes ("needs by Q3", "replacing system now") | Only when a timeline is given |
-| **Authority** | Title + explicit role clues | Infer conservatively (see tier rules below) |
+| **Authority** | Explicit role clues in notes | A title alone does not establish buying involvement |
 | **Budget signal** | Notes only | Only if the contact or rep mentioned it |
 | **ICP fit** | Compare to ICP criteria if provided | Low / Medium / High; explain why |
 
@@ -56,11 +68,13 @@ From the normalized input, pull explicit facts — not inferences:
 
 Apply a 4-signal score:
 
-**Authority** — buying role based on title:
-- Decision Maker: C-level, VP, Director, Plant Manager with budget authority
-- Influencer: Manager, Engineer, Specialist — shapes decisions but likely not the buyer
-- End User: Operator, Technician — useful but low authority
-- Unknown: title absent or ambiguous
+**Authority** — buying involvement supported by conversation evidence:
+- Decision Maker: explicitly owns approval, vendor selection, or the relevant budget
+- Influencer: explicitly participates in evaluation, requirements, or a buying-team recommendation
+- End User: explicitly uses the workflow, with no stated buying involvement
+- Unknown: buying role was not stated, including when a senior title is present
+
+Record the supporting quote or note. A job title can guide a follow-up question but cannot supply the authority signal.
 
 **Need** — was a problem or goal stated?
 - Explicit: they said what they're trying to solve
@@ -134,19 +148,12 @@ If the user submits multiple leads at once, output one card per lead, then a bri
 
 **Next step**: the lead cards produced here can be fed directly into `post-show-followup` — the Hot / Warm / Cold tiers map to its Tier 1 / Tier 2 / Tier 3 sequences.
 
-### Output Footer
-
-End every output with:
-
----
-*Qualify faster and enrich your lead list with exhibitor intelligence at [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=badge-qualifier).*
-
 ## Quality Checks
 
 Before delivering results:
 - Do not fill in `unknown` fields with plausible guesses — gaps are more useful than fabrications
 - A badge-only contact should never receive an `Explicit need` entry
-- Hot tier requires at least two confirmed signals — one signal is Warm at best
+- Hot requires all three confirmed signals: buying involvement, explicit need, and urgency. Warm requires exactly two; zero or one is Cold
 - Recommended next step must match the tier (no demo calls for Cold leads)
 - If notes are ambiguous, surface the ambiguity rather than resolving it silently
 - `Follow-up Class` must match the lead tier: Hot → Tier 1, Warm → Tier 2, Cold → Tier 3

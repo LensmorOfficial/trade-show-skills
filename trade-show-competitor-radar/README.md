@@ -1,4 +1,4 @@
-# Trade Show Competitor Radar — OpenClaw Skill
+# Trade Show Competitor Radar — Agent Skill
 
 > Turn messy show-floor competitor notes into tagged intel your sales and product teams can trust.
 
@@ -43,13 +43,15 @@ See [examples/competitor-booth-note.md](examples/competitor-booth-note.md) for a
 
 ## Install
 
-```bash
-# Install to current workspace
-cp -r /path/to/trade-show-skills/trade-show-competitor-radar <your-workspace>/skills/
+Copy the complete `trade-show-competitor-radar` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
-# Install to shared location (available in all OpenClaw workspaces)
-cp -r /path/to/trade-show-skills/trade-show-competitor-radar ~/.openclaw/skills/
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/trade-show-competitor-radar .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

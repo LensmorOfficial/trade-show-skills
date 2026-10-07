@@ -138,6 +138,3 @@ LineCore Systems has launched a direct response to our core changeover pitch. If
 
 ### Contacts to Flag
 - Any plant managers or operations leads observed at the LineCore Systems booth who you can identify from badge data or LinkedIn research — these are accounts where LineCore Systems is actively pitching against our differentiators.
-
----
-*For pre-show competitor tracking and exhibitor lists, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-competitor-radar).*

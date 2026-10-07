@@ -1,8 +1,10 @@
 # Example: MEDICA 2026 — First-Time Exhibitor, 20sqm Custom Booth
 
+> Fictional team and preparation scenario. MEDICA 2026 runs 16–19 November according to the [organizer facts page](https://www.medica-tradefair.com/en/Exhibit/Information/At_a_glance), checked 2026-10-07. Supplier deadlines and costs below are illustrative; re-plan past deadlines for short-notice execution.
+
 ## Input
 
-> MEDICA 2026, Nov 17-20, Düsseldorf. 20sqm custom booth, 4 staff traveling from London. Primary goals: 50 qualified leads, 10 product demo meetings. First time exhibiting at MEDICA — we've done two UK shows before but this is our first major international show. Shipping from London. We sell surgical workflow software (SurgFlow).
+> MEDICA 2026, Nov 16-19, Düsseldorf. 20sqm custom booth, 4 staff traveling from London. Primary goals: 50 qualified leads, 10 product demo meetings. First time exhibiting at MEDICA — we've done two UK shows before but this is our first major international show. Shipping from London. We sell surgical workflow software (SurgFlow).
 
 ---
 
@@ -10,7 +12,7 @@
 
 # SurgFlow — MEDICA 2026 Exhibitor Checklist
 
-**Show**: MEDICA 2026 | Nov 17–20, Düsseldorf, Germany
+**Show**: MEDICA 2026 | Nov 16–19, Düsseldorf, Germany
 **Booth**: 20sqm custom build | 4 staff
 **Goals**: 50 qualified leads, 10 demo meetings
 
@@ -93,7 +95,7 @@
 - [ ] Test badge scanner: scan a test badge, confirm data flows to CRM/app | Owner: Sales Director | Deadline: Nov 16
 - [ ] Set up giveaway display; confirm staff knows tiered distribution plan | Owner: Marketing Manager | Deadline: Nov 16
 
-### Daily (Nov 17–20)
+### Daily (Nov 16–19)
 - [ ] Staff briefing at booth: daily goals, any hot leads from yesterday, schedule check | Owner: Sales Director | Deadline: Each morning
 - [ ] Scan all engaged visitors; add conversation notes in scanner app before end of day | Owner: All staff | Deadline: Each day
 - [ ] Evening lead review: batch review day's leads; escalate hot leads for same-night or morning follow-up | Owner: Sales Director | Deadline: Each evening
@@ -134,6 +136,3 @@
 **Show floor hours**: MEDICA opens at 10am daily. Move-in is usually the Sunday before. Get there early on Sunday — build time is limited and you want a buffer to fix problems.
 
 **Interpreter services**: MEDICA has a high percentage of German and Japanese visitors who prefer communication in their language. If your team is English-only, consider renting a part-time interpreter for Hall 10–15 where clinical visitors concentrate.
-
----
-*Get ahead of the show with exhibitor intelligence. [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=exhibitor-checklist-generator) provides exhibitor lists, competitor tracking, and show analytics to help you prepare smarter.*

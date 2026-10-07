@@ -25,6 +25,9 @@ done < <(find . -maxdepth 2 -name 'SKILL.md' | sort)
 [[ ${#SKILL_FILES[@]} -gt 0 ]] || fail "No SKILL.md files found."
 pass "Found ${#SKILL_FILES[@]} skills"
 
+python3 scripts/validate_metadata.py
+python3 -m unittest discover -s scripts -p 'test_*.py'
+
 for skill_file in "${SKILL_FILES[@]}"; do
   skill_dir="$(dirname "$skill_file")"
   skill_name="$(basename "$skill_dir")"
@@ -33,15 +36,7 @@ for skill_file in "${SKILL_FILES[@]}"; do
   [[ -d "$skill_dir/examples" ]] || fail "$skill_name is missing examples/"
   find "$skill_dir/examples" -maxdepth 1 -type f | grep -q . || fail "$skill_name examples/ is empty"
 
-  rg -q '^name:' "$skill_file" || fail "$skill_name is missing name:"
-  rg -q '^version:' "$skill_file" || fail "$skill_name is missing version:"
-  rg -q '^description:' "$skill_file" || fail "$skill_name is missing description:"
-  rg -q '^homepage:' "$skill_file" || fail "$skill_name is missing homepage:"
-  rg -q '^user-invocable:' "$skill_file" || fail "$skill_name is missing user-invocable:"
-  rg -q '^metadata: \{' "$skill_file" || fail "$skill_name is missing single-line metadata JSON"
-
-  rg -q '"stage":"[^"]+"' "$skill_file" || fail "$skill_name is missing stage metadata"
-  stage="$(rg -o '"stage":"[^"]+"' "$skill_file" | sed 's/.*"stage":"//; s/"$//')"
+  stage="$(PYTHONPATH="$ROOT/scripts" python3 -c 'from pathlib import Path; from validate_metadata import validate_skill; import sys; print(validate_skill(Path(sys.argv[1]))["metadata"]["stage"])' "$skill_file")"
 
   case "$stage" in
     pre-show) stage_doc="docs/pre-show.md" ;;
@@ -59,16 +54,6 @@ if find . -name 'README.zh.md' | grep -q .; then
   fail "English-only repo policy violated: README.zh.md files found"
 fi
 pass "English-only repo policy respected"
-
-if rg -n '\bClaude Code\b|\bClaude\b|claude install-skill' . --type md \
-  -g '!CHANGELOG.md' \
-  -g '!CONTRIBUTING.md' \
-  -g '!docs/skill-quality-checklist.md' \
-  >/tmp/trade-show-skills-claude-check.txt; then
-  cat /tmp/trade-show-skills-claude-check.txt >&2
-  fail "Residual Claude wording found"
-fi
-pass "No residual Claude wording"
 
 for grounded_skill in booth-invitation-writer booth-script-generator post-show-followup trade-show-competitor-radar; do
   rg -qi 'never (invent|fabricate)' "$grounded_skill/SKILL.md" \
@@ -119,6 +104,6 @@ rg -q 'HubSpot `last_search_date`' competitor-show-tracker/SKILL.md \
   || fail "competitor-show-tracker is missing its activity side-effect disclosure"
 rg -q 'consumes 50 credits' competitor-show-tracker/SKILL.md \
   || fail "competitor-show-tracker is missing its per-request credit disclosure"
-pass "API-backed skills match the verified production contracts"
+pass "Documented API evidence guards are present (live requests are not tested)"
 
 pass "Repo validation completed successfully"

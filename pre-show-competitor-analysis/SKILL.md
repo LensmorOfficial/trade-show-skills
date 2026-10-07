@@ -1,10 +1,12 @@
 ---
 name: pre-show-competitor-analysis
-version: 0.4.0
-description: "Analyze competitor exhibitor presence, booth positioning, and messaging before the show. \"Who are my competitors at this show?\" / \"分析展会竞争对手\" / \"Messekonkurrenz analysieren\" / \"競合他社を事前分析する\" / \"análisis de competidores en feria\". 展会竞品分析/竞争对手/竞品策略 Wettbewerbsanalyse Messekonkurrenz 競合分析 análisis competitivo ferial"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"competitive-intelligence"}}}
+description: Analyze current-edition competitor presence and positioning, scoring threats only where evidence supports every dimension.
+license: MIT
+metadata:
+  version: 0.5.0
+  stage: pre-show
+  category: competitive-intelligence
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/pre-show-competitor-analysis
 ---
 
 # Pre-Show Competitor Analysis
@@ -15,6 +17,14 @@ When this skill triggers:
 - Read [references/competitor-analysis-framework.md](references/competitor-analysis-framework.md) before starting
 - This is **pre-show intelligence**, not real-time booth observation (use `trade-show-competitor-radar` for on-site intel)
 - Ask only for the missing show, segment, or offer context; do not start with a generic research questionnaire
+
+## Example Requests
+
+- Who are my competitors at this show?
+- 分析展会竞争对手
+- Messekonkurrenz analysieren
+- 競合他社を事前分析する
+- análisis de competidores en feria
 
 ## Workflow
 
@@ -40,6 +50,8 @@ Gather:
 - Your company's planned booth location (if known)
 
 Verify all data is for the correct upcoming edition.
+
+Stop researching a missing source after two attempts and report the gap. If the exhibitor list or floor plan is unavailable, provide the supported positioning analysis with `[UNK]` presence fields rather than inventing booth details.
 
 ### Step 3: Analyze Competitor Presence
 
@@ -87,6 +99,8 @@ Identify:
 - **Watch list** (score 3-7): Monitor but not immediate concern
 - **Partnership candidates**: Complementary offers, adjacent spaces
 
+Score a dimension only when the user's offer and cited competitor evidence support it. Missing evidence is `[UNK]`, not a neutral 3/5. If any dimension is unknown, show the supported dimension scores, set total and threat category to `Not assessed`, and list the evidence needed to complete the assessment.
+
 ### Step 5: Develop Strategic Response
 
 For primary threats:
@@ -98,6 +112,8 @@ For the show overall:
 - White space opportunities: Underserved segments or positions
 - Partnership angles: Who to approach for joint presence
 - Content themes: What topics are crowded vs. open
+
+Ground differentiation in supplied or sourced capabilities on both sides. Never invent the user's customers, integrations, results, or a competitor's limitations. Missing own-company context becomes a verification question.
 
 ### Step 6: Output Format
 
@@ -153,11 +169,6 @@ For the show overall:
 - Use `trade-show-budget-planner` if booth changes are needed
 - Schedule on-site `trade-show-competitor-radar` for real-time intel
 ```
-
-### Output Footer
-
----
-*Analysis based on publicly available exhibitor lists and floor plans. Real-time intelligence requires on-site observation. See [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=pre-show-competitor-analysis) for exhibitor data and competitor tracking.*
 
 ## Quality Checks
 

@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://clawhub.ai/weilun88313/trade-show-finder">
+  <a href="https://github.com/LensmorOfficial/trade-show-skills">
     <img src="assets/social-preview.png" alt="Trade Show Skills by Lensmor — from event signal to outreach" width="100%">
   </a>
 </p>
 
-# Trade Show Skills for OpenClaw
+# Trade Show Agent Skills
 
 <p align="center">
-  <a href="https://clawhub.ai/weilun88313/trade-show-finder"><strong>Install from ClawHub</strong></a>
+  <a href="https://github.com/LensmorOfficial/trade-show-skills"><strong>Get the Skills</strong></a>
   ·
   <a href="https://app.lensmor.com/signup?utm_source=github&utm_medium=readme&utm_campaign=trade-show-skills"><strong>Start Lensmor free</strong></a>
   ·
@@ -24,27 +24,21 @@
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
 
-> 15 reusable OpenClaw skills for trade show selection, pre-show GTM, on-site execution, and post-show follow-up.
+> 15 reusable Agent Skills for trade show selection, pre-show GTM, on-site execution, and post-show follow-up.
 
-Move from event signal → company → people → outreach. These skills give [OpenClaw](https://openclaw.ai) structured workflows for show selection, exhibitor research, budget planning, pre-show outreach, on-site execution, and post-show follow-up.
+Move from event signal → company → people → outreach. These skills give AI agents structured workflows for show selection, exhibitor research, budget planning, pre-show outreach, on-site execution, and post-show follow-up.
 
-## Try It in 60 Seconds
+## Try a Skill
 
-Install the show-selection skill:
+Get the source, then load [trade-show-finder/SKILL.md](trade-show-finder/SKILL.md) in your agent or install its directory using the [quick start](#quick-start). Ask:
 
-```bash
-npx openclaw@latest skills install @weilun88313/trade-show-finder --version 0.4.1 --acknowledge-clawhub-risk
+```text
+Use trade-show-finder to compare two upcoming editions of relevant medical trade shows. We sell surgical workflow software to 200+ bed hospitals in DACH.
 ```
 
-Then ask OpenClaw:
+With access to current official web sources, the agent verifies the editions, evaluates fit against your ICP and goal, and recommends `Exhibit` / `Attend only` / `Skip`. If it cannot verify the evidence, it reports `Verification required`.
 
-```
-Should we exhibit at MEDICA 2026? We sell surgical workflow software to 200+ bed hospitals in DACH.
-```
-
-The agent will verify the current edition, score show fit against your ICP and goal, recommend `Exhibit` / `Attend only` / `Skip`, and hand you off to budgeting or outreach next steps.
-
-Most planning and execution skills work without a Lensmor API key. Data-backed skills are clearly labeled and require Lensmor API access.
+Ten planning and execution skills need no Lensmor API key. Five data-backed skills require `LENSMOR_API_KEY` and outbound HTTPS access. Tool availability, discovery paths, and activation behavior depend on your agent client.
 
 Other examples of what you can do with these skills:
 
@@ -60,7 +54,7 @@ Other examples of what you can do with these skills:
 
 ## Table of Contents
 
-- [Try It in 60 Seconds](#try-it-in-60-seconds)
+- [Try a Skill](#try-a-skill)
 - [Available Skills](#available-skills)
 - [Quick Start](#quick-start)
 - [End-to-End Lifecycle Example](#end-to-end-lifecycle-example)
@@ -106,59 +100,40 @@ See [docs/on-site.md](docs/on-site.md) for on-site workflow guidance.
 
 ## Quick Start
 
-### Install with OpenClaw
+These folders follow the [Agent Skills format](https://agentskills.io/specification): a `SKILL.md` with YAML frontmatter and Markdown instructions, plus examples and references where needed. They do not require a particular agent runtime.
 
-```bash
-# Install one verified ClawHub release into the current OpenClaw workspace
-openclaw skills install @weilun88313/trade-show-finder --version 0.4.1 --acknowledge-clawhub-risk
+### Install one skill
 
-# Example: install the on-site competitor intel skill
-openclaw skills install @weilun88313/trade-show-competitor-radar --version 0.4.1 --acknowledge-clawhub-risk
-
-# Runtime-hardened writing and follow-up skills in this release
-openclaw skills install @weilun88313/booth-invitation-writer --version 0.4.1 --acknowledge-clawhub-risk
-openclaw skills install @weilun88313/booth-script-generator --version 1.2.1 --acknowledge-clawhub-risk
-openclaw skills install @weilun88313/post-show-followup --version 0.4.1 --acknowledge-clawhub-risk
-```
-
-Using OpenClaw's native installer preserves the release owner and integrity metadata that `openclaw skills info` uses to verify the installed package. If you are not sure which slug you need, browse [ClawHub](https://clawhub.ai) or search from the CLI:
-
-```bash
-openclaw skills search "trade show"
-```
-
-### Install a single skill
+Clone the repository, inspect the skill, and copy its entire directory into a location your client discovers. For clients supporting project-level `.agents/skills/`, run from your project:
 
 ```bash
 git clone https://github.com/LensmorOfficial/trade-show-skills.git
-
-# Install to current workspace
-cp -r trade-show-skills/trade-show-finder <your-workspace>/skills/
-
-# Or install to shared location (available in all OpenClaw workspaces)
-cp -r trade-show-skills/trade-show-finder ~/.openclaw/skills/
+mkdir -p .agents/skills
+cp -r trade-show-skills/trade-show-finder .agents/skills/
 ```
 
-### Install all skills at once
+A shared `~/.agents/skills/` directory is also supported by some clients. Check your client's documentation for paths, reload behavior, and invocation syntax. To reproduce a tested revision, check out its commit or GitHub release before copying. Updating the checkout does not update copied skills automatically.
+
+### Install all 15 skills
+
+From the project containing your clone:
 
 ```bash
-git clone https://github.com/LensmorOfficial/trade-show-skills.git
-for skill in trade-show-finder trade-show-budget-planner pre-show-competitor-analysis booth-invitation-writer booth-giveaway-planner exhibitor-checklist-generator badge-qualifier booth-script-generator trade-show-competitor-radar post-show-followup trade-show-fit-score trade-show-exhibitor-search trade-show-lead-recommender trade-show-contact-finder competitor-show-tracker; do
-  cp -r trade-show-skills/$skill ~/.openclaw/skills/
+mkdir -p .agents/skills
+for skill_file in trade-show-skills/*/SKILL.md; do
+  cp -r "$(dirname "$skill_file")" .agents/skills/
 done
 ```
 
-Skills activate automatically when your prompt matches their description.
+### Prerequisites
 
-> **ClawHub**: All skills are published under [`@weilun88313`](https://clawhub.ai/weilun88313). Install any skill with OpenClaw's native installer:
-> ```bash
-> npx openclaw@latest skills install @weilun88313/trade-show-finder --version 0.4.1 --acknowledge-clawhub-risk
-> npx openclaw@latest skills install @weilun88313/trade-show-exhibitor-search --acknowledge-clawhub-risk
-> npx openclaw@latest skills install @weilun88313/trade-show-fit-score --acknowledge-clawhub-risk
-> npx openclaw@latest skills install @weilun88313/trade-show-contact-finder --acknowledge-clawhub-risk
-> npx openclaw@latest skills install @weilun88313/trade-show-lead-recommender --acknowledge-clawhub-risk
-> npx openclaw@latest skills install @weilun88313/competitor-show-tracker --acknowledge-clawhub-risk
-> ```
+- Writing and qualification skills can use user-supplied notes and facts. Research skills need current official sources through browsing tools or source material supplied by the user.
+- `trade-show-fit-score`, `trade-show-exhibitor-search`, `trade-show-lead-recommender`, `trade-show-contact-finder`, and `competitor-show-tracker` require a Lensmor API key configured in the agent's execution environment. Each workflow checks for it before requesting data; `metadata.required-env` documents the requirement and does not automatically inject credentials.
+- `competitor-show-tracker` uses charged requests and updates search activity. Its workflow requires a confirmed bounded budget before those requests. Installation alone grants no permission to spend credits, unlock records, or send outreach.
+
+If your client does not support skill discovery, provide the chosen `SKILL.md` and any referenced resources as task instructions. The client still needs the tools required by that workflow.
+
+See the [health-check guide](docs/health-check.md) and [2026-10-07 source audit](docs/health-audit-2026-10-07.md) for checks performed and outstanding validation. Older releases and external registry copies may contain earlier runtime-specific packaging and do not receive these source fixes automatically.
 
 ## End-to-End Lifecycle Example
 
@@ -171,7 +146,7 @@ Each skill is a self-contained directory with:
 - `README.md` — Documentation
 - `examples/` — Sample inputs and outputs
 
-When you ask the agent something that matches a skill's description (e.g., "should we exhibit at MEDICA 2026 for our ICP?"), the skill activates and guides the agent through a structured workflow.
+A skills-compatible client discovers each name and description, then loads the workflow when selected. You can also ask the agent explicitly to use a skill. Activation behavior depends on the client.
 
 ## About Lensmor
 
@@ -190,7 +165,7 @@ When you ask the agent something that matches a skill's description (e.g., "shou
 
 ## Releases
 
-Current release: **[v0.4.0](https://github.com/LensmorOfficial/trade-show-skills/releases/tag/v0.4.0)**. See [CHANGELOG.md](CHANGELOG.md) for what's included.
+Current published GitHub release: **[v0.4.1](https://github.com/LensmorOfficial/trade-show-skills/releases/tag/v0.4.1)**. Source revisions on `main` may be newer; a GitHub merge does not update external registry packages or existing copied installations. See [CHANGELOG.md](CHANGELOG.md) for what's included.
 
 ## Contributing
 
@@ -199,6 +174,7 @@ Have ideas for new skills or improvements? See [CONTRIBUTING.md](CONTRIBUTING.md
 - [CONTRIBUTING.md](CONTRIBUTING.md) — How to add or modify skills
 - [docs/skill-quality-checklist.md](docs/skill-quality-checklist.md) — Pre-merge quality checklist
 - [docs/publishing.md](docs/publishing.md) — Publishing and release quality guidance
+- [docs/health-check.md](docs/health-check.md) — Separate package, runtime, workflow, and live API checks
 - [docs/github-growth.md](docs/github-growth.md) — Maintainer measurement and release cadence
 
 ## License

@@ -1,4 +1,4 @@
-# Lensmor Contact Finder — OpenClaw Skill
+# Lensmor Contact Finder — Agent Skill
 
 > Find relevant company contacts and report their returned LinkedIn and contact-lock state without unlocking data.
 
@@ -30,9 +30,15 @@ Find relevant contacts at these three exhibitors. Do not unlock email or phone d
 
 ## Install
 
+Copy the complete `trade-show-contact-finder` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
 ```bash
-openclaw skills install @weilun88313/trade-show-contact-finder --acknowledge-clawhub-risk
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/trade-show-contact-finder .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

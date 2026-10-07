@@ -1,118 +1,94 @@
 # Example: Post-MEDICA Follow-up Sequences
 
-> **Fictional example.** Lead counts come from the example prompt. All customer proof, performance metrics, links, and compliance statements are placeholders that must be verified before sending.
+> Fictional example. The source prompt supplies qualified tiers; quote requests alone would not establish Hot status. Asset links and specific meeting dates below are placeholders, not real materials or booked appointments. These drafts have not been sent.
 
-**Prompt:** "MEDICA just ended. We sell sterilization monitoring systems. Got about 150 badge scans, 40 real conversations, 12 asked for quotes. Write follow-up emails."
+## Input
 
----
+```text
+MEDICA just ended. We sell sterilization monitoring systems. Qualify our 150 contacts first:
+- 12 Hot: each explicitly participates in vendor evaluation, described a monitoring need,
+  and gave a purchasing timeline. Quote requests and next actions are recorded per contact.
+- 28 Warm: each described a need and a timeline; buying involvement is still unknown.
+- 110 Cold: zero or one confirmed signal, including badge scans without conversation notes.
+Preserve those tiers. Write follow-up templates with placeholders for individual facts.
+We have no approved customer proof, quantified outcomes, or compliance claims to use.
+```
 
-## Tier 1 — Hot (12 leads, asked for pricing)
+## Tier 1 — Hot (12 qualified contacts)
 
 ### Email 1 (Day 1)
 
-**Subject:** Your sterilization monitoring quote from MEDICA — as promised
+**Subject:** Following up on your monitoring quote request at MEDICA
 
 Hi [Name],
 
-Thank you for the detailed conversation at our booth yesterday. You mentioned that [Hospital/Facility] is currently [specific challenge they shared — e.g., "tracking sterilization cycles manually across 3 departments"], and I think we can make a real dent in that.
+Thank you for discussing [need explicitly recorded in the notes] at MEDICA. You mentioned [recorded evaluation timeline].
 
-As discussed, I've attached:
-- The quote for [specific configuration they asked about]
-- A one-page comparison with your current [competitor/manual] workflow
-- [Case study from a similar hospital size/type]
-
-Would next Tuesday or Wednesday work for a 30-minute call to walk through the numbers and answer any technical questions from your team?
+I've prepared [quote for the requested configuration — attach and verify before sending]. Would [proposed date in your timezone] work for a short call to review it with [participants named in the notes]?
 
 Best,
-[Name]
+[Sender]
 
 ### Email 2 (Day 4, if no reply)
 
-**Subject:** Quick comparison: manual tracking vs. automated monitoring
+**Subject:** Any questions on the requested quote?
 
 Hi [Name],
 
-I know post-MEDICA inboxes are brutal, so I'll keep this short.
+Following up on the quote for [requested configuration]. Which questions would help your evaluation? I can prepare a focused walkthrough around [recorded need].
 
-One thing teams evaluating this category often ask about is documentation time. Insert only an approved result here: `[verified documentation-time outcome]`.
+Best,
+[Sender]
 
-Here's a 3-minute video walkthrough showing exactly how it works in a hospital like yours: [link]
-
-Happy to jump on a quick call whenever works for you.
-
-[Name]
-
----
-
-## Tier 2 — Warm (28 leads, good conversations)
+## Tier 2 — Warm (28 qualified contacts)
 
 ### Email 1 (Day 2)
 
-**Subject:** Following up from MEDICA — sterilization compliance made simpler
+**Subject:** Your monitoring plans after MEDICA
 
 Hi [Name],
 
-Good connecting at MEDICA this week. With all the new MDR requirements tightening up, sterilization documentation is becoming one of those things that can't stay on paper much longer — sounds like that's on your radar too.
+Thank you for sharing [recorded need] and [recorded timeline] at MEDICA. Would a short walkthrough of our sterilization monitoring system be useful as you explore options?
 
-I put together a short guide on what the latest compliance requirements mean for CSSD workflows: [link to resource]
+If a colleague is involved in evaluation, you're welcome to include them.
 
-If this resonates, I'd be happy to show you how our monitoring system handles it in a 15-minute demo. No pitch deck — just a live walkthrough.
+Best,
+[Sender]
 
-[Name]
+### Email 2 (Day 7, if no reply)
 
-### Email 2 (Day 7)
-
-**Subject:** How `[approved reference hospital]` improved sterilization traceability
-
-Hi [Name],
-
-Thought you might find this relevant — `[approved reference hospital]` faced a similar situation. Use only validated case-study details below:
-
-- Documentation time: `[verified result]`
-- Compliance audit preparation: `[verified result]`
-- Recall traceability: `[verified result]`
-
-[Link to full case study]
-
-Worth a conversation?
-
-[Name]
-
----
-
-## Tier 3 — Cold (110 badge scans, brief or no conversation)
-
-### Email 1 (Day 5)
-
-**Subject:** Sterilization tracking still on paper? There's a better way
+**Subject:** A resource for your monitoring research
 
 Hi [Name],
 
-We connected briefly at MEDICA last week — hope you had a good show.
+If you are still exploring [recorded need], this may help: [approved relevant resource link — replace before sending].
 
-If sterilization monitoring and compliance documentation is anywhere on your 2027 priority list, we help hospitals automate the entire workflow — from cycle logging to audit-ready reports.
+Let me know if you'd prefer a short walkthrough instead.
 
-Here's a 2-minute overview: [link to explainer video]
+Best,
+[Sender]
 
-No pressure — just wanted to make sure it's on your radar.
+## Tier 3 — Cold (110 contacts with limited qualification)
 
-[Name]
+### Email 1 (Day 3–5, when follow-up is permitted)
 
----
+**Subject:** Sterilization monitoring — a brief introduction after MEDICA
 
-## Recommended Timeline
+Hi [Name],
 
-| Tier | Email 1 | Email 2 | Email 3 |
-|------|---------|---------|---------|
-| Hot (12) | Day 1 (tomorrow) | Day 4 | Day 10 (if needed) |
-| Warm (28) | Day 2 | Day 7 | — |
-| Cold (110) | Day 5 | Day 14 (optional) | — |
+Our team exhibited at MEDICA. We provide sterilization monitoring systems. If this is relevant to your work, would a short overview be useful?
 
-**Tips:**
-- Send from the person who had the conversation, not marketing@
-- Test send windows in the recipient's local timezone rather than assuming one universal best time
-- Log all interactions in CRM before sending — you'll need the context
-- For the 12 hot leads: consider a LinkedIn connection request the same day as Email 1
+Best,
+[Sender]
 
----
-> Powered by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=post-show-followup) — Trade show intelligence platform.
+For badge-only records, this introduction does not imply a conversation, buying role, current project, or prior commitment.
+
+## Suggested Timeline
+
+| Tier | Email 1 | Email 2 |
+|---|---|---|
+| Hot (12) | Day 1 | Day 4 |
+| Warm (28) | Day 2 | Day 7 |
+| Cold (110) | Day 3–5 | Optional later nurture, if permitted |
+
+Confirm the source contact record and replace all factual placeholders before sending. Use the recipient's timezone, preserve opt-outs and supplied follow-up permissions, and send from the recorded conversation owner where one exists. Writing these templates does not authorize delivery or CRM uploads.

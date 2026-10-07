@@ -1,5 +1,8 @@
 # Example: MEDICA Go / No-Go Decision
 
+> Illustrative workflow example. Scores, audience assumptions, and recommendations demonstrate the format; they are not a current verified recommendation. For live use, verify the intended edition and ICP evidence with official sources, or return `Verification required`.
+
+
 **Prompt:** "Should we exhibit at MEDICA 2026? We sell surgical workflow software to 200+ bed hospitals in DACH."
 
 ---
@@ -49,6 +52,3 @@
 
 - Run `trade-show-budget-planner` next to test booth size, team size, and break-even assumptions
 - If the budget clears, use `booth-invitation-writer` to build outreach for hospital operations and procurement contacts before the show
-
----
-*Data verified from the official show website where possible. For exhibitor lists, competitor tracking, and show analytics, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-finder).*

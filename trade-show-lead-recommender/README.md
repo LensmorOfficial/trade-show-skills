@@ -1,4 +1,4 @@
-# Lensmor Exhibitor Recommendations — OpenClaw Skill
+# Lensmor Exhibitor Recommendations — Agent Skill
 
 > Retrieve event recommendation records and clearly separate populated ranks from unranked fallback exhibitors.
 
@@ -31,9 +31,15 @@ Filter event 12740 by Medical Devices and companies with 100–1,000 employees. 
 
 ## Install
 
+Copy the complete `trade-show-lead-recommender` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
 ```bash
-openclaw skills install @weilun88313/trade-show-lead-recommender --acknowledge-clawhub-risk
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/trade-show-lead-recommender .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

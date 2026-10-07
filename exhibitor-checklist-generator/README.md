@@ -1,4 +1,4 @@
-# Exhibitor Checklist Generator — OpenClaw Skill
+# Exhibitor Checklist Generator — Agent Skill
 
 > Turn a messy show plan into an owner-by-owner checklist with deadlines you can actually execute.
 
@@ -27,7 +27,7 @@ Works well before or alongside `trade-show-budget-planner` — run budget first 
 ## Quick Examples
 
 ```
-We're exhibiting at MEDICA 2026 (Nov 17-20, Düsseldorf). 20sqm custom booth, 4 staff traveling from London. Primary goals: 50 qualified leads, 10 product demo meetings. First time at MEDICA but we've done smaller shows before. Generate our checklist.
+We're exhibiting at MEDICA 2026 (Nov 16-19, Düsseldorf). 20sqm custom booth, 4 staff traveling from London. Primary goals: 50 qualified leads, 10 product demo meetings. First time at MEDICA but we've done smaller shows before. Generate our checklist.
 ```
 
 ```
@@ -47,6 +47,18 @@ The skill guides the agent through:
 3. **Phase 2 checklist** — 2–4 weeks before: execution, shipping, training, lead capture setup
 4. **Phase 3 checklist** — show week: setup, daily ops, lead review, pack-down, day-after follow-up
 5. **Key Deadlines Summary** — the items that cascade if missed
+
+## Install
+
+Copy the complete `exhibitor-checklist-generator` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/exhibitor-checklist-generator .agents/skills/
+```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 
