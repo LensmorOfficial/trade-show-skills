@@ -143,7 +143,7 @@ These skills are already published on ClawHub and also installable via `cp -r`. 
 
 1. Fork the repo and create a branch
 2. Follow the skill conventions above
-3. Run `bash scripts/validate-repo.sh` and the validation commands in the quality checklist
+3. Run `bash scripts/validate-repo.sh` and the validation commands in the quality checklist (both need [ripgrep](https://github.com/BurntSushi/ripgrep))
 4. Open a PR with a brief description of what the skill does and why it belongs here
 
 For bug fixes and doc improvements, a short PR description is fine. For new skills, include a one-paragraph explanation of the use case and why it fits in the pre/on-site/post-show framework.
