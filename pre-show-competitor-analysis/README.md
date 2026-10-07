@@ -1,4 +1,4 @@
-# Pre-Show Competitor Analysis — OpenClaw Skill
+# Pre-Show Competitor Analysis — Agent Skill
 
 > Map who you will face at the show and how to sharpen your positioning before you get there.
 
@@ -47,13 +47,15 @@ See [examples/medica-surgical-robotics-landscape.md](examples/medica-surgical-ro
 
 ## Install
 
-```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/pre-show-competitor-analysis <your-workspace>/skills/
+Copy the complete `pre-show-competitor-analysis` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/pre-show-competitor-analysis ~/.openclaw/skills/
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/pre-show-competitor-analysis .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## How It Works
 

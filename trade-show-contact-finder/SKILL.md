@@ -1,10 +1,14 @@
 ---
 name: trade-show-contact-finder
-version: 1.2.1
-description: "Find decision-makers and relevant contacts at exhibitor companies using the Lensmor API. \"Who should I contact at this company?\" / \"找联系人\" / \"Entscheidungsträger finden\" / \"担当者を探す\" / \"encontrar responsables de compras\". find contacts, decision maker, key person, find buyers, 找联系人, 找决策人, 谁负责采购, 找负责人 Entscheidungsträger Einkäufer 意思決定者 responsable de compras"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-contact-finder
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"outreach","emoji":"👤"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
+description: Find relevant company contacts through Lensmor, preserving contact lock states without inferring purchasing authority.
+license: MIT
+metadata:
+  version: 1.3.0
+  stage: pre-show
+  category: outreach
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-contact-finder
+  required-env: LENSMOR_API_KEY
+  requires-network: https://platform.lensmor.com
 ---
 
 # Lensmor Contact Finder
@@ -17,12 +21,28 @@ The search response includes an `email` field, but locked contacts return `email
 
 Do not call an unlock endpoint from this skill. Email and phone unlocking are separate paid workflows that require explicit user approval.
 
+## Example Requests
+
+- Who should I contact at this company?
+- 找联系人
+- Entscheidungsträger finden
+- 担当者を探す
+- encontrar responsables de compras
+
+## Request Handling
+
+- Every Lensmor request, including event lookup and pagination, must send `Authorization: Bearer $LENSMOR_API_KEY`. Send the key only to `https://platform.lensmor.com`; never include it in URLs, output, or requests to company/event websites.
+- Use a 10-second connection timeout and 30-second request timeout. Inspect the HTTP status before interpreting JSON; a non-2xx response, malformed JSON, or missing required response fields is a failed request, not an empty result or a zero score.
+- Start with one page (`page=1`, `pageSize` at most 100). Preserve filters across pages and disclose partial coverage. Do not fetch every page automatically.
+- For a read-only GET, allow at most one retry after a 429 or temporary 5xx, respecting `Retry-After`; if the delay is unavailable or impractical, report the failure and stop. Do not retry a POST automatically. A timeout may leave its outcome unknown, especially for a charged search.
+- If event lookup returns multiple editions, ask for the intended year/edition before continuing. Use the resolved event ID, never a sample ID from this document.
+
 ## Workflow
 
 ### Step 1: API Key Check
 
 ```bash
-[ -n "$LENSMOR_API_KEY" ] && echo "ok" || echo "missing"
+[ -n "${LENSMOR_API_KEY:-}" ] && echo "ok" || echo "missing"
 ```
 
 If missing, stop and direct the user to obtain a Lensmor API key. Never print its value.
@@ -44,6 +64,8 @@ Use a broad role term such as `marketing`, `operations`, or `procurement` when a
 ### Step 3: Call the API
 
 **Endpoint**: `GET https://platform.lensmor.com/external/contacts/search`
+
+**Authentication**: `Authorization: Bearer $LENSMOR_API_KEY`
 
 Example query:
 
@@ -114,7 +136,7 @@ Email search status: [locked contacts remain null / already unlocked email avail
 ## Follow-up Routing
 
 - Draft pre-show outreach → `booth-invitation-writer`
-- Generate LinkedIn-specific copy → `trade-show-linkedin-templates`
+- Draft LinkedIn-specific copy using the [LinkedIn templates repository](https://github.com/LensmorOfficial/trade-show-linkedin-templates); this is a template collection, not an installed skill
 - Find more event companies → `trade-show-exhibitor-search`
 - Rank event accounts when recommendation evidence exists → `trade-show-lead-recommender`
 
@@ -131,6 +153,3 @@ Email search status: [locked contacts remain null / already unlocked email avail
 9. Format public URLs as Markdown links.
 10. Describe priority as contact relevance; do not infer purchasing power, budget ownership, or decision authority.
 11. When suggesting broader role filters, describe the goal as finding cross-functional contacts, never decision involvement or purchasing authority.
-
----
-*Contact data is sourced from the Lensmor platform. For exhibitor discovery and pre-show outreach, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).*

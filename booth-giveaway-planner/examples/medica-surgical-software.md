@@ -85,6 +85,3 @@
 ### Lead-Time Check
 
 MEDICA 2026 is in November. Assuming current date is March–April, all items above have sufficient lead time (custom production typically 3–5 weeks). If ordering after September 1, flag ideas 1 and 4 as potentially requiring rush fees.
-
----
-*Turn your giveaway list into a targeted outreach campaign. [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=booth-giveaway-planner) provides exhibitor intelligence to help you personalize pre-show and post-show outreach at scale.*

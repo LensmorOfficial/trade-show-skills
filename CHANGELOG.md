@@ -6,6 +6,35 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [Unreleased]
+
+### Fixed
+
+- Removed forced promotional output footers and tracking links from skill instructions after an external registry audit flagged this behavior; README attribution and product links remain. Existing registry copies have not been updated or rescanned.
+- Replaced runtime-specific installation commands with complete-directory source copies and explicit client discovery prerequisites.
+- Made Lensmor authentication, timeouts, bounded pagination, and failed-response handling explicit in all five API-backed skills.
+- Fixed competitor-tracker date upper bounds, duplicate input counting, single-company routing, incomplete-result reporting, and charged-request retry ambiguity.
+- Aligned lead-tier rules and examples: title-only authority is unknown; Hot requires three confirmed signals, Warm two, and Cold zero or one. Follow-up preserves qualified tiers, including its worked example.
+- Corrected MEDICA 2026 checklist dates from 17–20 to 16–19 November, and marked finder examples as illustrative.
+- Corrected budget contingency, fractional-deal arithmetic, and the distinction between revenue recovery and margin-based ROI in the workflow and example.
+- Added unknown-dimension threat scoring and short-notice preparation plans instead of unsupported scores or past actionable deadlines.
+
+### Changed
+
+- Adopted the portable Agent Skills format for all 15 skills: flat string metadata, `metadata.version` and `metadata.homepage`, and credential and network requirements in metadata and workflow checks. Source minor versions were incremented for the packaging migration.
+- Shortened all 15 discovery descriptions while retaining multilingual example requests in each skill body.
+- Repositioned the homepage, individual READMEs, contributor guides, issue template, and banner around generic Agent Skills.
+- Clarified that GitHub source revisions and external registry package versions are separate.
+
+### Added
+
+- YAML metadata and local Markdown reference validation, with 16 regression tests and CI dependencies.
+- A health-check guide separating package validation, runtime eligibility, workflow evaluation, and authenticated API tests.
+
+### Validation boundary
+
+- These are source revisions, not updated external registry packages. Metadata checks do not prove model-output quality or current authenticated API availability.
+
 ## [0.4.1] - 2026-07-18
 
 ### Fixed
@@ -33,7 +62,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [0.4.0] - 2026-07-17
 
-The first full-lifecycle release: 15 OpenClaw skills spanning event selection, competitor and exhibitor research, pre-show GTM, on-site execution, and post-show follow-up.
+The first full-lifecycle release: 15 workflow skills spanning event selection, competitor and exhibitor research, pre-show GTM, on-site execution, and post-show follow-up.
 
 ### Added
 
@@ -49,13 +78,13 @@ The first full-lifecycle release: 15 OpenClaw skills spanning event selection, c
 - Renamed the API-backed skills to generic, discoverable `trade-show-*` slugs.
 - Added multilingual trigger keywords across all 15 skills.
 - Declared `LENSMOR_API_KEY` as a required environment variable for API-backed workflows.
-- Rebuilt the README first screen around one-command installation, a concrete prompt, and clear ClawHub, product, API, and demo paths.
+- Rebuilt the README first screen around one-command installation, a concrete prompt, and clear external registry, product, API, and demo paths.
 - Changed the primary product CTA from the marketing homepage to direct Lensmor signup.
 
 ### Fixed
 
 - Added the missing README and fictional worked example for `competitor-show-tracker`, restoring the repository validation contract.
-- Replaced the legacy first-run installer with OpenClaw's native ClawHub install path so owner and artifact integrity metadata verify correctly.
+- Replaced the legacy first-run installer with the then-supported registry installer so owner and artifact integrity metadata verify correctly.
 - Added hard claim-grounding rules to invitation, booth-script, follow-up, and competitor-radar skills; outbound examples now disclose fictional data and use placeholders for unverified customers, dates, metrics, and proof points.
 - Added an official-source evidence gate to `trade-show-finder`; it can no longer score or recommend a show from model memory when the current edition and ICP-relevant evidence are unavailable.
 - Prepared patch package releases for the five skills changed by runtime verification: `trade-show-finder` 0.4.1, `booth-invitation-writer` 0.4.1, `booth-script-generator` 1.2.1, `post-show-followup` 0.4.1, and `trade-show-competitor-radar` 0.4.1.
@@ -72,13 +101,13 @@ Patch release focused on documentation quality, repo consistency, and maintainer
 ### Fixed
 
 - Repo standards aligned to the current policy: the repo is English-only, and `version` is an allowed top-level field in `SKILL.md`.
-- Overlong skill descriptions shortened in `booth-giveaway-planner`, `booth-script-generator`, and `exhibitor-checklist-generator` to better fit OpenClaw skill-picking and prompt-cost constraints.
+- Overlong skill descriptions shortened in `booth-giveaway-planner`, `booth-script-generator`, and `exhibitor-checklist-generator` to better fit agent skill discovery and prompt-cost constraints.
 
 ### Docs
 
 - Refreshed `docs/pre-show.md`, `docs/on-site.md`, and `docs/event-lifecycle.md` to match the current 10-skill repo.
 - Updated `pre-show-competitor-analysis/README.md` to the current repo quality standard.
-- Clarified publishing guidance and root README wording to reflect the current ClawHub + source-install distribution model.
+- Clarified publishing guidance and root README wording to reflect the current external registry + source-install distribution model.
 
 ### Added
 
@@ -131,7 +160,7 @@ Quality and consistency pass across all 7 skills.
 
 ## [0.1.0] - 2026-03-18
 
-Initial public beta. First usable release of OpenClaw skills for trade show planning, on-site execution, and post-show follow-up. Skills are distributed via source (`cp -r`) — not yet published to ClawHub.
+Initial public beta. First usable release of workflow skills for trade show planning, on-site execution, and post-show follow-up. Skills are distributed via source (`cp -r`) — not yet published to external registry.
 
 ### Added
 
@@ -140,13 +169,13 @@ Initial public beta. First usable release of OpenClaw skills for trade show plan
 - **`docs/event-lifecycle.md`** and **`docs/event-lifecycle.zh.md`** — End-to-end worked example showing how all 6 skills chain together using a fictional B2B SaaS scenario at Anuga FoodTec.
 - **`CONTRIBUTING.md`** — Authoring conventions, stage/category taxonomy, workflow design guidelines, and examples standards.
 - **`docs/skill-quality-checklist.md`** — 7-section pre-merge checklist with runnable validation commands.
-- **`docs/publishing.md`** — Publishing readiness tracker: what needs to be in place before ClawHub submission.
+- **`docs/publishing.md`** — Publishing readiness tracker: what needs to be in place before external registry submission.
 - **`docs/pre-show.md`**, **`docs/on-site.md`**, **`docs/post-show.md`** — Stage-specific guides covering all skills in each phase.
 
 ### Changed
 
-- Repo migrated from Claude Code framing to OpenClaw-first. All skill READMEs and workflows now reference "the agent" / "OpenClaw" instead of "Claude".
-- 4 existing skills (`trade-show-finder`, `trade-show-budget-planner`, `booth-invitation-writer`, `post-show-followup`) aligned to OpenClaw frontmatter conventions: `metadata` as single-line JSON, valid `stage` and `category` fields.
+- Repo adopted runtime-specific packaging and agent-oriented terminology in skill READMEs and workflows.
+- 4 existing skills (`trade-show-finder`, `trade-show-budget-planner`, `booth-invitation-writer`, `post-show-followup`) aligned to the then-used runtime frontmatter conventions: `metadata` as single-line JSON, valid `stage` and `category` fields.
 - Information architecture reorganized into pre-show / on-site / post-show sections throughout root README and docs.
 - `trade-show-finder` workflow improved to handle both discovery mode (find me shows by industry/region) and specific-show lookup (tell me about Interpack 2026).
 
@@ -158,7 +187,7 @@ Initial public beta. First usable release of OpenClaw skills for trade show plan
 
 ### Notes
 
-- Skills are not yet published to ClawHub; install via `cp -r` from this repo.
+- Skills are not yet published to external registry; install via `cp -r` from this repo.
 - No automated evals or tests — evaluation is currently manual.
 - No versioning policy yet; breaking changes are not formalized.
 - Intended as first usable public beta, not a stable production release.

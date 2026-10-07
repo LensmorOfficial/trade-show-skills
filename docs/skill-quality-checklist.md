@@ -6,22 +6,17 @@ Use this before merging a new skill or making significant changes to an existing
 
 ## 1. Metadata
 
-- [ ] `name` is present, lowercase, hyphenated, matches the directory name
-- [ ] `version` is present and uses a semver-like format (`0.3.0`, `1.0.0`)
-- [ ] `description` is present — one sentence, under ~20 words
-- [ ] `homepage` points to the correct GitHub tree URL for this skill
-- [ ] `user-invocable` is set (almost always `true`)
-- [ ] `metadata` is a **single-line JSON string** — not multi-line YAML
-- [ ] `stage` is one of: `pre-show`, `on-site`, `post-show`
-- [ ] `category` reflects the skill's primary function (research, planning, outreach, lead-qualification, competitive-intelligence, follow-up)
-- [ ] No unrecognized top-level frontmatter fields added beyond `version`
+- [ ] `name` is lowercase, hyphenated, at most 64 characters, and matches the directory name
+- [ ] `description` describes the task and when to use it; at most 200 characters in this repo
+- [ ] `metadata` is a map of string keys to string values
+- [ ] `metadata.version` uses semantic versioning (`0.5.0`, `1.3.0`)
+- [ ] `metadata.homepage` points to the correct GitHub directory
+- [ ] `metadata.stage` is `pre-show`, `on-site`, or `post-show`
+- [ ] `metadata.category` is in the repository taxonomy
+- [ ] API skills declare `LENSMOR_API_KEY` in `metadata.required-env` and the Lensmor host in `metadata.requires-network`
+- [ ] No runtime-specific nested metadata or top-level fields
 
-**Quick check:**
-```bash
-rg -n "^metadata:" <skill>/SKILL.md
-# Should be: metadata: {"openclaw":{"config":{"stage":"...","category":"..."}}}
-# Should NOT span multiple lines
-```
+The [Agent Skills specification](https://agentskills.io/specification) defines the format. The repo validator adds identity and taxonomy checks for this collection.
 
 ---
 
@@ -61,13 +56,13 @@ rg -n "^metadata:" <skill>/SKILL.md
 ## 5. Documentation
 
 - [ ] `README.md` exists and includes:
-  - [ ] Title with `— OpenClaw Skill` suffix
+  - [ ] Title with `— Agent Skill` suffix
   - [ ] One-line description (matches or closely mirrors frontmatter `description`)
   - [ ] "What It Does" section with bullet outputs
   - [ ] Stage/category label line (e.g., `**Pre-Show Stage · Research**`)
   - [ ] 3–4 usage examples (realistic prompts a user would actually send)
   - [ ] Example output reference (link to `examples/`)
-  - [ ] Install section with both workspace-local and shared paths
+  - [ ] Install section with complete-directory copy and client discovery caveat
   - [ ] Related Skills section (links to 2–3 skills)
   - [ ] Lensmor footer link
 - [ ] `examples/` contains at least one substantive worked example (not placeholder)
@@ -91,17 +86,19 @@ rg -n "^metadata:" <skill>/SKILL.md
 Run these commands from the repo root:
 
 ```bash
+# Use an isolated development environment (one-time setup)
+python3 -m venv /tmp/trade-show-skill-checks
+source /tmp/trade-show-skill-checks/bin/activate
+python3 -m pip install -r scripts/requirements.txt
+
 # 1. Run the repo validation script
 bash scripts/validate-repo.sh
 
 # 2. Confirm all SKILL.md files are present
 find . -maxdepth 2 -name 'SKILL.md' | sort
 
-# 3. Confirm frontmatter required fields exist
-rg -n "^version:|user-invocable|^homepage:|^metadata: \{" .
-
-# 4. Check for residual "Claude Code" or bare "Claude" references
-rg -n "\bClaude Code\b|\bClaude\b|\bclaude\b" . --type md
+# 3. Confirm frontmatter parses and local references resolve
+python3 scripts/validate_metadata.py
 
 # 5. Check for whitespace/trailing space issues
 git diff --check
@@ -112,8 +109,9 @@ rg -n "<skill-name>" README.md
 
 Expected results:
 - Command 1 should pass cleanly
-- Command 4 should return zero hits (or only hits inside URLs/proper nouns where "Claude" is part of a product name — flag these for review)
 - Command 5 should return no warnings
+
+The validator parses YAML and flat string metadata, checks names, versions, taxonomy, environment declarations, and local Markdown references, and runs regression tests for invalid packages. It does not execute model workflows, authenticate to Lensmor, or validate live API responses. Use the [health-check guide](health-check.md) for those separate checks.
 
 ---
 

@@ -7,7 +7,7 @@ This guide keeps repository growth measurable and tied to useful adoption rather
 Track the repository as a simple funnel:
 
 1. **Discovery** — unique visitors and external referrers
-2. **Interest** — stars, README depth, and ClawHub page visits
+2. **Interest** — stars, README depth, and source downloads and registry page visits
 3. **Adoption** — clones and skill installs
 4. **Product intent** — clicks to Lensmor signup, API docs, or demo booking
 5. **Community** — useful issues, pull requests, and repeat contributors
@@ -40,7 +40,7 @@ Repository links use explicit UTM parameters:
 | `app.lensmor.com/signup` | Product signup intent |
 | `api.lensmor.com` | Developer intent |
 | Calendly | Sales or partnership intent |
-| `clawhub.ai` | Skill installation intent |
+| External skill registries | Skill installation intent |
 
 Review GitHub traffic and website analytics together. A star without downstream use is awareness; a qualified click or install is adoption.
 

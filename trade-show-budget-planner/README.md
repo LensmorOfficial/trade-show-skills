@@ -1,4 +1,4 @@
-# Trade Show Budget Planner — OpenClaw Skill
+# Trade Show Budget Planner — Agent Skill
 
 > Stress-test exhibit budgets before you overspend, under-scope, or walk into an approval meeting unprepared.
 
@@ -38,13 +38,15 @@ See [examples/medica-20sqm-budget.md](examples/medica-20sqm-budget.md) for a sam
 
 ## Install
 
-```bash
-# Workspace-local
-cp -r /path/to/trade-show-skills/trade-show-budget-planner <your-workspace>/skills/
+Copy the complete `trade-show-budget-planner` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
 
-# Shared (all workspaces)
-cp -r /path/to/trade-show-skills/trade-show-budget-planner ~/.openclaw/skills/
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/trade-show-budget-planner .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

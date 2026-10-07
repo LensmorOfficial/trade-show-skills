@@ -2,10 +2,10 @@
 
 ## Scope
 
-This repo is a collection of [OpenClaw](https://openclaw.ai) workflow skills for trade show planning, on-site execution, and post-show follow-up.
+This repo is a collection of [Agent Skills](https://agentskills.io/specification) workflows for trade show planning, on-site execution, and post-show follow-up.
 
 **What belongs here:**
-- `SKILL.md` workflow definitions for OpenClaw
+- `SKILL.md` portable workflow definitions for AI agents
 - Markdown documentation (README, examples, guides)
 - Fictional worked examples that illustrate real usage patterns
 
@@ -13,7 +13,7 @@ This repo is a collection of [OpenClaw](https://openclaw.ai) workflow skills for
 - Frontend apps or HTML tools (those live in [trade-show-tools](https://github.com/LensmorOfficial/trade-show-tools))
 - npm packages, build systems, or compiled assets
 - Backend code or API integrations
-- Skills for platforms other than OpenClaw (unless clearly namespaced)
+- Client-specific setup that replaces the portable skill entrypoint
 
 ---
 
@@ -22,7 +22,7 @@ This repo is a collection of [OpenClaw](https://openclaw.ai) workflow skills for
 ```
 trade-show-skills/
   <skill-name>/
-    SKILL.md          ← required: OpenClaw skill definition
+    SKILL.md          ← required: Agent Skills definition
     README.md         ← required: English documentation
     examples/         ← required: at least one worked example
     references/       ← optional: helper framework, scoring rubric, seed list
@@ -31,31 +31,34 @@ trade-show-skills/
   README.md           ← root index
 ```
 
-Each skill is self-contained. A skill directory should make sense on its own when copied to `~/.openclaw/skills/`.
+Each skill is self-contained. A skill directory should make sense on its own when copied to a supported skill-discovery directory.
 
 ---
 
-## OpenClaw Skill Conventions
+## Agent Skills Conventions
 
-Every `SKILL.md` must have valid YAML frontmatter:
+Follow the [Agent Skills specification](https://agentskills.io/specification). This repository requires identity, a concise discovery description, and flat string metadata:
 
 ```yaml
 ---
 name: skill-name
-version: 0.3.0
-description: One sentence. What it does, not what it is.
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/<skill-name>
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"<stage>","category":"<category>"}}}
+description: Evaluate trade show fit for a supplied ICP and goal.
+license: MIT
+metadata:
+  version: "1.0.0"
+  stage: pre-show
+  category: research
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/skill-name
 ---
 ```
 
-Rules:
-- **`metadata` must be a single-line JSON string** — multi-line YAML breaks OpenClaw parsing
-- **`description` should be short** (one sentence, under 20 words) — it's consumed by the agent runtime and long descriptions inflate prompt tokens without benefit
-- **`version` is allowed and recommended in this repo** for released skills. Use semantic versioning style (`0.3.0`, `1.0.0`) and bump it when public behavior changes meaningfully
-- Avoid adding other top-level frontmatter fields beyond `name`, `version`, `description`, `homepage`, `user-invocable`, and `metadata`
-- `user-invocable: true` means users can activate this skill by prompt; set to `false` only for utility/helper skills
+- `name` matches the skill directory and uses lowercase letters, digits, and single hyphens; maximum 64 characters.
+- Keep `description` useful for discovery and at most 200 characters, a repository limit stricter than the specification's 1024 characters. Put example prompts in the body.
+- Metadata keys and values are strings. Put repository version, homepage, stage, and category here; avoid nested runtime-specific objects.
+- Use semantic versions in `metadata.version`. Bump the minor version for a packaging migration and the patch version for compatible workflow fixes.
+- API-backed skills include `metadata.required-env: LENSMOR_API_KEY` and `metadata.requires-network: https://platform.lensmor.com`. These fields describe prerequisites; each workflow must check the environment itself.
+- Supported optional top-level fields are `license`, `compatibility`, and `allowed-tools`. Tool authorization varies by client; do not add tool restrictions or invocation policies without a concrete need.
+- Skill discovery and explicit invocation are client responsibilities. Document actual tool needs without claiming every client will auto-activate the skill.
 
 ---
 
@@ -83,6 +86,10 @@ Each skill's workflow should make clear:
 - What input the agent expects (and what to do if it's missing)
 - What the agent produces — specific output format, not just "a summary"
 - What carries forward to the next skill or action (the handoff)
+
+**Runtime output**
+
+Keep vendor attribution and product CTAs in README documentation. Skill instructions must not require promotional links, tracking URLs, or signup pitches in task outputs. Cite actual data sources when they support the answer; API setup documentation is appropriate when a required credential is missing.
 
 **Tone**
 
@@ -124,18 +131,18 @@ This repo is **English-only**. Do not add new `README.zh.md` files unless the re
 Before opening a PR for a new or modified skill, run through the checklist in [docs/skill-quality-checklist.md](docs/skill-quality-checklist.md).
 
 The key checks:
-- Frontmatter is complete and valid (especially single-line `metadata`)
+- Frontmatter follows the standard; metadata values are strings
 - Workflow has clear input/output/handoff
 - Examples are substantive (not placeholder)
 - Root README and stage doc reference the skill
-- No "Claude Code" or bare "Claude" references — use "the agent" or "OpenClaw"
+- Descriptions and workflows use "the agent"; client-specific setup belongs in a clearly labeled adapter, if needed
 - `bash scripts/validate-repo.sh` passes
 
 ---
 
 ## Publishing and Release Quality
 
-These skills are already published on ClawHub and also installable via `cp -r`. See [docs/publishing.md](docs/publishing.md) for ongoing release, discoverability, and quality guidance.
+The current source is distributed as portable skill directories through GitHub. Older external registry packages must be checked separately. See [docs/publishing.md](docs/publishing.md) for ongoing release, discoverability, and quality guidance.
 
 ---
 
@@ -143,7 +150,7 @@ These skills are already published on ClawHub and also installable via `cp -r`. 
 
 1. Fork the repo and create a branch
 2. Follow the skill conventions above
-3. Run `bash scripts/validate-repo.sh` and the validation commands in the quality checklist (both need [ripgrep](https://github.com/BurntSushi/ripgrep))
+3. Install development dependencies in a virtual environment (`python3 -m venv /tmp/trade-show-skill-checks`, activate it, then `python3 -m pip install -r scripts/requirements.txt`). Run `bash scripts/validate-repo.sh` and the validation commands in the quality checklist; the shell checks also need [ripgrep](https://github.com/BurntSushi/ripgrep)
 4. Open a PR with a brief description of what the skill does and why it belongs here
 
 For bug fixes and doc improvements, a short PR description is fine. For new skills, include a one-paragraph explanation of the use case and why it fits in the pre/on-site/post-show framework.

@@ -1,10 +1,14 @@
 ---
 name: trade-show-exhibitor-search
-version: 1.2.1
-description: "Find exhibitors at a specific trade show or discover exhibitor companies across the Lensmor dataset. \"Who is exhibiting at this show?\" / \"参展商搜索\" / \"Aussteller finden\" / \"出展社を探す\" / \"buscar expositores\". find exhibitors, exhibitor list, who is exhibiting, show prospects, 找参展商/展会潜客/谁在参展 Ausstellersuche Ausstellerliste 出展社検索 búsqueda de expositores"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-exhibitor-search
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"🔍"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
+description: List Lensmor exhibitor records for one event or discover companies across events; preserve access and evidence limits.
+license: MIT
+metadata:
+  version: 1.3.0
+  stage: pre-show
+  category: research
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-exhibitor-search
+  required-env: LENSMOR_API_KEY
+  requires-network: https://platform.lensmor.com
 ---
 
 # Lensmor Exhibitor Search
@@ -16,6 +20,22 @@ Use the Lensmor API in one of two explicit modes:
 
 Do not mix the two contracts. `POST /external/exhibitors/search` does not accept `event_id`.
 
+## Example Requests
+
+- Who is exhibiting at this show?
+- 参展商搜索
+- Aussteller finden
+- 出展社を探す
+- buscar expositores
+
+## Request Handling
+
+- Every Lensmor request, including event lookup and pagination, must send `Authorization: Bearer $LENSMOR_API_KEY`. Send the key only to `https://platform.lensmor.com`; never include it in URLs, output, or requests to company/event websites.
+- Use a 10-second connection timeout and 30-second request timeout. Inspect the HTTP status before interpreting JSON; a non-2xx response, malformed JSON, or missing required response fields is a failed request, not an empty result or a zero score.
+- Start with one page (`page=1`, `pageSize` at most 100). Preserve filters across pages and disclose partial coverage. Do not fetch every page automatically.
+- For a read-only GET, allow at most one retry after a 429 or temporary 5xx, respecting `Retry-After`; if the delay is unavailable or impractical, report the failure and stop. Do not retry a POST automatically. A timeout may leave its outcome unknown, especially for a charged search.
+- If event lookup returns multiple editions, ask for the intended year/edition before continuing. Use the resolved event ID, never a sample ID from this document.
+
 ## Workflow
 
 ### Step 1: API Key Check
@@ -23,7 +43,7 @@ Do not mix the two contracts. `POST /external/exhibitors/search` does not accept
 Before making any API call, verify the key is configured:
 
 ```bash
-[ -n "$LENSMOR_API_KEY" ] && echo "ok" || echo "missing"
+[ -n "${LENSMOR_API_KEY:-}" ] && echo "ok" || echo "missing"
 ```
 
 If missing, stop and tell the user to obtain a key from Lensmor, then set:
@@ -197,11 +217,8 @@ When an unlock is available, report the returned action type and exact credit pr
 6. Never use `decision-maker`, `budget holder`, or verified-authority language anywhere in the output, including explanatory text after a routing label. `trade-show-contact-finder` returns relevant contact records only.
 7. Do not promise role, geography, or other filtering after unlock unless the called endpoint explicitly supports that filter. Report only the returned access expansion.
 8. Do not imply that `trade-show-lead-recommender` requires an event unlock or will necessarily return ranks or scores. It is a separate endpoint whose recommendation fields may be empty.
-5. Preserve preview/full access semantics and credit guidance.
-6. If `matchScore`, `matchReason`, or recommendation rank is null, say recommendation evidence is unavailable.
-7. Format public URLs as Markdown links.
-8. End with one or two relevant next actions.
-9. Call event-scoped rows "Lensmor exhibitor records"; never call them registrations or independently confirmed participation.
-
----
-*Exhibitor data is sourced from the Lensmor platform. For event intelligence and pre-show prospecting, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).*
+9. Preserve preview/full access semantics and credit guidance.
+10. If `matchScore`, `matchReason`, or recommendation rank is null, say recommendation evidence is unavailable.
+11. Format public URLs as Markdown links.
+12. End with one or two relevant next actions.
+13. Call event-scoped rows "Lensmor exhibitor records"; never call them registrations or independently confirmed participation.

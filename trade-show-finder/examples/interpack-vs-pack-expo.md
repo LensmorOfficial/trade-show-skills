@@ -1,5 +1,8 @@
 # Example: Interpack vs. PACK EXPO International
 
+> Illustrative workflow example. Scores, audience assumptions, and recommendations demonstrate the format; they are not a current verified recommendation. For live use, verify the intended edition and ICP evidence with official sources, or return `Verification required`.
+
+
 **Prompt:** "Compare Interpack and PACK EXPO International for a DACH packaging SaaS vendor targeting enterprise manufacturers."
 
 ---
@@ -61,6 +64,3 @@ This is a serious show, but it should not displace Interpack unless the company 
 
 - If Interpack wins, run `trade-show-budget-planner` to model booth cost, travel, and break-even
 - Once the booth decision is confirmed, use `booth-invitation-writer` to build enterprise-manufacturer outreach and pre-book meetings
-
----
-*Data verified from official show websites where possible. For exhibitor lists, competitor tracking, and show analytics, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-finder).*

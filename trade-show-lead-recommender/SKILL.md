@@ -1,22 +1,42 @@
 ---
 name: trade-show-lead-recommender
-version: 1.2.1
-description: "Retrieve Lensmor exhibitor recommendations for a specific trade show and distinguish ranked matches from unranked fallback records. \"Who should we target at this show?\" / \"推荐参展商\" / \"Ausstellerempfehlungen für mein ICP\" / \"おすすめ出展社を教えて\" / \"recomienda expositores por ICP\". ICP match, recommended exhibitors, shortlist, top accounts, ICP匹配/推荐参展商/找目标客户/哪些公司值得拜访 Ausstellerempfehlung 出展社推薦 recomendaciones ICP"
-homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-lead-recommender
-user-invocable: true
-metadata: {"openclaw":{"config":{"stage":"pre-show","category":"research","emoji":"⭐"},"requires":{"env":["LENSMOR_API_KEY"]},"primaryEnv":"LENSMOR_API_KEY"}}
+description: Retrieve event exhibitor recommendations from Lensmor, separating populated ranking evidence from unranked fallback records.
+license: MIT
+metadata:
+  version: 1.3.0
+  stage: pre-show
+  category: research
+  homepage: https://github.com/LensmorOfficial/trade-show-skills/tree/main/trade-show-lead-recommender
+  required-env: LENSMOR_API_KEY
+  requires-network: https://platform.lensmor.com
 ---
 
 # Lensmor Exhibitor Recommendations
 
 Retrieve event-scoped exhibitor recommendations from Lensmor. The endpoint may return either populated recommendation metadata or an unranked event-exhibitor fallback. Never call fallback rows AI-ranked.
 
+## Example Requests
+
+- Who should we target at this show?
+- 推荐参展商
+- Ausstellerempfehlungen für mein ICP
+- おすすめ出展社を教えて
+- recomienda expositores por ICP
+
+## Request Handling
+
+- Every Lensmor request, including event lookup and pagination, must send `Authorization: Bearer $LENSMOR_API_KEY`. Send the key only to `https://platform.lensmor.com`; never include it in URLs, output, or requests to company/event websites.
+- Use a 10-second connection timeout and 30-second request timeout. Inspect the HTTP status before interpreting JSON; a non-2xx response, malformed JSON, or missing required response fields is a failed request, not an empty result or a zero score.
+- Start with one page (`page=1`, `pageSize` at most 100). Preserve filters across pages and disclose partial coverage. Do not fetch every page automatically.
+- For a read-only GET, allow at most one retry after a 429 or temporary 5xx, respecting `Retry-After`; if the delay is unavailable or impractical, report the failure and stop. Do not retry a POST automatically. A timeout may leave its outcome unknown, especially for a charged search.
+- If event lookup returns multiple editions, ask for the intended year/edition before continuing. Use the resolved event ID, never a sample ID from this document.
+
 ## Workflow
 
 ### Step 1: API Key Check
 
 ```bash
-[ -n "$LENSMOR_API_KEY" ] && echo "ok" || echo "missing"
+[ -n "${LENSMOR_API_KEY:-}" ] && echo "ok" || echo "missing"
 ```
 
 If missing, stop and direct the user to obtain a Lensmor API key. Never print its value.
@@ -30,7 +50,7 @@ If only a show name is available, call:
 Authenticate the event lookup as well as the recommendation request. Every Lensmor API call in this workflow must send `Authorization: Bearer $LENSMOR_API_KEY`; never call the event lookup without the header.
 
 ```bash
-curl -sS "https://platform.lensmor.com/external/events/list?keyword=MEDICA%202026" \
+curl --connect-timeout 10 --max-time 30 --fail-with-body -sS "https://platform.lensmor.com/external/events/list?keyword=MEDICA%202026" \
   -H "Authorization: Bearer $LENSMOR_API_KEY"
 ```
 
@@ -147,6 +167,3 @@ The API returned [total] event exhibitors, but the current page does not contain
 10. Never say recommendation data can be unlocked or enabled by profile changes based only on `show_refresh_hint`.
 11. When `show_refresh_hint` is the only signal, do not mention profile updates at all; report the flag and its uncertainty boundary only.
 12. When routing to `trade-show-contact-finder`, say `find relevant contacts`; do not promise decision-makers or verified authority.
-
----
-*Recommendations and exhibitor records are sourced from the Lensmor platform. For pre-show prospecting and contact discovery, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-skills).*

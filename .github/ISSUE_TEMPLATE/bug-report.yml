@@ -39,11 +39,17 @@ body:
     attributes:
       label: Installation method
       options:
-        - ClawHub
+        - Agent Skills directory
+        - External registry
         - Source copy
         - Other
     validations:
       required: true
+  - type: input
+    id: client
+    attributes:
+      label: Agent client and version
+      description: Include the source commit or skill version when available.
   - type: checkboxes
     id: safety
     attributes:

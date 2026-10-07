@@ -1,4 +1,4 @@
-# Booth Script Generator — OpenClaw Skill
+# Booth Script Generator — Agent Skill
 
 > Give booth staff better opening lines, qualification questions, and CTAs for each visitor type.
 
@@ -47,6 +47,18 @@ The skill guides the agent through:
 2. **Path selection** — Cold / Warm / Competitor / Customer (all or specified subset)
 3. **Script generation** — opening lines, 30-sec pitch, 2-min pitch, qualification questions, tiered closing
 4. **Quick Reference Card** — one-page printable summary
+
+## Install
+
+Copy the complete `booth-script-generator` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
+```bash
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/booth-script-generator .agents/skills/
+```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

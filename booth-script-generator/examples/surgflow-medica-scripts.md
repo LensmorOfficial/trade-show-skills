@@ -133,6 +133,3 @@ MOVE ON (under 2 minutes):
 - No hospital context
 - Only interested in printed material
 ```
-
----
-*Know who's walking your booth floor before they arrive. [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=booth-script-generator) provides exhibitor intelligence to help you target the right attendees with the right message.*

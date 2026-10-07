@@ -1,4 +1,4 @@
-# Lensmor Event Fit Score — OpenClaw Skill
+# Lensmor Event Fit Score — Agent Skill
 
 > Retrieve Lensmor's simplified 0–10 fit score for one event without inventing extra scoring dimensions.
 
@@ -45,9 +45,15 @@ Treat this as a profile signal, not a complete exhibit ROI model.
 
 ## Install
 
+Copy the complete `trade-show-fit-score` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
 ```bash
-openclaw skills install @weilun88313/trade-show-fit-score --acknowledge-clawhub-risk
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/trade-show-fit-score .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

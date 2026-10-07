@@ -1,5 +1,8 @@
 # Example: European Medtech Shortlist for EU Market Entry
 
+> Illustrative workflow example. Scores, audience assumptions, and recommendations demonstrate the format; they are not a current verified recommendation. For live use, verify the intended edition and ICP evidence with official sources, or return `Verification required`.
+
+
 **Prompt:** "We make surgical instruments and want to enter the EU market in 2026. What are the top 3 medical trade shows we should prioritize in Europe if our goal is distributor meetings and hospital buyer visibility?"
 
 ---
@@ -73,6 +76,3 @@ More focused and operationally relevant, but less likely than MEDICA to serve as
 
 - If you select **MEDICA**, continue with `trade-show-budget-planner` to validate booth size, team size, and break-even assumptions
 - If you commit to exhibiting, use `booth-invitation-writer` to build a distributor and hospital outreach plan 4-6 weeks before the show
-
----
-*Data verified from official show websites where possible, with uncertain fields marked `TBC`. For exhibitor lists, competitor tracking, and show analytics, see [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=trade-show-finder).*

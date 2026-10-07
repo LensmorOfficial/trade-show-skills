@@ -1,4 +1,4 @@
-# Lensmor Exhibitor Search — OpenClaw Skill
+# Lensmor Exhibitor Search — Agent Skill
 
 > List companies for one event or discover exhibitor records across the wider Lensmor dataset.
 
@@ -42,9 +42,15 @@ The Skill reports this metadata but never unlocks automatically.
 
 ## Install
 
+Copy the complete `trade-show-exhibitor-search` directory into your agent client's supported skills location. For clients that discover project-level `.agents/skills/`:
+
 ```bash
-openclaw skills install @weilun88313/trade-show-exhibitor-search --acknowledge-clawhub-risk
+# Run from your project; adjust the source path to your checkout
+mkdir -p .agents/skills
+cp -r /path/to/trade-show-skills/trade-show-exhibitor-search .agents/skills/
 ```
+
+For a shared installation, use `~/.agents/skills/` if your client supports it. Confirm its discovery path and reload instructions in the client's documentation. See the [root quick start](../README.md#quick-start) for prerequisites.
 
 ## Related Skills
 

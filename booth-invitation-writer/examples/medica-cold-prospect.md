@@ -1,61 +1,53 @@
 # Example: Cold Prospect Invitation for MEDICA 2026
 
-> **Fictional example.** Product details, proof points, dates, and availability below are placeholders unless they were supplied and verified by the sender.
+> Fictional example. This demonstrates sparse-proof writing, not a verified company, booking schedule, clinical outcome, or show presence. Product description and booth number are supplied in the prompt; other details remain placeholders.
 
-**Prompt:** "Write a booth invitation for MEDICA 2026, booth 5C42. We sell AI-powered surgical planning software. Target: orthopedic surgeons and hospital procurement heads."
+## Input
 
----
+```text
+Write a booth invitation for MEDICA 2026, booth 5C42. We sell AI-powered surgical
+planning software. Target orthopedic surgeons and hospital procurement teams.
+We have not provided outcome metrics, customer references, demo times, or a link.
+```
 
-## Email — Cold Prospect (Orthopedic Surgeon)
+## Primary Email
 
-**Subject:** MEDICA 2026: A faster way to plan complex joint replacements
+**Subject:** MEDICA 2026: surgical planning software — Booth 5C42
 
 Hi Dr. [Last Name],
 
-Every complex joint replacement starts with planning — and right now, most of that planning still happens in 2D, with tools that haven't fundamentally changed in 15 years.
+At MEDICA 2026, we're showing our AI-powered surgical planning software at Booth 5C42.
 
-We're showing a different planning workflow at MEDICA this year. Our AI planning tool turns a standard CT scan into a 3D surgical plan covering implant sizing, alignment, and approach angle.
+If surgical planning is relevant to your team's priorities, would you be open to a short conversation at the booth? We can focus the discussion on your questions about the workflow.
 
-If your team has a verified outcome or customer proof point, add it here: `[verified planning-time or clinical-workflow result]`.
-
-We have 15-minute live demo slots at Booth 5C42. Would either of these times work for you?
-
-- `[Day and time option 1]`
-- `[Day and time option 2]`
-
-If none of these work, just reply with a time that does — happy to accommodate.
+Reply with a suitable time and we'll confirm availability.
 
 Best,
-[Name]
+[Sender name]
 [Title], [Company]
 
----
+## A/B Subject
 
-### A/B Subject Line Variant
+**Alternative:** A short conversation at MEDICA 2026?
 
-**Alt:** Dr. [Last Name] — 15 min at MEDICA that could change how you plan joint replacements
+## Reminder, if the first invitation receives no reply
 
-### Follow-up Reminder (5 days before show, if no reply)
-
-**Subject:** Quick reminder — MEDICA demo slots filling up
+**Subject:** Following up on our MEDICA invitation
 
 Hi Dr. [Last Name],
 
-Just a quick note — our demo schedule at MEDICA is filling up, and I wanted to make sure you had a chance to grab a slot if you're interested.
+A brief follow-up on our invitation to Booth 5C42 at MEDICA 2026. Would a conversation about surgical planning software be useful for your team?
 
-Booth 5C42, Hall 5. 15 minutes, live on your own case data if you bring a CT scan (anonymized, of course).
+If so, reply with a suitable time and we'll confirm availability.
 
-[Booking link or reply to this email]
+Best,
+[Sender name]
 
-[Name]
+## Personalization and Send Plan
 
----
-
-### Tips
-
-- **Send timing**: 3-4 weeks before the show for first touch, 5 days before for reminder
-- **Personalization**: Replace `[Last Name]` with actual name; if you know their specialty area (hip vs. knee vs. spine), mention it specifically
-- **Practical tip**: Offering specific time slots makes the next step easier than "stop by anytime"
-
----
-> Powered by [Lensmor](https://www.lensmor.com/?utm_source=github&utm_medium=skill&utm_campaign=booth-invitation-writer) — Trade show intelligence platform.
+- Replace sender and recipient placeholders.
+- Verify the intended edition, booth, and attendance before sending.
+- Confirm any proposed meeting time before treating it as booked.
+- Keep timing relative until the show dates are verified: first touch 3–4 weeks before; reminder about one week before.
+- No implant-sizing, 3D conversion, integration, speed, or clinical-outcome claim was supplied, so none appears in the copy.
+- Use synthetic material for a healthcare demo. This invitation does not request patient scans or other medical records.
