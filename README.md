@@ -19,6 +19,7 @@
 [![Stars](https://img.shields.io/github/stars/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/stargazers)
 [![Last Commit](https://img.shields.io/github/last-commit/LensmorOfficial/trade-show-skills?style=flat)](https://github.com/LensmorOfficial/trade-show-skills/commits/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Repository Quality](https://github.com/LensmorOfficial/trade-show-skills/actions/workflows/repo-quality.yml/badge.svg)](https://github.com/LensmorOfficial/trade-show-skills/actions/workflows/repo-quality.yml)
 [![Release](https://img.shields.io/github/v/release/LensmorOfficial/trade-show-skills?display_name=tag&sort=semver)](https://github.com/LensmorOfficial/trade-show-skills/releases)
 
 **If you find these skills useful, please star this repo — it helps others discover them.**
