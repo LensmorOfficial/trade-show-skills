@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/LensmorOfficial/trade-show-skills">
-    <img src="assets/social-preview.png" alt="Trade Show Skills by Lensmor — from event signal to outreach" width="100%">
+    <img src="assets/readme-banner-v2.png" alt="Lensmor Trade Show Agent Skills — from event signal to outreach" width="100%">
   </a>
 </p>
 
